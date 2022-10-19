@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>序</title>
-    <url>/2019/07/29/hello-world/</url>
+    <url>/hello-world/</url>
     <content><![CDATA[<blockquote class="blockquote-center">
 <p>写作是一个好习惯，深以为然。这是一个回顾、梳理、总结的过程，更是一个重新思考的过程。</p>
 
@@ -28,7 +28,7 @@
   <entry>
     <title>About</title>
     <url>/about/index.html</url>
-    <content><![CDATA[<h2 id="Self-Introduction"><a href="#Self-Introduction" class="headerlink" title="Self-Introduction:"></a>Self-Introduction:</h2><p>Hai-Wei Chai (柴海伟)</p>
+    <content><![CDATA[<h2 id="Self-Introduction"><a href="#Self-Introduction" class="headerlink" title="Self-Introduction:"></a>Self-Introduction:</h2><p>Hai-Wei Chai&ensp;[柴海伟]</p>
 <ul>
 <li>2022.06 - Now, Assistant Professor in School of Material Science and Engineering, Southwest Jiaotong University</li>
 <li>2019.09 - 2021.12, Doctor in Peac Institute of Multiscale Sciences</li>
@@ -44,8 +44,13 @@
 <h2 id="Contact-details"><a href="#Contact-details" class="headerlink" title="Contact details:"></a>Contact details:</h2><ul>
 <li>E-mail: chw9402@mail.ustc.edu.cn</li>
 </ul>
-<h2 id="My-friends-amp-me-at-USTC-2016"><a href="#My-friends-amp-me-at-USTC-2016" class="headerlink" title="My friends &amp; me at USTC 2016"></a>My friends &amp; me at USTC 2016</h2><p><img src="https://s1.ax1x.com/2022/10/19/xsgD7F.jpg" alt=""></p>
+<h2 id="My-friends-amp-me-at-USTC-2016"><a href="#My-friends-amp-me-at-USTC-2016" class="headerlink" title="My friends &amp; me at USTC 2016:"></a>My friends &amp; me at USTC 2016:</h2><p><img src="https://s1.ax1x.com/2022/10/19/xsgD7F.jpg" alt=""></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Categories</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>Scholar</title>
@@ -103,8 +108,37 @@
 ]]></content>
   </entry>
   <entry>
+    <title>Tags</title>
+    <url>/tags/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>Support</title>
     <url>/support/index.html</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h2 id="Tools-for-scholar"><a href="#Tools-for-scholar" class="headerlink" title="Tools for scholar"></a>Tools for scholar</h2><ul>
+<li><a href="https://www.overleaf.com/"><font color="#80b1d3">[Link]</font></a>                    &emsp; Overleaf 全球共享的在线LaTeX写作平台</li>
+<li><a href="https://colorbrewer2.org/"><font color="#80b1d3">[Link]</font></a>                    &emsp; ColorBrewer 配色方案优化</li>
+<li><a href="http://www.mohu.org/info/symbols/symbols.htm"><font color="#80b1d3">[Link]</font></a> &emsp; LaTeX 常用数学符号表示方法</li>
+<li><a href="https://www.tablesgenerator.com/"><font color="#80b1d3">[Link]</font></a>             &emsp; LaTeX 表格在线自动生成</li>
+</ul>
+<h2 id="Tools-for-Visual"><a href="#Tools-for-Visual" class="headerlink" title="Tools for Visual"></a>Tools for Visual</h2><ul>
+<li><a href="https://processing.org/"><font color="#80b1d3">[Link]</font></a>                      &emsp; Processing 视觉软件开发开源工具</li>
+<li><a href="https://github.com/smartgeometry-ucl/dl4g"><font color="#80b1d3">[Link]</font></a>    &emsp; CreativeAI: Deep Learning for Graphics Tutorial Code</li>
+<li><a href="http://lightfield.stanford.edu/lfs.html"><font color="#80b1d3">[Link]</font></a>      &emsp; 斯坦福大学光场数据库：老牌斯坦福大学计算机图形实验室(Computer Graphics Laboratory)提供的，该数据库所在网站还提供了光场的采集设备，相机标定以及可视化工具。</li>
+<li><a href="https://graphics.stanford.edu/courses/cs178/applets/applets.html"><font color="#80b1d3">[Link]</font></a>      &emsp; 斯坦福大学计算机图形实验室的Marc Levoy教授做的动画仿真，利于理解。Flash applets on some technical aspects of photography，这里面详细地介绍了相机的各种参数变化对应的光路图的变化。</li>
+<li><a href="https://lightfield-analysis.uni-konstanz.de/"><font color="#80b1d3">[Link]</font></a>      &emsp; HCI光场数据集，千呼万唤始出来，有好长一段时间这个数据集突然消失了（可能是在维护数据）。如今以新的面貌重现天日，真的让人喜出望外。对于其数据集，HCI提供的解码工具；这是要建立与Middlebury齐名的数据集（包括评价排名）的节奏啊！（ps:日后整理，很感兴趣）</li>
+</ul>
+<h2 id="The-big-guys’-website"><a href="#The-big-guys’-website" class="headerlink" title="The big guys’ website"></a>The big guys’ website</h2><ul>
+<li><a href="https://cseweb.ucsd.edu//~ravir/"><font color="#80b1d3">[Link]</font></a>             &emsp; Ravi Ramamoorthi 教授，加州大学圣地亚哥分校视觉计算中心主任，计算成像，计算机视觉领域的大神，他所在组发表了很多高质量的文章。</li>
+<li><a href="https://cseweb.ucsd.edu//~viscomp/projects/LF/"><font color="#80b1d3">[Link]</font></a>             &emsp; 光场实验室网站，研究光场领域，隶属于Ravi Ramamoorthi教授。这里将是研究光场领域深度图像获取，三维重建以及去除高光等领域研究者的福音。</li>
+<li><a href="https://imechanica.org/"><font color="#80b1d3">[Link]</font></a>                      &emsp; iMechanica - web of mechanics and mechanicians</li>
+</ul>
+<h2 id="Tools-for-Hexo-NexT"><a href="#Tools-for-Hexo-NexT" class="headerlink" title="Tools for Hexo|NexT"></a>Tools for Hexo|NexT</h2><ul>
+<li><a href="http://www.ehcoo.com/seo.html"><font color="#80b1d3">[Link]</font></a>                &emsp; Hexo|NexT 搜索引擎SEO检索优化</li>
+<li><a href="https://imgse.com/"><font color="#80b1d3">[Link]</font></a>                           &emsp; Imgse 图床与外链服务，全球CDN加速</li>
+<li><a href="https://fontawesome.com/start"><font color="#80b1d3">[Link]</font></a>                &emsp; Font Awesome 互联网最受欢迎的开源图标集</li>
+<li><a href="http://yearito.cn/posts/hexo-writing-skills.html"><font color="#80b1d3">[Link]</font></a>    &emsp; Markdown 写作技巧</li>
+</ul>
+]]></content>
   </entry>
 </search>
