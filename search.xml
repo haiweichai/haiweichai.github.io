@@ -53,6 +53,11 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
+    <title>Tags</title>
+    <url>/tags/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>Scholar</title>
     <url>/scholar/index.html</url>
     <content><![CDATA[<ul>
@@ -61,7 +66,7 @@
 <h2 id="2022"><a href="#2022" class="headerlink" title="2022"></a>2022</h2><ul>
 <li><p>C. Li, <strong>H. W. Chai</strong>, D. Fan, L. Wang, Y. Y. Zhang, Y. Cai, S. N. Luo, Octahedral void formation and growth via synergetic dislocation slip in single-crystal Cu, <em>Physical Review Letters</em> (Under review).</p>
 </li>
-<li><p><strong>H. W. Chai</strong>, L. Hu, D. Fan, H. L. Xie, Q. J. Feng, W. Zhou, J. Y. Huang, Deformation dynamics of a neutron-irradiated aluminum alloy: an in-situ synchrotron tomography study, <em>Acta Materialia</em> (Under major revision).</p>
+<li><p><strong>H. W. Chai</strong>, L. Hu, D. Fan, H. L. Xie, Q. J. Feng, W. Zhou, J. Y. Huang, Deformation dynamics of a neutron-irradiated aluminum alloy: an in-situ synchrotron tomography study, <em>Acta Materialia</em> (Under minor revision).</p>
 </li>
 <li><p>L. Hu, F. C. Wu, X. H. Li, <strong>H. W. Chai</strong>, J. Y. Huang, Q. J. Feng, W. Zhou, Y. Y. Yu, J. B. Hu, Fracture behaviors of long-term low-dose-rate neutron-irradiated Al-Mg-Si alloy, <em>Applied Physics Letters</em> (Accepted).</p>
 </li>
@@ -108,11 +113,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Tags</title>
-    <url>/tags/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>Support</title>
     <url>/support/index.html</url>
     <content><![CDATA[<h2 id="Tools-for-scholar"><a href="#Tools-for-scholar" class="headerlink" title="Tools for scholar"></a>Tools for scholar</h2><ul>
@@ -121,16 +121,16 @@
 <li><a href="http://www.mohu.org/info/symbols/symbols.htm"><font color="#80b1d3">[Link]</font></a> &emsp; LaTeX 常用数学符号表示方法</li>
 <li><a href="https://www.tablesgenerator.com/"><font color="#80b1d3">[Link]</font></a>             &emsp; LaTeX 表格在线自动生成</li>
 </ul>
-<h2 id="Tools-for-Visual"><a href="#Tools-for-Visual" class="headerlink" title="Tools for Visual"></a>Tools for Visual</h2><ul>
+<h2 id="Tools-for-Vision"><a href="#Tools-for-Vision" class="headerlink" title="Tools for Vision"></a>Tools for Vision</h2><ul>
 <li><a href="https://processing.org/"><font color="#80b1d3">[Link]</font></a>                      &emsp; Processing 视觉软件开发开源工具</li>
 <li><a href="https://github.com/smartgeometry-ucl/dl4g"><font color="#80b1d3">[Link]</font></a>    &emsp; CreativeAI: Deep Learning for Graphics Tutorial Code</li>
-<li><a href="http://lightfield.stanford.edu/lfs.html"><font color="#80b1d3">[Link]</font></a>      &emsp; 斯坦福大学光场数据库：老牌斯坦福大学计算机图形实验室(Computer Graphics Laboratory)提供的，该数据库所在网站还提供了光场的采集设备，相机标定以及可视化工具。</li>
-<li><a href="https://graphics.stanford.edu/courses/cs178/applets/applets.html"><font color="#80b1d3">[Link]</font></a>      &emsp; 斯坦福大学计算机图形实验室的Marc Levoy教授做的动画仿真，利于理解。Flash applets on some technical aspects of photography，这里面详细地介绍了相机的各种参数变化对应的光路图的变化。</li>
-<li><a href="https://lightfield-analysis.uni-konstanz.de/"><font color="#80b1d3">[Link]</font></a>      &emsp; HCI光场数据集，千呼万唤始出来，有好长一段时间这个数据集突然消失了（可能是在维护数据）。如今以新的面貌重现天日，真的让人喜出望外。对于其数据集，HCI提供的解码工具；这是要建立与Middlebury齐名的数据集（包括评价排名）的节奏啊！（ps:日后整理，很感兴趣）</li>
+<li><a href="http://lightfield.stanford.edu/lfs.html"><font color="#80b1d3">[Link]</font></a>      &emsp; 斯坦福大学计算机图形实验室光场数据库，提供光场采集设备资料，相机标定以及可视化工具</li>
+<li><a href="https://graphics.stanford.edu/courses/cs178/applets/applets.html"><font color="#80b1d3">[Link]</font></a>      &emsp; 斯坦福大学计算机图形实验室的Marc Levoy教授制作的动画仿真，详细介绍了相机参数变化对应的光路变化</li>
+<li><a href="https://lightfield-analysis.uni-konstanz.de/"><font color="#80b1d3">[Link]</font></a>      &emsp; HCI光场数据集及解码工具</li>
 </ul>
 <h2 id="The-big-guys’-website"><a href="#The-big-guys’-website" class="headerlink" title="The big guys’ website"></a>The big guys’ website</h2><ul>
-<li><a href="https://cseweb.ucsd.edu//~ravir/"><font color="#80b1d3">[Link]</font></a>             &emsp; Ravi Ramamoorthi 教授，加州大学圣地亚哥分校视觉计算中心主任，计算成像，计算机视觉领域的大神，他所在组发表了很多高质量的文章。</li>
-<li><a href="https://cseweb.ucsd.edu//~viscomp/projects/LF/"><font color="#80b1d3">[Link]</font></a>             &emsp; 光场实验室网站，研究光场领域，隶属于Ravi Ramamoorthi教授。这里将是研究光场领域深度图像获取，三维重建以及去除高光等领域研究者的福音。</li>
+<li><a href="https://cseweb.ucsd.edu//~ravir/"><font color="#80b1d3">[Link]</font></a>             &emsp; Ravi Ramamoorthi 教授，加州大学圣地亚哥分校视觉计算中心主任，计算机视觉领域的大牛</li>
+<li><a href="https://cseweb.ucsd.edu//~viscomp/projects/LF/"><font color="#80b1d3">[Link]</font></a>             &emsp; 光场实验室，隶属Ravi Ramamoorthi教授，研究光场领域深度图像获取，三维重建及去除高光等</li>
 <li><a href="https://imechanica.org/"><font color="#80b1d3">[Link]</font></a>                      &emsp; iMechanica - web of mechanics and mechanicians</li>
 </ul>
 <h2 id="Tools-for-Hexo-NexT"><a href="#Tools-for-Hexo-NexT" class="headerlink" title="Tools for Hexo|NexT"></a>Tools for Hexo|NexT</h2><ul>
