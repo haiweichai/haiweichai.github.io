@@ -218,6 +218,28 @@
       </tags>
   </entry>
   <entry>
+    <title>About</title>
+    <url>/about/index.html</url>
+    <content><![CDATA[<h2 id="Self-Introduction"><a href="#Self-Introduction" class="headerlink" title="Self-Introduction:"></a>Self-Introduction:</h2><p>Hai-Wei Chai&ensp;[柴海伟]</p>
+<ul>
+<li>2022.06 - Now, Assistant Professor in School of Material Science and Engineering, Southwest Jiaotong University</li>
+<li>2019.09 - 2021.12, Doctor in Peac Institute of Multiscale Sciences</li>
+<li>2016.09 - 2019.06, Master in Peac Institute of Multiscale Sciences</li>
+<li>2012.09 - 2016.06, Bachelor in School of Physical Sciences, University of Science and Technology of China</li>
+</ul>
+<h2 id="Skills"><a href="#Skills" class="headerlink" title="Skills:"></a>Skills:</h2><ul>
+<li>Programming languages: C/C++, Matlab, Python, CUDA</li>
+<li>Major: X-ray Imaging and Diffraction, Computed Tomography, Machine Learning</li>
+<li>OS Platform: Linux, Mac OS, Windows</li>
+<li>Language: English, Chinese</li>
+</ul>
+<h2 id="Contact-details"><a href="#Contact-details" class="headerlink" title="Contact details:"></a>Contact details:</h2><ul>
+<li>E-mail: chw9402@mail.ustc.edu.cn</li>
+</ul>
+<h2 id="My-friends-amp-me-at-USTC-2016"><a href="#My-friends-amp-me-at-USTC-2016" class="headerlink" title="My friends &amp; me at USTC 2016:"></a>My friends &amp; me at USTC 2016:</h2><p><img src="https://s1.ax1x.com/2022/10/19/xsgD7F.jpg" alt=""></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Categories</title>
     <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
@@ -278,33 +300,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>About</title>
-    <url>/about/index.html</url>
-    <content><![CDATA[<h2 id="Self-Introduction"><a href="#Self-Introduction" class="headerlink" title="Self-Introduction:"></a>Self-Introduction:</h2><p>Hai-Wei Chai&ensp;[柴海伟]</p>
-<ul>
-<li>2022.06 - Now, Assistant Professor in School of Material Science and Engineering, Southwest Jiaotong University</li>
-<li>2019.09 - 2021.12, Doctor in Peac Institute of Multiscale Sciences</li>
-<li>2016.09 - 2019.06, Master in Peac Institute of Multiscale Sciences</li>
-<li>2012.09 - 2016.06, Bachelor in School of Physical Sciences, University of Science and Technology of China</li>
-</ul>
-<h2 id="Skills"><a href="#Skills" class="headerlink" title="Skills:"></a>Skills:</h2><ul>
-<li>Programming languages: C/C++, Matlab, Python, CUDA</li>
-<li>Major: X-ray Imaging and Diffraction, Computed Tomography, Machine Learning</li>
-<li>OS Platform: Linux, Mac OS, Windows</li>
-<li>Language: English, Chinese</li>
-</ul>
-<h2 id="Contact-details"><a href="#Contact-details" class="headerlink" title="Contact details:"></a>Contact details:</h2><ul>
-<li>E-mail: chw9402@mail.ustc.edu.cn</li>
-</ul>
-<h2 id="My-friends-amp-me-at-USTC-2016"><a href="#My-friends-amp-me-at-USTC-2016" class="headerlink" title="My friends &amp; me at USTC 2016:"></a>My friends &amp; me at USTC 2016:</h2><p><img src="https://s1.ax1x.com/2022/10/19/xsgD7F.jpg" alt=""></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Tags</title>
-    <url>/tags/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>Support</title>
     <url>/support/index.html</url>
     <content><![CDATA[<h2 id="Tools-for-scholar"><a href="#Tools-for-scholar" class="headerlink" title="Tools for scholar"></a>Tools for scholar</h2><ul>
@@ -332,5 +327,10 @@
 <li><a href="http://yearito.cn/posts/hexo-writing-skills.html"><font color="#80b1d3">[Link]</font></a>    &emsp; Markdown 写作技巧</li>
 </ul>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Tags</title>
+    <url>/tags/index.html</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>
