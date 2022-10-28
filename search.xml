@@ -1,6 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Windows Server 2019 + Mint OS 搭建 Tomography 数据分析工作站</title>
+    <url>/Exp003-WinServerSetup/</url>
+    <content><![CDATA[<p>为实现多用户同时登录 Tomography 数据分析工作站，避免设备冗余浪费，使用 Windows Server 2019 与 Mint OS 虚拟机的组合是个让人满意的方案。 本文记录配置 Tomography 数据分析工作站时的一些常见问题及相应的解决办法。</p>
+<p>本文使用的所有 OS 镜像均下载自 <a href="https://msdn.itellyou.cn/">MSDN</a> 镜像资源站，启动盘制作使用 <a href="https://www.ventoy.net/en/index.html">Ventoy</a> 开源工具包，虚拟机平台使用 VMware Workstation 16.0。</p>
+<span id="more"></span>
+<h1 id="Windows-Server-2019"><a href="#Windows-Server-2019" class="headerlink" title="Windows Server 2019"></a>Windows Server 2019</h1><h2 id="Windows-Server-2019-Standard-激活"><a href="#Windows-Server-2019-Standard-激活" class="headerlink" title="Windows Server 2019 Standard 激活"></a>Windows Server 2019 Standard 激活</h2><p>以管理员权限运行 Windows PowerShell：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ slmgr /upk</span><br><span class="line">$ slmgr /ipk N69G4-B89J2-4G8F4-WWYCC-J464C</span><br><span class="line">$ slmgr /skms kms.03k.org</span><br><span class="line">$ slmgr /ato</span><br></pre></td></tr></table></figure>
+<p>是否成功激活，激活码到期时间可输入以下命令查看：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ slmgr /xpr</span><br></pre></td></tr></table></figure>
+<h2 id="无法访问共享文件夹的解决办法"><a href="#无法访问共享文件夹的解决办法" class="headerlink" title="无法访问共享文件夹的解决办法"></a>无法访问共享文件夹的解决办法</h2><blockquote>
+<ol>
+<li><p>Win+R 快捷键调用 Run，输入 <code>control</code> 调用 Control Panel，Turn Windows features on or off，安装 SMB 1.0/CIFS File Sharing Support。</p>
+</li>
+<li><p>Win+R 快捷键调用 Run，输入 <code>gpedit.msc</code> 调用 Local Group Policy Editor，Computer Configuration - Administrative Templates - Network - Lanman Workstation - Enable insecure guest logons。</p>
+</li>
+<li><p>Windows Defender 防火墙，允许应用或功能通过 Windows Defender 防火墙，允许 SMBDirect 上的文件和打印机共享。</p>
+</li>
+<li><p>右键点击 This PC，Add a network location，Choose a custom network location，<code>\\192.168.26.110\APS-data\</code>。</p>
+</li>
+</ol>
+</blockquote>
+<h2 id="远程桌面连接权限"><a href="#远程桌面连接权限" class="headerlink" title="远程桌面连接权限"></a>远程桌面连接权限</h2><p>与 Windows 10 类似，远程连接权限、防火墙权限、网络共享权限、Remote Desktop Server 权限，共四步骤，此处不做过多介绍。 特别注意每个子账号均需单独开启远程权限。</p>
+<h2 id="多用户同时登陆权限"><a href="#多用户同时登陆权限" class="headerlink" title="多用户同时登陆权限"></a>多用户同时登陆权限</h2><p>Windows Server 2019 默认远程桌面连接数上限是 2 位用户，无法容纳更多用户同时登陆，可以通过添加远程桌面授权解决：</p>
+<p>参考链接：<a href="https://www.cnblogs.com/laosan007/p/11734283.html">Windows Server 2019 远程桌面服务配置和授权激活</a></p>
+<h2 id="Tomography-分析常用软件"><a href="#Tomography-分析常用软件" class="headerlink" title="Tomography 分析常用软件"></a>Tomography 分析常用软件</h2><blockquote>
+<ol>
+<li><p>办公类：Chrome浏览器、TIM、Wechat for PC、MobaXterm</p>
+</li>
+<li><p>学术类：Endnote X9、Sublime Text 4、Adobe Acrobat Pro DC</p>
+</li>
+<li><p>工程类：Avizo、OriginPro 9.0、Fiji ImageJ、Matlab、VMware Workstation、Photoshop</p>
+</li>
+</ol>
+</blockquote>
+<h1 id="VMware-Workstation-Mint-OS"><a href="#VMware-Workstation-Mint-OS" class="headerlink" title="VMware Workstation + Mint OS"></a>VMware Workstation + Mint OS</h1>]]></content>
+      <categories>
+        <category>Computer Environment</category>
+      </categories>
+      <tags>
+        <tag>Windows Server 2019</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>序</title>
     <url>/hello-world/</url>
     <content><![CDATA[<blockquote class="blockquote-center">
@@ -69,7 +112,7 @@
 <ol>
 <li><p>文章格式/文字/图表标记错误<br>Response: We are very sorry for our incorrect writing and it is rectified at Line …. or We are very sorry for our negligence of the explanation.</p>
 </li>
-<li><p>不太同意审稿人的观点，轻度argue（合理修改和把握Argue分寸，即使你要argue也最好罗列一些你的进一步证据，或别的大牛的经典文章）<br>Response: “We agree with you that…., however, ……” or “As Reviewer suggested that It is important to … However.”</p>
+<li><p>不太同意审稿人的观点，轻度argue（合理修改和把握Argue分寸，即使你要argue也最好罗列一些你的进一步证据，或别的大牛的经典文章）<br>Response: We agree with you that…., however, …… or As Reviewer suggested that It is important to … However.</p>
 </li>
 <li><p>需要补充实验<br>Response: 做这个实验。对审稿人的意见表示赞同（We agree that more study or more data would be useful to）。如果实验结果能说明问题，则要把结果补充到论文中。反之，要展示、分析数据，告知审稿人已做此实验，但没有得到有价值的结果，并阐明原因。<br>没有实验条件，或者不能在短时期内做此实验怎么办？可以向审稿人表示后期如果条件成熟了，可能会进行审稿人说的相关研究，这部分可以写到discussion部分下的subchapter下的future improvement部分。</p>
 </li>
@@ -108,7 +151,7 @@
 </li>
 <li><p>The descriptions of Fig.1(a) in the figure caption and context are different.<br><font color="#80b1d3">Response</font>: Sorry for the mistake. We remade Fig.1 and updated the corresponding description.</p>
 </li>
-<li><p>In the total received dose, except of thermal neutrons and fast neutrons, what is the energy distribution of the rest portion of neutrons?<br><font color="#80b1d3">Response</font>: The rest portion of neutrons is labeled intermediate neutrons. The dose of the intermediate neutrons is about $5.40\times10^{20}$ n\,cm$^{-2}$. Clarification has been made in lines 167—171, pages 11—12.</p>
+<li><p>In the total received dose, except of thermal neutrons and fast neutrons, what is the energy distribution of the rest portion of neutrons?<br><font color="#80b1d3">Response</font>: The rest portion of neutrons is labeled intermediate neutrons. The dose of the intermediate neutrons is about $5.40\times10^{20}$ n/cm$^{-2}$. Clarification has been made in lines 167—171, pages 11—12.</p>
 </li>
 <li><p>In X-ray imaging, the resolution is not defined as pixel size. Please revise the resolution statement on page 9.<br><font color="#80b1d3">Response</font>: Thanks for the suggestion. The voxel size is 0.87 $\mu$m, and three-dimensional spatial resolution is quantified as about 3 $\mu$m. Clarification has been made in lines 127-128, page 9.</p>
 </li>
@@ -119,7 +162,7 @@
 <ol>
 <li><p>The authors do not provide either the material composition or the irradiation temperature conditions. Without this baseline information, it is not possible to interpret many of the results in the study.<br><font color="#80b1d3">Response</font>: Thanks for the suggestion. The material composition of the unirradiated and irradiated LT21 Al alloys is provided in Tabel.1. The irradiation temperature conditions are provided in the revised manuscript. The target is put in cooling water during irradiation, and the irradiation temperature fluctuates between 20 $^\circ$C and 40 $^\circ$C. Clarification has been made in lines 171—177, page 12, and lines 180—183, page 12.</p>
 </li>
-<li><p>The authors do cite a number of relevant studies, but by comparison to a paper by Farrell and King (<a href="https://www.osti.gov/servlets/purl/6886356">https://www.osti.gov/servlets/purl/6886356</a> this is only one of several similar studies by Farrell et al.), the levels of displacement damage (i.e. displacements per atom) and the conversion of Al to Si through the neutron capture reaction are very small. For the stated irradiation conditions, the level of damage should be insignificant. Since the authors provide no information on the unirradiated material or the temperature, it is not possible to determine the whether or not the microstructure is a consequence of the irradiation exposure or just a thermal aging problem. The paper cites 4.3$\times$10$^{20}$ n/cm$^2$ ($&gt;$0.1 MeV) or 4.3$\times$10$^{24}$ n/m$^2$ ($&gt;$0.1 MeV) might be 0.6 dpa and 0.01\% (or 100 ppm) Si formation.<br><font color="#80b1d3">Response</font>: Sorry for the misunderstanding. We supplement the EDS, EBSD, XRD and CT characterizations of the material before irradiation and the TEM characterizations on the irradiated material, as presented in Figs.1, 2 and 3. The grain size of the irradiated material is slightly larger than that of the unirradiated material (60 $\mu$m versus 50 $\mu$m). EBSD and EDS characterizations (Fig.1) show that the areal density of Si particles is higher in the irradiated material than in the unirradiated material, probably due to irradiation-induced transmutation and precipitation. In addition, the shape of AlFeSi particles are largely needle-shaped in the irradiated material, while largely plate-shaped in the unirradiated material. CT characterizations (Fig.3) show that the size of pores and particles in the irradiated material becomes larger than that in the unirradiated material. The shape of pores deviates further away from spheres and becomes more anisotropic. The orientations of pores become more aligned in the irradiated material. TEM images along with EDS characterizations show that nanoscale needle-shaped Mg$_2$Si particles appear in the irradiated material. Therefore, long-term irradiation here indeed induces considerable microstructural changes in the LT21 Al alloy. Clarification has been made in lines 184—185, page 12; lines 193—200, page 13; lines 208—231, pages 13—16.</p>
+<li><p>The authors do cite a number of relevant studies, but by comparison to a paper by Farrell and King (<a href="https://www.osti.gov/servlets/purl/6886356">https://www.osti.gov/servlets/purl/6886356</a> this is only one of several similar studies by Farrell et al.), the levels of displacement damage (i.e. displacements per atom) and the conversion of Al to Si through the neutron capture reaction are very small. For the stated irradiation conditions, the level of damage should be insignificant. Since the authors provide no information on the unirradiated material or the temperature, it is not possible to determine the whether or not the microstructure is a consequence of the irradiation exposure or just a thermal aging problem. The paper cites 4.3$\times$10$^{20}$ n/cm$^2$ ($&gt;$0.1 MeV) or 4.3$\times$10$^{24}$ n/m$^2$ ($&gt;$0.1 MeV) might be 0.6 dpa and 0.01% (or 100 ppm) Si formation.<br><font color="#80b1d3">Response</font>: Sorry for the misunderstanding. We supplement the EDS, EBSD, XRD and CT characterizations of the material before irradiation and the TEM characterizations on the irradiated material, as presented in Figs.1, 2 and 3. The grain size of the irradiated material is slightly larger than that of the unirradiated material (60 $\mu$m versus 50 $\mu$m). EBSD and EDS characterizations (Fig.1) show that the areal density of Si particles is higher in the irradiated material than in the unirradiated material, probably due to irradiation-induced transmutation and precipitation. In addition, the shape of AlFeSi particles are largely needle-shaped in the irradiated material, while largely plate-shaped in the unirradiated material. CT characterizations (Fig.3) show that the size of pores and particles in the irradiated material becomes larger than that in the unirradiated material. The shape of pores deviates further away from spheres and becomes more anisotropic. The orientations of pores become more aligned in the irradiated material. TEM images along with EDS characterizations show that nanoscale needle-shaped Mg$_2$Si particles appear in the irradiated material. Therefore, long-term irradiation here indeed induces considerable microstructural changes in the LT21 Al alloy. Clarification has been made in lines 184—185, page 12; lines 193—200, page 13; lines 208—231, pages 13—16.</p>
 </li>
 <li><p>The authors do mention the resolution of their technique at about 3 $\mu$m or 3$\times$10$^3$ nm, which is large for typical irradiation-induced pores (i.e. voids or bubbles) for low dose irradiations. Since the gas content or possible hydrogen uptake of the material is not known, it is not possible to claim that the pores are irradiation-induced. Again, a comparison with the work of Farrell, voids at the dose level reported here should be smaller than the resolution limit (~3 $\mu$m) for this technique.<br><font color="#80b1d3">Response</font>: Sorry for the misunderstanding. We agree that irradiation is unlikely to induce formation of new pores visible to the micro CT, but irradiation induces growth of existed pores and particles in the unirradiated material as revealed by the CT characterizations (Fig.3c). Clarification has been made in lines 235—242, page 16; lines 249—263, pages 16—17.</p>
 </li>
@@ -135,9 +178,9 @@
 </li>
 <li><p>The particle tracking development for analyzing the deformation characteristics is a useful inclusion.<br><font color="#80b1d3">Response</font>: Thank you.</p>
 </li>
-<li><p>The pore and particle tracking and growth in Fig.4 is useful. However, the authors should show pore void densities at various elevations. The figure seem to indicate that the pore growth initiates near the bottom of the selected volume between 0.09 and 0.14 strain and travels upward as the stain level increases. The authors need to explain the apparent movement of pore growth with increasing strain. This observation is also supported by the information in Figure 5 in the strain field images.<br><font color="#80b1d3">Response</font>: Thanks for the suggestion. The pore density distribution is calculated and presented in Fig.R2, and is similar to the porosity distribution shown in Fig.7a. The movement of the pore growth region with increasing strain is attributed to the loading geometry. In the {\it in situ} CT experiment, the lower loading collet is fixed while the upper collet moves upwards to load the sample. The field of view for CT is fixed as well. The global deformation of sample thus results in an upward movement of the pore growth region. Nevertheless, the movement of the pore growth region is negligible when necking occurs in the sample. Clarification has been made in lines 131—134, page 9.<br>&emsp;<br><img src="https://s1.ax1x.com/2022/10/26/xfiG1P.png" width="60%" alt="Fig.R2 The pore number density distributions along the sample height at different strains." align=center /></p>
+<li><p>The pore and particle tracking and growth in Fig.4 is useful. However, the authors should show pore void densities at various elevations. The figure seem to indicate that the pore growth initiates near the bottom of the selected volume between 0.09 and 0.14 strain and travels upward as the stain level increases. The authors need to explain the apparent movement of pore growth with increasing strain. This observation is also supported by the information in Figure 5 in the strain field images.<br><font color="#80b1d3">Response</font>: Thanks for the suggestion. The pore density distribution is calculated and presented in Fig.R2, and is similar to the porosity distribution shown in Fig.7a. The movement of the pore growth region with increasing strain is attributed to the loading geometry. In the <em>in situ</em> CT experiment, the lower loading collet is fixed while the upper collet moves upwards to load the sample. The field of view for CT is fixed as well. The global deformation of sample thus results in an upward movement of the pore growth region. Nevertheless, the movement of the pore growth region is negligible when necking occurs in the sample. Clarification has been made in lines 131—134, page 9.<br>&emsp;<br><img src="https://s1.ax1x.com/2022/10/26/xfiG1P.png" width="50%" alt="Fig.R2 The pore number density distributions along the sample height at different strains." align=center /></p>
 </li>
-<li><p>The result of the displacement $U_z$ in Fig.5 are unclear. The authors do now sufficiently explain the meaning of these results. If they are the displacement vectors of the particles, there is no sense in showing very high particle displacement in the upper end of the specimen once necking occurs.<br><font color="#80b1d3">Response</font>: Sorry for the misunderstanding. Strain localizaitons or high displacement gradients occur in the necking region, instead of displacement localizations. In our loading geometry, the largest displacement always appear at the upper end of sample due to continuous movement of the upper collet. Clarification has been made in capture of Fig.5(a), and lines 280—281, page 19.</p>
+<li><p>The result of the displacement $u_z$ in Fig.5 are unclear. The authors do now sufficiently explain the meaning of these results. If they are the displacement vectors of the particles, there is no sense in showing very high particle displacement in the upper end of the specimen once necking occurs.<br><font color="#80b1d3">Response</font>: Sorry for the misunderstanding. Strain localizaitons or high displacement gradients occur in the necking region, instead of displacement localizations. In our loading geometry, the largest displacement always appear at the upper end of sample due to continuous movement of the upper collet. Clarification has been made in capture of Fig.5(a), and lines 280—281, page 19.</p>
 </li>
 <li><p>The sections on pore evolution and forward need to be removed. Since the resolution of the process does not account for existing microstructure below ~3 um in diameter, there is no basis for counting pore evolution or pore nucleation. The pores that seem to be ‘nucleated’ are most probably pores that are too small to resolve before the deformation process. Thus, they are not nucleated. The observations in Figure 7 of new pores are probably ones that were below the resolution limit.<br><font color="#80b1d3">Response</font>: We agree with the reviewer that pore nucleation cannot be resolved by the micro-CT here. The corresponding statements have been revised or removed. We have stated clearly that only pores larger than 3 $\mu$m (observable) are accounted in the revised manuscript. All the discussions are made on this basis. Clarification has been made in line 303—306, page 20; lines 316—317, page 21; lines 354—356, 361, 364, 365, 372, and 374, page 24.</p>
 </li>
@@ -178,28 +221,6 @@
     <title>Categories</title>
     <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>About</title>
-    <url>/about/index.html</url>
-    <content><![CDATA[<h2 id="Self-Introduction"><a href="#Self-Introduction" class="headerlink" title="Self-Introduction:"></a>Self-Introduction:</h2><p>Hai-Wei Chai&ensp;[柴海伟]</p>
-<ul>
-<li>2022.06 - Now, Assistant Professor in School of Material Science and Engineering, Southwest Jiaotong University</li>
-<li>2019.09 - 2021.12, Doctor in Peac Institute of Multiscale Sciences</li>
-<li>2016.09 - 2019.06, Master in Peac Institute of Multiscale Sciences</li>
-<li>2012.09 - 2016.06, Bachelor in School of Physical Sciences, University of Science and Technology of China</li>
-</ul>
-<h2 id="Skills"><a href="#Skills" class="headerlink" title="Skills:"></a>Skills:</h2><ul>
-<li>Programming languages: C/C++, Matlab, Python, CUDA</li>
-<li>Major: X-ray Imaging and Diffraction, Computed Tomography, Machine Learning</li>
-<li>OS Platform: Linux, Mac OS, Windows</li>
-<li>Language: English, Chinese</li>
-</ul>
-<h2 id="Contact-details"><a href="#Contact-details" class="headerlink" title="Contact details:"></a>Contact details:</h2><ul>
-<li>E-mail: chw9402@mail.ustc.edu.cn</li>
-</ul>
-<h2 id="My-friends-amp-me-at-USTC-2016"><a href="#My-friends-amp-me-at-USTC-2016" class="headerlink" title="My friends &amp; me at USTC 2016:"></a>My friends &amp; me at USTC 2016:</h2><p><img src="https://s1.ax1x.com/2022/10/19/xsgD7F.jpg" alt=""></p>
-]]></content>
   </entry>
   <entry>
     <title>Scholar</title>
@@ -257,6 +278,33 @@
 ]]></content>
   </entry>
   <entry>
+    <title>About</title>
+    <url>/about/index.html</url>
+    <content><![CDATA[<h2 id="Self-Introduction"><a href="#Self-Introduction" class="headerlink" title="Self-Introduction:"></a>Self-Introduction:</h2><p>Hai-Wei Chai&ensp;[柴海伟]</p>
+<ul>
+<li>2022.06 - Now, Assistant Professor in School of Material Science and Engineering, Southwest Jiaotong University</li>
+<li>2019.09 - 2021.12, Doctor in Peac Institute of Multiscale Sciences</li>
+<li>2016.09 - 2019.06, Master in Peac Institute of Multiscale Sciences</li>
+<li>2012.09 - 2016.06, Bachelor in School of Physical Sciences, University of Science and Technology of China</li>
+</ul>
+<h2 id="Skills"><a href="#Skills" class="headerlink" title="Skills:"></a>Skills:</h2><ul>
+<li>Programming languages: C/C++, Matlab, Python, CUDA</li>
+<li>Major: X-ray Imaging and Diffraction, Computed Tomography, Machine Learning</li>
+<li>OS Platform: Linux, Mac OS, Windows</li>
+<li>Language: English, Chinese</li>
+</ul>
+<h2 id="Contact-details"><a href="#Contact-details" class="headerlink" title="Contact details:"></a>Contact details:</h2><ul>
+<li>E-mail: chw9402@mail.ustc.edu.cn</li>
+</ul>
+<h2 id="My-friends-amp-me-at-USTC-2016"><a href="#My-friends-amp-me-at-USTC-2016" class="headerlink" title="My friends &amp; me at USTC 2016:"></a>My friends &amp; me at USTC 2016:</h2><p><img src="https://s1.ax1x.com/2022/10/19/xsgD7F.jpg" alt=""></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Tags</title>
+    <url>/tags/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>Support</title>
     <url>/support/index.html</url>
     <content><![CDATA[<h2 id="Tools-for-scholar"><a href="#Tools-for-scholar" class="headerlink" title="Tools for scholar"></a>Tools for scholar</h2><ul>
@@ -284,10 +332,5 @@
 <li><a href="http://yearito.cn/posts/hexo-writing-skills.html"><font color="#80b1d3">[Link]</font></a>    &emsp; Markdown 写作技巧</li>
 </ul>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Tags</title>
-    <url>/tags/index.html</url>
-    <content><![CDATA[]]></content>
   </entry>
 </search>
