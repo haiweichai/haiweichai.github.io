@@ -240,6 +240,45 @@
 ]]></content>
   </entry>
   <entry>
+    <title>Categories</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Support</title>
+    <url>/support/index.html</url>
+    <content><![CDATA[<h2 id="Tools-for-scholar"><a href="#Tools-for-scholar" class="headerlink" title="Tools for scholar"></a>Tools for scholar</h2><ul>
+<li><a href="https://www.overleaf.com/"><font color="#80b1d3">[Link]</font></a>                    &emsp; Overleaf 全球共享的在线LaTeX写作平台</li>
+<li><a href="https://colorbrewer2.org/"><font color="#80b1d3">[Link]</font></a>                    &emsp; ColorBrewer 配色方案优化</li>
+<li><a href="http://www.mohu.org/info/symbols/symbols.htm"><font color="#80b1d3">[Link]</font></a> &emsp; LaTeX 常用数学符号表示方法</li>
+<li><a href="https://www.tablesgenerator.com/"><font color="#80b1d3">[Link]</font></a>             &emsp; LaTeX 表格在线自动生成</li>
+</ul>
+<h2 id="Tools-for-Vision"><a href="#Tools-for-Vision" class="headerlink" title="Tools for Vision"></a>Tools for Vision</h2><ul>
+<li><a href="https://processing.org/"><font color="#80b1d3">[Link]</font></a>                      &emsp; Processing 视觉软件开发开源工具</li>
+<li><a href="https://github.com/smartgeometry-ucl/dl4g"><font color="#80b1d3">[Link]</font></a>    &emsp; CreativeAI: Deep Learning for Graphics Tutorial Code</li>
+<li><a href="http://lightfield.stanford.edu/lfs.html"><font color="#80b1d3">[Link]</font></a>      &emsp; 斯坦福大学计算机图形实验室光场数据库，提供光场采集设备资料，相机标定以及可视化工具</li>
+<li><a href="https://graphics.stanford.edu/courses/cs178/applets/applets.html"><font color="#80b1d3">[Link]</font></a>      &emsp; 斯坦福大学计算机图形实验室的Marc Levoy教授制作的动画仿真，详细介绍了相机参数变化对应的光路变化</li>
+<li><a href="https://lightfield-analysis.uni-konstanz.de/"><font color="#80b1d3">[Link]</font></a>      &emsp; HCI光场数据集及解码工具</li>
+</ul>
+<h2 id="The-big-guys’-website"><a href="#The-big-guys’-website" class="headerlink" title="The big guys’ website"></a>The big guys’ website</h2><ul>
+<li><a href="https://cseweb.ucsd.edu//~ravir/"><font color="#80b1d3">[Link]</font></a>             &emsp; Ravi Ramamoorthi 教授，加州大学圣地亚哥分校视觉计算中心主任，计算机视觉领域的大牛</li>
+<li><a href="https://cseweb.ucsd.edu//~viscomp/projects/LF/"><font color="#80b1d3">[Link]</font></a>             &emsp; 光场实验室，隶属Ravi Ramamoorthi教授，研究光场领域深度图像获取，三维重建及去除高光等</li>
+<li><a href="https://imechanica.org/"><font color="#80b1d3">[Link]</font></a>                      &emsp; iMechanica - web of mechanics and mechanicians</li>
+</ul>
+<h2 id="Tools-for-Hexo-NexT"><a href="#Tools-for-Hexo-NexT" class="headerlink" title="Tools for Hexo|NexT"></a>Tools for Hexo|NexT</h2><ul>
+<li><a href="http://www.ehcoo.com/seo.html"><font color="#80b1d3">[Link]</font></a>                &emsp; Hexo|NexT 搜索引擎SEO检索优化</li>
+<li><a href="https://imgse.com/"><font color="#80b1d3">[Link]</font></a>                           &emsp; Imgse 图床与外链服务，全球CDN加速</li>
+<li><a href="https://fontawesome.com/start"><font color="#80b1d3">[Link]</font></a>                &emsp; Font Awesome 互联网最受欢迎的开源图标集</li>
+<li><a href="http://yearito.cn/posts/hexo-writing-skills.html"><font color="#80b1d3">[Link]</font></a>    &emsp; Markdown 写作技巧</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>Tags</title>
+    <url>/tags/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>Scholar</title>
     <url>/scholar/index.html</url>
     <content><![CDATA[<ul>
@@ -291,45 +330,6 @@
 </li>
 <li><p>第二十八届全国中学生物理竞赛（江苏赛区）&emsp;&emsp;一等奖</p>
 </li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>Categories</title>
-    <url>/categories/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>Tags</title>
-    <url>/tags/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>Support</title>
-    <url>/support/index.html</url>
-    <content><![CDATA[<h2 id="Tools-for-scholar"><a href="#Tools-for-scholar" class="headerlink" title="Tools for scholar"></a>Tools for scholar</h2><ul>
-<li><a href="https://www.overleaf.com/"><font color="#80b1d3">[Link]</font></a>                    &emsp; Overleaf 全球共享的在线LaTeX写作平台</li>
-<li><a href="https://colorbrewer2.org/"><font color="#80b1d3">[Link]</font></a>                    &emsp; ColorBrewer 配色方案优化</li>
-<li><a href="http://www.mohu.org/info/symbols/symbols.htm"><font color="#80b1d3">[Link]</font></a> &emsp; LaTeX 常用数学符号表示方法</li>
-<li><a href="https://www.tablesgenerator.com/"><font color="#80b1d3">[Link]</font></a>             &emsp; LaTeX 表格在线自动生成</li>
-</ul>
-<h2 id="Tools-for-Vision"><a href="#Tools-for-Vision" class="headerlink" title="Tools for Vision"></a>Tools for Vision</h2><ul>
-<li><a href="https://processing.org/"><font color="#80b1d3">[Link]</font></a>                      &emsp; Processing 视觉软件开发开源工具</li>
-<li><a href="https://github.com/smartgeometry-ucl/dl4g"><font color="#80b1d3">[Link]</font></a>    &emsp; CreativeAI: Deep Learning for Graphics Tutorial Code</li>
-<li><a href="http://lightfield.stanford.edu/lfs.html"><font color="#80b1d3">[Link]</font></a>      &emsp; 斯坦福大学计算机图形实验室光场数据库，提供光场采集设备资料，相机标定以及可视化工具</li>
-<li><a href="https://graphics.stanford.edu/courses/cs178/applets/applets.html"><font color="#80b1d3">[Link]</font></a>      &emsp; 斯坦福大学计算机图形实验室的Marc Levoy教授制作的动画仿真，详细介绍了相机参数变化对应的光路变化</li>
-<li><a href="https://lightfield-analysis.uni-konstanz.de/"><font color="#80b1d3">[Link]</font></a>      &emsp; HCI光场数据集及解码工具</li>
-</ul>
-<h2 id="The-big-guys’-website"><a href="#The-big-guys’-website" class="headerlink" title="The big guys’ website"></a>The big guys’ website</h2><ul>
-<li><a href="https://cseweb.ucsd.edu//~ravir/"><font color="#80b1d3">[Link]</font></a>             &emsp; Ravi Ramamoorthi 教授，加州大学圣地亚哥分校视觉计算中心主任，计算机视觉领域的大牛</li>
-<li><a href="https://cseweb.ucsd.edu//~viscomp/projects/LF/"><font color="#80b1d3">[Link]</font></a>             &emsp; 光场实验室，隶属Ravi Ramamoorthi教授，研究光场领域深度图像获取，三维重建及去除高光等</li>
-<li><a href="https://imechanica.org/"><font color="#80b1d3">[Link]</font></a>                      &emsp; iMechanica - web of mechanics and mechanicians</li>
-</ul>
-<h2 id="Tools-for-Hexo-NexT"><a href="#Tools-for-Hexo-NexT" class="headerlink" title="Tools for Hexo|NexT"></a>Tools for Hexo|NexT</h2><ul>
-<li><a href="http://www.ehcoo.com/seo.html"><font color="#80b1d3">[Link]</font></a>                &emsp; Hexo|NexT 搜索引擎SEO检索优化</li>
-<li><a href="https://imgse.com/"><font color="#80b1d3">[Link]</font></a>                           &emsp; Imgse 图床与外链服务，全球CDN加速</li>
-<li><a href="https://fontawesome.com/start"><font color="#80b1d3">[Link]</font></a>                &emsp; Font Awesome 互联网最受欢迎的开源图标集</li>
-<li><a href="http://yearito.cn/posts/hexo-writing-skills.html"><font color="#80b1d3">[Link]</font></a>    &emsp; Markdown 写作技巧</li>
 </ul>
 ]]></content>
   </entry>
