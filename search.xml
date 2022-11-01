@@ -73,7 +73,10 @@
     <url>/Exp004-SIFT/</url>
     <content><![CDATA[<p>尺度不变特征变换匹配（Scale Invariant Feature Transform, SIFT）算法，是David G. Lowe[1]在1999年提出的高效区域检测算法，2004年[2]完善。SIFT算法将图像中检测到的特征点用128维的特征向量进行描述。其本质是在不同的空间尺度上查找特征点，并计算特征点方向。SIFT算法所查找到的特征点是一些十分突出的局部结构，对旋转、尺度缩放、亮度变化等保持不变性，对于光照、仿射和投影变换也有一定的不变性，是目前领域内非常成熟稳定的局部特征检测算法。</p>
 <span id="more"></span>
-<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><figure class="highlight python"><figcaption><span>sift.py, For feature keypoints extraction</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="comment"># reading the image</span></span><br><span class="line">img = cv2.imread(<span class="string">&#x27;table.jpg&#x27;</span>)</span><br><span class="line"><span class="comment"># convert to greyscale</span></span><br><span class="line">gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)</span><br><span class="line"><span class="comment"># create SIFT feature extractor</span></span><br><span class="line">sift = cv2.xfeatures2d.SIFT_create()</span><br><span class="line"><span class="comment"># detect features from the image</span></span><br><span class="line">keypoints, descriptors = sift.detectAndCompute(img, <span class="literal">None</span>)</span><br><span class="line"><span class="comment"># draw the detected key points</span></span><br><span class="line">sift_image = cv2.drawKeypoints(gray, keypoints, img)</span><br><span class="line"><span class="comment"># show the image</span></span><br><span class="line">cv2.imshow(<span class="string">&#x27;image&#x27;</span>, sift_image)</span><br><span class="line"><span class="comment"># save the image</span></span><br><span class="line">cv2.imwrite(<span class="string">&quot;table-sift.jpg&quot;</span>, sift_image)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><ul>
+<li><a href="https://opencv24-python-tutorials.readthedocs.io/en/latest/py_tutorials/py_feature2d/py_sift_intro/py_sift_intro.html">OpenCV: Introduction to SIFT (Scale-Invariant Feature Transform)</a></li>
+</ul>
+<figure class="highlight python"><figcaption><span>sift.py, For feature keypoints extraction</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="comment"># reading the image</span></span><br><span class="line">img = cv2.imread(<span class="string">&#x27;table.jpg&#x27;</span>)</span><br><span class="line"><span class="comment"># convert to greyscale</span></span><br><span class="line">gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)</span><br><span class="line"><span class="comment"># create SIFT feature extractor</span></span><br><span class="line">sift = cv2.xfeatures2d.SIFT_create()</span><br><span class="line"><span class="comment"># detect features from the image</span></span><br><span class="line">keypoints, descriptors = sift.detectAndCompute(img, <span class="literal">None</span>)</span><br><span class="line"><span class="comment"># draw the detected key points</span></span><br><span class="line">sift_image = cv2.drawKeypoints(gray, keypoints, img)</span><br><span class="line"><span class="comment"># show the image</span></span><br><span class="line">cv2.imshow(<span class="string">&#x27;image&#x27;</span>, sift_image)</span><br><span class="line"><span class="comment"># save the image</span></span><br><span class="line">cv2.imwrite(<span class="string">&quot;table-sift.jpg&quot;</span>, sift_image)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><figcaption><span>feature_match.py, For feature matching</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="comment"># read the images</span></span><br><span class="line">img1 = cv2.imread(<span class="string">&#x27;book.jpg&#x27;</span>)  </span><br><span class="line">img2 = cv2.imread(<span class="string">&#x27;table.jpg&#x27;</span>)</span><br><span class="line"><span class="comment"># convert images to grayscale</span></span><br><span class="line">img1 = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)</span><br><span class="line">img2 = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY)</span><br><span class="line"><span class="comment"># create SIFT object</span></span><br><span class="line">sift = cv2.xfeatures2d.SIFT_create()</span><br><span class="line"><span class="comment"># detect SIFT features in both images</span></span><br><span class="line">keypoints_1, descriptors_1 = sift.detectAndCompute(img1,<span class="literal">None</span>)</span><br><span class="line">keypoints_2, descriptors_2 = sift.detectAndCompute(img2,<span class="literal">None</span>)</span><br><span class="line"><span class="comment"># create feature matcher</span></span><br><span class="line">bf = cv2.BFMatcher(cv2.NORM_L1, crossCheck=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># match descriptors of both images</span></span><br><span class="line">matches = bf.match(descriptors_1,descriptors_2)</span><br><span class="line"><span class="comment"># sort matches by distance</span></span><br><span class="line">matches = <span class="built_in">sorted</span>(matches, key = <span class="keyword">lambda</span> x:x.distance)</span><br><span class="line"><span class="comment"># draw first 50 matches</span></span><br><span class="line">matched_img = cv2.drawMatches(img1, keypoints_1, img2, keypoints_2, matches[:<span class="number">50</span>], img2, flags=<span class="number">2</span>)</span><br><span class="line"><span class="comment"># show the image</span></span><br><span class="line">cv2.imshow(<span class="string">&#x27;image&#x27;</span>, matched_img)</span><br><span class="line"><span class="comment"># save the image</span></span><br><span class="line">cv2.imwrite(<span class="string">&quot;matched_images.jpg&quot;</span>, matched_img)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
 <h1 id="逻辑框架"><a href="#逻辑框架" class="headerlink" title="逻辑框架"></a>逻辑框架</h1><p>Lowe教授将SIFT算法分解为如下四步：</p>
 <blockquote>
@@ -353,6 +356,35 @@
 ]]></content>
   </entry>
   <entry>
+    <title>Support</title>
+    <url>/support/index.html</url>
+    <content><![CDATA[<h2 id="Tools-for-scholar"><a href="#Tools-for-scholar" class="headerlink" title="Tools for scholar"></a>Tools for scholar</h2><ul>
+<li><a href="https://www.overleaf.com/"><font color="#80b1d3">[Link]</font></a>                    &emsp; Overleaf 全球共享的在线LaTeX写作平台</li>
+<li><a href="https://colorbrewer2.org/"><font color="#80b1d3">[Link]</font></a>                    &emsp; ColorBrewer 配色方案优化</li>
+<li><a href="http://www.mohu.org/info/symbols/symbols.htm"><font color="#80b1d3">[Link]</font></a> &emsp; LaTeX 常用数学符号表示方法</li>
+<li><a href="https://www.tablesgenerator.com/"><font color="#80b1d3">[Link]</font></a>             &emsp; LaTeX 表格在线自动生成</li>
+</ul>
+<h2 id="Tools-for-Vision"><a href="#Tools-for-Vision" class="headerlink" title="Tools for Vision"></a>Tools for Vision</h2><ul>
+<li><a href="https://processing.org/"><font color="#80b1d3">[Link]</font></a>                      &emsp; Processing 视觉软件开发开源工具</li>
+<li><a href="https://github.com/smartgeometry-ucl/dl4g"><font color="#80b1d3">[Link]</font></a>    &emsp; CreativeAI: Deep Learning for Graphics Tutorial Code</li>
+<li><a href="http://lightfield.stanford.edu/lfs.html"><font color="#80b1d3">[Link]</font></a>      &emsp; 斯坦福大学计算机图形实验室光场数据库，提供光场采集设备资料，相机标定以及可视化工具</li>
+<li><a href="https://graphics.stanford.edu/courses/cs178/applets/applets.html"><font color="#80b1d3">[Link]</font></a>      &emsp; 斯坦福大学计算机图形实验室的Marc Levoy教授制作的动画仿真，详细介绍了相机参数变化对应的光路变化</li>
+<li><a href="https://lightfield-analysis.uni-konstanz.de/"><font color="#80b1d3">[Link]</font></a>      &emsp; HCI光场数据集及解码工具</li>
+</ul>
+<h2 id="The-big-guys’-website"><a href="#The-big-guys’-website" class="headerlink" title="The big guys’ website"></a>The big guys’ website</h2><ul>
+<li><a href="https://cseweb.ucsd.edu//~ravir/"><font color="#80b1d3">[Link]</font></a>             &emsp; Ravi Ramamoorthi 教授，加州大学圣地亚哥分校视觉计算中心主任，计算机视觉领域的大牛</li>
+<li><a href="https://cseweb.ucsd.edu//~viscomp/projects/LF/"><font color="#80b1d3">[Link]</font></a>             &emsp; 光场实验室，隶属Ravi Ramamoorthi教授，研究光场领域深度图像获取，三维重建及去除高光等</li>
+<li><a href="https://imechanica.org/"><font color="#80b1d3">[Link]</font></a>                      &emsp; iMechanica - web of mechanics and mechanicians</li>
+</ul>
+<h2 id="Tools-for-Hexo-NexT"><a href="#Tools-for-Hexo-NexT" class="headerlink" title="Tools for Hexo|NexT"></a>Tools for Hexo|NexT</h2><ul>
+<li><a href="http://www.ehcoo.com/seo.html"><font color="#80b1d3">[Link]</font></a>                &emsp; Hexo|NexT 搜索引擎SEO检索优化</li>
+<li><a href="https://imgse.com/"><font color="#80b1d3">[Link]</font></a>                           &emsp; Imgse 图床与外链服务，全球CDN加速</li>
+<li><a href="https://fontawesome.com/start"><font color="#80b1d3">[Link]</font></a>                &emsp; Font Awesome 互联网最受欢迎的开源图标集</li>
+<li><a href="http://yearito.cn/posts/hexo-writing-skills.html"><font color="#80b1d3">[Link]</font></a>    &emsp; Markdown 写作技巧</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>Categories</title>
     <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
@@ -409,35 +441,6 @@
 </li>
 <li><p>第二十八届全国中学生物理竞赛（江苏赛区）&emsp;&emsp;一等奖</p>
 </li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>Support</title>
-    <url>/support/index.html</url>
-    <content><![CDATA[<h2 id="Tools-for-scholar"><a href="#Tools-for-scholar" class="headerlink" title="Tools for scholar"></a>Tools for scholar</h2><ul>
-<li><a href="https://www.overleaf.com/"><font color="#80b1d3">[Link]</font></a>                    &emsp; Overleaf 全球共享的在线LaTeX写作平台</li>
-<li><a href="https://colorbrewer2.org/"><font color="#80b1d3">[Link]</font></a>                    &emsp; ColorBrewer 配色方案优化</li>
-<li><a href="http://www.mohu.org/info/symbols/symbols.htm"><font color="#80b1d3">[Link]</font></a> &emsp; LaTeX 常用数学符号表示方法</li>
-<li><a href="https://www.tablesgenerator.com/"><font color="#80b1d3">[Link]</font></a>             &emsp; LaTeX 表格在线自动生成</li>
-</ul>
-<h2 id="Tools-for-Vision"><a href="#Tools-for-Vision" class="headerlink" title="Tools for Vision"></a>Tools for Vision</h2><ul>
-<li><a href="https://processing.org/"><font color="#80b1d3">[Link]</font></a>                      &emsp; Processing 视觉软件开发开源工具</li>
-<li><a href="https://github.com/smartgeometry-ucl/dl4g"><font color="#80b1d3">[Link]</font></a>    &emsp; CreativeAI: Deep Learning for Graphics Tutorial Code</li>
-<li><a href="http://lightfield.stanford.edu/lfs.html"><font color="#80b1d3">[Link]</font></a>      &emsp; 斯坦福大学计算机图形实验室光场数据库，提供光场采集设备资料，相机标定以及可视化工具</li>
-<li><a href="https://graphics.stanford.edu/courses/cs178/applets/applets.html"><font color="#80b1d3">[Link]</font></a>      &emsp; 斯坦福大学计算机图形实验室的Marc Levoy教授制作的动画仿真，详细介绍了相机参数变化对应的光路变化</li>
-<li><a href="https://lightfield-analysis.uni-konstanz.de/"><font color="#80b1d3">[Link]</font></a>      &emsp; HCI光场数据集及解码工具</li>
-</ul>
-<h2 id="The-big-guys’-website"><a href="#The-big-guys’-website" class="headerlink" title="The big guys’ website"></a>The big guys’ website</h2><ul>
-<li><a href="https://cseweb.ucsd.edu//~ravir/"><font color="#80b1d3">[Link]</font></a>             &emsp; Ravi Ramamoorthi 教授，加州大学圣地亚哥分校视觉计算中心主任，计算机视觉领域的大牛</li>
-<li><a href="https://cseweb.ucsd.edu//~viscomp/projects/LF/"><font color="#80b1d3">[Link]</font></a>             &emsp; 光场实验室，隶属Ravi Ramamoorthi教授，研究光场领域深度图像获取，三维重建及去除高光等</li>
-<li><a href="https://imechanica.org/"><font color="#80b1d3">[Link]</font></a>                      &emsp; iMechanica - web of mechanics and mechanicians</li>
-</ul>
-<h2 id="Tools-for-Hexo-NexT"><a href="#Tools-for-Hexo-NexT" class="headerlink" title="Tools for Hexo|NexT"></a>Tools for Hexo|NexT</h2><ul>
-<li><a href="http://www.ehcoo.com/seo.html"><font color="#80b1d3">[Link]</font></a>                &emsp; Hexo|NexT 搜索引擎SEO检索优化</li>
-<li><a href="https://imgse.com/"><font color="#80b1d3">[Link]</font></a>                           &emsp; Imgse 图床与外链服务，全球CDN加速</li>
-<li><a href="https://fontawesome.com/start"><font color="#80b1d3">[Link]</font></a>                &emsp; Font Awesome 互联网最受欢迎的开源图标集</li>
-<li><a href="http://yearito.cn/posts/hexo-writing-skills.html"><font color="#80b1d3">[Link]</font></a>    &emsp; Markdown 写作技巧</li>
 </ul>
 ]]></content>
   </entry>
