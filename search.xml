@@ -44,6 +44,22 @@
       </tags>
   </entry>
   <entry>
+    <title>Kaggle竞赛：基于PyTorch/U-Net算法的表面缺陷检测：Part.1  数据集分析</title>
+    <url>/Exp005-Kaggle01/</url>
+    <content><![CDATA[<p>Kaggle成立于2010年，是进行数据挖掘和预测算法研发的在线平台。除平台功能外，Kaggle官方每年会举办一次大规模竞赛，奖金一百万美元，吸引了广大Data Science爱好者参与其中。从某种角度上，可以把它理解为众包平台。但不同于传统的低层次劳动力需求，Kaggle致力于解决业界难题，不再以学历和工作经验作为唯一的人才评判标准，旨在任用最聪明的人解决世界上最棘手的问题，为顶尖人才和企业之间搭建了一座桥梁。</p>
+<span id="more"></span>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><p>test</p>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>Kaggle</tag>
+        <tag>PyTorch</tag>
+        <tag>U-Net</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>序</title>
     <url>/hello-world/</url>
     <content><![CDATA[<blockquote class="blockquote-center">
@@ -356,6 +372,11 @@
 ]]></content>
   </entry>
   <entry>
+    <title>Categories</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>Support</title>
     <url>/support/index.html</url>
     <content><![CDATA[<h2 id="Tools-for-scholar"><a href="#Tools-for-scholar" class="headerlink" title="Tools for scholar"></a>Tools for scholar</h2><ul>
@@ -385,9 +406,62 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Categories</title>
-    <url>/categories/index.html</url>
+    <title>Tags</title>
+    <url>/tags/index.html</url>
     <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Micro Computed Tomography Team</title>
+    <url>/team/index.html</url>
+    <content><![CDATA[<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Name</th>
+<th style="text-align:center">Research Project</th>
+<th style="text-align:center">Schedule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Guo-Dong Lai</td>
+<td style="text-align:center">基于同步辐射原位显微CT技术的固体推进剂变形损伤失效机理研究</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Yu-Fei Miao</td>
+<td style="text-align:center">深度学习表面缺陷自动检测系统开发</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Si-Wen Li</td>
+<td style="text-align:center">基于微焦点源的显微CT成像平台优化建设</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Tong-Tong Zhu</td>
+<td style="text-align:center">基于同步辐射原位显微CT技术的铝基复合泡沫变形破坏过程研究</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Jin-Fang Wei</td>
+<td style="text-align:center">基于同步辐射原位显微CT技术的孔隙铝变形破坏过程研究</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Jun-Ting Li</td>
+<td style="text-align:center">基于同步辐射原位显微CT技术的滤棒工艺结构关系研究</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Zhao-Ping Wang</td>
+<td style="text-align:center">基于同步辐射原位显微CT技术的3D打印铝合金变形损伤机制研究</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+</div>
+]]></content>
   </entry>
   <entry>
     <title>Scholar</title>
@@ -396,6 +470,8 @@
 <li><a href="https://scholar.google.com/citations?hl=en&amp;user=nF5s02gAAAAJ&amp;view_op=list_works&amp;sortby=pubdate">Hai-Wei Chai’s Google Scholar</a></li>
 </ul>
 <h2 id="2022"><a href="#2022" class="headerlink" title="2022"></a>2022</h2><ul>
+<li><p>B. X. Bie, R. C. Pan, J. Xu, <strong>H. W. Chai</strong>, S. Chen, G. H. Du, Y. L. Bian, S. N. Luo, Dynamic compression and fracture of poly (ether-ether-ketone) under plate impact, <em>International Journal of Mechanical Sciences</em> (Under Review).</p>
+</li>
 <li><p>C. Li, <strong>H. W. Chai</strong>, D. Fan, L. Wang, Y. Y. Zhang, Y. Cai, S. N. Luo, Octahedral void formation and growth via synergetic dislocation slip in single-crystal Cu, <em>Physical Review Letters</em> (Under review).</p>
 </li>
 <li><p><strong>H. W. Chai</strong>, D. Fan, J. C. Yuan, L. Hu, G. H. Du, H. L. Xie, Q. J. Feng, W. Zhou, J. Y. Huang, Deformation dynamics of a neutron-irradiated aluminum alloy: an in-situ synchrotron tomography study, <em>Acta Materialia</em> (Accepted).</p>
@@ -443,10 +519,5 @@
 </li>
 </ul>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Tags</title>
-    <url>/tags/index.html</url>
-    <content><![CDATA[]]></content>
   </entry>
 </search>

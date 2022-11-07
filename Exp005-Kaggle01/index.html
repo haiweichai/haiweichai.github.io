@@ -21,26 +21,30 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hwchai.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="I am a slow walker, but never backwards!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hai-Wei Chai&#39;s Blog">
-<meta property="og:url" content="https://hwchai.com/archives/2021/08/index.html">
+    <meta name="description" content="Kaggle成立于2010年，是进行数据挖掘和预测算法研发的在线平台。除平台功能外，Kaggle官方每年会举办一次大规模竞赛，奖金一百万美元，吸引了广大Data Science爱好者参与其中。从某种角度上，可以把它理解为众包平台。但不同于传统的低层次劳动力需求，Kaggle致力于解决业界难题，不再以学历和工作经验作为唯一的人才评判标准，旨在任用最聪明的人解决世界上最棘手的问题，为顶尖人才和企业之间">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kaggle竞赛：基于PyTorch&#x2F;U-Net算法的表面缺陷检测：Part.1  数据集分析">
+<meta property="og:url" content="https://hwchai.com/Exp005-Kaggle01/index.html">
 <meta property="og:site_name" content="Hai-Wei Chai&#39;s Blog">
-<meta property="og:description" content="I am a slow walker, but never backwards!">
+<meta property="og:description" content="Kaggle成立于2010年，是进行数据挖掘和预测算法研发的在线平台。除平台功能外，Kaggle官方每年会举办一次大规模竞赛，奖金一百万美元，吸引了广大Data Science爱好者参与其中。从某种角度上，可以把它理解为众包平台。但不同于传统的低层次劳动力需求，Kaggle致力于解决业界难题，不再以学历和工作经验作为唯一的人才评判标准，旨在任用最聪明的人解决世界上最棘手的问题，为顶尖人才和企业之间">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-11-01T16:37:23.000Z">
+<meta property="article:modified_time" content="2021-11-01T21:21:24.000Z">
 <meta property="article:author" content="Hai-Wei Chai (柴海伟)">
-<meta property="article:tag" content="Hai-Wei Chai, Haiwei Chai, hwchai, 柴海伟">
+<meta property="article:tag" content="Kaggle">
+<meta property="article:tag" content="PyTorch">
+<meta property="article:tag" content="U-Net">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://hwchai.com/archives/2021/08/">
+<link rel="canonical" href="https://hwchai.com/Exp005-Kaggle01/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en","comments":"","permalink":"","path":"archives/2021/08/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://hwchai.com/Exp005-Kaggle01/","path":"Exp005-Kaggle01/","title":"Kaggle竞赛：基于PyTorch/U-Net算法的表面缺陷检测：Part.1  数据集分析"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Archive | Hai-Wei Chai's Blog</title>
+<title>Kaggle竞赛：基于PyTorch/U-Net算法的表面缺陷检测：Part.1  数据集分析 | Hai-Wei Chai's Blog</title>
   
 
 
@@ -70,7 +74,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">Hai-Wei Chai's Blog</h1>
+      <p class="site-title">Hai-Wei Chai's Blog</p>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -129,7 +133,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -142,6 +146,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.</span> <span class="nav-text">代码实现</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -217,70 +222,156 @@
 </noscript>
 
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <span class="collection-header">Um..! 5 posts in total. Keep on posting.</span>
-      </div>
 
-      
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hwchai.com/Exp005-Kaggle01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gamersky.gif">
+      <meta itemprop="name" content="Hai-Wei Chai (柴海伟)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hai-Wei Chai's Blog">
+      <meta itemprop="description" content="I am a slow walker, but never backwards!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Kaggle竞赛：基于PyTorch/U-Net算法的表面缺陷检测：Part.1  数据集分析 | Hai-Wei Chai's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Kaggle竞赛：基于PyTorch/U-Net算法的表面缺陷检测：Part.1  数据集分析
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-11-01 16:37:23" itemprop="dateCreated datePublished" datetime="2022-11-01T16:37:23Z">2022-11-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2021-11-01 21:21:24" itemprop="dateModified" datetime="2021-11-01T21:21:24Z">2021-11-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline: </span>
+  
+    <a title="waline" href="/Exp005-Kaggle01/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/Exp005-Kaggle01/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Kaggle成立于2010年，是进行数据挖掘和预测算法研发的在线平台。除平台功能外，Kaggle官方每年会举办一次大规模竞赛，奖金一百万美元，吸引了广大Data Science爱好者参与其中。从某种角度上，可以把它理解为众包平台。但不同于传统的低层次劳动力需求，Kaggle致力于解决业界难题，不再以学历和工作经验作为唯一的人才评判标准，旨在任用最聪明的人解决世界上最棘手的问题，为顶尖人才和企业之间搭建了一座桥梁。</p>
+<span id="more"></span>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><p>test</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-08-09T20:53:23Z"
-              content="2021-08-09">
-          08-09
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/Exp002-ArticleReply/" itemprop="url">
-            <span itemprop="name">期刊投稿的准备工作及注意事项</span>
-          </a>
-      </div>
-
+     <!-- 文章结束表示语-->
+    <div>
       
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-08-03T20:53:23Z"
-              content="2021-08-03">
-          08-03
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/Exp003-WinServerSetup/" itemprop="url">
-            <span itemprop="name">Windows Server 2019 + Mint OS 搭建 Tomography 数据分析工作站</span>
-          </a>
-      </div>
-
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:16px;">-------- 本文结束 <i class="fa fa-mortar-board"></i> 感谢阅读 --------</div>
+    
+</div>
       
-    </header>
-  </article>
-
-
     </div>
-  </div>
-  
-  
-  
 
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Hai-Wei Chai (柴海伟)
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://hwchai.com/Exp005-Kaggle01/" title="Kaggle竞赛：基于PyTorch&#x2F;U-Net算法的表面缺陷检测：Part.1  数据集分析">https://hwchai.com/Exp005-Kaggle01/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Kaggle/" rel="tag"><i class="fa fa-tag"></i> Kaggle</a>
+              <a href="/tags/PyTorch/" rel="tag"><i class="fa fa-tag"></i> PyTorch</a>
+              <a href="/tags/U-Net/" rel="tag"><i class="fa fa-tag"></i> U-Net</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Exp004-SIFT/" rel="prev" title="Scale Invariant Feature Transform 算法">
+                  <i class="fa fa-chevron-left"></i> Scale Invariant Feature Transform 算法
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
 </div>
   </main>
 
@@ -329,7 +420,7 @@
 <script src="/js/third-party/math/mathjax.js"></script>
 
 
-<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://vercel.hwchai.com/","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"locale":{"placeholder":"请留下邮箱，若有回复您将收到提醒。QQ邮箱可以自动识别头像喔~"},"pageSize":10,"visitor":false,"comment_count":true,"meta":["nick","mail","link"],"requiredMeta":["nick","mail"],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo","https://unpkg.com/@waline/emojis@1.0.1/alus","https://unpkg.com/@waline/emojis@1.0.1/bilibili"],"login":"disable","el":"#waline","comment":true,"path":"/archives/2021/08/"}</script>
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://vercel.hwchai.com/","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"locale":{"placeholder":"请留下邮箱，若有回复您将收到提醒。QQ邮箱可以自动识别头像喔~"},"pageSize":10,"visitor":false,"comment_count":true,"meta":["nick","mail","link"],"requiredMeta":["nick","mail"],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo","https://unpkg.com/@waline/emojis@1.0.1/alus","https://unpkg.com/@waline/emojis@1.0.1/bilibili"],"login":"disable","el":"#waline","comment":true,"path":"/Exp005-Kaggle01/"}</script>
 <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
 <script>
 document.addEventListener('page:loaded', () => {
