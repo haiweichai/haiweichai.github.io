@@ -434,6 +434,11 @@
 ]]></content>
   </entry>
   <entry>
+    <title>Tags</title>
+    <url>/tags/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>Micro Computed Tomography Team</title>
     <url>/team/index.html</url>
     <content><![CDATA[<div class="table-container">
@@ -514,10 +519,5 @@
 <li><a href="http://yearito.cn/posts/hexo-writing-skills.html"><font color="#80b1d3">[Link]</font></a>    &emsp; Markdown 写作技巧</li>
 </ul>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Tags</title>
-    <url>/tags/index.html</url>
-    <content><![CDATA[]]></content>
   </entry>
 </search>
