@@ -110,13 +110,6 @@
 
   
   <url>
-    <loc>https://hwchai.com/tags/Windows-Server-2019/</loc>
-    <lastmod>2022-11-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://hwchai.com/tags/Kaggle/</loc>
     <lastmod>2022-11-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -132,6 +125,13 @@
   
   <url>
     <loc>https://hwchai.com/tags/U-Net/</loc>
+    <lastmod>2022-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hwchai.com/tags/Windows-Server-2019/</loc>
     <lastmod>2022-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -182,14 +182,14 @@
 
   
   <url>
-    <loc>https://hwchai.com/categories/Computer-Environment/</loc>
+    <loc>https://hwchai.com/categories/Machine-Learning/</loc>
     <lastmod>2022-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://hwchai.com/categories/Machine-Learning/</loc>
+    <loc>https://hwchai.com/categories/Computer-Environment/</loc>
     <lastmod>2022-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
