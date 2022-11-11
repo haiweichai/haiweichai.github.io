@@ -1,22 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Kaggle竞赛：基于PyTorch/U-Net算法的表面缺陷检测：Part.1  数据集分析</title>
-    <url>/Exp005-Kaggle01/</url>
-    <content><![CDATA[<p>Kaggle成立于2010年，是进行数据挖掘和预测算法研发的在线平台。除平台功能外，Kaggle官方每年会举办一次大规模竞赛，奖金一百万美元，吸引了广大Data Science爱好者参与其中。从某种角度上，可以把它理解为众包平台。但不同于传统的低层次劳动力需求，Kaggle致力于解决业界难题，不再以学历和工作经验作为唯一的人才评判标准，旨在任用最聪明的人解决世界上最棘手的问题，为顶尖人才和企业之间搭建了一座桥梁。</p>
-<span id="more"></span>
-<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><p>test</p>
-]]></content>
-      <categories>
-        <category>Machine Learning</category>
-      </categories>
-      <tags>
-        <tag>Kaggle</tag>
-        <tag>PyTorch</tag>
-        <tag>U-Net</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Windows Server 2019 + Mint OS 搭建 Tomography 数据分析工作站</title>
     <url>/Exp003-WinServerSetup/</url>
     <content><![CDATA[<p>为实现多用户同时登录 Tomography 数据分析工作站，避免设备冗余浪费，使用 Windows Server 2019 与 Mint OS 虚拟机的组合是个让人满意的方案。 本文记录配置 Tomography 数据分析工作站时的一些常见问题及相应的解决办法。</p>
@@ -57,6 +41,22 @@
       </categories>
       <tags>
         <tag>Windows Server 2019</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Kaggle竞赛：基于PyTorch/U-Net算法的表面缺陷检测：Part.1  数据集分析</title>
+    <url>/Exp005-Kaggle01/</url>
+    <content><![CDATA[<p>Kaggle成立于2010年，是进行数据挖掘和预测算法研发的在线平台。除平台功能外，Kaggle官方每年会举办一次大规模竞赛，奖金一百万美元，吸引了广大Data Science爱好者参与其中。从某种角度上，可以把它理解为众包平台。但不同于传统的低层次劳动力需求，Kaggle致力于解决业界难题，不再以学历和工作经验作为唯一的人才评判标准，旨在任用最聪明的人解决世界上最棘手的问题，为顶尖人才和企业之间搭建了一座桥梁。</p>
+<span id="more"></span>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><p>test</p>
+]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>Kaggle</tag>
+        <tag>PyTorch</tag>
+        <tag>U-Net</tag>
       </tags>
   </entry>
   <entry>
@@ -350,68 +350,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Categories</title>
-    <url>/categories/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>Scholar</title>
-    <url>/scholar/index.html</url>
-    <content><![CDATA[<ul>
-<li><a href="https://scholar.google.com/citations?hl=en&amp;user=nF5s02gAAAAJ&amp;view_op=list_works&amp;sortby=pubdate">Hai-Wei Chai’s Google Scholar</a></li>
-</ul>
-<h2 id="2022"><a href="#2022" class="headerlink" title="2022"></a>2022</h2><ul>
-<li><p>B. X. Bie, R. C. Pan, J. Xu, <strong>H. W. Chai</strong>, S. Chen, G. H. Du, Y. L. Bian, S. N. Luo, Dynamic compression and fracture of poly (ether-ether-ketone) under plate impact, <em>International Journal of Mechanical Sciences</em> (Under Review).</p>
-</li>
-<li><p>C. Li, <strong>H. W. Chai</strong>, D. Fan, L. Wang, Y. Y. Zhang, Y. Cai, S. N. Luo, Octahedral void formation and growth via synergetic dislocation slip in single-crystal Cu, <em>Physical Review Letters</em> (Under review).</p>
-</li>
-<li><p><strong>H. W. Chai</strong>, D. Fan, J. C. Yuan, L. Hu, G. H. Du, H. L. Xie, Q. J. Feng, W. Zhou, J. Y. Huang, Deformation dynamics of a neutron-irradiated aluminum alloy: an in-situ synchrotron tomography study, <em>Acta Materialia</em> (Accepted).</p>
-</li>
-<li><p>L. Hu, F. C. Wu, X. H. Li, <strong>H. W. Chai</strong>, J. Y. Huang, Q. J. Feng, W. Zhou, Y. Y. Yu, J. B. Hu, Fracture behaviors of long-term low-dose-rate neutron-irradiated Al-Mg-Si alloy, <em>Applied Physics Letters</em> (Accepted).</p>
-</li>
-</ul>
-<h2 id="2021"><a href="#2021" class="headerlink" title="2021"></a>2021</h2><ul>
-<li><p>J. C. Cheng, S. P. Zhao, D. Fan, <strong>H. W. Chai</strong>, S. J. Ye, C. Li, S. N. Luo, Y. Cai, J. Y. Huang, Multiple ballistic impacts on 2024-T4 aluminum alloy by spheres: Experiments and modelling, <em>Journal of Materials Science &amp; Technology</em> 94, 164-174 (2021). <a href="/download/2021_jccheng_JMST.pdf"><font color="#80b1d3">[PDF]</font></a></p>
-</li>
-<li><p><strong>H. W. Chai</strong>, Z. L. Xie, H. L. Xie, J. Y. Huang, and S. N. Luo, Three-dimensional deformation dynamics of porous titanium under uniaxial compression, <em>Materials Characterization</em> 111494 (2021). <a href="/download/2021_hwchai_Mater.Charact..pdf"><font color="#80b1d3">[PDF]</font></a></p>
-</li>
-<li><p>Y. L. Bian, <strong>H. W. Chai</strong>, S. J. Ye, H. L. Xie, X. H. Yao, Y. Cai, and S. N. Luo, Compression and spallation properties of polyethylene terephthalate under plateimpact loading, <em>International Journal of Mechanical Sciences</em> 211, 106736 (2021). <a href="/download/IJMS_YLBian.pdf"><font color="#80b1d3">[PDF]</font></a></p>
-</li>
-</ul>
-<h2 id="2020"><a href="#2020" class="headerlink" title="2020"></a>2020</h2><ul>
-<li><p>J. C. Cheng$^\dagger$, <strong>H. W. Chai</strong>$^\ddagger$, G. L. Fan, Z. Q. Li, H. L. Xie, Z. Q. Tan, B. X. Bie, J. Y. Huang, and Sheng-Nian Luo, Anisotropic spall behavior of CNT/2024Al laminar composite under plate impact, <em>Carbon</em> 170, 589-599 (2020). <a href="/download/2020_jccheng_Carbon.pdf"><font color="#80b1d3">[PDF]</font></a></p>
-</li>
-<li><p>Z. H. Dai, L. Lu$^\ast$, <strong>H. W. Chai</strong>$^{\ast\ast}$, X. H. Xiao, X. L. Gong, and Sheng-Nian Luo, Anisotropic deformation and damage of a textured magnesium alloy AZ31 under high strain rate loading, <em>Materials Science &amp; Engineering: A</em> 789, 139690 (2020). <a href="/download/2020_ZHDai_Mater.Sci.Eng.A.pdf"><font color="#80b1d3">[PDF]</font></a></p>
-</li>
-<li><p><strong>H. W. Chai</strong>, Z. L. Xie, X. H. Xiao, H. L. Xie, J. Y. Huang, and Sheng-Nian Luo, Microstructural characterization and constitutive modelling of deformation of closed-cell foams based on in-situ x-ray tomography, <em>International Journal of Plasticity</em> 131, 102730 (2020). <a href="/download/2020_hwchai_Int.J.Plast..pdf"><font color="#80b1d3">[PDF]</font></a></p>
-</li>
-<li><p>H. Y. Li, <strong>H. W. Chai</strong>, X. H. Xiao, J. Y. Huang, and Sheng-Nian Luo, Fractal breakage of porous sand particles: microstructures and mechanisms, <em>Powder Technology</em> 363, 112–121 (2020). <a href="/download/2020_HYL_PowderTechnol.pdf"><font color="#80b1d3">[PDF]</font></a></p>
-</li>
-</ul>
-<h2 id="2019"><a href="#2019" class="headerlink" title="2019"></a>2019</h2><ul>
-<li><p>S. J. Ye, <strong>H. W. Chai</strong>, X. H. Xiao, Y. Cai, X. H. Yao, and S. N. Luo, Spallation of Polycarbonate under Plate Impact Loading, <em>Journal of Applied Physics</em> 126, 085105 (2019). <a href="/download/JAP_SJYe_HWChai.pdf"><font color="#80b1d3">[PDF]</font></a></p>
-</li>
-<li><p>C. Sen, <strong>H. W. Chai</strong>, A. M. He, Thomas Tschentscher, Yang Cai, S. N. Luo. Resolving dynamic fragmentation of liquids at the nanoscale with ultrafast small-angle X-ray scattering. <em>Journal of synchrotron radiation</em> 26.5 (2019). <a href="/download/chen2019.pdf"><font color="#80b1d3">[PDF]</font></a></p>
-</li>
-<li><p><strong>H. W. Chai</strong>, H. Y. Li, X. H. Xiao, J. Y. Huang, and S. N. Luo, Correlation between Cell Wall Buckling and Deformation Banding in a Closed-Cell Foam, <em>Scripta Materialia</em> 170, 177-182 (2019). <a href="/download/2019_hwchai_Script._Mater..pdf"><font color="#80b1d3">[PDF]</font></a></p>
-</li>
-</ul>
-<h2 id="2018"><a href="#2018" class="headerlink" title="2018"></a>2018</h2><ul>
-<li>Y. Yao, <strong>H. W. Chai</strong>, C. Li, B. X. Bie, X. H. Xiao, J. Y. Huang, M. L. Qi, and S. N. Luo, Deformation and damage of sintered low-porosity aluminum under planar impact: microstructures and mechanisms, <em>Journal of Materials Science</em> 53, 4582-4597 (2018). <a href="/download/JMS_YYao_HWChai.pdf"><font color="#80b1d3">[PDF]</font></a></li>
-</ul>
-<h2 id="2017"><a href="#2017" class="headerlink" title="2017"></a>2017</h2><ul>
-<li>C. Li, J. Y. Huang, X. C. Tang, <strong>H. W. Chai</strong>, X. H. Xiao, Z. D. Feng, and S. N. Luo, Effects of structural anisotropy on deformation and damage of a duplex stainless steel under high strain rate loading, <em>Materials Science &amp; Engineering: A</em> 705, 265-272 (2017). <a href="/download/MSEA_CLi_HWChai.pdf"><font color="#80b1d3">[PDF]</font></a></li>
-</ul>
-<p>&emsp;&emsp;&emsp;$\dagger$&emsp;$\ddagger$: Joint first author&emsp;&emsp;&emsp;$\ast$&emsp;$\ast\ast$ : Corresponding author</p>
-<h2 id="Rewards"><a href="#Rewards" class="headerlink" title="Rewards"></a>Rewards</h2><ul>
-<li><p>2020年中国工程物理研究院优秀学生奖学金&emsp;&emsp;&ensp;特别奖</p>
-</li>
-<li><p>第二十八届全国中学生物理竞赛（江苏赛区）&emsp;&emsp;一等奖</p>
-</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
     <title>About</title>
     <url>/about/index.html</url>
     <content><![CDATA[<h2 id="Self-Introduction"><a href="#Self-Introduction" class="headerlink" title="Self-Introduction:"></a>Self-Introduction:</h2><p>Hai-Wei Chai&ensp;[柴海伟]</p>
@@ -434,37 +372,70 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Support</title>
-    <url>/support/index.html</url>
-    <content><![CDATA[<h2 id="Tools-for-scholar"><a href="#Tools-for-scholar" class="headerlink" title="Tools for scholar"></a>Tools for scholar</h2><ul>
-<li><a href="https://www.overleaf.com/"><font color="#80b1d3">[Link]</font></a>                    &emsp; Overleaf 全球共享的在线LaTeX写作平台</li>
-<li><a href="https://colorbrewer2.org/"><font color="#80b1d3">[Link]</font></a>                    &emsp; ColorBrewer 配色方案优化</li>
-<li><a href="http://www.mohu.org/info/symbols/symbols.htm"><font color="#80b1d3">[Link]</font></a> &emsp; LaTeX 常用数学符号表示方法</li>
-<li><a href="https://www.tablesgenerator.com/"><font color="#80b1d3">[Link]</font></a>             &emsp; LaTeX 表格在线自动生成</li>
+    <title>Tags</title>
+    <url>/tags/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Scholar</title>
+    <url>/scholar/index.html</url>
+    <content><![CDATA[<ul>
+<li><a href="https://scholar.google.com/citations?hl=en&amp;user=nF5s02gAAAAJ&amp;view_op=list_works&amp;sortby=pubdate">Hai-Wei Chai’s Google Scholar</a></li>
 </ul>
-<h2 id="Tools-for-Vision"><a href="#Tools-for-Vision" class="headerlink" title="Tools for Vision"></a>Tools for Vision</h2><ul>
-<li><a href="https://processing.org/"><font color="#80b1d3">[Link]</font></a>                      &emsp; Processing 视觉软件开发开源工具</li>
-<li><a href="https://github.com/smartgeometry-ucl/dl4g"><font color="#80b1d3">[Link]</font></a>    &emsp; CreativeAI: Deep Learning for Graphics Tutorial Code</li>
-<li><a href="http://lightfield.stanford.edu/lfs.html"><font color="#80b1d3">[Link]</font></a>      &emsp; 斯坦福大学计算机图形实验室光场数据库，提供光场采集设备资料，相机标定以及可视化工具</li>
-<li><a href="https://graphics.stanford.edu/courses/cs178/applets/applets.html"><font color="#80b1d3">[Link]</font></a>      &emsp; 斯坦福大学计算机图形实验室的Marc Levoy教授制作的动画仿真，详细介绍了相机参数变化对应的光路变化</li>
-<li><a href="https://lightfield-analysis.uni-konstanz.de/"><font color="#80b1d3">[Link]</font></a>      &emsp; HCI光场数据集及解码工具</li>
+<h2 id="2022"><a href="#2022" class="headerlink" title="2022"></a>2022</h2><ul>
+<li><p>B. X. Bie, R. C. Pan, J. Xu, <strong>H. W. Chai</strong>, S. Chen, G. H. Du, Y. L. Bian, S. N. Luo, Dynamic compression and fracture of poly (ether-ether-ketone) under plate impact, <em>International Journal of Mechanical Sciences</em> (Under Review).</p>
+</li>
+<li><p>C. Li, <strong>H. W. Chai</strong>, D. Fan, L. Wang, Y. Y. Zhang, Y. Cai, S. N. Luo, Octahedral void formation and growth via synergetic dislocation slip in single-crystal Cu, <em>Physical Review Letters</em> (Under review).</p>
+</li>
+<li><p><strong>H. W. Chai</strong>, D. Fan, J. C. Yuan, L. Hu, G. H. Du, H. L. Xie, Q. J. Feng, W. Zhou, J. Y. Huang, Deformation dynamics of a neutron-irradiated aluminum alloy: an in-situ synchrotron tomography study, <em>Acta Materialia</em> (Accepted).</p>
+</li>
+<li><p>L. Hu, F. C. Wu, X. H. Li, <strong>H. W. Chai</strong>, J. Y. Huang, Q. J. Feng, W. Zhou, Y. Y. Yu, J. B. Hu, Fracture behaviors of long-term low-dose-rate neutron-irradiated Al-Mg-Si alloy, <em>Applied Physics Letters</em> (Accepted).</p>
+</li>
 </ul>
-<h2 id="The-big-guys’-website"><a href="#The-big-guys’-website" class="headerlink" title="The big guys’ website"></a>The big guys’ website</h2><ul>
-<li><a href="https://cseweb.ucsd.edu//~ravir/"><font color="#80b1d3">[Link]</font></a>             &emsp; Ravi Ramamoorthi 教授，加州大学圣地亚哥分校视觉计算中心主任，计算机视觉领域的大牛</li>
-<li><a href="https://cseweb.ucsd.edu//~viscomp/projects/LF/"><font color="#80b1d3">[Link]</font></a>             &emsp; 光场实验室，隶属Ravi Ramamoorthi教授，研究光场领域深度图像获取，三维重建及去除高光等</li>
-<li><a href="https://imechanica.org/"><font color="#80b1d3">[Link]</font></a>                      &emsp; iMechanica - web of mechanics and mechanicians</li>
+<h2 id="2021"><a href="#2021" class="headerlink" title="2021"></a>2021</h2><ul>
+<li><p>J. C. Cheng, S. P. Zhao, D. Fan, <strong>H. W. Chai</strong>, S. J. Ye, C. Li, S. N. Luo, Y. Cai, J. Y. Huang, Multiple ballistic impacts on 2024-T4 aluminum alloy by spheres: Experiments and modelling, <em>Journal of Materials Science &amp; Technology</em> 94, 164-174 (2021). <a href="/download/2021_jccheng_JMST.pdf"><font color="#80b1d3">[PDF]</font></a></p>
+</li>
+<li><p><strong>H. W. Chai</strong>, Z. L. Xie, H. L. Xie, J. Y. Huang, S. N. Luo, Three-dimensional deformation dynamics of porous titanium under uniaxial compression, <em>Materials Characterization</em> 111494 (2021). <a href="/download/2021_hwchai_Mater.Charact..pdf"><font color="#80b1d3">[PDF]</font></a></p>
+</li>
+<li><p>Y. L. Bian, <strong>H. W. Chai</strong>, S. J. Ye, H. L. Xie, X. H. Yao, Y. Cai, S. N. Luo, Compression and spallation properties of polyethylene terephthalate under plateimpact loading, <em>International Journal of Mechanical Sciences</em> 211, 106736 (2021). <a href="/download/IJMS_YLBian.pdf"><font color="#80b1d3">[PDF]</font></a></p>
+</li>
 </ul>
-<h2 id="Tools-for-Hexo-NexT"><a href="#Tools-for-Hexo-NexT" class="headerlink" title="Tools for Hexo|NexT"></a>Tools for Hexo|NexT</h2><ul>
-<li><a href="http://www.ehcoo.com/seo.html"><font color="#80b1d3">[Link]</font></a>                &emsp; Hexo|NexT 搜索引擎SEO检索优化</li>
-<li><a href="https://imgse.com/"><font color="#80b1d3">[Link]</font></a>                           &emsp; Imgse 图床与外链服务，全球CDN加速</li>
-<li><a href="https://fontawesome.com/start"><font color="#80b1d3">[Link]</font></a>                &emsp; Font Awesome 互联网最受欢迎的开源图标集</li>
-<li><a href="http://yearito.cn/posts/hexo-writing-skills.html"><font color="#80b1d3">[Link]</font></a>    &emsp; Markdown 写作技巧</li>
+<h2 id="2020"><a href="#2020" class="headerlink" title="2020"></a>2020</h2><ul>
+<li><p>J. C. Cheng$^\dagger$, <strong>H. W. Chai</strong>$^\ddagger$, G. L. Fan, Z. Q. Li, H. L. Xie, Z. Q. Tan, B. X. Bie, J. Y. Huang, S. N. Luo, Anisotropic spall behavior of CNT/2024Al laminar composite under plate impact, <em>Carbon</em> 170, 589-599 (2020). <a href="/download/2020_jccheng_Carbon.pdf"><font color="#80b1d3">[PDF]</font></a></p>
+</li>
+<li><p>Z. H. Dai, L. Lu$^\ast$, <strong>H. W. Chai</strong>$^{\ast\ast}$, X. H. Xiao, X. L. Gong, S. N. Luo, Anisotropic deformation and damage of a textured magnesium alloy AZ31 under high strain rate loading, <em>Materials Science &amp; Engineering: A</em> 789, 139690 (2020). <a href="/download/2020_ZHDai_Mater.Sci.Eng.A.pdf"><font color="#80b1d3">[PDF]</font></a></p>
+</li>
+<li><p><strong>H. W. Chai</strong>, Z. L. Xie, X. H. Xiao, H. L. Xie, J. Y. Huang, S. N. Luo, Microstructural characterization and constitutive modelling of deformation of closed-cell foams based on in-situ x-ray tomography, <em>International Journal of Plasticity</em> 131, 102730 (2020). <a href="/download/2020_hwchai_Int.J.Plast..pdf"><font color="#80b1d3">[PDF]</font></a></p>
+</li>
+<li><p>H. Y. Li, <strong>H. W. Chai</strong>, X. H. Xiao, J. Y. Huang, S. N. Luo, Fractal breakage of porous sand particles: microstructures and mechanisms, <em>Powder Technology</em> 363, 112–121 (2020). <a href="/download/2020_HYL_PowderTechnol.pdf"><font color="#80b1d3">[PDF]</font></a></p>
+</li>
+</ul>
+<h2 id="2019"><a href="#2019" class="headerlink" title="2019"></a>2019</h2><ul>
+<li><p>S. J. Ye, <strong>H. W. Chai</strong>, X. H. Xiao, Y. Cai, X. H. Yao, S. N. Luo, Spallation of Polycarbonate under Plate Impact Loading, <em>Journal of Applied Physics</em> 126, 085105 (2019). <a href="/download/JAP_SJYe_HWChai.pdf"><font color="#80b1d3">[PDF]</font></a></p>
+</li>
+<li><p>C. Sen, <strong>H. W. Chai</strong>, A. M. He, Thomas Tschentscher, Yang Cai, S. N. Luo. Resolving dynamic fragmentation of liquids at the nanoscale with ultrafast small-angle X-ray scattering. <em>Journal of Synchrotron Radiation</em> 26.5 (2019). <a href="/download/chen2019.pdf"><font color="#80b1d3">[PDF]</font></a></p>
+</li>
+<li><p><strong>H. W. Chai</strong>, H. Y. Li, X. H. Xiao, J. Y. Huang, S. N. Luo, Correlation between Cell Wall Buckling and Deformation Banding in a Closed-Cell Foam, <em>Scripta Materialia</em> 170, 177-182 (2019). <a href="/download/2019_hwchai_Script._Mater..pdf"><font color="#80b1d3">[PDF]</font></a></p>
+</li>
+</ul>
+<h2 id="2018"><a href="#2018" class="headerlink" title="2018"></a>2018</h2><ul>
+<li>Y. Yao, <strong>H. W. Chai</strong>, C. Li, B. X. Bie, X. H. Xiao, J. Y. Huang, M. L. Qi, S. N. Luo, Deformation and damage of sintered low-porosity aluminum under planar impact: microstructures and mechanisms, <em>Journal of Materials Science</em> 53, 4582-4597 (2018). <a href="/download/JMS_YYao_HWChai.pdf"><font color="#80b1d3">[PDF]</font></a></li>
+</ul>
+<h2 id="2017"><a href="#2017" class="headerlink" title="2017"></a>2017</h2><ul>
+<li>C. Li, J. Y. Huang, X. C. Tang, <strong>H. W. Chai</strong>, X. H. Xiao, Z. D. Feng, S. N. Luo, Effects of structural anisotropy on deformation and damage of a duplex stainless steel under high strain rate loading, <em>Materials Science &amp; Engineering: A</em> 705, 265-272 (2017). <a href="/download/MSEA_CLi_HWChai.pdf"><font color="#80b1d3">[PDF]</font></a></li>
+</ul>
+<p>&emsp;&emsp;&emsp;$\dagger$&emsp;$\ddagger$: Joint first author&emsp;&emsp;&emsp;$\ast$&emsp;$\ast\ast$ : Corresponding author</p>
+<h2 id="Rewards"><a href="#Rewards" class="headerlink" title="Rewards"></a>Rewards</h2><ul>
+<li><p>2020年中国工程物理研究院优秀学生奖学金&emsp;&emsp;&ensp;特别奖</p>
+</li>
+<li><p>第二十八届全国中学生物理竞赛（江苏赛区）&emsp;&emsp;一等奖</p>
+</li>
 </ul>
 ]]></content>
   </entry>
   <entry>
-    <title>Tags</title>
-    <url>/tags/index.html</url>
+    <title>Categories</title>
+    <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
@@ -518,6 +489,35 @@
 </tbody>
 </table>
 </div>
+]]></content>
+  </entry>
+  <entry>
+    <title>Support</title>
+    <url>/support/index.html</url>
+    <content><![CDATA[<h2 id="Tools-for-scholar"><a href="#Tools-for-scholar" class="headerlink" title="Tools for scholar"></a>Tools for scholar</h2><ul>
+<li><a href="https://www.overleaf.com/"><font color="#80b1d3">[Link]</font></a>                    &emsp; Overleaf 全球共享的在线LaTeX写作平台</li>
+<li><a href="https://colorbrewer2.org/"><font color="#80b1d3">[Link]</font></a>                    &emsp; ColorBrewer 配色方案优化</li>
+<li><a href="http://www.mohu.org/info/symbols/symbols.htm"><font color="#80b1d3">[Link]</font></a> &emsp; LaTeX 常用数学符号表示方法</li>
+<li><a href="https://www.tablesgenerator.com/"><font color="#80b1d3">[Link]</font></a>             &emsp; LaTeX 表格在线自动生成</li>
+</ul>
+<h2 id="Tools-for-Vision"><a href="#Tools-for-Vision" class="headerlink" title="Tools for Vision"></a>Tools for Vision</h2><ul>
+<li><a href="https://processing.org/"><font color="#80b1d3">[Link]</font></a>                      &emsp; Processing 视觉软件开发开源工具</li>
+<li><a href="https://github.com/smartgeometry-ucl/dl4g"><font color="#80b1d3">[Link]</font></a>    &emsp; CreativeAI: Deep Learning for Graphics Tutorial Code</li>
+<li><a href="http://lightfield.stanford.edu/lfs.html"><font color="#80b1d3">[Link]</font></a>      &emsp; 斯坦福大学计算机图形实验室光场数据库，提供光场采集设备资料，相机标定以及可视化工具</li>
+<li><a href="https://graphics.stanford.edu/courses/cs178/applets/applets.html"><font color="#80b1d3">[Link]</font></a>      &emsp; 斯坦福大学计算机图形实验室的Marc Levoy教授制作的动画仿真，详细介绍了相机参数变化对应的光路变化</li>
+<li><a href="https://lightfield-analysis.uni-konstanz.de/"><font color="#80b1d3">[Link]</font></a>      &emsp; HCI光场数据集及解码工具</li>
+</ul>
+<h2 id="The-big-guys’-website"><a href="#The-big-guys’-website" class="headerlink" title="The big guys’ website"></a>The big guys’ website</h2><ul>
+<li><a href="https://cseweb.ucsd.edu//~ravir/"><font color="#80b1d3">[Link]</font></a>             &emsp; Ravi Ramamoorthi 教授，加州大学圣地亚哥分校视觉计算中心主任，计算机视觉领域的大牛</li>
+<li><a href="https://cseweb.ucsd.edu//~viscomp/projects/LF/"><font color="#80b1d3">[Link]</font></a>             &emsp; 光场实验室，隶属Ravi Ramamoorthi教授，研究光场领域深度图像获取，三维重建及去除高光等</li>
+<li><a href="https://imechanica.org/"><font color="#80b1d3">[Link]</font></a>                      &emsp; iMechanica - web of mechanics and mechanicians</li>
+</ul>
+<h2 id="Tools-for-Hexo-NexT"><a href="#Tools-for-Hexo-NexT" class="headerlink" title="Tools for Hexo|NexT"></a>Tools for Hexo|NexT</h2><ul>
+<li><a href="http://www.ehcoo.com/seo.html"><font color="#80b1d3">[Link]</font></a>                &emsp; Hexo|NexT 搜索引擎SEO检索优化</li>
+<li><a href="https://imgse.com/"><font color="#80b1d3">[Link]</font></a>                           &emsp; Imgse 图床与外链服务，全球CDN加速</li>
+<li><a href="https://fontawesome.com/start"><font color="#80b1d3">[Link]</font></a>                &emsp; Font Awesome 互联网最受欢迎的开源图标集</li>
+<li><a href="http://yearito.cn/posts/hexo-writing-skills.html"><font color="#80b1d3">[Link]</font></a>    &emsp; Markdown 写作技巧</li>
+</ul>
 ]]></content>
   </entry>
 </search>

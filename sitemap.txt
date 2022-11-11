@@ -1,5 +1,5 @@
-https://hwchai.com/about/index.html
 https://hwchai.com/scholar/index.html
+https://hwchai.com/about/index.html
 https://hwchai.com/team/index.html
 https://hwchai.com/support/index.html
 https://hwchai.com/tags/index.html
@@ -10,18 +10,18 @@ https://hwchai.com/Exp004-SIFT/
 https://hwchai.com/Exp003-WinServerSetup/
 https://hwchai.com/hello-world/
 https://hwchai.com/
+https://hwchai.com/tags/Windows-Server-2019/
 https://hwchai.com/tags/Kaggle/
 https://hwchai.com/tags/PyTorch/
 https://hwchai.com/tags/U-Net/
-https://hwchai.com/tags/Windows-Server-2019/
 https://hwchai.com/tags/Hexo/
 https://hwchai.com/tags/Next/
 https://hwchai.com/tags/Life/
 https://hwchai.com/tags/SIFT/
 https://hwchai.com/tags/Acta-Materialia/
 https://hwchai.com/tags/Scholarship/
-https://hwchai.com/categories/Machine-Learning/
 https://hwchai.com/categories/Computer-Environment/
+https://hwchai.com/categories/Machine-Learning/
 https://hwchai.com/categories/Notes-on-Life-and-Letter/
 https://hwchai.com/categories/Digital-Image-Processing/
 https://hwchai.com/categories/Scholarship-Writing-and-Mindset/

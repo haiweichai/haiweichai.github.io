@@ -2,18 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://hwchai.com/about/index.html</loc>
+    <loc>https://hwchai.com/scholar/index.html</loc>
     
-    <lastmod>2022-11-08</lastmod>
+    <lastmod>2022-11-09</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://hwchai.com/scholar/index.html</loc>
+    <loc>https://hwchai.com/about/index.html</loc>
     
-    <lastmod>2022-11-03</lastmod>
+    <lastmod>2022-11-08</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -103,78 +103,78 @@
 
   <url>
     <loc>https://hwchai.com/</loc>
-    <lastmod>2022-11-09</lastmod>
+    <lastmod>2022-11-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
+    <loc>https://hwchai.com/tags/Windows-Server-2019/</loc>
+    <lastmod>2022-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://hwchai.com/tags/Kaggle/</loc>
-    <lastmod>2022-11-09</lastmod>
+    <lastmod>2022-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://hwchai.com/tags/PyTorch/</loc>
-    <lastmod>2022-11-09</lastmod>
+    <lastmod>2022-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://hwchai.com/tags/U-Net/</loc>
-    <lastmod>2022-11-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://hwchai.com/tags/Windows-Server-2019/</loc>
-    <lastmod>2022-11-09</lastmod>
+    <lastmod>2022-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://hwchai.com/tags/Hexo/</loc>
-    <lastmod>2022-11-09</lastmod>
+    <lastmod>2022-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://hwchai.com/tags/Next/</loc>
-    <lastmod>2022-11-09</lastmod>
+    <lastmod>2022-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://hwchai.com/tags/Life/</loc>
-    <lastmod>2022-11-09</lastmod>
+    <lastmod>2022-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://hwchai.com/tags/SIFT/</loc>
-    <lastmod>2022-11-09</lastmod>
+    <lastmod>2022-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://hwchai.com/tags/Acta-Materialia/</loc>
-    <lastmod>2022-11-09</lastmod>
+    <lastmod>2022-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://hwchai.com/tags/Scholarship/</loc>
-    <lastmod>2022-11-09</lastmod>
+    <lastmod>2022-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -182,36 +182,36 @@
 
   
   <url>
-    <loc>https://hwchai.com/categories/Machine-Learning/</loc>
-    <lastmod>2022-11-09</lastmod>
+    <loc>https://hwchai.com/categories/Computer-Environment/</loc>
+    <lastmod>2022-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://hwchai.com/categories/Computer-Environment/</loc>
-    <lastmod>2022-11-09</lastmod>
+    <loc>https://hwchai.com/categories/Machine-Learning/</loc>
+    <lastmod>2022-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://hwchai.com/categories/Notes-on-Life-and-Letter/</loc>
-    <lastmod>2022-11-09</lastmod>
+    <lastmod>2022-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://hwchai.com/categories/Digital-Image-Processing/</loc>
-    <lastmod>2022-11-09</lastmod>
+    <lastmod>2022-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://hwchai.com/categories/Scholarship-Writing-and-Mindset/</loc>
-    <lastmod>2022-11-09</lastmod>
+    <lastmod>2022-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
