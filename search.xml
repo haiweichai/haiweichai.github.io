@@ -494,11 +494,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Tags</title>
-    <url>/tags/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>Micro Computed Tomography Team</title>
     <url>/team/index.html</url>
     <content><![CDATA[<div class="table-container">
@@ -550,5 +545,10 @@
 </table>
 </div>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Tags</title>
+    <url>/tags/index.html</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>
