@@ -25,7 +25,7 @@
 
     <meta name="description" content="Kaggle成立于2010年，是进行数据挖掘和预测算法研发的在线平台。除平台功能外，Kaggle官方每年会举办一次大规模竞赛，奖金一百万美元，吸引了广大Data Science爱好者参与其中。从某种角度上，可以把它理解为众包平台。但不同于传统的低层次劳动力需求，Kaggle致力于解决业界难题，不再以学历和工作经验作为唯一的人才评判标准，旨在任用最聪明的人解决世界上最棘手的问题，为顶尖人才和企业之间">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Kaggle竞赛：基于PyTorch&#x2F;U-Net算法的表面缺陷检测：Part.1  数据集分析">
+<meta property="og:title" content="Kaggle竞赛：基于PyTorch&#x2F;U-Net算法的表面缺陷检测">
 <meta property="og:url" content="https://hwchai.com/Exp005-Kaggle01/index.html">
 <meta property="og:site_name" content="Hai-Wei Chai&#39;s Blog">
 <meta property="og:description" content="Kaggle成立于2010年，是进行数据挖掘和预测算法研发的在线平台。除平台功能外，Kaggle官方每年会举办一次大规模竞赛，奖金一百万美元，吸引了广大Data Science爱好者参与其中。从某种角度上，可以把它理解为众包平台。但不同于传统的低层次劳动力需求，Kaggle致力于解决业界难题，不再以学历和工作经验作为唯一的人才评判标准，旨在任用最聪明的人解决世界上最棘手的问题，为顶尖人才和企业之间">
@@ -43,10 +43,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://hwchai.com/Exp005-Kaggle01/","path":"Exp005-Kaggle01/","title":"Kaggle竞赛：基于PyTorch/U-Net算法的表面缺陷检测：Part.1  数据集分析"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://hwchai.com/Exp005-Kaggle01/","path":"Exp005-Kaggle01/","title":"Kaggle竞赛：基于PyTorch/U-Net算法的表面缺陷检测"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Kaggle竞赛：基于PyTorch/U-Net算法的表面缺陷检测：Part.1  数据集分析 | Hai-Wei Chai's Blog</title>
+<title>Kaggle竞赛：基于PyTorch/U-Net算法的表面缺陷检测 | Hai-Wei Chai's Blog</title>
   
 
 
@@ -148,7 +148,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E4%BA%91%E7%AB%AFKaggle%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-number">1.</span> <span class="nav-text">获取云端Kaggle数据集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Clear-mask-visualization-and-simple-eda"><span class="nav-number">2.</span> <span class="nav-text">Clear mask visualization and simple eda</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E4%BA%91%E7%AB%AFKaggle%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-number">1.</span> <span class="nav-text">获取云端Kaggle数据集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Clear-mask-visualization-and-simple-eda"><span class="nav-number">2.</span> <span class="nav-text">Clear mask visualization and simple eda</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#install-segmentation-models-pytorch"><span class="nav-number">3.</span> <span class="nav-text">install segmentation_models_pytorch</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#install-PyTorch"><span class="nav-number">3.1.</span> <span class="nav-text">install PyTorch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#install-segmentation-models-pytorch-1"><span class="nav-number">3.2.</span> <span class="nav-text">install segmentation_models_pytorch</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -248,12 +248,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Kaggle竞赛：基于PyTorch/U-Net算法的表面缺陷检测：Part.1  数据集分析 | Hai-Wei Chai's Blog">
+      <meta itemprop="name" content="Kaggle竞赛：基于PyTorch/U-Net算法的表面缺陷检测 | Hai-Wei Chai's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Kaggle竞赛：基于PyTorch/U-Net算法的表面缺陷检测：Part.1  数据集分析
+          Kaggle竞赛：基于PyTorch/U-Net算法的表面缺陷检测
         </h1>
 
         <div class="post-meta-container">
@@ -308,8 +308,8 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>Kaggle成立于2010年，是进行数据挖掘和预测算法研发的在线平台。除平台功能外，Kaggle官方每年会举办一次大规模竞赛，奖金一百万美元，吸引了广大Data Science爱好者参与其中。从某种角度上，可以把它理解为众包平台。但不同于传统的低层次劳动力需求，Kaggle致力于解决业界难题，不再以学历和工作经验作为唯一的人才评判标准，旨在任用最聪明的人解决世界上最棘手的问题，为顶尖人才和企业之间搭建了一座桥梁。</p>
-<span id="more"></span>
 <p>Kaggle曾公开举办一次<a target="_blank" rel="noopener" href="https://www.kaggle.com/c/severstal-steel-defect-detection/overview">钢材表面缺陷检测竞赛</a>，是将深度学习应用于传统目标检测很好的例子。对该赛题和解法的剖析，可以辅助理解深度学习的流程，及其应用于具体问题的套路。</p>
+<span id="more"></span>
 <h2 id="获取云端Kaggle数据集"><a href="#获取云端Kaggle数据集" class="headerlink" title="获取云端Kaggle数据集"></a>获取云端Kaggle数据集</h2><p>此处引用：<a target="_blank" rel="noopener" href="https://github.com/Kaggle/kaggle-api">Kaggle API User Guide</a></p>
 <p>To use the Kaggle API, sign up for a Kaggle account at <a target="_blank" rel="noopener" href="https://www.kaggle.com">https://www.kaggle.com</a>. Then go to the ‘Account’ tab of your user profile (<a target="_blank" rel="noopener" href="https://www.kaggle.com/&quot;username&quot;/account">https://www.kaggle.com/&quot;username&quot;/account</a>) and select ‘Create API Token’. This will trigger the download of kaggle.json, a file containing your API credentials. Place this file in the location ~/.kaggle/kaggle.json (on Windows in the location C:\Users\”Windows-username”\.kaggle\kaggle.json - you can check the exact location, sans drive, with echo %HOMEPATH%). You can define a shell environment variable KAGGLE_CONFIG_DIR to change this location to $KAGGLE_CONFIG_DIR/kaggle.json (on Windows it will be %KAGGLE_CONFIG_DIR%\kaggle.json).</p>
 <p>For your security, ensure that other users of your computer do not have read access to your credentials. On Unix-based systems you can do this with the following command:</p>
@@ -341,6 +341,13 @@
 <li>There are similar numbers of images with and without defects.</li>
 <li>class is imbalanced</li>
 </ul>
+<h2 id="install-segmentation-models-pytorch"><a href="#install-segmentation-models-pytorch" class="headerlink" title="install segmentation_models_pytorch"></a>install segmentation_models_pytorch</h2><h3 id="install-PyTorch"><a href="#install-PyTorch" class="headerlink" title="install PyTorch"></a>install PyTorch</h3><p>查看CUDA版本，在Windows PowerShell中运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvidia-smi</span><br></pre></td></tr></table></figure>
+<p>在<a target="_blank" rel="noopener" href="https://pytorch.org/">PyTorch官网</a>下载对应版本：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu117</span><br></pre></td></tr></table></figure>
+<h3 id="install-segmentation-models-pytorch-1"><a href="#install-segmentation-models-pytorch-1" class="headerlink" title="install segmentation_models_pytorch"></a>install segmentation_models_pytorch</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install segmentation-models-pytorch</span><br></pre></td></tr></table></figure>
+<p>or install latest version from source:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install git+https://github.com/qubvel/segmentation_models.pytorch</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -370,7 +377,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>Post link: </strong>
-      <a href="https://hwchai.com/Exp005-Kaggle01/" title="Kaggle竞赛：基于PyTorch&#x2F;U-Net算法的表面缺陷检测：Part.1  数据集分析">https://hwchai.com/Exp005-Kaggle01/</a>
+      <a href="https://hwchai.com/Exp005-Kaggle01/" title="Kaggle竞赛：基于PyTorch&#x2F;U-Net算法的表面缺陷检测">https://hwchai.com/Exp005-Kaggle01/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -414,7 +421,7 @@
 
 <div class="copyright">
   &copy; 2019 – 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
