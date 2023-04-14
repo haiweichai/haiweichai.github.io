@@ -1,23 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://hwchai.com/Exp002-ArticleReply/</loc>
+    <loc>https://hwchai.com/Exp006-DVC/</loc>
+    <lastmod>2023-04-14</lastmod>
+  </url>
+  <url>
+    <loc>https://hwchai.com/Exp010-ArticleReply/</loc>
     <lastmod>2022-10-15</lastmod>
   </url>
   <url>
-    <loc>https://hwchai.com/Exp005-Kaggle01/</loc>
+    <loc>https://hwchai.com/Exp011-book01/</loc>
+    <lastmod>2022-09-01</lastmod>
+  </url>
+  <url>
+    <loc>https://hwchai.com/Exp013-Kaggle01/</loc>
     <lastmod>2021-11-01</lastmod>
   </url>
   <url>
-    <loc>https://hwchai.com/Exp004-SIFT/</loc>
+    <loc>https://hwchai.com/Exp012-SIFT/</loc>
     <lastmod>2021-10-31</lastmod>
   </url>
   <url>
-    <loc>https://hwchai.com/Exp003-WinServerSetup/</loc>
+    <loc>https://hwchai.com/Exp009-WinServerSetup/</loc>
     <lastmod>2021-08-03</lastmod>
   </url>
   <url>
-    <loc>https://hwchai.com/hello-world/</loc>
+    <loc>https://hwchai.com/Exp007-NLM/</loc>
+    <lastmod>2020-09-30</lastmod>
+  </url>
+  <url>
+    <loc>https://hwchai.com/Exp008-stripe-remove/</loc>
+    <lastmod>2020-09-14</lastmod>
+  </url>
+  <url>
+    <loc>https://hwchai.com/Exp005-labCT/</loc>
+    <lastmod>2020-07-31</lastmod>
+  </url>
+  <url>
+    <loc>https://hwchai.com/Exp004-PUplan/</loc>
+    <lastmod>2019-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://hwchai.com/archive/Exp006-PU-foam.html</loc>
+    <lastmod>2019-11-04</lastmod>
+  </url>
+  <url>
+    <loc>https://hwchai.com/Exp003-Reply/</loc>
+    <lastmod>2019-10-08</lastmod>
+  </url>
+  <url>
+    <loc>https://hwchai.com/Exp002-writing/</loc>
+    <lastmod>2019-09-13</lastmod>
+  </url>
+  <url>
+    <loc>https://hwchai.com/Exp001-hello-world/</loc>
     <lastmod>2019-07-29</lastmod>
   </url>
 </urlset> 
