@@ -242,20 +242,6 @@
   </url>
   
   <url>
-    <loc>https://hwchai.com/tags/Digital-Volume-Correlation/</loc>
-    <lastmod>2024-03-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://hwchai.com/tags/Image-Processing/</loc>
-    <lastmod>2024-03-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://hwchai.com/tags/Laboratory-micro-CT/</loc>
     <lastmod>2024-03-19</lastmod>
     <changefreq>weekly</changefreq>
@@ -292,6 +278,20 @@
   
   <url>
     <loc>https://hwchai.com/tags/personal-safety/</loc>
+    <lastmod>2024-03-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hwchai.com/tags/Digital-Volume-Correlation/</loc>
+    <lastmod>2024-03-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hwchai.com/tags/Image-Processing/</loc>
     <lastmod>2024-03-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -412,14 +412,14 @@
   </url>
   
   <url>
-    <loc>https://hwchai.com/categories/Digital-Image-Processing/</loc>
+    <loc>https://hwchai.com/categories/X-ray-imaging/</loc>
     <lastmod>2024-03-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://hwchai.com/categories/X-ray-imaging/</loc>
+    <loc>https://hwchai.com/categories/Digital-Image-Processing/</loc>
     <lastmod>2024-03-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
