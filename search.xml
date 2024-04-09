@@ -561,6 +561,24 @@
       </tags>
   </entry>
   <entry>
+    <title>数字体图像相关（Digital Volume Correlation, DVC）技术</title>
+    <url>/archive/Exp006-DVC/</url>
+    <content><![CDATA[<p><img src="/Exp009_image001.jpg" width = 100% div align=center / title="Digital Volume Correlation&emsp;&emsp;Author: Hai-Wei Chai,  International Journal of Plasticity 102730 (2020)."></p>
+<span id="more"></span>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>&emsp;&emsp;高分辨率计算机层析成像技术的发展使获得目标微尺度三维图像成为可能。在目标变形过程的不同时刻拍摄其三维图像，即可使用数字体图像相关（Digital Volume Correlation, DVC）技术[1]测算其位移场及应变场。DVC比较变形前后图像各子区，找到匹配特征进而得到位移场。应变场通常通过计算位移场的梯度得到。要估计位移场，通常需将图像分为许多（可重叠）子区，对于每个子区，在下一时刻图像中寻找一个匹配子集以最小化其差异性或最大化其相关性。所产生的应变场的准确性（mean error）和精确性（standard deviation）很大程度上取决于算法设计与参数选择，如子区尺寸[11]等。</p>
+<p>&emsp;&emsp;DVC 技术是数字图像相关（Digital Image Correlation, DIC）技术[2]的三维扩展，然而与DIC技术相比，DVC技术的应用场景对其算法设计工作提出了更加严峻的考验。无论是光学成像或是X射线透射成像，平面图像的采集都非常便捷、快速，而对目标进行三维形貌表征往往需要耗费大量时间，这就导致DIC技术的输入图像序列往往拍摄时间间隔较短，相应的相邻两幅图像间变形幅度较小；而DVC技术的输入体图像序列往往拍摄间隔很大，相邻两幅体图像间变形幅度较大，一定程度上提高了目标追踪的难度。基于同步辐射的动态CT技术允许在亚秒级的时间间隔内连续采集CT图像，能够密切观测目标三维结构演化过程。但与这种表征技术相结合的原位加载手段目前仍然十分有限，且受限于高速相机内存空间往往较小与CT图像极大的存储容量需求间的矛盾，这种技术手段的时间分辨率与连续扫描的时间跨度往往不可兼得，存在一定局限性。面对来自应用场景的挑战，DVC技术仍然存在几个方面有待研究和改进。</p>
+<p>&emsp;&emsp;DVC可以应用于任何 micro-CT 图像中提供了足够细节的结构非均匀样品，例如金属[3,4]、木材[5,6]、沙砾[7,8]、骨骼[9,10]等。然而结构精细程度较低的图像是对DVC技术的挑战。骨小梁就是一个典型的例子，它是一种低密度海绵状骨，由于其存在大量极纤细的网状结构，难以对其微细观结构进行精细CT表征[9]，进而DVC技术难以准确追踪并测算其位移场。</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p><a href="https://link.springer.com/article/10.1007/BF02323555"><font size = 2px>[1]&nbsp;&nbsp;Bay, B.K. , Smith, T.S. , Fyhrie, D.P. , Saad, M. , 1999. Digital volume correlation: three-dimensional strain mapping using x-ray tomography. Exp. Mech. 39 (3), 217–226.</font></a><br><a href="https://iopscience.iop.org/article/10.1088/0957-0233/20/6/062001/meta"><font size = 2px>[2]&nbsp;&nbsp;Pan, B. , Qian, K. , Xie, H. , Asundi, A. , 2009. Two-dimensional digital image correlation for in-plane displacement and strain measurement: a review. Meas. Sci. Technol. 20 (6), 062001.</font></a><br><a href="https://hal.archives-ouvertes.fr/hal-00848721/document"><font size = 2px>[3]&nbsp;&nbsp;Leclerc, H. , Périé, J.-N. , Hild, F. , Roux, S. , 2012. Digital volume correlation: what are the limits to the spatial resolution? Mech. Ind. 13 (6), 361–371.</font></a><br><a href="https://hal.archives-ouvertes.fr/hal-00848726/file/EXME2013a-ccsd.pdf"><font size = 2px>[4]&nbsp;&nbsp;Morgeneyer, T.F. , Helfen, L. , Mubarak, H. , Hild, F. ,2013. 3D digital volume correla- tion of synchrotron radiation laminography images of ductile crack initiation: an initial feasibility study. Exp. Mech. 53 (4), 543–556.</font></a><br><a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1475-1305.2009.00687.x"><font size = 2px>[5]&nbsp;&nbsp;Forsberg, F. , Sjödahl, M. , Mooser, R. , Hack, E. , Wyss, P. , 2010. Full three-dimensional strain measurements on wood exposed to three-point bending: analysis by use of digital volume correlation applied to synchrotron radiation micro-computed tomography image data. Strain 46 (1), 47–60.</font></a><br><a href="https://link.springer.com/article/10.1007/s10853-012-7100-0"><font size = 2px>[6]&nbsp;&nbsp;Tran, H. , Doumalin, P. , Delisee, C. , Dupre, J.C. , Malvestio, J. , Germaneau, A. , 2013. J. Mater. Sci. 48 (8), 3198–3212.</font></a><br><a href="https://reader.elsevier.com/reader/sd/pii/S0038080613000188?token=360410C7A02B3A281C1F7BF303D28F9DEAA92F606202A37921F16CE0709416B87EA4BFAA169E10C130FE0700ACA1C005"><font size = 2px>[7]&nbsp;&nbsp;Higo, Y. , Oka, F. , Sato, T. , Matsushima, Y. , Kimoto, S. , 2013. Investigation of local- ized deformation in partially saturated sand under triaxial compression using microfocus x-ray ct with digital image correlation. Soils Found. 53 (2), 181–198.</font></a><br><a href="https://link.springer.com/article/10.1007%2Fs11340-014-9915-x"><font size = 2px>[8]&nbsp;&nbsp;Hu, Z. , Du, Y. , Luo, H. , Zhong, B. , Lu, H. , 2014. Internal deformation measurement and force chain characterization of mason sand under confined compression using incremental digital volume correlation. Exp. Mech. 54 (9), 1575–1586.</font></a><br><a href="https://www.sciencedirect.com/science/article/abs/pii/S1751616113003159"><font size = 2px>[9]&nbsp;&nbsp;Gillard, F. , Boardman, R. , Mavrogordato, M. , Hollis, D. , Sinclair, I. , Pierron, F. , Browne, M. , 2014. The application of digital volume correlation (DVC) to study the microstructural behaviour of trabecular bone during compression. J. Mech. Behav. Biomed. Mater. 29, 4 80–4 99.</font></a><br><a href="https://www.sciencedirect.com/science/article/abs/pii/S0021929014000037"><font size = 2px>[10]&nbsp;&nbsp;Roberts, B.C. , Perilli, E. , Reynolds, K.J. , 2014. Application of the digital volume corre- lation technique for the measurement of displacement and strain fields in bone: a literature review. J. Biomech. 47 (5), 923–934.</font></a><br><a href="http://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC2613834&amp;blobtype=pdf"><font size = 2px>[11]&nbsp;&nbsp;Liu, L. , Morgan, E.F. , 2007. Accuracy and precision of digital volume correlation in quantifying displacements and strains in trabecular bone. J. Biomech. 40 (15), 3516–3520.</font></a><br><a href=""><font size = 2px>[1]&nbsp;&nbsp;</font></a><br><a href=""><font size = 2px>[1]&nbsp;&nbsp;</font></a><br><a href=""><font size = 2px>[1]&nbsp;&nbsp;</font></a><br><a href=""><font size = 2px>[1]&nbsp;&nbsp;</font></a><br><a href=""><font size = 2px>[1]&nbsp;&nbsp;</font></a><br><a href=""><font size = 2px>[1]&nbsp;&nbsp;</font></a><br><a href=""><font size = 2px>[1]&nbsp;&nbsp;</font></a><br><a href=""><font size = 2px>[1]&nbsp;&nbsp;</font></a></p>
+]]></content>
+      <categories>
+        <category>Digital Image Processing</category>
+      </categories>
+      <tags>
+        <tag>Digital Volume Correlation</tag>
+        <tag>Image Processing</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Windows Server 2019 + Mint OS 搭建 Tomography 数据分析工作站</title>
     <url>/archive/Exp009-WinServerSetup/</url>
     <content><![CDATA[<p>为实现多用户同时登录 Tomography 数据分析工作站，避免设备冗余浪费，使用 Windows Server 2019 与 Mint OS 虚拟机的组合是个让人满意的方案。 本文记录配置 Tomography 数据分析工作站时的一些常见问题及相应的解决办法。</p>
@@ -601,24 +619,6 @@
       </categories>
       <tags>
         <tag>Windows Server 2019</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数字体图像相关（Digital Volume Correlation, DVC）技术</title>
-    <url>/archive/Exp006-DVC/</url>
-    <content><![CDATA[<p><img src="/Exp009_image001.jpg" width = 100% div align=center / title="Digital Volume Correlation&emsp;&emsp;Author: Hai-Wei Chai,  International Journal of Plasticity 102730 (2020)."></p>
-<span id="more"></span>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>&emsp;&emsp;高分辨率计算机层析成像技术的发展使获得目标微尺度三维图像成为可能。在目标变形过程的不同时刻拍摄其三维图像，即可使用数字体图像相关（Digital Volume Correlation, DVC）技术[1]测算其位移场及应变场。DVC比较变形前后图像各子区，找到匹配特征进而得到位移场。应变场通常通过计算位移场的梯度得到。要估计位移场，通常需将图像分为许多（可重叠）子区，对于每个子区，在下一时刻图像中寻找一个匹配子集以最小化其差异性或最大化其相关性。所产生的应变场的准确性（mean error）和精确性（standard deviation）很大程度上取决于算法设计与参数选择，如子区尺寸[11]等。</p>
-<p>&emsp;&emsp;DVC 技术是数字图像相关（Digital Image Correlation, DIC）技术[2]的三维扩展，然而与DIC技术相比，DVC技术的应用场景对其算法设计工作提出了更加严峻的考验。无论是光学成像或是X射线透射成像，平面图像的采集都非常便捷、快速，而对目标进行三维形貌表征往往需要耗费大量时间，这就导致DIC技术的输入图像序列往往拍摄时间间隔较短，相应的相邻两幅图像间变形幅度较小；而DVC技术的输入体图像序列往往拍摄间隔很大，相邻两幅体图像间变形幅度较大，一定程度上提高了目标追踪的难度。基于同步辐射的动态CT技术允许在亚秒级的时间间隔内连续采集CT图像，能够密切观测目标三维结构演化过程。但与这种表征技术相结合的原位加载手段目前仍然十分有限，且受限于高速相机内存空间往往较小与CT图像极大的存储容量需求间的矛盾，这种技术手段的时间分辨率与连续扫描的时间跨度往往不可兼得，存在一定局限性。面对来自应用场景的挑战，DVC技术仍然存在几个方面有待研究和改进。</p>
-<p>&emsp;&emsp;DVC可以应用于任何 micro-CT 图像中提供了足够细节的结构非均匀样品，例如金属[3,4]、木材[5,6]、沙砾[7,8]、骨骼[9,10]等。然而结构精细程度较低的图像是对DVC技术的挑战。骨小梁就是一个典型的例子，它是一种低密度海绵状骨，由于其存在大量极纤细的网状结构，难以对其微细观结构进行精细CT表征[9]，进而DVC技术难以准确追踪并测算其位移场。</p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p><a href="https://link.springer.com/article/10.1007/BF02323555"><font size = 2px>[1]&nbsp;&nbsp;Bay, B.K. , Smith, T.S. , Fyhrie, D.P. , Saad, M. , 1999. Digital volume correlation: three-dimensional strain mapping using x-ray tomography. Exp. Mech. 39 (3), 217–226.</font></a><br><a href="https://iopscience.iop.org/article/10.1088/0957-0233/20/6/062001/meta"><font size = 2px>[2]&nbsp;&nbsp;Pan, B. , Qian, K. , Xie, H. , Asundi, A. , 2009. Two-dimensional digital image correlation for in-plane displacement and strain measurement: a review. Meas. Sci. Technol. 20 (6), 062001.</font></a><br><a href="https://hal.archives-ouvertes.fr/hal-00848721/document"><font size = 2px>[3]&nbsp;&nbsp;Leclerc, H. , Périé, J.-N. , Hild, F. , Roux, S. , 2012. Digital volume correlation: what are the limits to the spatial resolution? Mech. Ind. 13 (6), 361–371.</font></a><br><a href="https://hal.archives-ouvertes.fr/hal-00848726/file/EXME2013a-ccsd.pdf"><font size = 2px>[4]&nbsp;&nbsp;Morgeneyer, T.F. , Helfen, L. , Mubarak, H. , Hild, F. ,2013. 3D digital volume correla- tion of synchrotron radiation laminography images of ductile crack initiation: an initial feasibility study. Exp. Mech. 53 (4), 543–556.</font></a><br><a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1475-1305.2009.00687.x"><font size = 2px>[5]&nbsp;&nbsp;Forsberg, F. , Sjödahl, M. , Mooser, R. , Hack, E. , Wyss, P. , 2010. Full three-dimensional strain measurements on wood exposed to three-point bending: analysis by use of digital volume correlation applied to synchrotron radiation micro-computed tomography image data. Strain 46 (1), 47–60.</font></a><br><a href="https://link.springer.com/article/10.1007/s10853-012-7100-0"><font size = 2px>[6]&nbsp;&nbsp;Tran, H. , Doumalin, P. , Delisee, C. , Dupre, J.C. , Malvestio, J. , Germaneau, A. , 2013. J. Mater. Sci. 48 (8), 3198–3212.</font></a><br><a href="https://reader.elsevier.com/reader/sd/pii/S0038080613000188?token=360410C7A02B3A281C1F7BF303D28F9DEAA92F606202A37921F16CE0709416B87EA4BFAA169E10C130FE0700ACA1C005"><font size = 2px>[7]&nbsp;&nbsp;Higo, Y. , Oka, F. , Sato, T. , Matsushima, Y. , Kimoto, S. , 2013. Investigation of local- ized deformation in partially saturated sand under triaxial compression using microfocus x-ray ct with digital image correlation. Soils Found. 53 (2), 181–198.</font></a><br><a href="https://link.springer.com/article/10.1007%2Fs11340-014-9915-x"><font size = 2px>[8]&nbsp;&nbsp;Hu, Z. , Du, Y. , Luo, H. , Zhong, B. , Lu, H. , 2014. Internal deformation measurement and force chain characterization of mason sand under confined compression using incremental digital volume correlation. Exp. Mech. 54 (9), 1575–1586.</font></a><br><a href="https://www.sciencedirect.com/science/article/abs/pii/S1751616113003159"><font size = 2px>[9]&nbsp;&nbsp;Gillard, F. , Boardman, R. , Mavrogordato, M. , Hollis, D. , Sinclair, I. , Pierron, F. , Browne, M. , 2014. The application of digital volume correlation (DVC) to study the microstructural behaviour of trabecular bone during compression. J. Mech. Behav. Biomed. Mater. 29, 4 80–4 99.</font></a><br><a href="https://www.sciencedirect.com/science/article/abs/pii/S0021929014000037"><font size = 2px>[10]&nbsp;&nbsp;Roberts, B.C. , Perilli, E. , Reynolds, K.J. , 2014. Application of the digital volume corre- lation technique for the measurement of displacement and strain fields in bone: a literature review. J. Biomech. 47 (5), 923–934.</font></a><br><a href="http://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC2613834&amp;blobtype=pdf"><font size = 2px>[11]&nbsp;&nbsp;Liu, L. , Morgan, E.F. , 2007. Accuracy and precision of digital volume correlation in quantifying displacements and strains in trabecular bone. J. Biomech. 40 (15), 3516–3520.</font></a><br><a href=""><font size = 2px>[1]&nbsp;&nbsp;</font></a><br><a href=""><font size = 2px>[1]&nbsp;&nbsp;</font></a><br><a href=""><font size = 2px>[1]&nbsp;&nbsp;</font></a><br><a href=""><font size = 2px>[1]&nbsp;&nbsp;</font></a><br><a href=""><font size = 2px>[1]&nbsp;&nbsp;</font></a><br><a href=""><font size = 2px>[1]&nbsp;&nbsp;</font></a><br><a href=""><font size = 2px>[1]&nbsp;&nbsp;</font></a><br><a href=""><font size = 2px>[1]&nbsp;&nbsp;</font></a></p>
-]]></content>
-      <categories>
-        <category>Digital Image Processing</category>
-      </categories>
-      <tags>
-        <tag>Digital Volume Correlation</tag>
-        <tag>Image Processing</tag>
       </tags>
   </entry>
   <entry>
@@ -1074,7 +1074,7 @@
 <li>out: 可选参数，结果将放置在此数组中。Out必须有合适的形状来容纳输出。</li>
 </ul>
 <h2 id="从NumPy数组中获取最大n值的位置"><a href="#从NumPy数组中获取最大n值的位置" class="headerlink" title="从NumPy数组中获取最大n值的位置"></a>从NumPy数组中获取最大n值的位置</h2><p>问题：获取给定数组a中前5个最大值的位置。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Input</span></span><br><span class="line">np.random.seed(<span class="number">100</span>)</span><br><span class="line">a = np.random.uniform(<span class="number">1</span>,<span class="number">50</span>,<span class="number">20</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Solution:</span></span><br><span class="line"><span class="built_in">print</span>(a.argsort()[-<span class="number">5</span>:])</span><br><span class="line"><span class="comment"># &gt; [18 7 3 10 15]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Solution 2:</span></span><br><span class="line">np.argpartition(-a, <span class="number">5</span>)[:<span class="number">5</span>]</span><br><span class="line"><span class="comment"># &gt; [15 10  3  7 18]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Below methods will get you the values.</span></span><br><span class="line"><span class="comment"># Method 1:</span></span><br><span class="line">a[a.argsort()][-<span class="number">5</span>:]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Method 2:</span></span><br><span class="line">np.sort(a)[-<span class="number">5</span>:]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Method 3:</span></span><br><span class="line">np.partition(a, kth=-<span class="number">5</span>)[-<span class="number">5</span>:]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Method 4:</span></span><br><span class="line">a[np.argpartition(-a, <span class="number">5</span>)][:<span class="number">5</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Input</span></span><br><span class="line">np.random.seed(<span class="number">100</span>)</span><br><span class="line">a = np.random.uniform(<span class="number">1</span>,<span class="number">50</span>,<span class="number">20</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Solution:</span></span><br><span class="line"><span class="built_in">print</span>(a.argsort()[-<span class="number">5</span>:])</span><br><span class="line"><span class="comment"># &gt; [18 7 3 10 15]</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Below methods will get you the values.</span></span><br><span class="line"><span class="comment"># Method 1:</span></span><br><span class="line">a[a.argsort()][-<span class="number">5</span>:]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Method 2:</span></span><br><span class="line">np.sort(a)[-<span class="number">5</span>:]</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Programming language</category>
@@ -2886,6 +2886,28 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
+    <title>About</title>
+    <url>/about/index.html</url>
+    <content><![CDATA[<h2 id="Self-Introduction"><a href="#Self-Introduction" class="headerlink" title="Self-Introduction:"></a>Self-Introduction:</h2><p>Hai-Wei Chai&ensp;[柴海伟]</p>
+<ul>
+<li>2022.06 - Now, Assistant Professor in School of Material Science and Engineering, Southwest Jiaotong University</li>
+<li>2019.09 - 2021.12, Doctor in Peac Institute of Multiscale Sciences</li>
+<li>2016.09 - 2019.06, Master in Peac Institute of Multiscale Sciences</li>
+<li>2012.09 - 2016.06, Bachelor in School of Physical Sciences, University of Science and Technology of China</li>
+</ul>
+<h2 id="Skills"><a href="#Skills" class="headerlink" title="Skills:"></a>Skills:</h2><ul>
+<li>Programming languages: C/C++, Matlab, Python, CUDA</li>
+<li>Major: X-ray Imaging and Diffraction, Computed Tomography, Machine Learning</li>
+<li>OS Platform: Linux, Mac OS, Windows</li>
+<li>Language: English, Chinese</li>
+</ul>
+<h2 id="Contact-details"><a href="#Contact-details" class="headerlink" title="Contact details:"></a>Contact details:</h2><ul>
+<li>E-mail: chw9402@mail.ustc.edu.cn</li>
+</ul>
+<h2 id="My-friends-amp-me-at-USTC-2016"><a href="#My-friends-amp-me-at-USTC-2016" class="headerlink" title="My friends &amp; me at USTC 2016:"></a>My friends &amp; me at USTC 2016:</h2><p><img src="https://s1.ax1x.com/2022/10/19/xsgD7F.jpg" alt=""></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Scholar</title>
     <url>/scholar/index.html</url>
     <content><![CDATA[<ul>
@@ -2943,26 +2965,9 @@
 ]]></content>
   </entry>
   <entry>
-    <title>About</title>
-    <url>/about/index.html</url>
-    <content><![CDATA[<h2 id="Self-Introduction"><a href="#Self-Introduction" class="headerlink" title="Self-Introduction:"></a>Self-Introduction:</h2><p>Hai-Wei Chai&ensp;[柴海伟]</p>
-<ul>
-<li>2022.06 - Now, Assistant Professor in School of Material Science and Engineering, Southwest Jiaotong University</li>
-<li>2019.09 - 2021.12, Doctor in Peac Institute of Multiscale Sciences</li>
-<li>2016.09 - 2019.06, Master in Peac Institute of Multiscale Sciences</li>
-<li>2012.09 - 2016.06, Bachelor in School of Physical Sciences, University of Science and Technology of China</li>
-</ul>
-<h2 id="Skills"><a href="#Skills" class="headerlink" title="Skills:"></a>Skills:</h2><ul>
-<li>Programming languages: C/C++, Matlab, Python, CUDA</li>
-<li>Major: X-ray Imaging and Diffraction, Computed Tomography, Machine Learning</li>
-<li>OS Platform: Linux, Mac OS, Windows</li>
-<li>Language: English, Chinese</li>
-</ul>
-<h2 id="Contact-details"><a href="#Contact-details" class="headerlink" title="Contact details:"></a>Contact details:</h2><ul>
-<li>E-mail: chw9402@mail.ustc.edu.cn</li>
-</ul>
-<h2 id="My-friends-amp-me-at-USTC-2016"><a href="#My-friends-amp-me-at-USTC-2016" class="headerlink" title="My friends &amp; me at USTC 2016:"></a>My friends &amp; me at USTC 2016:</h2><p><img src="https://s1.ax1x.com/2022/10/19/xsgD7F.jpg" alt=""></p>
-]]></content>
+    <title>Tags</title>
+    <url>/tags/index.html</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>Support</title>
@@ -2992,11 +2997,6 @@
 <li><a href="http://yearito.cn/posts/hexo-writing-skills.html"><font color="#80b1d3">[Link]</font></a>    &emsp; Markdown 写作技巧</li>
 </ul>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Tags</title>
-    <url>/tags/index.html</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>Micro Computed Tomography Team</title>
