@@ -40,9 +40,9 @@ https://hwchai.com/tags/personal-safety/
 https://hwchai.com/tags/Kaggle/
 https://hwchai.com/tags/PyTorch/
 https://hwchai.com/tags/U-Net/
+https://hwchai.com/tags/Windows-Server-2019/
 https://hwchai.com/tags/Digital-Volume-Correlation/
 https://hwchai.com/tags/Image-Processing/
-https://hwchai.com/tags/Windows-Server-2019/
 https://hwchai.com/tags/denoise/
 https://hwchai.com/tags/Non-Local-Means/
 https://hwchai.com/tags/SIFT/
@@ -59,6 +59,6 @@ https://hwchai.com/categories/Notes-on-Life-and-Letter/
 https://hwchai.com/categories/Scholarship-Writing-and-Mindset/
 https://hwchai.com/categories/X-ray-imaging/
 https://hwchai.com/categories/Machine-Learning/
-https://hwchai.com/categories/Digital-Image-Processing/
 https://hwchai.com/categories/Computer-Environment/
+https://hwchai.com/categories/Digital-Image-Processing/
 https://hwchai.com/categories/Programming-language/
