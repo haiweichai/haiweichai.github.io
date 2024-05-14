@@ -1,7 +1,8 @@
+https://hwchai.com/PythonLes10/
 https://hwchai.com/PythonLes09/
 https://hwchai.com/PythonLes06/
-https://hwchai.com/PythonLes07/
 https://hwchai.com/PythonLes08/
+https://hwchai.com/PythonLes07/
 https://hwchai.com/PythonLes05/
 https://hwchai.com/PythonLes04/
 https://hwchai.com/PythonLes03/
@@ -49,6 +50,7 @@ https://hwchai.com/tags/Non-Local-Means/
 https://hwchai.com/tags/SIFT/
 https://hwchai.com/tags/Python/
 https://hwchai.com/tags/NumPy/
+https://hwchai.com/tags/Image-Segementation/
 https://hwchai.com/tags/Polyurethane-PU-Foam/
 https://hwchai.com/tags/Dynamic-Tomography/
 https://hwchai.com/tags/stripe-remove/
