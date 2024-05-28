@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>https://hwchai.com/PythonLes06/</loc>
+    <loc>https://hwchai.com/PythonLes07/</loc>
     
     <lastmod>2024-04-09</lastmod>
     
@@ -47,7 +47,7 @@
   </url>
   
   <url>
-    <loc>https://hwchai.com/PythonLes07/</loc>
+    <loc>https://hwchai.com/PythonLes06/</loc>
     
     <lastmod>2024-04-09</lastmod>
     
@@ -463,20 +463,6 @@
   </url>
   
   <url>
-    <loc>https://hwchai.com/tags/Acta-Materialia/</loc>
-    <lastmod>2024-05-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://hwchai.com/tags/Scholarship/</loc>
-    <lastmod>2024-05-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://hwchai.com/tags/stripe-remove/</loc>
     <lastmod>2024-05-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -492,6 +478,20 @@
   
   <url>
     <loc>https://hwchai.com/tags/image-process/</loc>
+    <lastmod>2024-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hwchai.com/tags/Acta-Materialia/</loc>
+    <lastmod>2024-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hwchai.com/tags/Scholarship/</loc>
     <lastmod>2024-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
