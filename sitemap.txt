@@ -1,3 +1,4 @@
+https://hwchai.com/PythonLes13/
 https://hwchai.com/PythonLes12/
 https://hwchai.com/PythonLes11/
 https://hwchai.com/PythonLes10/
@@ -29,9 +30,6 @@ https://hwchai.com/Exp003-Reply/
 https://hwchai.com/archive/Exp002-writing/
 https://hwchai.com/Exp001-hello-world/
 https://hwchai.com/
-https://hwchai.com/tags/English/
-https://hwchai.com/tags/Writing/
-https://hwchai.com/tags/Reply/
 https://hwchai.com/tags/Hexo/
 https://hwchai.com/tags/Next/
 https://hwchai.com/tags/Life/
@@ -41,6 +39,9 @@ https://hwchai.com/tags/3D-reconstruction/
 https://hwchai.com/tags/parallel-computing/
 https://hwchai.com/tags/light-path/
 https://hwchai.com/tags/personal-safety/
+https://hwchai.com/tags/English/
+https://hwchai.com/tags/Writing/
+https://hwchai.com/tags/Reply/
 https://hwchai.com/tags/Kaggle/
 https://hwchai.com/tags/PyTorch/
 https://hwchai.com/tags/U-Net/
@@ -60,9 +61,9 @@ https://hwchai.com/tags/tomography-analysis/
 https://hwchai.com/tags/image-process/
 https://hwchai.com/tags/Acta-Materialia/
 https://hwchai.com/tags/Scholarship/
-https://hwchai.com/categories/Scholarship-Writing-and-Mindset/
 https://hwchai.com/categories/Notes-on-Life-and-Letter/
 https://hwchai.com/categories/X-ray-imaging/
+https://hwchai.com/categories/Scholarship-Writing-and-Mindset/
 https://hwchai.com/categories/Machine-Learning/
 https://hwchai.com/categories/Digital-Image-Processing/
 https://hwchai.com/categories/Computer-Environment/

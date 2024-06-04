@@ -1,61 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>【英语写作】 审稿意见回复方法</title>
-    <url>/Exp003-Reply/</url>
-    <content><![CDATA[<p>李海洋关于南中国海钙质砂颗粒力学性能的研究工作去年十月整理成文，投给了 Scientific Report，因为一些特殊原因重新整理整理转投 Powder Technology ，近期终于得到Major revision 的返修意见。李海洋也早在 7 月就毕业入职了，由接下这个方向的师弟和我来纠错、整理、回复审稿意见。本文记录对审稿意见的回复技巧及近期对 Scr. Mater. 及 Powder Technol. 的两份审稿意见回复。</p>
-<span id="more"></span>
-<h2 id="Reply-for-Powder-Technol-HYLi"><a href="#Reply-for-Powder-Technol-HYLi" class="headerlink" title="Reply for Powder_Technol-HYLi"></a>Reply for Powder_Technol-HYLi</h2><h2 id="Reply-for-Scr-Mater-HWChai"><a href="#Reply-for-Scr-Mater-HWChai" class="headerlink" title="Reply for Scr_Mater-HWChai"></a>Reply for Scr_Mater-HWChai</h2><p><strong>Response to reviewer’s comments:</strong> “Correlation between cell wall buckling and deformation banding in a closed-cell foam” by H. W. Chai, H. Y. Li, X. H. Xiao, J. Y. Huang, and S. N. Luo, manuscript No. SMM-19-733.</p>
-<p>&emsp;We appreciate the constructive remarks by the referee and have revised the manuscript accordingly. The comments raised are all addressed as follows. The revision details are marked in red in the revised manuscript. </p>
-<h3 id="Reviewer-1"><a href="#Reviewer-1" class="headerlink" title="Reviewer #1"></a>Reviewer #1</h3><p>&emsp;This work investigates deformation dynamics in closed-cell foam of polymethacrylimide under uniaxial compression with in situ x-ray computed tomography and digital volume correlation. It is an interesting topic which it has to more study. The paper is good and well-written, but some issues have to be explained better.</p>
-<ol>
-<li><p>What is the difference to calculate mechanical properties in 2D or in 3D system?<br><font color=Blue>Response</font>: It is common to analyze mechanical properties of foams in 2D, e.g. via scanning electron microscopy. However, the microstructures of real foam materials are 3D in nature. There are distinct differences in quantification of the relative density, cell size, cell morphology and cell wall thickness of foams between the 2D and 3D systems, so 3D calculations of mechanical properties should be used if possible.</p>
-</li>
-<li><p>Could Voronoi systems be phenomenological models for representing these morphologies?<br><font color=Blue>Response</font>: Yes, to some extent. The 3D Voronoi technique (<font color=Blue>Okabe et al., 1992</font>) has been widely employed to generate closed-cell foams with irregular cells. It is useful for investigating the effects of structural parameters on the mechanical properties of foams. However, the Voronoi foam system cannot reproduce two characteristics of a real foam: the thickness distribution of walls, and the thickness variations along walls and between walls and edges. In a Voronoi system, wall thickness is normally constant across the sample, and is equal to the edge thickness.</p>
-</li>
-<li><p>What is the real perspective of this approach?<br><font color=Blue>Response</font>: Edge segmentation separates the initial structure of a foam sample into two parts, i.e., edges and walls. The edge and wall morphologies can be quantified, and used to predict deformation processes (e.g., location and temporal sequence of deformation banding) and collapse strength of a foam. They also serve a basis for tailoring local strength and energy absorption of foams. Combined with finite element method analysis, foam structure can be manipulated to study the effect of local heterogeneity or defects on foam deformation. Clarification has been made in the last paragraph.</p>
-</li>
-<li><p>Is it possible to perform a calculation based on beam elastic deformation?<br><font color=Blue>Response</font>: Not in our case. For open-cell foams or some closed-cell foams with large edge volume fractions, the calculation of mechanical properties based on elastic deformation of beams is appropriate. The mechanical support comes mainly from the edges in these foams. However, tomographic images in our case show that cell collapse is generally preceded by elastic buckling of cell walls. The solid fraction of edges in our foams is much lower than that of conventional polymer foams with curved, thin cell walls. Such a difference contributes to the difference in the dominant deformation modes during the collapse stage. Clarification has been made in line 1—5, paragraph 2, page 3, and line 17—23, paragraph 2, page 4.</p>
-</li>
-<li><p>Is it possible to consider Fig. 3a as a system of beams?<br><font color=Blue>Response</font>: Fig. 3a actually shows a $xy$-slice of the tomographic image, and is a cross-section of a 3D structure. In this slice, cell walls become lines while edges become corners or lines (for edges parallel to the $xy$-plane). So it is inappropriate to considered it as a system of beams. Clarification has been made in line 1—3, paragraph 1, page 4.</p>
-</li>
-<li><p>Is tomography representative for studying mechanical properties?<br><font color=Blue>Response</font>: Yes in our case. A previous study (<font color=Blue>Andrews et al., 2001</font>) showed that the mechanical properties of foams are independent of sample size when it is six times greater than the average cell size in both the horizontal and longitudinal directions. Our sample contains over 10 cell layers in both directions and the mechanical properties obtained from tomography are representative. Clarification has been made in line 8—9, the last paragraph, page 1, and line 1, paragraph 1, page 2.</p>
-</li>
-<li><p>How could be solved the homogeneity problem?<br><font color=Blue>Response</font>: See the reply to the preceding comment. In addition, this can also be verified by a good repeatability of stress—strain curves between different samples.</p>
-</li>
-<li><p>Graphical Abstract is not appropriate. It must be more explanatory and immediate.<br><font color=Blue>Response</font>: Thanks for your suggestion. The graphical abstract has been revised.</p>
-</li>
-</ol>
-<h3 id="Reviewer-2"><a href="#Reviewer-2" class="headerlink" title="Reviewer #2"></a>Reviewer #2</h3><p>&emsp;The limitation of the well-known empirical relationships between mechanical properties and relative density of cellular solids [1] has been realised and overcome through taking account of morphological parameters of individual or collective cells for more accurate structure-property correlation [12, 14]. However, these cell-level parameters are not directly linked to the deformation mechanism of base material. Recently, cell-wall parameters have been demonstrated to determine the compressive strength of a virtual 2D foam [<font color=Blue>Materials Sci. Eng. A 688 (2017), 27-39</font>], but no similar work has yet been reported for an actual 3D foam. In such a context, the study presented in this manuscript is a good and timely contribution to the progress in this research field. The manuscript is well written and the characterisation method is solid. The reviewer suggests the following aspects be revised to strengthen the analysis.</p>
-<ul>
-<li><p>Fig. 4 shows the distribution of cells with strength index smaller than 0.0037. However, these cells are not fully connected within each band that is indicated in Fig. 4b. In other words, the neighbour cells of the filtered cells within the indicated band have strength index larger than 0.0037, but they are excluded when evaluating the probability to form a band. This treatment is not appropriate, since the cause of the localised deformation band is the collective weakness of all the cells within the band rather than the inclusion of some weak cells in the band. Therefore, the authors should also calculate the strength index values for all the cells within each observed band (i.e. E1, E2, E3, E4 or E5, as shown in Fig. 2a) and then compare the averaged strength index values between different observed bands.<br><font color=Blue>Response</font>: We think that deformation band nucleation is dominated by the weakest cell walls in the band, rather than by the average strength of all walls. The axial stress is uniformly distributed on cell walls and edges across the sample section. When the stress reaches the critical buckling strength of the weakest cell walls, they buckle and change the mechanical (stress, support) state of their neighbors, making these cell walls fragile. The tomographic images also show that buckling occurs firstly in some (rather than all) cell walls in a band, and “propagates” to other walls, rendering all cells in the band collapse approximately at the same time.<br>&emsp;The average values of the buckling strength index for five observed bands (E1—E5) are 0.092, 0.820, 0.137, 0.242 and 0.294, respectively. The results are inconsistent with the temporal sequence of deformation banding, and cannot predict a collapse strength comparable to the experimental measurement. In fact, the cell walls are randomly oriented and those (nearly) perpendicular to the loading direction have large strength indices. These walls can increase the average value of strength index in a band. In addition, the deformation bands are not strictly perpendicular to the loading direction (inclination angle $4^\circ-10^\circ$). Averaging across the sample section along the loading direction or sample height may smooth out the strength index distribution.</p>
-</li>
-<li><p>The authors should attempt to obtain the axial distribution of strength index. A plot for strength index similar to the plot for Minkowski anisotropic index (Fig. S1) should be added.<br><font color=Blue>Response</font>: The distribution of the average buckling strength index of cell walls along the sample height is shown in Fig.R1. The curve from averaging all walls exhibits very large oscillations and does not show clearly the weak zones in the foam sample. Since the walls (nearly) perpendicular to the loading direction have large strength indices, we apply a filter process to exclude walls with $\beta&lt;30^\circ$ ($\beta$ the angle between the loading direction and a wall normal). The wall with a higher $\beta$ is more prone to buckle.<br>&emsp;In this way, the oscillations are reduced, but the distribution curve still does not show obvious features of deformation banding, compared to the 3D distribution of weakest walls. The probable reason is that the deformation bands are not strictly perpendicular to the loading direction (especially band E3). Averaging on the strength index of cell walls across the sample section along the height direction is not appropriate to probe the weak zones of foam sample. This may also be responsible for why the distribution of the Minkowski anisotropic index cannot predict deformation banding.</p>
-</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/haiweichai/gallery/master/Exp003/Exp001_image001.jpg" width = 70% div align=center /></p>
-<font size=2px>Fig.R1: Distribution of the average buckling strength index $\lambda_{\rm w}$ of cell walls along the sample height direction. Each data point is averaged within a $200\mu m$ segment along the height direction. $\beta$ is the angle between the loading direction and a wall normal. The wall with a higher $\beta$ value is more prone to buckle.</font>
-
-<ul>
-<li><p>Undoubtedly, structure-property correlation based on 3D quantification of the cell walls is more accurate and reliable than that based on 2D structural data. However, 3D data is not always accessible while 2D data can be easily obtained via processing cross-sectional images. Therefore, it is of practical value and interest to evaluate the usefulness of 2D analysis, but such evaluation cannot be possible without 3D results as reference. Given the established 3D correlation by the authors, the reviewer suggests the authors also perform a 2D correlation based on the CT slices and then address the limitation of the 2D analysis. It is indeed necessary because sometimes 2D and 3D analyses may lead to same conclusions (e.g. same location of the weakest site).<br><font color=Blue>Response</font>: The 2D analyses can provide a preliminary estimation of the cell size and solid fraction of foams. In terms of the cell wall thickness, 2D and 3D structural data can give similar results. If cell wall strength is controlled mainly by wall thickness, 2D and 3D analyses may lead to similar conclusions, as demonstrated in the previous work (<font color=Blue>Sun et al., 2017</font>).<br>&emsp;However, the width and height of cell walls cannot be accessed simultaneously in 2D analyses. The width and height distributions of cell walls from 2D analyses are also quite different from those in 3D analyses. Therefore, the 2D analysis is not appropriate for quantifying the cell wall strength in our case. In fact, it is impossible to accurately quantify local structural parameters in two dimensions, which hinders a full understanding of the cell strength of foam samples. In addition, the 2D analyses may lead to different conclusions in different sections.</p>
-</li>
-<li><p>In the caption of Figure 1, “color-coding refers to axial strain” should be “color-coding refers to increments of axial strain”. The crushed cells at a nominal strain of 0.5 (Fig. 1b) are indicated in red which corresponds to a value of zero, so the color code cannot be based on absolute strain.<br><font color=Blue>Response</font>: Thanks for your suggestion. Correction has been made in the caption of Fig.1.</p>
-</li>
-<li><p>The authors could include greater reference to previous work on X-ray imaging of the deformation behaviour of cellular materials and foams, particularly in situ measurements of the deformation.<br><font color=Blue>Response</font>: Thanks for your suggestion. We have added more references on this topic; see Refs. [13], [18] and [27] in the revised manuscript.</p>
-</li>
-</ul>
-<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><p>[1] Okabe, A., Boots, B., Sugihara, K., 1992. Spatial tessellations: concepts and applications of Voronoi diagrams. Wiley, Chichester.<br>[2] Andrews, E. W., et al. “Size effects in ductile cellular solids. Part II: experimental results.” International Journal of Mechanical Sciences 43 (2001): 701-713.<br>[3] Sun, Yongle, et al. “Image-based correlation between the meso-scale structure and deformation of closed-cell foam.” Materials Science and Engineering: A 688 (2017): 27-39.</p>
-]]></content>
-      <categories>
-        <category>Scholarship, Writing and Mindset</category>
-      </categories>
-      <tags>
-        <tag>English</tag>
-        <tag>Writing</tag>
-        <tag>Reply</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>序</title>
     <url>/Exp001-hello-world/</url>
     <content><![CDATA[<blockquote class="blockquote-center">
@@ -405,6 +350,61 @@
         <tag>parallel computing</tag>
         <tag>light path</tag>
         <tag>personal safety</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【英语写作】 审稿意见回复方法</title>
+    <url>/Exp003-Reply/</url>
+    <content><![CDATA[<p>李海洋关于南中国海钙质砂颗粒力学性能的研究工作去年十月整理成文，投给了 Scientific Report，因为一些特殊原因重新整理整理转投 Powder Technology ，近期终于得到Major revision 的返修意见。李海洋也早在 7 月就毕业入职了，由接下这个方向的师弟和我来纠错、整理、回复审稿意见。本文记录对审稿意见的回复技巧及近期对 Scr. Mater. 及 Powder Technol. 的两份审稿意见回复。</p>
+<span id="more"></span>
+<h2 id="Reply-for-Powder-Technol-HYLi"><a href="#Reply-for-Powder-Technol-HYLi" class="headerlink" title="Reply for Powder_Technol-HYLi"></a>Reply for Powder_Technol-HYLi</h2><h2 id="Reply-for-Scr-Mater-HWChai"><a href="#Reply-for-Scr-Mater-HWChai" class="headerlink" title="Reply for Scr_Mater-HWChai"></a>Reply for Scr_Mater-HWChai</h2><p><strong>Response to reviewer’s comments:</strong> “Correlation between cell wall buckling and deformation banding in a closed-cell foam” by H. W. Chai, H. Y. Li, X. H. Xiao, J. Y. Huang, and S. N. Luo, manuscript No. SMM-19-733.</p>
+<p>&emsp;We appreciate the constructive remarks by the referee and have revised the manuscript accordingly. The comments raised are all addressed as follows. The revision details are marked in red in the revised manuscript. </p>
+<h3 id="Reviewer-1"><a href="#Reviewer-1" class="headerlink" title="Reviewer #1"></a>Reviewer #1</h3><p>&emsp;This work investigates deformation dynamics in closed-cell foam of polymethacrylimide under uniaxial compression with in situ x-ray computed tomography and digital volume correlation. It is an interesting topic which it has to more study. The paper is good and well-written, but some issues have to be explained better.</p>
+<ol>
+<li><p>What is the difference to calculate mechanical properties in 2D or in 3D system?<br><font color=Blue>Response</font>: It is common to analyze mechanical properties of foams in 2D, e.g. via scanning electron microscopy. However, the microstructures of real foam materials are 3D in nature. There are distinct differences in quantification of the relative density, cell size, cell morphology and cell wall thickness of foams between the 2D and 3D systems, so 3D calculations of mechanical properties should be used if possible.</p>
+</li>
+<li><p>Could Voronoi systems be phenomenological models for representing these morphologies?<br><font color=Blue>Response</font>: Yes, to some extent. The 3D Voronoi technique (<font color=Blue>Okabe et al., 1992</font>) has been widely employed to generate closed-cell foams with irregular cells. It is useful for investigating the effects of structural parameters on the mechanical properties of foams. However, the Voronoi foam system cannot reproduce two characteristics of a real foam: the thickness distribution of walls, and the thickness variations along walls and between walls and edges. In a Voronoi system, wall thickness is normally constant across the sample, and is equal to the edge thickness.</p>
+</li>
+<li><p>What is the real perspective of this approach?<br><font color=Blue>Response</font>: Edge segmentation separates the initial structure of a foam sample into two parts, i.e., edges and walls. The edge and wall morphologies can be quantified, and used to predict deformation processes (e.g., location and temporal sequence of deformation banding) and collapse strength of a foam. They also serve a basis for tailoring local strength and energy absorption of foams. Combined with finite element method analysis, foam structure can be manipulated to study the effect of local heterogeneity or defects on foam deformation. Clarification has been made in the last paragraph.</p>
+</li>
+<li><p>Is it possible to perform a calculation based on beam elastic deformation?<br><font color=Blue>Response</font>: Not in our case. For open-cell foams or some closed-cell foams with large edge volume fractions, the calculation of mechanical properties based on elastic deformation of beams is appropriate. The mechanical support comes mainly from the edges in these foams. However, tomographic images in our case show that cell collapse is generally preceded by elastic buckling of cell walls. The solid fraction of edges in our foams is much lower than that of conventional polymer foams with curved, thin cell walls. Such a difference contributes to the difference in the dominant deformation modes during the collapse stage. Clarification has been made in line 1—5, paragraph 2, page 3, and line 17—23, paragraph 2, page 4.</p>
+</li>
+<li><p>Is it possible to consider Fig. 3a as a system of beams?<br><font color=Blue>Response</font>: Fig. 3a actually shows a $xy$-slice of the tomographic image, and is a cross-section of a 3D structure. In this slice, cell walls become lines while edges become corners or lines (for edges parallel to the $xy$-plane). So it is inappropriate to considered it as a system of beams. Clarification has been made in line 1—3, paragraph 1, page 4.</p>
+</li>
+<li><p>Is tomography representative for studying mechanical properties?<br><font color=Blue>Response</font>: Yes in our case. A previous study (<font color=Blue>Andrews et al., 2001</font>) showed that the mechanical properties of foams are independent of sample size when it is six times greater than the average cell size in both the horizontal and longitudinal directions. Our sample contains over 10 cell layers in both directions and the mechanical properties obtained from tomography are representative. Clarification has been made in line 8—9, the last paragraph, page 1, and line 1, paragraph 1, page 2.</p>
+</li>
+<li><p>How could be solved the homogeneity problem?<br><font color=Blue>Response</font>: See the reply to the preceding comment. In addition, this can also be verified by a good repeatability of stress—strain curves between different samples.</p>
+</li>
+<li><p>Graphical Abstract is not appropriate. It must be more explanatory and immediate.<br><font color=Blue>Response</font>: Thanks for your suggestion. The graphical abstract has been revised.</p>
+</li>
+</ol>
+<h3 id="Reviewer-2"><a href="#Reviewer-2" class="headerlink" title="Reviewer #2"></a>Reviewer #2</h3><p>&emsp;The limitation of the well-known empirical relationships between mechanical properties and relative density of cellular solids [1] has been realised and overcome through taking account of morphological parameters of individual or collective cells for more accurate structure-property correlation [12, 14]. However, these cell-level parameters are not directly linked to the deformation mechanism of base material. Recently, cell-wall parameters have been demonstrated to determine the compressive strength of a virtual 2D foam [<font color=Blue>Materials Sci. Eng. A 688 (2017), 27-39</font>], but no similar work has yet been reported for an actual 3D foam. In such a context, the study presented in this manuscript is a good and timely contribution to the progress in this research field. The manuscript is well written and the characterisation method is solid. The reviewer suggests the following aspects be revised to strengthen the analysis.</p>
+<ul>
+<li><p>Fig. 4 shows the distribution of cells with strength index smaller than 0.0037. However, these cells are not fully connected within each band that is indicated in Fig. 4b. In other words, the neighbour cells of the filtered cells within the indicated band have strength index larger than 0.0037, but they are excluded when evaluating the probability to form a band. This treatment is not appropriate, since the cause of the localised deformation band is the collective weakness of all the cells within the band rather than the inclusion of some weak cells in the band. Therefore, the authors should also calculate the strength index values for all the cells within each observed band (i.e. E1, E2, E3, E4 or E5, as shown in Fig. 2a) and then compare the averaged strength index values between different observed bands.<br><font color=Blue>Response</font>: We think that deformation band nucleation is dominated by the weakest cell walls in the band, rather than by the average strength of all walls. The axial stress is uniformly distributed on cell walls and edges across the sample section. When the stress reaches the critical buckling strength of the weakest cell walls, they buckle and change the mechanical (stress, support) state of their neighbors, making these cell walls fragile. The tomographic images also show that buckling occurs firstly in some (rather than all) cell walls in a band, and “propagates” to other walls, rendering all cells in the band collapse approximately at the same time.<br>&emsp;The average values of the buckling strength index for five observed bands (E1—E5) are 0.092, 0.820, 0.137, 0.242 and 0.294, respectively. The results are inconsistent with the temporal sequence of deformation banding, and cannot predict a collapse strength comparable to the experimental measurement. In fact, the cell walls are randomly oriented and those (nearly) perpendicular to the loading direction have large strength indices. These walls can increase the average value of strength index in a band. In addition, the deformation bands are not strictly perpendicular to the loading direction (inclination angle $4^\circ-10^\circ$). Averaging across the sample section along the loading direction or sample height may smooth out the strength index distribution.</p>
+</li>
+<li><p>The authors should attempt to obtain the axial distribution of strength index. A plot for strength index similar to the plot for Minkowski anisotropic index (Fig. S1) should be added.<br><font color=Blue>Response</font>: The distribution of the average buckling strength index of cell walls along the sample height is shown in Fig.R1. The curve from averaging all walls exhibits very large oscillations and does not show clearly the weak zones in the foam sample. Since the walls (nearly) perpendicular to the loading direction have large strength indices, we apply a filter process to exclude walls with $\beta&lt;30^\circ$ ($\beta$ the angle between the loading direction and a wall normal). The wall with a higher $\beta$ is more prone to buckle.<br>&emsp;In this way, the oscillations are reduced, but the distribution curve still does not show obvious features of deformation banding, compared to the 3D distribution of weakest walls. The probable reason is that the deformation bands are not strictly perpendicular to the loading direction (especially band E3). Averaging on the strength index of cell walls across the sample section along the height direction is not appropriate to probe the weak zones of foam sample. This may also be responsible for why the distribution of the Minkowski anisotropic index cannot predict deformation banding.</p>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/haiweichai/gallery/master/Exp003/Exp001_image001.jpg" width = 70% div align=center /></p>
+<font size=2px>Fig.R1: Distribution of the average buckling strength index $\lambda_{\rm w}$ of cell walls along the sample height direction. Each data point is averaged within a $200\mu m$ segment along the height direction. $\beta$ is the angle between the loading direction and a wall normal. The wall with a higher $\beta$ value is more prone to buckle.</font>
+
+<ul>
+<li><p>Undoubtedly, structure-property correlation based on 3D quantification of the cell walls is more accurate and reliable than that based on 2D structural data. However, 3D data is not always accessible while 2D data can be easily obtained via processing cross-sectional images. Therefore, it is of practical value and interest to evaluate the usefulness of 2D analysis, but such evaluation cannot be possible without 3D results as reference. Given the established 3D correlation by the authors, the reviewer suggests the authors also perform a 2D correlation based on the CT slices and then address the limitation of the 2D analysis. It is indeed necessary because sometimes 2D and 3D analyses may lead to same conclusions (e.g. same location of the weakest site).<br><font color=Blue>Response</font>: The 2D analyses can provide a preliminary estimation of the cell size and solid fraction of foams. In terms of the cell wall thickness, 2D and 3D structural data can give similar results. If cell wall strength is controlled mainly by wall thickness, 2D and 3D analyses may lead to similar conclusions, as demonstrated in the previous work (<font color=Blue>Sun et al., 2017</font>).<br>&emsp;However, the width and height of cell walls cannot be accessed simultaneously in 2D analyses. The width and height distributions of cell walls from 2D analyses are also quite different from those in 3D analyses. Therefore, the 2D analysis is not appropriate for quantifying the cell wall strength in our case. In fact, it is impossible to accurately quantify local structural parameters in two dimensions, which hinders a full understanding of the cell strength of foam samples. In addition, the 2D analyses may lead to different conclusions in different sections.</p>
+</li>
+<li><p>In the caption of Figure 1, “color-coding refers to axial strain” should be “color-coding refers to increments of axial strain”. The crushed cells at a nominal strain of 0.5 (Fig. 1b) are indicated in red which corresponds to a value of zero, so the color code cannot be based on absolute strain.<br><font color=Blue>Response</font>: Thanks for your suggestion. Correction has been made in the caption of Fig.1.</p>
+</li>
+<li><p>The authors could include greater reference to previous work on X-ray imaging of the deformation behaviour of cellular materials and foams, particularly in situ measurements of the deformation.<br><font color=Blue>Response</font>: Thanks for your suggestion. We have added more references on this topic; see Refs. [13], [18] and [27] in the revised manuscript.</p>
+</li>
+</ul>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><p>[1] Okabe, A., Boots, B., Sugihara, K., 1992. Spatial tessellations: concepts and applications of Voronoi diagrams. Wiley, Chichester.<br>[2] Andrews, E. W., et al. “Size effects in ductile cellular solids. Part II: experimental results.” International Journal of Mechanical Sciences 43 (2001): 701-713.<br>[3] Sun, Yongle, et al. “Image-based correlation between the meso-scale structure and deformation of closed-cell foam.” Materials Science and Engineering: A 688 (2017): 27-39.</p>
+]]></content>
+      <categories>
+        <category>Scholarship, Writing and Mindset</category>
+      </categories>
+      <tags>
+        <tag>English</tag>
+        <tag>Writing</tag>
+        <tag>Reply</tag>
       </tags>
   </entry>
   <entry>
@@ -1165,13 +1165,13 @@
 <p><img src="https://www.osgeo.cn/scipy/_images/interpolate-2.png" width="80%" alt="" align=center /></p>
 <h3 id="多变量数据插值-griddata"><a href="#多变量数据插值-griddata" class="headerlink" title="多变量数据插值 (griddata)"></a>多变量数据插值 (griddata)</h3><p>例如，假设您具有基础函数的多维数据 $F(x,y)$，你只知道若干个点上的值 $[(x[i],y[i])]$，它们不会形成规则的网格。</p>
 <p>假设我们要对二维函数 $F(x,y)$ 进行插值：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span>(<span class="params">x, y</span>):</span></span><br><span class="line">    <span class="keyword">return</span> x*(<span class="number">1</span>-x)*np.cos(<span class="number">4</span>*np.pi*x) * np.sin(<span class="number">4</span>*np.pi*y**<span class="number">2</span>)**<span class="number">2</span></span><br><span class="line"></span><br><span class="line">grid_x, grid_y = np.mgrid[<span class="number">0</span>:<span class="number">1</span>:<span class="number">100j</span>, <span class="number">0</span>:<span class="number">1</span>:<span class="number">200j</span>]</span><br><span class="line"></span><br><span class="line">np.mgrid[<span class="number">0</span>:<span class="number">5</span>, <span class="number">0</span>:<span class="number">5</span>]</span><br><span class="line">array([[[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">        [<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>],</span><br><span class="line">        [<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>],</span><br><span class="line">        [<span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>],</span><br><span class="line">        [<span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>]],</span><br><span class="line">       [[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>],</span><br><span class="line">        [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>],</span><br><span class="line">        [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>],</span><br><span class="line">        [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>],</span><br><span class="line">        [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]]])</span><br><span class="line"></span><br><span class="line">np.mgrid[-<span class="number">1</span>:<span class="number">1</span>:<span class="number">5j</span>]</span><br><span class="line">array([-<span class="number">1.</span> , -<span class="number">0.5</span>,  <span class="number">0.</span> ,  <span class="number">0.5</span>,  <span class="number">1.</span> ])</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span>(<span class="params">x, y</span>):</span></span><br><span class="line">    <span class="keyword">return</span> x*(<span class="number">1</span>-x)*np.cos(<span class="number">4</span>*np.pi*x) * np.sin(<span class="number">4</span>*np.pi*y**<span class="number">2</span>)**<span class="number">2</span></span><br><span class="line"></span><br><span class="line">grid_x, grid_y = np.mgrid[<span class="number">0</span>:<span class="number">1</span>:<span class="number">100j</span>, <span class="number">0</span>:<span class="number">1</span>:<span class="number">200j</span>]</span><br></pre></td></tr></table></figure>
 <p>但我们只知道它在1000个数据点的值：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">points = np.random.random((<span class="number">1000</span>, <span class="number">2</span>))</span><br><span class="line">values = func(points[:,<span class="number">0</span>], points[:,<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
 <p>这可以通过以下方式完成 <code>griddata</code> —下面我们将尝试所有的插值方法：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy.interpolate <span class="keyword">import</span> griddata</span><br><span class="line"></span><br><span class="line">grid_z0 = griddata(points, values, (grid_x, grid_y), method=<span class="string">&#x27;nearest&#x27;</span>)</span><br><span class="line">grid_z1 = griddata(points, values, (grid_x, grid_y), method=<span class="string">&#x27;linear&#x27;</span>)</span><br><span class="line">grid_z2 = griddata(points, values, (grid_x, grid_y), method=<span class="string">&#x27;cubic&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <p>可以看到，所有方法都在一定程度上重现了准确的结果，但对于此光滑函数，三次样条插值提供了最好的结果：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">plt.subplot(<span class="number">221</span>)</span><br><span class="line">plt.imshow(func(grid_x, grid_y).T, extent=(<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>), origin=<span class="string">&#x27;lower&#x27;</span>)</span><br><span class="line">plt.plot(points[:,<span class="number">0</span>], points[:,<span class="number">1</span>], <span class="string">&#x27;k.&#x27;</span>, ms=<span class="number">1</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;Original&#x27;</span>)</span><br><span class="line">plt.subplot(<span class="number">222</span>)</span><br><span class="line">plt.imshow(grid_z0.T, extent=(<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>), origin=<span class="string">&#x27;lower&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;Nearest&#x27;</span>)</span><br><span class="line">plt.subplot(<span class="number">223</span>)</span><br><span class="line">plt.imshow(grid_z1.T, extent=(<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>), origin=<span class="string">&#x27;lower&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;Linear&#x27;</span>)</span><br><span class="line">plt.subplot(<span class="number">224</span>)</span><br><span class="line">plt.imshow(grid_z2.T, extent=(<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>), origin=<span class="string">&#x27;lower&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;Cubic&#x27;</span>)</span><br><span class="line">plt.gcf().set_size_inches(<span class="number">6</span>, <span class="number">6</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">plt.subplot(<span class="number">221</span>)</span><br><span class="line">plt.imshow(func(grid_x, grid_y).T, extent=(<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>), origin=<span class="string">&#x27;lower&#x27;</span>,cmap = <span class="string">&#x27;hsv&#x27;</span>)</span><br><span class="line">plt.plot(points[:,<span class="number">0</span>], points[:,<span class="number">1</span>], <span class="string">&#x27;k.&#x27;</span>, ms=<span class="number">1</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;Original&#x27;</span>)</span><br><span class="line">plt.subplot(<span class="number">222</span>)</span><br><span class="line">plt.imshow(grid_z0.T, extent=(<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>), origin=<span class="string">&#x27;lower&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;Nearest&#x27;</span>)</span><br><span class="line">plt.subplot(<span class="number">223</span>)</span><br><span class="line">plt.imshow(grid_z1.T, extent=(<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>), origin=<span class="string">&#x27;lower&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;Linear&#x27;</span>)</span><br><span class="line">plt.subplot(<span class="number">224</span>)</span><br><span class="line">plt.imshow(grid_z2.T, extent=(<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>), origin=<span class="string">&#x27;lower&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;Cubic&#x27;</span>)</span><br><span class="line">plt.gcf().set_size_inches(<span class="number">6</span>, <span class="number">6</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 <p><img src="https://www.osgeo.cn/scipy/_images/interpolate-3.png" width="80%" alt="" align=center /></p>
 <h3 id="样条插值"><a href="#样条插值" class="headerlink" title="样条插值"></a>样条插值</h3><h4 id="一维中的样条插值：程序化"><a href="#一维中的样条插值：程序化" class="headerlink" title="一维中的样条插值：程序化"></a>一维中的样条插值：程序化</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> scipy <span class="keyword">import</span> interpolate</span><br><span class="line"></span><br><span class="line"><span class="comment"># 三次样条</span></span><br><span class="line">x = np.arange(<span class="number">0</span>, <span class="number">2</span>*np.pi+np.pi/<span class="number">4</span>, np.pi/<span class="number">4</span>)</span><br><span class="line">y = np.sin(x)</span><br><span class="line">tck = interpolate.splrep(x, y, s=<span class="number">0</span>)</span><br><span class="line"><span class="comment"># 求一条一维曲线的b-spline样条表示。给定一组数据点(x[i],y[i])，在有限区间上确定光滑样条近似。</span></span><br><span class="line"><span class="comment"># 详细信息请参照：https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.splrep.html</span></span><br><span class="line"></span><br><span class="line">xnew = np.arange(<span class="number">0</span>, <span class="number">2</span>*np.pi, np.pi/<span class="number">50</span>)</span><br><span class="line">ynew = interpolate.splev(xnew, tck, der=<span class="number">0</span>)</span><br><span class="line"><span class="comment"># 求b-spline样条曲线或它的导数。给定b样条表示的结点和系数，计算平滑多项式及其导数的值。这是对FITPACK的FORTRAN例程splev和splder的包装。</span></span><br><span class="line"><span class="comment"># der 要计算的样条导数的阶数(必须小于或等于k，即样条的阶数)。</span></span><br><span class="line"><span class="comment"># 详细信息请参照：https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.splev.html</span></span><br><span class="line"></span><br><span class="line">plt.figure()</span><br><span class="line">plt.plot(x, y, <span class="string">&#x27;x&#x27;</span>, xnew, ynew, xnew, np.sin(xnew), x, y, <span class="string">&#x27;b&#x27;</span>)</span><br><span class="line">plt.legend([<span class="string">&#x27;Linear&#x27;</span>, <span class="string">&#x27;Cubic Spline&#x27;</span>, <span class="string">&#x27;True&#x27;</span>])</span><br><span class="line">plt.axis([-<span class="number">0.05</span>, <span class="number">6.33</span>, -<span class="number">1.05</span>, <span class="number">1.05</span>])</span><br><span class="line">plt.title(<span class="string">&#x27;Cubic-spline interpolation&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 <p><img src="https://www.osgeo.cn/scipy/_images/interpolate-4_00_00.png" width="80%" alt="" align=center /></p>
@@ -1536,6 +1536,380 @@
 <p>对特征矢量需要加权处理，加权采用$m\sigma d/2$的标准高斯函数。为了除去光照变化影响，还有进一步归一化处理。</p>
 <p>至此SIFT描述子生成，SIFT算法也基本完成了。</p>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p>[1] Lowe, David G. “Object recognition from local scale-invariant features.” Proceedings of the seventh IEEE international conference on computer vision. Vol. 2. Ieee, 1999.<br>[2] Lowe, David G. “Distinctive image features from scale-invariant keypoints.” International journal of computer vision 60.2 (2004): 91-110.</p>
+]]></content>
+      <categories>
+        <category>Programming language</category>
+      </categories>
+      <tags>
+        <tag>Image Segementation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python 在科研中的应用 15：聚类分析</title>
+    <url>/PythonLes13/</url>
+    <content><![CDATA[<p>今天总结了最常见的十大聚类算法。涉及到的算法有：</p>
+<ul>
+<li>K均值聚类（K-Means）</li>
+<li>层次聚类（Hierarchical Clustering）</li>
+<li>DBSCAN（Density-Based Spatial Clustering of Applications with Noise）</li>
+<li>高斯混合模型（Gaussian Mixture Model，GMM）</li>
+<li>密度峰值聚类（Density Peaks Clustering）</li>
+<li>谱聚类（Spectral Clustering）</li>
+<li>OPTICS（Ordering Points To Identify the Clustering Structure）</li>
+<li>自组织映射（Self-Organizing Maps，SOM）</li>
+<li>Affinity Propagation</li>
+<li>Mean Shift Clustering</li>
+</ul>
+<span id="more"></span>
+<h1 id="K均值聚类"><a href="#K均值聚类" class="headerlink" title="K均值聚类"></a>K均值聚类</h1><p>K均值聚类（K-Means Clustering）是一种常用的无监督学习算法，用于将数据集分成K个簇（clusters）。其目标是将相似的数据点归为同一簇，而将不同的数据点分到不同的簇中，从而使得每个簇内的数据点之间的相似度最大，而不同簇之间的相似度最小。</p>
+<h2 id="核心原理"><a href="#核心原理" class="headerlink" title="核心原理"></a>核心原理</h2><p>K均值聚类的核心思想是通过迭代优化的方法，最小化簇内点到簇中心的总距离平方和。</p>
+<p>基本步骤如下：</p>
+<ol>
+<li><p>初始化：随机选择K个点作为初始簇中心。</p>
+</li>
+<li><p>分配簇：将每个数据点分配到最近的簇中心。</p>
+</li>
+<li><p>更新簇中心：重新计算每个簇的中心（即簇内所有点的平均值）。</p>
+</li>
+<li><p>重复：重复步骤2和3，直到簇中心不再发生显著变化或达到预定的迭代次数。</p>
+</li>
+</ol>
+<h2 id="核心公式"><a href="#核心公式" class="headerlink" title="核心公式"></a>核心公式</h2><p>假设数据集为$x_1,x_2,…,x_n$，每个数据点$x_i$有$d$维。簇的中心为$\mu_1,\mu_2,…,\mu_K$。</p>
+<ol>
+<li><p>距离计算：通常使用欧氏距离：<br>\begin{equation}<br>{\bf dist}(x_i,\mu_k) = \Arrowvert x_i-\mu_k\Arrowvert_2 = \sqrt{\sum^d_{j=1} (x_{ij}-\mu_{kj})^2}<br>\end{equation}</p>
+</li>
+<li><p>簇分配：将每个点分配到最近的簇中心：<br>\begin{equation}<br>C_k = \{x_i:\Arrowvert x_i-\mu_k \Arrowvert_2 \leq \Arrowvert x_i - \mu_j\Arrowvert_2, \forall j,1 \leq j \leq K \}<br>\end{equation}</p>
+</li>
+<li><p>更新簇中心：重新计算每个簇的中心：<br>\begin{equation}<br>\mu_k = \frac{1}{|C_k|} \sum_{x_i \in C_k} x_i<br>\end{equation}</p>
+</li>
+</ol>
+<h2 id="Python示例代码"><a href="#Python示例代码" class="headerlink" title="Python示例代码"></a>Python示例代码</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> make_blobs</span><br><span class="line"><span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> KMeans</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成样本数据</span></span><br><span class="line">X, y = make_blobs(n_samples=<span class="number">500</span>, centers=<span class="number">4</span>, cluster_std=<span class="number">0.60</span>, random_state=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用KMeans进行聚类</span></span><br><span class="line">kmeans = KMeans(n_clusters=<span class="number">4</span>)</span><br><span class="line">kmeans.fit(X)</span><br><span class="line">y_kmeans = kmeans.predict(X)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制结果图</span></span><br><span class="line">plt.scatter(X[:, <span class="number">0</span>], X[:, <span class="number">1</span>], c=y_kmeans, s=<span class="number">50</span>, cmap=<span class="string">&#x27;viridis&#x27;</span>)</span><br><span class="line"></span><br><span class="line">centers = kmeans.cluster_centers_</span><br><span class="line">plt.scatter(centers[:, <span class="number">0</span>], centers[:, <span class="number">1</span>], c=<span class="string">&#x27;red&#x27;</span>, s=<span class="number">200</span>, alpha=<span class="number">0.75</span>)</span><br><span class="line">plt.title(<span class="string">&quot;K-Means Clustering&quot;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&quot;Feature 1&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;Feature 2&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>生成数据：使用make_blobs生成了500个二维数据点，分为4个簇。</p>
+</li>
+<li><p>训练模型：使用KMeans模型进行训练，设定簇数为4。</p>
+</li>
+<li><p>预测与绘图：根据训练结果进行预测，并将数据点按簇绘制成不同颜色，同时用红色标注出簇中心。</p>
+</li>
+</ol>
+<p>大家可以清晰地看到K均值聚类的效果，即每个簇内的数据点被分为同一种颜色，而不同簇的数据点被分为不同颜色，同时簇中心用红色圆点表示。</p>
+<h1 id="层次聚类（Hierarchical-Clustering）"><a href="#层次聚类（Hierarchical-Clustering）" class="headerlink" title="层次聚类（Hierarchical Clustering）"></a>层次聚类（Hierarchical Clustering）</h1><p>层次聚类（Hierarchical Clustering）是一种常见的无监督学习算法，旨在通过构建层次树状结构将数据点进行分组。它可以分为两种类型：自底向上的聚合（agglomerative）和自顶向下的分裂（divisive）聚类方法。</p>
+<h2 id="核心原理-1"><a href="#核心原理-1" class="headerlink" title="核心原理"></a>核心原理</h2><p>层次聚类的核心思想是通过递归地合并或分裂簇，构建一个层次树（树状图或树状图），表示数据的嵌套分组。这里我们以自底向上的聚合层次聚类为例：</p>
+<ol>
+<li><p>初始化：将每个数据点视为一个独立的簇。</p>
+</li>
+<li><p>计算距离：计算所有簇之间的距离矩阵。</p>
+</li>
+<li><p>合并簇：找到距离最近的两个簇并合并它们。</p>
+</li>
+<li><p>更新距离矩阵：更新合并后的簇与其他簇之间的距离。</p>
+</li>
+<li><p>重复：重复步骤3和4，直到所有数据点合并成一个簇。</p>
+</li>
+</ol>
+<h2 id="核心公式-1"><a href="#核心公式-1" class="headerlink" title="核心公式"></a>核心公式</h2><p>假设数据集为 ，簇之间的距离可以通过多种方式计算，包括最小距离（single linkage）、最大距离（complete linkage）和平均距离（average linkage）等。</p>
+<ol>
+<li>距离计算：假设簇  和簇  中的点分别为  和 ，则不同的距离计算方法如下：</li>
+</ol>
+<p>最小距离（单链法）：<br>最大距离（全链法）：</p>
+<p>平均距离（平均链法）：</p>
+<h2 id="Python案例"><a href="#Python案例" class="headerlink" title="Python案例"></a>Python案例</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> scipy.cluster.hierarchy <span class="keyword">import</span> dendrogram, linkage</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> make_blobs</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成样本数据</span></span><br><span class="line">X, y = make_blobs(n_samples=<span class="number">500</span>, centers=<span class="number">3</span>, random_state=<span class="number">0</span>, cluster_std=<span class="number">0.60</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进行层次聚类</span></span><br><span class="line">Z = linkage(X, method=<span class="string">&#x27;ward&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制树状图</span></span><br><span class="line">plt.figure(figsize=(<span class="number">10</span>, <span class="number">7</span>))</span><br><span class="line">dendrogram(Z, truncate_mode=<span class="string">&#x27;lastp&#x27;</span>, p=<span class="number">12</span>, leaf_rotation=<span class="number">90.</span>, leaf_font_size=<span class="number">12.</span>, show_contracted=<span class="literal">True</span>)</span><br><span class="line">plt.title(<span class="string">&quot;Hierarchical Clustering Dendrogram&quot;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&quot;Sample index or (Cluster size)&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;Distance&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>图片</p>
+<ol>
+<li><p>生成数据：使用make_blobs生成500个二维数据点，分为3个簇。</p>
+</li>
+<li><p>层次聚类：使用linkage函数进行层次聚类，采用Ward方法计算簇间距离。</p>
+</li>
+<li><p>绘制树状图：使用dendrogram函数绘制树状图，展示聚类的层次结构。</p>
+</li>
+</ol>
+<p>通过树状图，大家可以清晰地看到层次聚类的合并过程，从最底层的单个数据点逐渐合并到最终的一个簇。树状图的高度表示簇之间的距离，合并越早的簇之间距离越近，合并越晚的簇之间距离越远。</p>
+<h1 id="DBSCAN"><a href="#DBSCAN" class="headerlink" title="DBSCAN"></a>DBSCAN</h1><p>DBSCAN（Density-Based Spatial Clustering of Applications with Noise）是一种基于密度的聚类算法，可以发现任意形状的簇，同时能够识别出噪声点。与K均值和层次聚类不同，DBSCAN不需要事先指定簇的数量。</p>
+<h2 id="核心原理-2"><a href="#核心原理-2" class="headerlink" title="核心原理"></a>核心原理</h2><p>DBSCAN通过在数据点周围划定一个ε（epsilon）半径，计算半径内的数据点数量来定义簇。其基本思想是密度足够高的区域形成簇，而密度较低的区域被认为是噪声。主要步骤如下：</p>
+<ol>
+<li><p>定义核心点：对于数据集中每个点，如果在其ε半径内的点数大于或等于最小点数（minPts），则该点为核心点。</p>
+</li>
+<li><p>扩展簇：从核心点出发，将其邻域内的所有点（包括边界点和其他核心点）归入该簇，然后递归地将这些点的邻域内的点也归入该簇。</p>
+</li>
+<li><p>标记噪声点：如果一个点既不是核心点也不是边界点，则将其标记为噪声点。</p>
+</li>
+</ol>
+<h2 id="核心公式-2"><a href="#核心公式-2" class="headerlink" title="核心公式"></a>核心公式</h2><ol>
+<li>邻域定义：对于点  ，其邻域定义为：</li>
+</ol>
+<p>其中  是数据集，  是点  和点  之间的距离，通常使用欧氏距离。</p>
+<ol>
+<li>核心点：如果点  的邻域包含至少 minPts 个点，则  是核心点：</li>
+</ol>
+<h2 id="Python案例-1"><a href="#Python案例-1" class="headerlink" title="Python案例"></a>Python案例</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> make_moons</span><br><span class="line"><span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> DBSCAN</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成样本数据</span></span><br><span class="line">X, y = make_moons(n_samples=<span class="number">500</span>, noise=<span class="number">0.1</span>, random_state=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用DBSCAN进行聚类</span></span><br><span class="line">dbscan = DBSCAN(eps=<span class="number">0.2</span>, min_samples=<span class="number">5</span>)</span><br><span class="line">y_dbscan = dbscan.fit_predict(X)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制结果图</span></span><br><span class="line">plt.scatter(X[:, <span class="number">0</span>], X[:, <span class="number">1</span>], c=y_dbscan, s=<span class="number">50</span>, cmap=<span class="string">&#x27;viridis&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 标记噪声点</span></span><br><span class="line">core_samples_mask = np.zeros_like(y_dbscan, dtype=<span class="built_in">bool</span>)</span><br><span class="line">core_samples_mask[dbscan.core_sample_indices_] = <span class="literal">True</span></span><br><span class="line">noise_mask = (y_dbscan == -<span class="number">1</span>)</span><br><span class="line">plt.scatter(X[noise_mask, <span class="number">0</span>], X[noise_mask, <span class="number">1</span>], c=<span class="string">&#x27;red&#x27;</span>, s=<span class="number">50</span>, label=<span class="string">&#x27;Noise&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.title(<span class="string">&quot;DBSCAN Clustering&quot;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&quot;Feature 1&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;Feature 2&quot;</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>图片</p>
+<ol>
+<li><p>生成数据：使用make_moons生成500个二维数据点，这些数据点形成两个半月形簇，并添加了一定的噪声。</p>
+</li>
+<li><p>训练模型：使用DBSCAN模型进行训练，设置ε为0.2，minPts为5。</p>
+</li>
+<li><p>预测与绘图：根据训练结果进行预测，并将数据点按簇绘制成不同颜色，同时用红色标注出噪声点。</p>
+</li>
+</ol>
+<p>大家可以清晰地看到DBSCAN的聚类效果，两个半月形的簇被正确识别出来，噪声点用红色标注。DBSCAN能够很好地处理复杂形状的簇，并且能够识别出数据中的噪声点。</p>
+<h1 id="高斯混合模型"><a href="#高斯混合模型" class="headerlink" title="高斯混合模型"></a>高斯混合模型</h1><p>高斯混合模型（GMM）是一种概率模型，它假设所有的数据点是由若干个不同的高斯分布（即正态分布）组成的混合生成。GMM常用于聚类分析，特别适合于发现复杂数据分布中的潜在群体结构。</p>
+<h2 id="核心原理-3"><a href="#核心原理-3" class="headerlink" title="核心原理"></a>核心原理</h2><p>GMM通过期望最大化（EM）算法来估计模型参数。EM算法是一个迭代优化算法，包括两个主要步骤：</p>
+<ol>
+<li><p>E步（Expectation）：计算给定当前参数下每个数据点属于每个高斯分布的概率（即责任）。</p>
+</li>
+<li><p>M步（Maximization）：根据计算出的责任，重新估计每个高斯分布的参数（均值、方差和权重）。</p>
+</li>
+</ol>
+<h2 id="核心公式-3"><a href="#核心公式-3" class="headerlink" title="核心公式"></a>核心公式</h2><ol>
+<li>高斯混合模型的概率密度函数：</li>
+</ol>
+<p>其中，  是第  个高斯分布的权重，  是第  个高斯分布的概率密度函数，其参数为均值 和协方差矩阵 。</p>
+<ol>
+<li>E步（计算责任）：</li>
+</ol>
+<p>其中，  是数据点  属于第  个高斯分布的概率。</p>
+<ol>
+<li>M步（更新参数）：</li>
+</ol>
+<p>更新权重：<br>其中，  是第  个高斯分布的有效样本数，  是数据点总数。</p>
+<p>更新均值：<br>更新协方差矩阵：</p>
+<h2 id="Python案例-2"><a href="#Python案例-2" class="headerlink" title="Python案例"></a>Python案例</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> make_blobs</span><br><span class="line"><span class="keyword">from</span> sklearn.mixture <span class="keyword">import</span> GaussianMixture</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成样本数据</span></span><br><span class="line">X, y = make_blobs(n_samples=<span class="number">500</span>, centers=<span class="number">3</span>, random_state=<span class="number">42</span>, cluster_std=<span class="number">0.60</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用GMM进行聚类</span></span><br><span class="line">gmm = GaussianMixture(n_components=<span class="number">3</span>, random_state=<span class="number">42</span>)</span><br><span class="line">gmm.fit(X)</span><br><span class="line">labels = gmm.predict(X)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制结果图</span></span><br><span class="line">plt.scatter(X[:, <span class="number">0</span>], X[:, <span class="number">1</span>], c=labels, s=<span class="number">40</span>, cmap=<span class="string">&#x27;viridis&#x27;</span>)</span><br><span class="line">plt.scatter(gmm.means_[:, <span class="number">0</span>], gmm.means_[:, <span class="number">1</span>], c=<span class="string">&#x27;red&#x27;</span>, s=<span class="number">200</span>, alpha=<span class="number">0.75</span>, marker=<span class="string">&#x27;X&#x27;</span>)  <span class="comment"># 标记出中心点</span></span><br><span class="line">plt.title(<span class="string">&quot;Gaussian Mixture Model Clustering&quot;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&quot;Feature 1&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;Feature 2&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>图片</p>
+<ol>
+<li><p>生成数据：使用make_blobs生成500个二维数据点，分为3个簇，并添加一定的噪声。</p>
+</li>
+<li><p>训练模型：使用GaussianMixture模型进行训练，设定簇数为3。</p>
+</li>
+<li><p>预测与绘图：根据训练结果进行预测，并将数据点按簇绘制成不同颜色，同时用红色标注出每个高斯分布的均值。</p>
+</li>
+</ol>
+<p>大家可以看到GMM的聚类效果，每个簇用不同的颜色表示，红色的X标记出每个高斯分布的中心。GMM能够很好地处理复杂的簇结构，并且可以估计每个簇的概率分布。</p>
+<h1 id="密度峰值聚类"><a href="#密度峰值聚类" class="headerlink" title="密度峰值聚类"></a>密度峰值聚类</h1><p>密度峰值聚类（Density Peaks Clustering）是一种基于数据点密度的聚类算法。其基本思想是：簇中心通常具有较高的局部密度，并且与其他具有较高密度的点有相对较大的距离。因此，通过识别这些密度峰值点，可以将数据点归为不同的簇。</p>
+<h2 id="核心原理-4"><a href="#核心原理-4" class="headerlink" title="核心原理"></a>核心原理</h2><p>密度峰值聚类的核心思想可以分为以下几个步骤：</p>
+<ol>
+<li><p>计算每个点的局部密度：通常通过计算在一定半径内的数据点数量来表示密度。</p>
+</li>
+<li><p>计算每个点到密度更高的点的最小距离：这个距离可以反映点到其密度峰值的距离。</p>
+</li>
+<li><p>选择簇中心：密度高且距离大的一些点作为簇中心。</p>
+</li>
+<li><p>分配簇：根据密度和距离，将其他点分配到最近的簇中心。</p>
+</li>
+</ol>
+<h2 id="核心公式-4"><a href="#核心公式-4" class="headerlink" title="核心公式"></a>核心公式</h2><ol>
+<li>局部密度 ：</li>
+</ol>
+<p>其中，  是点  和点  之间的距离，  是一个截断距离，  是指示函数，当  时，  ，否则为 0 。</p>
+<ol>
+<li>最小距离 ：</li>
+</ol>
+<p>即对每个点 ，找到所有密度更高的点中距离最近的点，如果没有密度更高的点，则取最大距离。</p>
+<h2 id="Python案例-3"><a href="#Python案例-3" class="headerlink" title="Python案例"></a>Python案例</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> make_blobs</span><br><span class="line"><span class="keyword">from</span> scipy.spatial.distance <span class="keyword">import</span> pdist, squareform</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成样本数据</span></span><br><span class="line">X, y = make_blobs(n_samples=<span class="number">500</span>, centers=<span class="number">3</span>, random_state=<span class="number">42</span>, cluster_std=<span class="number">0.60</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算距离矩阵</span></span><br><span class="line">distances = squareform(pdist(X))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算局部密度</span></span><br><span class="line">dc = np.percentile(distances, <span class="number">2</span>)  <span class="comment"># 截断距离</span></span><br><span class="line">rho = np.<span class="built_in">sum</span>(np.exp(-(distances / dc) ** <span class="number">2</span>), axis=<span class="number">1</span>) - <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算最小距离</span></span><br><span class="line">delta = np.zeros_like(rho)</span><br><span class="line">delta[rho.argsort()[<span class="number">0</span>]] = np.<span class="built_in">max</span>(distances)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(rho)):</span><br><span class="line">    delta[rho.argsort()[i]] = np.<span class="built_in">min</span>(distances[rho.argsort()[i], np.where(rho &gt; rho[rho.argsort()[i]])[<span class="number">0</span>]])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 选择簇中心</span></span><br><span class="line">rho_delta = rho * delta</span><br><span class="line">centers = np.argsort(-rho_delta)[:<span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 分配簇</span></span><br><span class="line">labels = np.zeros(<span class="built_in">len</span>(X), dtype=<span class="built_in">int</span>) - <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> i, center <span class="keyword">in</span> <span class="built_in">enumerate</span>(centers):</span><br><span class="line">    labels[center] = i</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(X)):</span><br><span class="line">    <span class="keyword">if</span> labels[rho.argsort()[i]] == -<span class="number">1</span>:</span><br><span class="line">        labels[rho.argsort()[i]] = labels[np.argmin(distances[rho.argsort()[i], centers])]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制结果图</span></span><br><span class="line">plt.scatter(X[:, <span class="number">0</span>], X[:, <span class="number">1</span>], c=labels, s=<span class="number">40</span>, cmap=<span class="string">&#x27;viridis&#x27;</span>)</span><br><span class="line">plt.scatter(X[centers, <span class="number">0</span>], X[centers, <span class="number">1</span>], c=<span class="string">&#x27;red&#x27;</span>, s=<span class="number">200</span>, alpha=<span class="number">0.75</span>, marker=<span class="string">&#x27;X&#x27;</span>)  <span class="comment"># 标记出中心点</span></span><br><span class="line">plt.title(<span class="string">&quot;Density Peaks Clustering&quot;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&quot;Feature 1&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;Feature 2&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>图片</p>
+<ol>
+<li><p>生成数据：使用make_blobs生成500个二维数据点，分为3个簇，并添加一定的噪声。</p>
+</li>
+<li><p>计算局部密度：通过计算在一定半径内的数据点数量，计算每个点的局部密度。</p>
+</li>
+<li><p>计算最小距离：计算每个点到密度更高的点的最小距离。</p>
+</li>
+<li><p>选择簇中心：根据密度和距离选择簇中心，并标记出来。</p>
+</li>
+<li><p>分配簇：根据密度和距离将其他点分配到最近的簇中心。</p>
+</li>
+<li><p>绘图：根据聚类结果绘制数据点，每个簇用不同颜色表示，簇中心用红色X标记。</p>
+</li>
+</ol>
+<p>可以看到密度峰值聚类的效果，每个簇用不同的颜色表示，红色X标记出每个簇的中心。密度峰值聚类能够有效地识别密度高的区域作为簇中心，并将其他点根据密度和距离分配到最近的簇中心。</p>
+<h1 id="谱聚类"><a href="#谱聚类" class="headerlink" title="谱聚类"></a>谱聚类</h1><p>谱聚类（Spectral Clustering）是一种基于图论的聚类方法，通过利用数据点之间的相似性构建图，并利用图的谱（特征值和特征向量）进行聚类。它特别适合处理非凸形状的簇，并且能有效处理高维数据。</p>
+<h2 id="核心原理-5"><a href="#核心原理-5" class="headerlink" title="核心原理"></a>核心原理</h2><p>谱聚类的核心思想是将数据点看作图中的节点，通过计算节点之间的相似性构建加权图，然后通过图的拉普拉斯矩阵的特征向量将数据映射到低维空间，再在低维空间中进行K均值聚类。</p>
+<p>主要步骤如下：</p>
+<ol>
+<li><p>构建相似度矩阵：计算数据点之间的相似度，构建相似度矩阵。</p>
+</li>
+<li><p>构建拉普拉斯矩阵：根据相似度矩阵构建图的拉普拉斯矩阵。</p>
+</li>
+<li><p>计算特征向量：计算拉普拉斯矩阵的前k个特征向量，将数据点映射到低维空间。</p>
+</li>
+<li><p>聚类：在低维空间中对映射后的数据点进行K均值聚类。</p>
+</li>
+</ol>
+<h2 id="核心公式-5"><a href="#核心公式-5" class="headerlink" title="核心公式"></a>核心公式</h2><ol>
+<li>相似度矩阵 ：</li>
+</ol>
+<p>其中，  是高斯核函数的参数，  是邻域范围。</p>
+<ol>
+<li><p>度矩阵 ：</p>
+</li>
+<li><p>拉普拉斯矩阵 ：</p>
+</li>
+</ol>
+<p>或归一化的拉普拉斯矩阵：</p>
+<ol>
+<li><p>特征向量：计算  或  的前k个特征向量 。</p>
+</li>
+<li><p>聚类：将每个数据点  映射到特征向量组成的低维空间，再对这些向量进行K均值聚类。</p>
+</li>
+</ol>
+<h2 id="Python案例-4"><a href="#Python案例-4" class="headerlink" title="Python案例"></a>Python案例</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> make_moons</span><br><span class="line"><span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> SpectralClustering</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成样本数据</span></span><br><span class="line">X, y = make_moons(n_samples=<span class="number">500</span>, noise=<span class="number">0.1</span>, random_state=<span class="number">42</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用谱聚类进行聚类</span></span><br><span class="line">spectral = SpectralClustering(n_clusters=<span class="number">2</span>, affinity=<span class="string">&#x27;nearest_neighbors&#x27;</span>, assign_labels=<span class="string">&#x27;kmeans&#x27;</span>, random_state=<span class="number">42</span>)</span><br><span class="line">labels = spectral.fit_predict(X)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制结果图</span></span><br><span class="line">plt.scatter(X[:, <span class="number">0</span>], X[:, <span class="number">1</span>], c=labels, s=<span class="number">40</span>, cmap=<span class="string">&#x27;viridis&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&quot;Spectral Clustering&quot;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&quot;Feature 1&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;Feature 2&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>图片</p>
+<ol>
+<li><p>生成数据：使用make_moons生成500个二维数据点，形成两个半月形簇，并添加一定的噪声。</p>
+</li>
+<li><p>训练模型：使用SpectralClustering模型进行训练，设定簇数为2，使用最近邻相似度计算，标签分配使用K均值。</p>
+</li>
+<li><p>预测与绘图：根据训练结果进行预测，并将数据点按簇绘制成不同颜色。</p>
+</li>
+</ol>
+<p>可以看到谱聚类的效果，两个半月形的簇被正确识别出来，每个簇用不同的颜色表示。谱聚类通过利用数据点之间的相似性构建图结构，并通过图的谱（特征向量）进行聚类，有效地处理了复杂形状的簇结构。</p>
+<h1 id="Affinity-Propagation"><a href="#Affinity-Propagation" class="headerlink" title="Affinity Propagation"></a>Affinity Propagation</h1><p>Affinity Propagation（亲和传播）是一种基于消息传递的聚类算法，不需要事先指定簇的数量。它通过在数据点之间传递“责任”和“可用性”消息来找到簇中心（代表），最终将数据点归类到这些簇中心。</p>
+<h2 id="核心原理-6"><a href="#核心原理-6" class="headerlink" title="核心原理"></a>核心原理</h2><p>Affinity Propagation 的核心思想是通过迭代地在数据点之间传递两类信息来决定簇中心和簇分配：</p>
+<ol>
+<li><p>责任（responsibility）：表示数据点  选择数据点  作为簇中心的适合程度。</p>
+</li>
+<li><p>可用性（availability）：表示数据点  作为簇中心被选择的适合程度。</p>
+</li>
+</ol>
+<p>主要步骤如下：</p>
+<ol>
+<li><p>初始化相似度矩阵：计算所有数据点对之间的相似度。</p>
+</li>
+<li><p>迭代更新责任和可用性：根据相似度和当前的责任、可用性迭代更新责任和可用性。</p>
+</li>
+<li><p>确定簇中心：根据责任和可用性决定最终的簇中心。</p>
+</li>
+<li><p>分配簇：将每个数据点分配到其责任最大的簇中心。</p>
+</li>
+</ol>
+<h2 id="核心公式-6"><a href="#核心公式-6" class="headerlink" title="核心公式"></a>核心公式</h2><ol>
+<li>相似度矩阵 ：</li>
+</ol>
+<p>其中，  表示数据点  和数据点  之间的相似度，通常取负的欧氏距离平方。</p>
+<ol>
+<li>责任更新：</li>
+</ol>
+<p>其中，  表示数据点  选择数据点  作为簇中心的责任。</p>
+<ol>
+<li>可用性更新：</li>
+</ol>
+<p>其中，  表示数据点  作为簇中心被选择的可用性。</p>
+<h2 id="Python案例-5"><a href="#Python案例-5" class="headerlink" title="Python案例"></a>Python案例</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> AffinityPropagation</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_sample_image</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> pairwise_distances</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载样本图片</span></span><br><span class="line">china = load_sample_image(<span class="string">&quot;flower.jpg&quot;</span>)</span><br><span class="line">image = np.array(china, dtype=np.float64) / <span class="number">255</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取图片的宽、高和深度</span></span><br><span class="line">w, h, d = original_shape = <span class="built_in">tuple</span>(image.shape)</span><br><span class="line"><span class="comment"># 将图片数据转为二维数据</span></span><br><span class="line">image_array = np.reshape(image, (w * h, d))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算相似度矩阵（欧氏距离）</span></span><br><span class="line">similarity = -pairwise_distances(image_array, metric=<span class="string">&#x27;sqeuclidean&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 Affinity Propagation 进行聚类</span></span><br><span class="line">affinity_propagation = AffinityPropagation(affinity=<span class="string">&#x27;precomputed&#x27;</span>, random_state=<span class="number">42</span>)</span><br><span class="line">affinity_propagation.fit(similarity)</span><br><span class="line">labels = affinity_propagation.predict(similarity)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取聚类中心</span></span><br><span class="line">cluster_centers_indices = affinity_propagation.cluster_centers_indices_</span><br><span class="line">cluster_centers = image_array[cluster_centers_indices]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新构造图片</span></span><br><span class="line">reconstructed_image = cluster_centers[labels].reshape(w, h, d)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制原图和聚类后的图片</span></span><br><span class="line">fig, ax = plt.subplots(<span class="number">1</span>, <span class="number">2</span>, figsize=(<span class="number">15</span>, <span class="number">8</span>))</span><br><span class="line">ax[<span class="number">0</span>].imshow(image)</span><br><span class="line">ax[<span class="number">0</span>].set_title(<span class="string">&quot;Original Image&quot;</span>)</span><br><span class="line">ax[<span class="number">0</span>].axis(<span class="string">&#x27;off&#x27;</span>)</span><br><span class="line"></span><br><span class="line">ax[<span class="number">1</span>].imshow(reconstructed_image)</span><br><span class="line">ax[<span class="number">1</span>].set_title(<span class="string">&quot;Clustered Image with Affinity Propagation&quot;</span>)</span><br><span class="line">ax[<span class="number">1</span>].axis(<span class="string">&#x27;off&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>加载样本图片：使用 load_sample_image 加载示例图片，并将其数据归一化到 [0, 1] 范围内。</p>
+</li>
+<li><p>构建相似度矩阵：计算图片像素之间的欧氏距离，并将其转化为相似度矩阵。</p>
+</li>
+<li><p>训练模型：使用 AffinityPropagation 模型进行训练，基于相似度矩阵找到聚类中心。</p>
+</li>
+<li><p>重构图片：根据聚类结果重构图片，将每个像素替换为其所属簇的中心颜色。</p>
+</li>
+<li><p>绘图：绘制原始图片和聚类后的图片对比效果。</p>
+</li>
+</ol>
+<h1 id="OPTICS"><a href="#OPTICS" class="headerlink" title="OPTICS"></a>OPTICS</h1><p>OPTICS（Ordering Points To Identify the Clustering Structure）是一种基于密度的聚类算法，类似于DBSCAN，但更适合处理不同密度的簇。OPTICS通过对数据点进行排序，识别出数据的内在聚类结构，不需要预先指定簇的数量。</p>
+<h2 id="核心原理-7"><a href="#核心原理-7" class="headerlink" title="核心原理"></a>核心原理</h2><p>OPTICS的核心思想是通过计算每个数据点的可达距离和核心距离，将数据点按密度可达性排序，并使用这些信息识别聚类结构。</p>
+<ol>
+<li><p>核心距离（core distance）：对于一个点 ，其核心距离是其  邻域内的点到  的最小距离。</p>
+</li>
+<li><p>可达距离（reachability distance）：对于一个点  和 ，其可达距离是  的核心距离和  到  的实际距离中的较大值。</p>
+</li>
+</ol>
+<p>主要步骤如下：</p>
+<ol>
+<li><p>初始化：计算每个点的核心距离和可达距离。</p>
+</li>
+<li><p>排序：从未处理的点中选择核心距离最小的点，按可达距离排序。</p>
+</li>
+<li><p>扩展：对排序后的点进行聚类扩展，根据核心距离和可达距离确定簇的边界。</p>
+</li>
+</ol>
+<h2 id="核心公式-7"><a href="#核心公式-7" class="headerlink" title="核心公式"></a>核心公式</h2><ol>
+<li>核心距离 ：</li>
+</ol>
+<p>其中，  是  的  邻域内的点数，  是最小邻域点数。</p>
+<ol>
+<li>可达距离  ：</li>
+</ol>
+<h2 id="Python案例-6"><a href="#Python案例-6" class="headerlink" title="Python案例"></a>Python案例</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> OPTICS</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> make_blobs</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成样本数据</span></span><br><span class="line">X, y = make_blobs(n_samples=<span class="number">500</span>, centers=<span class="number">4</span>, cluster_std=<span class="number">0.60</span>, random_state=<span class="number">42</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用OPTICS进行聚类</span></span><br><span class="line">optics = OPTICS(min_samples=<span class="number">5</span>, xi=<span class="number">0.05</span>, min_cluster_size=<span class="number">0.1</span>)</span><br><span class="line">optics.fit(X)</span><br><span class="line">labels = optics.labels_</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制结果图</span></span><br><span class="line">plt.scatter(X[:, <span class="number">0</span>], X[:, <span class="number">1</span>], c=labels, cmap=<span class="string">&#x27;viridis&#x27;</span>, s=<span class="number">50</span>)</span><br><span class="line">plt.title(<span class="string">&quot;OPTICS Clustering&quot;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&quot;Feature 1&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;Feature 2&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>图片</p>
+<ol>
+<li><p>生成数据：使用 make_blobs 生成500个二维数据点，形成4个簇，并添加一定的噪声。</p>
+</li>
+<li><p>训练模型：使用 OPTICS 模型进行训练，设定 min_samples 为5， xi 为0.05， min_cluster_size为0.1。</p>
+</li>
+<li><p>预测与绘图：根据训练结果进行预测，并将数据点按簇绘制成不同颜色。</p>
+</li>
+</ol>
+<p>可以看到OPTICS的聚类效果，不同的簇用不同的颜色表示。OPTICS通过计算每个数据点的核心距离和可达距离，将数据点按密度可达性排序，并使用这些信息识别聚类结构，能够有效处理不同密度的簇和噪声点。</p>
+<h1 id="自组织映射"><a href="#自组织映射" class="headerlink" title="自组织映射"></a>自组织映射</h1><p>自组织映射（Self-Organizing Maps，SOM）是一种无监督的神经网络模型，用于将高维数据映射到低维空间（通常是二维）进行可视化。SOM通过竞争学习机制将数据点映射到网络节点，保留数据的拓扑结构，是一种用于数据降维和聚类的强大工具。</p>
+<h2 id="核心原理-8"><a href="#核心原理-8" class="headerlink" title="核心原理"></a>核心原理</h2><p>SOM的核心思想是通过竞争学习机制和邻域函数，将高维数据映射到一个二维的网格上，使得相似的数据点被映射到相邻的节点。主要步骤如下：</p>
+<ol>
+<li><p>初始化权重：网络节点的权重向量初始化为随机值。</p>
+</li>
+<li><p>选择样本：从输入数据中随机选择一个样本。</p>
+</li>
+<li><p>找到最佳匹配单元（BMU）：计算所有节点与该样本之间的距离，找到距离最小的节点，称为最佳匹配单元（BMU）。</p>
+</li>
+<li><p>更新权重：在BMU及其邻域范围内的节点，更新其权重向量，使其向输入样本靠近。邻域范围随时间逐渐减小。</p>
+</li>
+<li><p>迭代：重复步骤2-4，直到达到最大迭代次数或收敛。</p>
+</li>
+</ol>
+<h2 id="核心公式-8"><a href="#核心公式-8" class="headerlink" title="核心公式"></a>核心公式</h2><ol>
+<li>找到最佳匹配单元（BMU）：</li>
+</ol>
+<p>其中， 是输入样本， 是节点  的权重向量。</p>
+<ol>
+<li>更新权重向量：</li>
+</ol>
+<p>其中， 是学习率， 是邻域函数，表示节点  相对于BMU的邻域范围。</p>
+<h2 id="Python案例-7"><a href="#Python案例-7" class="headerlink" title="Python案例"></a>Python案例</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br><span class="line"><span class="keyword">from</span> minisom <span class="keyword">import</span> MiniSom</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载Iris数据集</span></span><br><span class="line">data = load_iris()</span><br><span class="line">X = data.data</span><br><span class="line">y = data.target</span><br><span class="line"></span><br><span class="line"><span class="comment"># 标准化数据</span></span><br><span class="line">X = (X - X.mean(axis=<span class="number">0</span>)) / X.std(axis=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化和训练SOM</span></span><br><span class="line">som = MiniSom(x=<span class="number">7</span>, y=<span class="number">7</span>, input_len=<span class="number">4</span>, sigma=<span class="number">1.0</span>, learning_rate=<span class="number">0.5</span>)</span><br><span class="line">som.random_weights_init(X)</span><br><span class="line">som.train_random(X, <span class="number">100</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制结果图</span></span><br><span class="line">plt.figure(figsize=(<span class="number">10</span>, <span class="number">10</span>))</span><br><span class="line"><span class="keyword">for</span> i, x <span class="keyword">in</span> <span class="built_in">enumerate</span>(X):</span><br><span class="line">    w = som.winner(x)</span><br><span class="line">    plt.text(w[<span class="number">0</span>] + <span class="number">0.5</span>, w[<span class="number">1</span>] + <span class="number">0.5</span>, <span class="built_in">str</span>(y[i]),</span><br><span class="line">             color=plt.cm.rainbow(y[i] / <span class="number">2.</span>),</span><br><span class="line">             fontdict=&#123;<span class="string">&#x27;weight&#x27;</span>: <span class="string">&#x27;bold&#x27;</span>, <span class="string">&#x27;size&#x27;</span>: <span class="number">11</span>&#125;)</span><br><span class="line">plt.title(<span class="string">&quot;Self-Organizing Map of Iris Data&quot;</span>)</span><br><span class="line">plt.grid()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>加载数据：使用 load_iris 加载Iris数据集，并对数据进行标准化处理。</p>
+</li>
+<li><p>初始化和训练SOM：使用 MiniSom 初始化一个7x7的SOM网络，并进行训练。</p>
+</li>
+<li><p>预测与绘图：根据训练结果，绘制每个数据点在SOM网络中的位置，用不同颜色表示不同类别。</p>
+</li>
+</ol>
+<p>Iris数据集的不同类别被映射到二维平面上的不同位置，每个类别用不同的颜色表示。SOM通过竞争学习机制和邻域函数，将高维数据映射到低维空间，保留数据的拓扑结构，有效地进行了数据降维和聚类分析。</p>
+<h1 id="Mean-Shift-Clustering"><a href="#Mean-Shift-Clustering" class="headerlink" title="Mean Shift Clustering"></a>Mean Shift Clustering</h1><p>Mean Shift Clustering 是一种基于密度的无参数聚类算法，通过寻找数据点密度梯度的最大值来识别数据中的聚类中心。它不需要事先指定簇的数量，能够有效地处理不规则形状的聚类。</p>
+<h2 id="核心原理-9"><a href="#核心原理-9" class="headerlink" title="核心原理"></a>核心原理</h2><p>Mean Shift Clustering 的核心思想是通过密度梯度的最大值来确定聚类中心。算法的步骤如下：</p>
+<ol>
+<li><p>初始化：将每个数据点视为一个初始聚类中心。</p>
+</li>
+<li><p>计算梯度：对于每个初始聚类中心，计算其周围数据点的概率密度函数，并计算梯度向量指向密度增加的方向。</p>
+</li>
+<li><p>移动中心：将聚类中心沿着梯度方向移动到密度梯度的最大值处。</p>
+</li>
+<li><p>重复：重复步骤2和步骤3，直到收敛为止。</p>
+</li>
+</ol>
+<h2 id="核心公式-9"><a href="#核心公式-9" class="headerlink" title="核心公式"></a>核心公式</h2><ol>
+<li>核密度估计：</li>
+</ol>
+<p>其中，  是带宽为  的核函数，  是数据集中的数据点，  是数据点的数量。</p>
+<ol>
+<li>梯度计算：</li>
+</ol>
+<p>其中，  是  的导数。</p>
+<ol>
+<li>更新聚类中心：</li>
+</ol>
+<p>其中，  是第  次迭代的聚类中心。</p>
+<h2 id="Python案例-8"><a href="#Python案例-8" class="headerlink" title="Python案例"></a>Python案例</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> MeanShift</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_sample_image</span><br><span class="line"><span class="keyword">from</span> sklearn.utils <span class="keyword">import</span> shuffle</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载样本图片</span></span><br><span class="line">china = load_sample_image(<span class="string">&quot;flower.jpg&quot;</span>)</span><br><span class="line">image = np.array(china, dtype=np.float64) / <span class="number">255</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 降低图像的维度以加快算法运行速度</span></span><br><span class="line">w, h, d = original_shape = <span class="built_in">tuple</span>(image.shape)</span><br><span class="line">image_array = np.reshape(image, (w * h, d))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对数据进行降维</span></span><br><span class="line">image_array_sample = shuffle(image_array, random_state=<span class="number">0</span>)[:w*h]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用Mean Shift进行聚类</span></span><br><span class="line">bandwidth = <span class="number">0.1</span></span><br><span class="line">ms = MeanShift(bandwidth=bandwidth, bin_seeding=<span class="literal">True</span>)</span><br><span class="line">ms.fit(image_array_sample)</span><br><span class="line">labels = ms.labels_</span><br><span class="line">cluster_centers = ms.cluster_centers_</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制结果图</span></span><br><span class="line">plt.figure(figsize=(<span class="number">10</span>, <span class="number">10</span>))</span><br><span class="line">plt.imshow(np.reshape(labels, (w, h)), cmap=plt.cm.get_cmap(<span class="string">&quot;tab20&quot;</span>, cluster_centers.shape[<span class="number">0</span>]))</span><br><span class="line">plt.title(<span class="string">&quot;Mean Shift Clustering of Image&quot;</span>)</span><br><span class="line">plt.axis(<span class="string">&quot;off&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>图片</p>
+<ol>
+<li><p>加载样本图片：使用 load_sample_image 加载示例图片，并将其数据归一化到 [0, 1] 范围内。</p>
+</li>
+<li><p>降维处理：由于图片数据的维度较高，对数据进行降维以加快算法运行速度。</p>
+</li>
+<li><p>训练模型：使用 MeanShift 模型进行训练，设定带宽为0.1，利用 bin seeding 加速。</p>
+</li>
+<li><p>预测与绘图：根据训练结果，绘制图像的聚类结果，相似的颜色被聚类到一起。</p>
+</li>
+</ol>
+<p>通过该图，我们可以看到 Mean Shift Clustering 的效果，将图像中相似的颜色聚类到一起，实现了图像的分割效果。Mean Shift Clustering 无需事先指定簇的数量，能够有效处理不规则形状的聚类，适用于图像分割等领域。</p>
 ]]></content>
       <categories>
         <category>Programming language</category>
@@ -3110,6 +3484,14 @@
 <p><img src="https://matplotlib.org/stable/_images/sphx_glr_polar_scatter_002.png" width="75%" alt="" align=center /></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fig = plt.figure()</span><br><span class="line">ax = fig.add_subplot(projection=<span class="string">&#x27;polar&#x27;</span>)</span><br><span class="line">c = ax.scatter(theta, r, c=colors, s=area, cmap=<span class="string">&#x27;hsv&#x27;</span>, alpha=<span class="number">0.75</span>)</span><br><span class="line"></span><br><span class="line">ax.set_thetamin(<span class="number">45</span>)</span><br><span class="line">ax.set_thetamax(<span class="number">135</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 <p><img src="https://matplotlib.org/stable/_images/sphx_glr_polar_scatter_003.png" width="75%" alt="" align=center /></p>
+<h2 id="二维信号的可视化"><a href="#二维信号的可视化" class="headerlink" title="二维信号的可视化"></a>二维信号的可视化</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span>(<span class="params">x, y</span>):</span></span><br><span class="line">    <span class="keyword">return</span> x*(<span class="number">1</span>-x)*np.cos(<span class="number">4</span>*np.pi*x) * np.sin(<span class="number">4</span>*np.pi*y**<span class="number">2</span>)**<span class="number">2</span></span><br><span class="line"></span><br><span class="line">grid_x, grid_y = np.mgrid[<span class="number">0</span>:<span class="number">1</span>:<span class="number">100j</span>, <span class="number">0</span>:<span class="number">1</span>:<span class="number">200j</span>]</span><br><span class="line"></span><br><span class="line">np.mgrid[<span class="number">0</span>:<span class="number">5</span>, <span class="number">0</span>:<span class="number">5</span>]</span><br><span class="line">array([[[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">        [<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>],</span><br><span class="line">        [<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>],</span><br><span class="line">        [<span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>],</span><br><span class="line">        [<span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>]],</span><br><span class="line">       [[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>],</span><br><span class="line">        [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>],</span><br><span class="line">        [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>],</span><br><span class="line">        [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>],</span><br><span class="line">        [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]]])</span><br><span class="line"></span><br><span class="line">np.mgrid[-<span class="number">1</span>:<span class="number">1</span>:<span class="number">5j</span>]</span><br><span class="line">array([-<span class="number">1.</span> , -<span class="number">0.5</span>,  <span class="number">0.</span> ,  <span class="number">0.5</span>,  <span class="number">1.</span> ])</span><br></pre></td></tr></table></figure>
+<p>但我们只知道它在1000个数据点的值：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">points = np.random.random((<span class="number">1000</span>, <span class="number">2</span>))</span><br><span class="line">values = func(points[:,<span class="number">0</span>], points[:,<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+<p>这可以通过以下方式完成 <code>griddata</code> —下面我们将尝试所有的插值方法：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy.interpolate <span class="keyword">import</span> griddata</span><br><span class="line"></span><br><span class="line">grid_z0 = griddata(points, values, (grid_x, grid_y), method=<span class="string">&#x27;nearest&#x27;</span>)</span><br><span class="line">grid_z1 = griddata(points, values, (grid_x, grid_y), method=<span class="string">&#x27;linear&#x27;</span>)</span><br><span class="line">grid_z2 = griddata(points, values, (grid_x, grid_y), method=<span class="string">&#x27;cubic&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>可以看到，所有方法都在一定程度上重现了准确的结果，但对于此光滑函数，三次样条插值提供了最好的结果：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">plt.subplot(<span class="number">221</span>)</span><br><span class="line">plt.imshow(func(grid_x, grid_y).T, extent=(<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>), origin=<span class="string">&#x27;lower&#x27;</span>,cmap = <span class="string">&#x27;jet&#x27;</span>)</span><br><span class="line">plt.plot(points[:,<span class="number">0</span>], points[:,<span class="number">1</span>], <span class="string">&#x27;k.&#x27;</span>, ms=<span class="number">1</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;Original&#x27;</span>)</span><br><span class="line">plt.subplot(<span class="number">222</span>)</span><br><span class="line">plt.imshow(grid_z0.T, extent=(<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>), origin=<span class="string">&#x27;lower&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;Nearest&#x27;</span>)</span><br><span class="line">plt.subplot(<span class="number">223</span>)</span><br><span class="line">plt.imshow(grid_z1.T, extent=(<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>), origin=<span class="string">&#x27;lower&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;Linear&#x27;</span>)</span><br><span class="line">plt.subplot(<span class="number">224</span>)</span><br><span class="line">plt.imshow(grid_z2.T, extent=(<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>), origin=<span class="string">&#x27;lower&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;Cubic&#x27;</span>)</span><br><span class="line">plt.gcf().set_size_inches(<span class="number">6</span>, <span class="number">6</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="https://www.osgeo.cn/scipy/_images/interpolate-3.png" width="80%" alt="" align=center /></p>
 <h2 id="散点图（Scatter-plot）"><a href="#散点图（Scatter-plot）" class="headerlink" title="散点图（Scatter plot）"></a>散点图（Scatter plot）</h2><p>散点图是用于研究两个变量之间关系的经典的和基本的图表。 如果数据中有多个组，则可能需要以不同颜色可视化每个组。 在 matplotlib 中，您可以使用 <code>plt.scatter()</code> 方便地执行此操作。</p>
 <p><img src="https://s21.ax1x.com/2024/05/28/pk1QzOe.png" width="100%" align=center /></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Import dataset </span></span><br><span class="line">midwest = pd.read_csv(<span class="string">&#x27;midwest_filter.csv&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Prepare Data </span></span><br><span class="line"><span class="comment"># Create as many colors as there are unique midwest[&#x27;category&#x27;]</span></span><br><span class="line">categories = np.unique(midwest[<span class="string">&#x27;category&#x27;</span>])</span><br><span class="line">colors = [plt.cm.tab10(i/<span class="built_in">float</span>(<span class="built_in">len</span>(categories)-<span class="number">1</span>)) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(categories))]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Draw Plot for Each Category</span></span><br><span class="line">plt.figure(figsize=(<span class="number">16</span>, <span class="number">10</span>), dpi= <span class="number">80</span>, facecolor=<span class="string">&#x27;w&#x27;</span>, edgecolor=<span class="string">&#x27;k&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i, category <span class="keyword">in</span> <span class="built_in">enumerate</span>(categories):</span><br><span class="line">    plt.scatter(<span class="string">&#x27;area&#x27;</span>, <span class="string">&#x27;poptotal&#x27;</span>, data=midwest.loc[midwest.category==category, :], s=<span class="number">20</span>, cmap=colors[i], label=<span class="built_in">str</span>(category))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Decorations</span></span><br><span class="line">plt.gca().<span class="built_in">set</span>(xlim=(<span class="number">0.0</span>, <span class="number">0.1</span>), ylim=(<span class="number">0</span>, <span class="number">90000</span>),xlabel=<span class="string">&#x27;Area&#x27;</span>, ylabel=<span class="string">&#x27;Population&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.xticks(fontsize=<span class="number">12</span>)</span><br><span class="line">plt.yticks(fontsize=<span class="number">12</span>)</span><br><span class="line">plt.title(<span class="string">&quot;Scatterplot of Midwest Area vs Population&quot;</span>, fontsize=<span class="number">22</span>)</span><br><span class="line">plt.legend(fontsize=<span class="number">12</span>)    </span><br><span class="line">plt.show()</span><br><span class="line"><span class="comment"># d:\anaconda3\lib\site-packages\ipykernel\ipkernel.py:287: DeprecationWarning: `should_run_async` will not call `transform_cell` automatically in the future. Please pass the result to `transformed_cell` argument and any exception that happen during thetransform in `preprocessing_exc_tuple` in IPython 7.17 and above.</span></span><br><span class="line"><span class="comment">#  and should_run_async(code)</span></span><br></pre></td></tr></table></figure>
@@ -3445,6 +3827,11 @@
       </tags>
   </entry>
   <entry>
+    <title>Categories</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>About</title>
     <url>/about/index.html</url>
     <content><![CDATA[<h2 id="Self-Introduction"><a href="#Self-Introduction" class="headerlink" title="Self-Introduction:"></a>Self-Introduction:</h2><p>Hai-Wei Chai&ensp;[柴海伟]</p>
@@ -3465,11 +3852,6 @@
 </ul>
 <h2 id="My-friends-amp-me-at-USTC-2016"><a href="#My-friends-amp-me-at-USTC-2016" class="headerlink" title="My friends &amp; me at USTC 2016:"></a>My friends &amp; me at USTC 2016:</h2><p><img src="https://s1.ax1x.com/2022/10/19/xsgD7F.jpg" alt=""></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Categories</title>
-    <url>/categories/index.html</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>Scholar</title>
@@ -3558,11 +3940,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Tags</title>
-    <url>/tags/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>Micro Computed Tomography Team</title>
     <url>/team/index.html</url>
     <content><![CDATA[<div class="table-container">
@@ -3614,6 +3991,11 @@
 </table>
 </div>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Tags</title>
+    <url>/tags/index.html</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>聚氨酯泡沫制备工艺</title>

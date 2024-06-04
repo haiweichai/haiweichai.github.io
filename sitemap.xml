@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hwchai.com/PythonLes13/</loc>
+    
+    <lastmod>2024-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://hwchai.com/PythonLes12/</loc>
     
     <lastmod>2024-05-28</lastmod>
@@ -281,27 +290,6 @@
 
   
   <url>
-    <loc>https://hwchai.com/tags/English/</loc>
-    <lastmod>2024-06-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://hwchai.com/tags/Writing/</loc>
-    <lastmod>2024-06-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://hwchai.com/tags/Reply/</loc>
-    <lastmod>2024-06-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://hwchai.com/tags/Hexo/</loc>
     <lastmod>2024-06-04</lastmod>
     <changefreq>weekly</changefreq>
@@ -359,6 +347,27 @@
   
   <url>
     <loc>https://hwchai.com/tags/personal-safety/</loc>
+    <lastmod>2024-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hwchai.com/tags/English/</loc>
+    <lastmod>2024-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hwchai.com/tags/Writing/</loc>
+    <lastmod>2024-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hwchai.com/tags/Reply/</loc>
     <lastmod>2024-06-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -500,13 +509,6 @@
 
   
   <url>
-    <loc>https://hwchai.com/categories/Scholarship-Writing-and-Mindset/</loc>
-    <lastmod>2024-06-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://hwchai.com/categories/Notes-on-Life-and-Letter/</loc>
     <lastmod>2024-06-04</lastmod>
     <changefreq>weekly</changefreq>
@@ -515,6 +517,13 @@
   
   <url>
     <loc>https://hwchai.com/categories/X-ray-imaging/</loc>
+    <lastmod>2024-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hwchai.com/categories/Scholarship-Writing-and-Mindset/</loc>
     <lastmod>2024-06-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
