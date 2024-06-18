@@ -678,6 +678,45 @@
       </tags>
   </entry>
   <entry>
+    <title>Python 在科研中的应用：课程作业及评分标准</title>
+    <url>/PythonLes14/</url>
+    <content><![CDATA[<p>课程作业总结及评分标准。</p>
+<span id="more"></span>
+<h2 id="课程作业-01-Score-30"><a href="#课程作业-01-Score-30" class="headerlink" title="课程作业 01 (Score: 30%)"></a>课程作业 01 (Score: 30%)</h2><p>在二维平面中构建随机 Vornoi 结构，将交界处壁厚设置为随机数，生成Vornoi结构图像。要求：三维平面的像素画幅、Vornoi的初始种子的数密度、交界处壁厚的随机分布范围可设置，作为输入参数集放置在程序的最开始。输出：二维结构图像，并输出各个交界节点、棱边的结构信息至.txt文件。 </p>
+<h3 id="评分标准"><a href="#评分标准" class="headerlink" title="评分标准"></a>评分标准</h3><ul>
+<li>10 分：生成标准Vornoi结构图形（Graph）</li>
+<li>10 分：生成标准Vornoi结构图像（Image）</li>
+<li>5 分：各种结构参数可以调节</li>
+<li>5 分：总结报告完善程度和逻辑性</li>
+<li>4 分：Vornoi结构的节点（Node）位置进行特殊处理避免结构奇异（附加分）</li>
+</ul>
+<h2 id="课程作业02-Score-25"><a href="#课程作业02-Score-25" class="headerlink" title="课程作业02 (Score: 25%)"></a>课程作业02 (Score: 25%)</h2><p>给你一个长度为 n 的字符串 <code>moves</code>，该字符串仅由字符<code>L</code>、<code>R</code>和<code>_</code>组成。字符串表示你在一条原点为 0 的数轴上的若干次移动。</p>
+<p>你的初始位置就在原点（0），第 i 次移动过程中，你可以根据对应字符选择移动方向：</p>
+<p>如果 <code>moves[i] = &#39;L&#39;</code> 或 <code>moves[i] = &#39;_&#39;</code>，可以选择向左移动一个单位距离<br>如果 <code>moves[i] = &#39;R&#39;</code> 或 <code>moves[i] = &#39;_&#39;</code>，可以选择向右移动一个单位距离<br>移动 n 次之后，请你找出可以到达的距离原点 最远 的点，并返回 从原点到这一点的距离 。</p>
+<h3 id="评分标准-1"><a href="#评分标准-1" class="headerlink" title="评分标准"></a>评分标准</h3><ul>
+<li>8 分：随机生成长度为 n 的字符串 <code>moves</code>，该字符串仅由字符<code>L</code>、<code>R</code>和<code>_</code>组成</li>
+<li>7 分：计算可以到达的距离原点最远的点</li>
+<li>5 分：各种结构参数可以调节</li>
+<li>5 分：总结报告完善程度和逻辑性</li>
+</ul>
+<h2 id="课程作业03-Score-25"><a href="#课程作业03-Score-25" class="headerlink" title="课程作业03 (Score: 25%)"></a>课程作业03 (Score: 25%)</h2><p>构建四组二维空间中的随机分布散点，每组散点符合二维高斯分布，高斯分布的中心点与两个方向的标准差均随机产生，且二维高斯分布的中心点落在[[0,100],[0,100]]的方形区域内。</p>
+<p>通过K均值聚类分析方法对上述随机散点执行聚类分析，绘制分类结果，并计算K-means聚类分析的准确率。</p>
+<h3 id="评分标准-2"><a href="#评分标准-2" class="headerlink" title="评分标准"></a>评分标准</h3><ul>
+<li>5 分：构建四组二维空间中的随机分布散点</li>
+<li>5 分：K均值聚类分析方法对上述随机散点执行聚类分析</li>
+<li>5 分：计算K-means聚类分析的准确率</li>
+<li>5 分：各种结构参数可以调节</li>
+<li>5 分：总结报告完善程度和逻辑性</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Programming language</category>
+      </categories>
+      <tags>
+        <tag>Image Segementation</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【英语写作】 短语</title>
     <url>/archive/Exp002-writing/</url>
     <content><![CDATA[<p>逐渐培养长期稳定阅读高水平 SCI 文章的习惯，不仅仅能了解专业的理论热点和学术前沿，同时还有益于学习高手写作科技论文时的行文逻辑、方法、技巧。这是对科研能力的培养，对养成独立思考习惯的努力。本文将记录阅读科技论文时发现的生僻短语及专业术语，旨在提高英语写作水平。</p>
@@ -3648,6 +3687,28 @@
       </tags>
   </entry>
   <entry>
+    <title>About</title>
+    <url>/about/index.html</url>
+    <content><![CDATA[<h2 id="Self-Introduction"><a href="#Self-Introduction" class="headerlink" title="Self-Introduction:"></a>Self-Introduction:</h2><p>Hai-Wei Chai&ensp;[柴海伟]</p>
+<ul>
+<li>2022.06 - Now, Assistant Professor in School of Material Science and Engineering, Southwest Jiaotong University</li>
+<li>2019.09 - 2021.12, Doctor in Peac Institute of Multiscale Sciences</li>
+<li>2016.09 - 2019.06, Master in Peac Institute of Multiscale Sciences</li>
+<li>2012.09 - 2016.06, Bachelor in School of Physical Sciences, University of Science and Technology of China</li>
+</ul>
+<h2 id="Skills"><a href="#Skills" class="headerlink" title="Skills:"></a>Skills:</h2><ul>
+<li>Programming languages: C/C++, Matlab, Python, CUDA</li>
+<li>Major: X-ray Imaging and Diffraction, Computed Tomography, Machine Learning</li>
+<li>OS Platform: Linux, Mac OS, Windows</li>
+<li>Language: English, Chinese</li>
+</ul>
+<h2 id="Contact-details"><a href="#Contact-details" class="headerlink" title="Contact details:"></a>Contact details:</h2><ul>
+<li>E-mail: chw9402@mail.ustc.edu.cn</li>
+</ul>
+<h2 id="My-friends-amp-me-at-USTC-2016"><a href="#My-friends-amp-me-at-USTC-2016" class="headerlink" title="My friends &amp; me at USTC 2016:"></a>My friends &amp; me at USTC 2016:</h2><p><img src="https://s1.ax1x.com/2022/10/19/xsgD7F.jpg" alt=""></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Categories</title>
     <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
@@ -3715,25 +3776,32 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>About</title>
-    <url>/about/index.html</url>
-    <content><![CDATA[<h2 id="Self-Introduction"><a href="#Self-Introduction" class="headerlink" title="Self-Introduction:"></a>Self-Introduction:</h2><p>Hai-Wei Chai&ensp;[柴海伟]</p>
-<ul>
-<li>2022.06 - Now, Assistant Professor in School of Material Science and Engineering, Southwest Jiaotong University</li>
-<li>2019.09 - 2021.12, Doctor in Peac Institute of Multiscale Sciences</li>
-<li>2016.09 - 2019.06, Master in Peac Institute of Multiscale Sciences</li>
-<li>2012.09 - 2016.06, Bachelor in School of Physical Sciences, University of Science and Technology of China</li>
+    <title>Support</title>
+    <url>/support/index.html</url>
+    <content><![CDATA[<h2 id="Tools-for-scholar"><a href="#Tools-for-scholar" class="headerlink" title="Tools for scholar"></a>Tools for scholar</h2><ul>
+<li><a href="https://www.overleaf.com/"><font color="#80b1d3">[Link]</font></a>                    &emsp; Overleaf 全球共享的在线LaTeX写作平台</li>
+<li><a href="https://colorbrewer2.org/"><font color="#80b1d3">[Link]</font></a>                    &emsp; ColorBrewer 配色方案优化</li>
+<li><a href="http://www.mohu.org/info/symbols/symbols.htm"><font color="#80b1d3">[Link]</font></a> &emsp; LaTeX 常用数学符号表示方法</li>
+<li><a href="https://www.tablesgenerator.com/"><font color="#80b1d3">[Link]</font></a>             &emsp; LaTeX 表格在线自动生成</li>
 </ul>
-<h2 id="Skills"><a href="#Skills" class="headerlink" title="Skills:"></a>Skills:</h2><ul>
-<li>Programming languages: C/C++, Matlab, Python, CUDA</li>
-<li>Major: X-ray Imaging and Diffraction, Computed Tomography, Machine Learning</li>
-<li>OS Platform: Linux, Mac OS, Windows</li>
-<li>Language: English, Chinese</li>
+<h2 id="Tools-for-Vision"><a href="#Tools-for-Vision" class="headerlink" title="Tools for Vision"></a>Tools for Vision</h2><ul>
+<li><a href="https://processing.org/"><font color="#80b1d3">[Link]</font></a>                      &emsp; Processing 视觉软件开发开源工具</li>
+<li><a href="https://github.com/smartgeometry-ucl/dl4g"><font color="#80b1d3">[Link]</font></a>    &emsp; CreativeAI: Deep Learning for Graphics Tutorial Code</li>
+<li><a href="http://lightfield.stanford.edu/lfs.html"><font color="#80b1d3">[Link]</font></a>      &emsp; 斯坦福大学计算机图形实验室光场数据库，提供光场采集设备资料，相机标定以及可视化工具</li>
+<li><a href="https://graphics.stanford.edu/courses/cs178/applets/applets.html"><font color="#80b1d3">[Link]</font></a>      &emsp; 斯坦福大学计算机图形实验室的Marc Levoy教授制作的动画仿真，详细介绍了相机参数变化对应的光路变化</li>
+<li><a href="https://lightfield-analysis.uni-konstanz.de/"><font color="#80b1d3">[Link]</font></a>      &emsp; HCI光场数据集及解码工具</li>
 </ul>
-<h2 id="Contact-details"><a href="#Contact-details" class="headerlink" title="Contact details:"></a>Contact details:</h2><ul>
-<li>E-mail: chw9402@mail.ustc.edu.cn</li>
+<h2 id="The-big-guys’-website"><a href="#The-big-guys’-website" class="headerlink" title="The big guys’ website"></a>The big guys’ website</h2><ul>
+<li><a href="https://cseweb.ucsd.edu//~ravir/"><font color="#80b1d3">[Link]</font></a>             &emsp; Ravi Ramamoorthi 教授，加州大学圣地亚哥分校视觉计算中心主任，计算机视觉领域的大牛</li>
+<li><a href="https://cseweb.ucsd.edu//~viscomp/projects/LF/"><font color="#80b1d3">[Link]</font></a>             &emsp; 光场实验室，隶属Ravi Ramamoorthi教授，研究光场领域深度图像获取，三维重建及去除高光等</li>
+<li><a href="https://imechanica.org/"><font color="#80b1d3">[Link]</font></a>                      &emsp; iMechanica - web of mechanics and mechanicians</li>
 </ul>
-<h2 id="My-friends-amp-me-at-USTC-2016"><a href="#My-friends-amp-me-at-USTC-2016" class="headerlink" title="My friends &amp; me at USTC 2016:"></a>My friends &amp; me at USTC 2016:</h2><p><img src="https://s1.ax1x.com/2022/10/19/xsgD7F.jpg" alt=""></p>
+<h2 id="Tools-for-Hexo-NexT"><a href="#Tools-for-Hexo-NexT" class="headerlink" title="Tools for Hexo|NexT"></a>Tools for Hexo|NexT</h2><ul>
+<li><a href="http://www.ehcoo.com/seo.html"><font color="#80b1d3">[Link]</font></a>                &emsp; Hexo|NexT 搜索引擎SEO检索优化</li>
+<li><a href="https://imgse.com/"><font color="#80b1d3">[Link]</font></a>                           &emsp; Imgse 图床与外链服务，全球CDN加速</li>
+<li><a href="https://fontawesome.com/start"><font color="#80b1d3">[Link]</font></a>                &emsp; Font Awesome 互联网最受欢迎的开源图标集</li>
+<li><a href="http://yearito.cn/posts/hexo-writing-skills.html"><font color="#80b1d3">[Link]</font></a>    &emsp; Markdown 写作技巧</li>
+</ul>
 ]]></content>
   </entry>
   <entry>
@@ -3787,35 +3855,6 @@
 </tbody>
 </table>
 </div>
-]]></content>
-  </entry>
-  <entry>
-    <title>Support</title>
-    <url>/support/index.html</url>
-    <content><![CDATA[<h2 id="Tools-for-scholar"><a href="#Tools-for-scholar" class="headerlink" title="Tools for scholar"></a>Tools for scholar</h2><ul>
-<li><a href="https://www.overleaf.com/"><font color="#80b1d3">[Link]</font></a>                    &emsp; Overleaf 全球共享的在线LaTeX写作平台</li>
-<li><a href="https://colorbrewer2.org/"><font color="#80b1d3">[Link]</font></a>                    &emsp; ColorBrewer 配色方案优化</li>
-<li><a href="http://www.mohu.org/info/symbols/symbols.htm"><font color="#80b1d3">[Link]</font></a> &emsp; LaTeX 常用数学符号表示方法</li>
-<li><a href="https://www.tablesgenerator.com/"><font color="#80b1d3">[Link]</font></a>             &emsp; LaTeX 表格在线自动生成</li>
-</ul>
-<h2 id="Tools-for-Vision"><a href="#Tools-for-Vision" class="headerlink" title="Tools for Vision"></a>Tools for Vision</h2><ul>
-<li><a href="https://processing.org/"><font color="#80b1d3">[Link]</font></a>                      &emsp; Processing 视觉软件开发开源工具</li>
-<li><a href="https://github.com/smartgeometry-ucl/dl4g"><font color="#80b1d3">[Link]</font></a>    &emsp; CreativeAI: Deep Learning for Graphics Tutorial Code</li>
-<li><a href="http://lightfield.stanford.edu/lfs.html"><font color="#80b1d3">[Link]</font></a>      &emsp; 斯坦福大学计算机图形实验室光场数据库，提供光场采集设备资料，相机标定以及可视化工具</li>
-<li><a href="https://graphics.stanford.edu/courses/cs178/applets/applets.html"><font color="#80b1d3">[Link]</font></a>      &emsp; 斯坦福大学计算机图形实验室的Marc Levoy教授制作的动画仿真，详细介绍了相机参数变化对应的光路变化</li>
-<li><a href="https://lightfield-analysis.uni-konstanz.de/"><font color="#80b1d3">[Link]</font></a>      &emsp; HCI光场数据集及解码工具</li>
-</ul>
-<h2 id="The-big-guys’-website"><a href="#The-big-guys’-website" class="headerlink" title="The big guys’ website"></a>The big guys’ website</h2><ul>
-<li><a href="https://cseweb.ucsd.edu//~ravir/"><font color="#80b1d3">[Link]</font></a>             &emsp; Ravi Ramamoorthi 教授，加州大学圣地亚哥分校视觉计算中心主任，计算机视觉领域的大牛</li>
-<li><a href="https://cseweb.ucsd.edu//~viscomp/projects/LF/"><font color="#80b1d3">[Link]</font></a>             &emsp; 光场实验室，隶属Ravi Ramamoorthi教授，研究光场领域深度图像获取，三维重建及去除高光等</li>
-<li><a href="https://imechanica.org/"><font color="#80b1d3">[Link]</font></a>                      &emsp; iMechanica - web of mechanics and mechanicians</li>
-</ul>
-<h2 id="Tools-for-Hexo-NexT"><a href="#Tools-for-Hexo-NexT" class="headerlink" title="Tools for Hexo|NexT"></a>Tools for Hexo|NexT</h2><ul>
-<li><a href="http://www.ehcoo.com/seo.html"><font color="#80b1d3">[Link]</font></a>                &emsp; Hexo|NexT 搜索引擎SEO检索优化</li>
-<li><a href="https://imgse.com/"><font color="#80b1d3">[Link]</font></a>                           &emsp; Imgse 图床与外链服务，全球CDN加速</li>
-<li><a href="https://fontawesome.com/start"><font color="#80b1d3">[Link]</font></a>                &emsp; Font Awesome 互联网最受欢迎的开源图标集</li>
-<li><a href="http://yearito.cn/posts/hexo-writing-skills.html"><font color="#80b1d3">[Link]</font></a>    &emsp; Markdown 写作技巧</li>
-</ul>
 ]]></content>
   </entry>
   <entry>
