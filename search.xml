@@ -688,7 +688,7 @@
 <li>10 分：生成标准Vornoi结构图像（Image）</li>
 <li>5 分：各种结构参数可以调节</li>
 <li>5 分：总结报告完善程度和逻辑性</li>
-<li>4 分：Vornoi结构的节点（Node）位置进行特殊处理避免结构奇异（附加分）</li>
+<li>？ 分：Vornoi结构的节点（Node）位置进行特殊处理避免结构奇异（附加分）</li>
 </ul>
 <h2 id="课程作业02-Score-25"><a href="#课程作业02-Score-25" class="headerlink" title="课程作业02 (Score: 25%)"></a>课程作业02 (Score: 25%)</h2><p>给你一个长度为 n 的字符串 <code>moves</code>，该字符串仅由字符<code>L</code>、<code>R</code>和<code>_</code>组成。字符串表示你在一条原点为 0 的数轴上的若干次移动。</p>
 <p>你的初始位置就在原点（0），第 i 次移动过程中，你可以根据对应字符选择移动方向：</p>
