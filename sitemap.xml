@@ -83,7 +83,7 @@
   </url>
   
   <url>
-    <loc>https://hwchai.com/PythonLes08/</loc>
+    <loc>https://hwchai.com/PythonLes07/</loc>
     
     <lastmod>2024-04-09</lastmod>
     
@@ -92,7 +92,7 @@
   </url>
   
   <url>
-    <loc>https://hwchai.com/PythonLes07/</loc>
+    <loc>https://hwchai.com/PythonLes08/</loc>
     
     <lastmod>2024-04-09</lastmod>
     
@@ -308,6 +308,27 @@
 
   
   <url>
+    <loc>https://hwchai.com/tags/Artificial-Intelligence/</loc>
+    <lastmod>2024-07-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hwchai.com/tags/Pytorch/</loc>
+    <lastmod>2024-07-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hwchai.com/tags/Gemini/</loc>
+    <lastmod>2024-07-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://hwchai.com/tags/Hexo/</loc>
     <lastmod>2024-07-12</lastmod>
     <changefreq>weekly</changefreq>
@@ -344,27 +365,6 @@
   
   <url>
     <loc>https://hwchai.com/tags/Reply/</loc>
-    <lastmod>2024-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://hwchai.com/tags/Artificial-Intelligence/</loc>
-    <lastmod>2024-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://hwchai.com/tags/Pytorch/</loc>
-    <lastmod>2024-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://hwchai.com/tags/Gemini/</loc>
     <lastmod>2024-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -548,6 +548,13 @@
 
   
   <url>
+    <loc>https://hwchai.com/categories/Artificial-Intelligence/</loc>
+    <lastmod>2024-07-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://hwchai.com/categories/Notes-on-Life-and-Letter/</loc>
     <lastmod>2024-07-12</lastmod>
     <changefreq>weekly</changefreq>
@@ -556,13 +563,6 @@
   
   <url>
     <loc>https://hwchai.com/categories/Scholarship-Writing-and-Mindset/</loc>
-    <lastmod>2024-07-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://hwchai.com/categories/Artificial-Intelligence/</loc>
     <lastmod>2024-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
