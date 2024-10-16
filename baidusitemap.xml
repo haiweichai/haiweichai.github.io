@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://hwchai.com/AI-Repeatability/</loc>
+    <lastmod>2024-10-16</lastmod>
+  </url>
+  <url>
     <loc>https://hwchai.com/AI-Gemma/</loc>
     <lastmod>2024-07-11</lastmod>
   </url>

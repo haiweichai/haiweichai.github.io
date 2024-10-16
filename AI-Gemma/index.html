@@ -23,13 +23,14 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hwchai.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Gemini是Google开发的一款多模态大模型，能够处理文本、图像、音频、视频和代码等信息。目前推出的Gemini模型分为Nano、Pro、Ultra以及1.5Pro，这些模型都可以在谷歌网站上进行访问：https:&#x2F;&#x2F;gemini.google.com 。此外，谷歌还提供了Gemini模型的API，可在代码中调用模型，输入文本和图片然后，输出文本回复，以及一款开源大语言模型gemma，该模型基">
+    <meta name="description" content="Gemini是Google开发的一款多模态大模型，能够处理文本、图像、音频、视频和代码等信息。目前推出的Gemini模型分为Nano、Pro、Ultra以及1.5Pro，这些模型都可以在谷歌网站上进行访问：https:&#x2F;&#x2F;gemini.google.com 。此外，谷歌还提供了Gemini模型的API，可在代码中调用模型，输入文本和图片然后，输出文本回复，以及一款开源大语言模型gemma，该模型">
 <meta property="og:type" content="article">
 <meta property="og:title" content="人工智能：Gemini&#x2F;Gemma模型部署与使用">
 <meta property="og:url" content="https://hwchai.com/AI-Gemma/index.html">
 <meta property="og:site_name" content="Hai-Wei Chai&#39;s Blog">
-<meta property="og:description" content="Gemini是Google开发的一款多模态大模型，能够处理文本、图像、音频、视频和代码等信息。目前推出的Gemini模型分为Nano、Pro、Ultra以及1.5Pro，这些模型都可以在谷歌网站上进行访问：https:&#x2F;&#x2F;gemini.google.com 。此外，谷歌还提供了Gemini模型的API，可在代码中调用模型，输入文本和图片然后，输出文本回复，以及一款开源大语言模型gemma，该模型基">
+<meta property="og:description" content="Gemini是Google开发的一款多模态大模型，能够处理文本、图像、音频、视频和代码等信息。目前推出的Gemini模型分为Nano、Pro、Ultra以及1.5Pro，这些模型都可以在谷歌网站上进行访问：https:&#x2F;&#x2F;gemini.google.com 。此外，谷歌还提供了Gemini模型的API，可在代码中调用模型，输入文本和图片然后，输出文本回复，以及一款开源大语言模型gemma，该模型">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/final_keyword_header.width-1200.format-webp.webp">
 <meta property="og:image" content="https://s21.ax1x.com/2024/07/12/pk4n7AP.png">
 <meta property="article:published_time" content="2024-07-11T16:27:43.000Z">
 <meta property="article:modified_time" content="2024-07-11T13:58:01.000Z">
@@ -38,7 +39,7 @@
 <meta property="article:tag" content="Pytorch">
 <meta property="article:tag" content="Gemini">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s21.ax1x.com/2024/07/12/pk4n7AP.png">
+<meta name="twitter:image" content="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/final_keyword_header.width-1200.format-webp.webp">
 
 
 <link rel="canonical" href="https://hwchai.com/AI-Gemma/">
@@ -165,7 +166,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -174,7 +175,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-count">35</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -309,7 +310,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>Gemini是Google开发的一款多模态大模型，能够处理文本、图像、音频、视频和代码等信息。目前推出的Gemini模型分为Nano、Pro、Ultra以及1.5Pro，这些模型都可以在谷歌网站上进行访问：<a target="_blank" rel="noopener" href="https://gemini.google.com">https://gemini.google.com</a> 。此外，谷歌还提供了<a target="_blank" rel="noopener" href="https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-cn">Gemini模型的API</a>，可在代码中调用模型，输入文本和图片然后，输出文本回复，以及一款<a target="_blank" rel="noopener" href="https://www.kaggle.com/models/google/gemma">开源大语言模型gemma</a>，该模型基于Gemini的研究和技术开发，能处理文本信息。模型有2b和7b两种参数规模以及经过指令调优（2b-it &amp; 7b-it）和未调优的基础模型等版本，可通过多种框架构建：Keras、Pytorch、Transformers、Gemma C++、TensorRT-LLM、TensorFlow Lite、MaxText、Pax、Flax。</p>
+        <p><img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/final_keyword_header.width-1200.format-webp.webp" alt="Graphical Abstract"></p>
+<p>Gemini是Google开发的一款多模态大模型，能够处理文本、图像、音频、视频和代码等信息。目前推出的Gemini模型分为Nano、Pro、Ultra以及1.5Pro，这些模型都可以在谷歌网站上进行访问：<a target="_blank" rel="noopener" href="https://gemini.google.com">https://gemini.google.com</a> 。此外，谷歌还提供了<a target="_blank" rel="noopener" href="https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-cn">Gemini模型的API</a>，可在代码中调用模型，输入文本和图片然后，输出文本回复，以及一款<a target="_blank" rel="noopener" href="https://www.kaggle.com/models/google/gemma">开源大语言模型gemma</a>，该模型基于Gemini的研究和技术开发，能处理文本信息。模型有2b和7b两种参数规模以及经过指令调优（2b-it &amp; 7b-it）和未调优的基础模型等版本，可通过多种框架构建：Keras、Pytorch、Transformers、Gemma C++、TensorRT-LLM、TensorFlow Lite、MaxText、Pax、Flax。</p>
 <span id="more"></span>
 <h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><h3 id="安装-CentOS-7-9-及-Miniconda-3"><a href="#安装-CentOS-7-9-及-Miniconda-3" class="headerlink" title="安装 CentOS 7.9 及 Miniconda 3"></a>安装 CentOS 7.9 及 Miniconda 3</h3><p>本文选用 CentOS 7 的最后一代发行版本，内核版本3.10.0，并配置网络环境：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Last login: Fri Jul 12 03:58:06 2024 from 222.210.147.117</span><br><span class="line">(base) [root@server01 ai]# uname -r</span><br><span class="line">3.10.0-1160.el7.x86_64</span><br><span class="line"></span><br><span class="line">(base) [root@server01 ai]# ping www.baidu.com -c4</span><br><span class="line">PING www.a.shifen.com (39.156.66.14) 56(84) bytes of data.</span><br><span class="line">64 bytes from 39.156.66.14 (39.156.66.14): icmp_seq=1 ttl=50 time=38.5 ms</span><br><span class="line">64 bytes from 39.156.66.14 (39.156.66.14): icmp_seq=2 ttl=50 time=38.2 ms</span><br><span class="line">64 bytes from 39.156.66.14 (39.156.66.14): icmp_seq=3 ttl=50 time=38.2 ms</span><br><span class="line">64 bytes from 39.156.66.14 (39.156.66.14): icmp_seq=4 ttl=50 time=38.2 ms</span><br><span class="line"></span><br><span class="line">--- www.a.shifen.com ping statistics ---</span><br><span class="line">4 packets transmitted, 4 received, 0% packet loss, time 3004ms</span><br><span class="line">rtt min/avg/max/mdev = 38.220/38.334/38.594/0.151 ms</span><br></pre></td></tr></table></figure>
@@ -401,6 +403,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/AI-Repeatability/" rel="next" title="人工智能：Pytorch训练可重复性">
+                  人工智能：Pytorch训练可重复性 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
