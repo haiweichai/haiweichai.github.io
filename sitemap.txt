@@ -18,7 +18,6 @@ https://hwchai.com/about/index.html
 https://hwchai.com/team/index.html
 https://hwchai.com/support/index.html
 https://hwchai.com/tags/index.html
-https://hwchai.com/categories/index.html
 https://hwchai.com/Exp010-ArticleReply/
 https://hwchai.com/Exp011-book01/
 https://hwchai.com/Exp013-Kaggle01/
@@ -36,10 +35,10 @@ https://hwchai.com/
 https://hwchai.com/tags/Artificial-Intelligence/
 https://hwchai.com/tags/Pytorch/
 https://hwchai.com/tags/Repeatability/
-https://hwchai.com/tags/Gemini/
 https://hwchai.com/tags/Hexo/
 https://hwchai.com/tags/Next/
 https://hwchai.com/tags/Life/
+https://hwchai.com/tags/Gemini/
 https://hwchai.com/tags/English/
 https://hwchai.com/tags/Writing/
 https://hwchai.com/tags/Reply/
