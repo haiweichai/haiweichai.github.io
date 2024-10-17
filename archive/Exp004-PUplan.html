@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="google-site-verification" content="o-lea9x8cdYTPnxMBLW0J5kGEEdq8tJhigXN-eWZfDI" />
+<meta name="baidu-site-verification" content="code-0kQ0WBpVMS" />
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Times+New+Roman:300,300italic,400,400italic,700,700italic%7CGeorgia:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hwchai.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="本团队计划近期赴上海同步辐射源（Shanghai Synchrotron Radiation Facility, SSRF） BL09B 测试线站搭建并测试秒级快速 CT 系统。用于测试的课题为聚氨酯泡沫发泡过程。依靠秒级快速 CT 系统连续观测聚氨酯泡沫发泡过程中三维结构形貌的演化，以及加入不同催化剂、添加剂时结构演化过程的差异。以期揭示聚氨酯泡沫发泡的动力学机理，同时探究催化剂、添加剂等对聚氨">
+<meta property="og:type" content="website">
+<meta property="og:title" content="2019年11月6日上海光源动态CT实验">
+<meta property="og:url" content="https://hwchai.com/archive/Exp004-PUplan.html">
+<meta property="og:site_name" content="Hai-Wei Chai&#39;s Blog">
+<meta property="og:description" content="本团队计划近期赴上海同步辐射源（Shanghai Synchrotron Radiation Facility, SSRF） BL09B 测试线站搭建并测试秒级快速 CT 系统。用于测试的课题为聚氨酯泡沫发泡过程。依靠秒级快速 CT 系统连续观测聚氨酯泡沫发泡过程中三维结构形貌的演化，以及加入不同催化剂、添加剂时结构演化过程的差异。以期揭示聚氨酯泡沫发泡的动力学机理，同时探究催化剂、添加剂等对聚氨">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-10-22T10:17:33.000Z">
+<meta property="article:modified_time" content="2019-11-20T17:25:30.000Z">
+<meta property="article:author" content="Hai-Wei Chai (柴海伟)">
+<meta property="article:tag" content="Polyurethane(PU) Foam">
+<meta property="article:tag" content="Dynamic Tomography">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://hwchai.com/archive/Exp004-PUplan">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en","comments":true,"permalink":"https://hwchai.com/archive/Exp004-PUplan.html","path":"archive/Exp004-PUplan.html","title":"2019年11月6日上海光源动态CT实验"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>2019年11月6日上海光源动态CT实验 | Hai-Wei Chai's Blog
+</title>
+  
+
+
+
+
+<link rel="dns-prefetch" href="https://vercel.hwchai.com/">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hai-Wei Chai's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-house-chimney fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-list fa-fw"></i>Archives</a></li><li class="menu-item menu-item-support"><a href="/support/" rel="section"><i class="fa fa-screwdriver-wrench fa-fw"></i>Support</a></li><li class="menu-item menu-item-books"><a href="/books/" rel="section"><i class="fa fa-book fa-fw"></i>Books</a></li><li class="menu-item menu-item-scholar"><a href="/scholar/" rel="section"><i class="fa fa-chart-column fa-fw"></i>Scholar</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E6%80%BB%E7%BB%93"><span class="nav-number">1.</span> <span class="nav-text">实验总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%A9%E5%93%81%E6%B8%85%E5%8D%95"><span class="nav-number">2.</span> <span class="nav-text">物品清单</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%84%E5%AE%9E%E9%AA%8C"><span class="nav-number">3.</span> <span class="nav-text">预实验</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PAPI%E3%80%81%E8%81%9A%E9%86%9A%E5%A4%9A%E5%85%83%E9%86%87%E3%80%81%E5%8E%BB%E7%A6%BB%E5%AD%90%E6%B0%B4%E4%B8%89%E9%A1%B9%E4%B8%BB%E8%A6%81%E5%8E%9F%E6%96%99%E4%BB%A5%E4%BD%95%E7%A7%8D%E9%85%8D%E6%AF%94%E5%8F%91%E6%B3%A1%E6%9C%80%E4%BD%B3%EF%BC%9F"><span class="nav-number">3.1.</span> <span class="nav-text">PAPI、聚醚多元醇、去离子水三项主要原料以何种配比发泡最佳？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A1%85%E6%B2%B9%E5%AF%B9%E8%81%9A%E6%B0%A8%E9%85%AF%E6%B3%A1%E6%B2%AB%E5%8F%91%E6%B3%A1%E4%BD%93%E7%B3%BB%E5%91%88%E7%8E%B0%E4%BD%95%E7%A7%8D%E5%BD%B1%E5%93%8D%EF%BC%9F%E5%93%AA%E7%A7%8D%E5%9E%8B%E5%8F%B7%E7%9A%84%E7%A1%85%E6%B2%B9%E6%95%88%E6%9E%9C%E6%9C%80%E5%A5%BD%EF%BC%9F%E8%AF%A5%E7%A7%8D%E7%A1%85%E6%B2%B9%E5%9C%A8%E5%8F%8D%E5%BA%94%E6%B6%B2%E4%B8%AD%E5%8D%A0%E5%A4%9A%E5%A4%A7%E6%AF%94%E4%BE%8B%E5%BD%B1%E5%93%8D%E6%9C%80%E5%A5%BD%EF%BC%9F"><span class="nav-number">3.2.</span> <span class="nav-text">硅油对聚氨酯泡沫发泡体系呈现何种影响？哪种型号的硅油效果最好？该种硅油在反应液中占多大比例影响最好？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A1%AC%E8%84%82%E9%85%B8%E9%92%99%E5%AF%B9%E8%81%9A%E6%B0%A8%E9%85%AF%E6%B3%A1%E6%B2%AB%E5%8F%91%E6%B3%A1%E4%BD%93%E7%B3%BB%E5%91%88%E4%BD%95%E7%A7%8D%E5%BD%B1%E5%93%8D%EF%BC%9F%E6%9C%80%E4%BD%B3%E6%AF%94%E4%BE%8B%EF%BC%9F"><span class="nav-number">3.3.</span> <span class="nav-text">硬脂酸钙对聚氨酯泡沫发泡体系呈何种影响？最佳比例？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%84%E8%A3%85%E6%BB%B4%E6%B3%B5%E6%94%AF%E6%9E%B6%EF%BC%8C%E5%9B%BA%E5%AE%9A%E6%BB%B4%E6%B3%B5%E8%87%B3%E6%94%AF%E6%9E%B6%E4%B8%8A%EF%BC%8C%E9%80%9A%E8%BF%87%E6%8E%A7%E5%88%B6%E7%A8%8B%E5%BA%8F%E5%B0%86%E5%8E%BB%E7%A6%BB%E5%AD%90%E6%B0%B4%E6%BB%B4%E8%87%B3%E5%86%85%E5%BE%84-6-rm-mm-%E7%9A%84%E5%AE%B9%E5%99%A8%E5%86%85%EF%BC%8C%E5%A4%9A%E6%AC%A1%E9%87%8D%E5%A4%8D%E3%80%82"><span class="nav-number">3.4.</span> <span class="nav-text">预装滴泵支架，固定滴泵至支架上，通过控制程序将去离子水滴至内径 6\ {\rm mm}的容器内，多次重复。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BB%B4%E6%B3%B5%E6%B8%85%E6%B4%97%E6%96%B9%E6%A1%88"><span class="nav-number">3.5.</span> <span class="nav-text">滴泵清洗方案</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Hai-Wei Chai (柴海伟)"
+      src="/images/gamersky.gif">
+  <p class="site-author-name" itemprop="name">Hai-Wei Chai (柴海伟)</p>
+  <div class="site-description" itemprop="description">I am a slow walker, but never backwards!</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/haiweichai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;haiweichai" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:chw9402@mail.ustc.edu.com" title="E-Mail → mailto:chw9402@mail.ustc.edu.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://ustc.edu.cn/" title="https:&#x2F;&#x2F;ustc.edu.cn" rel="noopener" target="_blank">USTC</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://serverless-page-bucket-rtsw4b6p-1300965131.cos-website.ap-hongkong.myqcloud.com/" title="https:&#x2F;&#x2F;serverless-page-bucket-rtsw4b6p-1300965131.cos-website.ap-hongkong.myqcloud.com&#x2F;" rel="noopener" target="_blank">HWChai</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner page posts-expand">
+
+
+    
+    
+    
+    <div class="post-block" lang="en"><header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">2019年11月6日上海光源动态CT实验
+</h1>
+
+<div class="post-meta-container">
+</div>
+
+</header>
+
+      
+      
+      <div class="post-body">
+          <p>本团队计划近期赴上海同步辐射源（Shanghai Synchrotron Radiation Facility, SSRF） BL09B 测试线站搭建并测试秒级快速 CT 系统。用于测试的课题为聚氨酯泡沫发泡过程。依靠秒级快速 CT 系统连续观测聚氨酯泡沫发泡过程中三维结构形貌的演化，以及加入不同催化剂、添加剂时结构演化过程的差异。以期揭示聚氨酯泡沫发泡的动力学机理，同时探究催化剂、添加剂等对聚氨酯泡沫发泡成型过程的介入作用。</p>
+<p>本次实验已于2019年11月09日圆满结束，感谢张抑扬，谢政良，蒋雪萍，刘子健等的协助。本文列出本次实验详细信息，以备查验。</p>
+<span id="more"></span>
+<h2 id="实验总结"><a href="#实验总结" class="headerlink" title="实验总结"></a>实验总结</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">实验编号</th>
+<th style="text-align:center">配料方案</th>
+<th style="text-align:center">视野（${\rm mm}$）</th>
+<th style="text-align:center">像素尺寸（<script type="math/tex">{\rm \mu m}</script>）</th>
+<th style="text-align:center">曝光时间（<script type="math/tex">{\rm \mu s}</script>）</th>
+<th style="text-align:center">幅间隔（<script type="math/tex">{\rm ms}</script>）</th>
+<th style="text-align:center">转速（<script type="math/tex">{\rm ^\circ/sec}</script>）</th>
+<th style="text-align:center"><script type="math/tex">{\rm CT}</script>间隔（<script type="math/tex">{\rm sec}</script>）</th>
+<th style="text-align:center"><script type="math/tex">{\rm CT}</script>数</th>
+<th style="text-align:center">光子能量（<script type="math/tex">{\rm keV}</script>）</th>
+<th style="text-align:center"><script type="math/tex">{\rm SSD}</script>（<script type="math/tex">{\rm mm}</script>）</th>
+<th style="text-align:center"><script type="math/tex">{\rm Filter}</script>（<script type="math/tex">{\rm mmAl}</script>）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Exp001</td>
+<td style="text-align:center"><font color =#e9a3c9 > A01 </font></td>
+<td style="text-align:center">3.79</td>
+<td style="text-align:center">3.70</td>
+<td style="text-align:center">250</td>
+<td style="text-align:center">1.0</td>
+<td style="text-align:center">360</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">80</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">310</td>
+<td style="text-align:center">1.0 </td>
+</tr>
+<tr>
+<td style="text-align:center">Exp002</td>
+<td style="text-align:center"><font color =#e9a3c9 > A01 </font></td>
+<td style="text-align:center">9.47</td>
+<td style="text-align:center">9.25</td>
+<td style="text-align:center">250</td>
+<td style="text-align:center">1.0</td>
+<td style="text-align:center">360</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">80</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">310</td>
+<td style="text-align:center">1.0 </td>
+</tr>
+<tr>
+<td style="text-align:center">Exp003</td>
+<td style="text-align:center"><font color =#e9a3c9 > A02 </font></td>
+<td style="text-align:center">9.47</td>
+<td style="text-align:center">9.25</td>
+<td style="text-align:center">250</td>
+<td style="text-align:center">1.0</td>
+<td style="text-align:center">360</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">80</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">310</td>
+<td style="text-align:center">1.0 </td>
+</tr>
+<tr>
+<td style="text-align:center">Exp004</td>
+<td style="text-align:center"><font color =#e9a3c9 > A03 </font></td>
+<td style="text-align:center">9.47</td>
+<td style="text-align:center">9.25</td>
+<td style="text-align:center">250</td>
+<td style="text-align:center">1.0</td>
+<td style="text-align:center">360</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">80</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">310</td>
+<td style="text-align:center">1.0 </td>
+</tr>
+<tr>
+<td style="text-align:center">Exp005</td>
+<td style="text-align:center"><font color =#e9a3c9 > A04 </font></td>
+<td style="text-align:center">9.47</td>
+<td style="text-align:center">9.25</td>
+<td style="text-align:center">250</td>
+<td style="text-align:center">1.0</td>
+<td style="text-align:center">360</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">80</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">310</td>
+<td style="text-align:center">1.0 </td>
+</tr>
+<tr>
+<td style="text-align:center">Exp006</td>
+<td style="text-align:center"><font color =#e9a3c9 > A05 </font></td>
+<td style="text-align:center">9.47</td>
+<td style="text-align:center">9.25</td>
+<td style="text-align:center">250</td>
+<td style="text-align:center">1.0</td>
+<td style="text-align:center">360</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">80</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">310</td>
+<td style="text-align:center">1.0 </td>
+</tr>
+<tr>
+<td style="text-align:center">Exp007</td>
+<td style="text-align:center"><font color =#e9a3c9 > A06 </font></td>
+<td style="text-align:center">9.47</td>
+<td style="text-align:center">9.25</td>
+<td style="text-align:center">250</td>
+<td style="text-align:center">1.0</td>
+<td style="text-align:center">360</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">80</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">310</td>
+<td style="text-align:center">1.0 </td>
+</tr>
+<tr>
+<td style="text-align:center">Exp008</td>
+<td style="text-align:center"><font color =#e9a3c9 > A07 </font></td>
+<td style="text-align:center">9.47</td>
+<td style="text-align:center">9.25</td>
+<td style="text-align:center">760</td>
+<td style="text-align:center">2.0</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">80</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">310</td>
+<td style="text-align:center">0.5 </td>
+</tr>
+<tr>
+<td style="text-align:center">Exp009</td>
+<td style="text-align:center"><font color =#c2a5cf > B01 </font></td>
+<td style="text-align:center">9.47</td>
+<td style="text-align:center">9.25</td>
+<td style="text-align:center">760</td>
+<td style="text-align:center">2.0</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">80</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">310</td>
+<td style="text-align:center">0.5 </td>
+</tr>
+<tr>
+<td style="text-align:center">Exp010</td>
+<td style="text-align:center"><font color =#c2a5cf > B02 </font></td>
+<td style="text-align:center">9.47</td>
+<td style="text-align:center">9.25</td>
+<td style="text-align:center">760</td>
+<td style="text-align:center">2.0</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">80</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">310</td>
+<td style="text-align:center">0.5 </td>
+</tr>
+<tr>
+<td style="text-align:center">Exp011</td>
+<td style="text-align:center"><font color =#c2a5cf > B03 </font></td>
+<td style="text-align:center">9.47</td>
+<td style="text-align:center">9.25</td>
+<td style="text-align:center">760</td>
+<td style="text-align:center">2.0</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">80</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">310</td>
+<td style="text-align:center">0.5 </td>
+</tr>
+<tr>
+<td style="text-align:center">Exp012</td>
+<td style="text-align:center"><font color =#c2a5cf > B04 </font></td>
+<td style="text-align:center">9.47</td>
+<td style="text-align:center">9.25</td>
+<td style="text-align:center">760</td>
+<td style="text-align:center">2.0</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">80</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">310</td>
+<td style="text-align:center">0.5 </td>
+</tr>
+<tr>
+<td style="text-align:center">Exp013</td>
+<td style="text-align:center"><font color =#c2a5cf > A07 </font></td>
+<td style="text-align:center">9.47</td>
+<td style="text-align:center">9.25</td>
+<td style="text-align:center">760</td>
+<td style="text-align:center">2.0</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">80</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">310</td>
+<td style="text-align:center">0.5 </td>
+</tr>
+<tr>
+<td style="text-align:center">Exp014</td>
+<td style="text-align:center"><font color =#f4a582 > C01 </font></td>
+<td style="text-align:center">9.47</td>
+<td style="text-align:center">9.25</td>
+<td style="text-align:center">760</td>
+<td style="text-align:center">2.0</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">80</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">310</td>
+<td style="text-align:center">0.5 </td>
+</tr>
+<tr>
+<td style="text-align:center">Exp015</td>
+<td style="text-align:center"><font color =#f4a582 > C02 </font></td>
+<td style="text-align:center">9.47</td>
+<td style="text-align:center">9.25</td>
+<td style="text-align:center">760</td>
+<td style="text-align:center">2.0</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">80</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">310</td>
+<td style="text-align:center">0.5 </td>
+</tr>
+<tr>
+<td style="text-align:center">Exp016</td>
+<td style="text-align:center"><font color =#f4a582 > C03 </font></td>
+<td style="text-align:center">9.47</td>
+<td style="text-align:center">9.25</td>
+<td style="text-align:center">760</td>
+<td style="text-align:center">2.0</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">80</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">310</td>
+<td style="text-align:center">0.5 </td>
+</tr>
+<tr>
+<td style="text-align:center">Exp017</td>
+<td style="text-align:center"><font color =#f4a582 > C04 </font></td>
+<td style="text-align:center">9.47</td>
+<td style="text-align:center">9.25</td>
+<td style="text-align:center">760</td>
+<td style="text-align:center">2.0</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">80</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">310</td>
+<td style="text-align:center">0.5 </td>
+</tr>
+<tr>
+<td style="text-align:center">Exp018</td>
+<td style="text-align:center"><font color =#f4a582 > C01 </font></td>
+<td style="text-align:center">9.47</td>
+<td style="text-align:center">9.25</td>
+<td style="text-align:center">760</td>
+<td style="text-align:center">2.0</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">80</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">310</td>
+<td style="text-align:center">0.5 </td>
+</tr>
+<tr>
+<td style="text-align:center">Exp019</td>
+<td style="text-align:center"><font color =#f4a582 > C02 </font></td>
+<td style="text-align:center">9.47</td>
+<td style="text-align:center">9.25</td>
+<td style="text-align:center">760</td>
+<td style="text-align:center">2.0</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">80</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">310</td>
+<td style="text-align:center">0.5 </td>
+</tr>
+<tr>
+<td style="text-align:center">Exp020</td>
+<td style="text-align:center"><font color =#f4a582 > C03 </font></td>
+<td style="text-align:center">9.47</td>
+<td style="text-align:center">9.25</td>
+<td style="text-align:center">760</td>
+<td style="text-align:center">2.0</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">80</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">310</td>
+<td style="text-align:center">0.5 </td>
+</tr>
+<tr>
+<td style="text-align:center">Exp021</td>
+<td style="text-align:center"><font color =#f4a582 > C04 </font></td>
+<td style="text-align:center">9.47</td>
+<td style="text-align:center">9.25</td>
+<td style="text-align:center">760</td>
+<td style="text-align:center">2.0</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">80</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">310</td>
+<td style="text-align:center">0.5 </td>
+</tr>
+<tr>
+<td style="text-align:center">Exp022</td>
+<td style="text-align:center"><font color =#f4a582 > A07 </font></td>
+<td style="text-align:center">9.47</td>
+<td style="text-align:center">9.25</td>
+<td style="text-align:center">760</td>
+<td style="text-align:center">2.0</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">80</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">310</td>
+<td style="text-align:center">0.5 </td>
+</tr>
+<tr>
+<td style="text-align:center">Exp023</td>
+<td style="text-align:center"><font color =#e9a3c9 > A02 </font></td>
+<td style="text-align:center">9.47</td>
+<td style="text-align:center">9.25</td>
+<td style="text-align:center">760</td>
+<td style="text-align:center">2.0</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">80</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">310</td>
+<td style="text-align:center">0.5 </td>
+</tr>
+<tr>
+<td style="text-align:center">Exp024</td>
+<td style="text-align:center"><font color =#e9a3c9 > A03 </font></td>
+<td style="text-align:center">9.47</td>
+<td style="text-align:center">9.25</td>
+<td style="text-align:center">760</td>
+<td style="text-align:center">2.0</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">80</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">310</td>
+<td style="text-align:center">0.5 </td>
+</tr>
+<tr>
+<td style="text-align:center">Exp025</td>
+<td style="text-align:center"><font color =#e9a3c9 > A04 </font></td>
+<td style="text-align:center">9.47</td>
+<td style="text-align:center">9.25</td>
+<td style="text-align:center">760</td>
+<td style="text-align:center">2.0</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">80</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">310</td>
+<td style="text-align:center">0.5 </td>
+</tr>
+<tr>
+<td style="text-align:center">Exp026</td>
+<td style="text-align:center"><font color =#e9a3c9 > A05 </font></td>
+<td style="text-align:center">9.47</td>
+<td style="text-align:center">9.25</td>
+<td style="text-align:center">760</td>
+<td style="text-align:center">2.0</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">80</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">310</td>
+<td style="text-align:center">0.5 </td>
+</tr>
+<tr>
+<td style="text-align:center">Exp027</td>
+<td style="text-align:center"><font color =#c2a5cf > B01 </font></td>
+<td style="text-align:center">9.47</td>
+<td style="text-align:center">9.25</td>
+<td style="text-align:center">760</td>
+<td style="text-align:center">2.0</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">80</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">310</td>
+<td style="text-align:center">0.5 </td>
+</tr>
+<tr>
+<td style="text-align:center">Exp028</td>
+<td style="text-align:center"><font color =#c2a5cf > B02 </font></td>
+<td style="text-align:center">9.47</td>
+<td style="text-align:center">9.25</td>
+<td style="text-align:center">760</td>
+<td style="text-align:center">2.0</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">80</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">310</td>
+<td style="text-align:center">0.5 </td>
+</tr>
+<tr>
+<td style="text-align:center">Exp029</td>
+<td style="text-align:center"><font color =#c2a5cf > A07 </font></td>
+<td style="text-align:center">9.47</td>
+<td style="text-align:center">9.25</td>
+<td style="text-align:center">760</td>
+<td style="text-align:center">2.0</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">80</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">310</td>
+<td style="text-align:center">0.5 </td>
+</tr>
+<tr>
+<td style="text-align:center">TEST01</td>
+<td style="text-align:center"><font color =#000000 > A07 </font></td>
+<td style="text-align:center">9.47</td>
+<td style="text-align:center">9.25</td>
+<td style="text-align:center">760</td>
+<td style="text-align:center">2.0</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">80</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">310</td>
+<td style="text-align:center">0.5 </td>
+</tr>
+<tr>
+<td style="text-align:center">TEST02</td>
+<td style="text-align:center"><font color =#000000 > A07 </font></td>
+<td style="text-align:center">9.47</td>
+<td style="text-align:center">9.25</td>
+<td style="text-align:center">760</td>
+<td style="text-align:center">2.0</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">80</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">310</td>
+<td style="text-align:center">0.5 </td>
+</tr>
+<tr>
+<td style="text-align:center">TEST03</td>
+<td style="text-align:center"><font color =#000000 > A07 </font></td>
+<td style="text-align:center">9.47</td>
+<td style="text-align:center">9.25</td>
+<td style="text-align:center">200</td>
+<td style="text-align:center">0.4</td>
+<td style="text-align:center">900</td>
+<td style="text-align:center">.2</td>
+<td style="text-align:center">30</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">310</td>
+<td style="text-align:center">——  </td>
+</tr>
+<tr>
+<td style="text-align:center">TEST04</td>
+<td style="text-align:center"><font color =#000000 > A07 </font></td>
+<td style="text-align:center">9.47</td>
+<td style="text-align:center">9.25</td>
+<td style="text-align:center">200</td>
+<td style="text-align:center">0.4</td>
+<td style="text-align:center">900</td>
+<td style="text-align:center">.2</td>
+<td style="text-align:center">30</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">310</td>
+<td style="text-align:center">——  </td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>&emsp;&emsp;Exp011-Exp012、Exp018-Exp029 构成一套完整对照试验。Exp001 无效；Exp007 及以前所有实验图像质量差；Exp010 及以前所有实验液量不稳；Exp013-Exp017 现场人员 Xie；TEST01 20 mm 大容器成像测试；TEST02 偏心拍法测试；TEST03 450 sec 处 5 Hz 连续 CT；TEST04 50 sec 处 5 Hz 连续 CT。</p>
+<p>&emsp;&emsp;考虑到现场实验时光斑高度方向只有 7 mm，配料方案做出略微调整，下表列出详细的配料方案。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">配料方案</th>
+<th style="text-align:center">A 组分</th>
+<th style="text-align:center">B 组分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><font color = #e9a3c9><script type="math/tex">{\rm A01}</script></font></td>
+<td style="text-align:center">PAPI <script type="math/tex">5\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，<font color=#c2a5cf>硅油 <script type="math/tex">0.2\ {\rm mL}</script></font>，<font color=#f4a582>硬脂酸钙 <script type="math/tex">0.03\ {\rm g}</script></font></td>
+<td style="text-align:center">聚醚 <script type="math/tex">5\ {\rm mL}</script>，<font color=#e9a3c9>水 <script type="math/tex">0.30\ {\rm mL}</script></font>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，<font color=#c2a5cf>硅油 <script type="math/tex">0.2\ {\rm mL}</script></font>，<font color=#f4a582>硬脂酸钙 <script type="math/tex">0.03\ {\rm g}</script></font></td>
+</tr>
+<tr>
+<td style="text-align:center"><font color = #e9a3c9><script type="math/tex">{\rm A02}</script></font></td>
+<td style="text-align:center">PAPI <script type="math/tex">5\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，硬脂酸钙 <script type="math/tex">0.03\ {\rm g}</script></td>
+<td style="text-align:center">聚醚 <script type="math/tex">5\ {\rm mL}</script>，<font color=#e9a3c9>水 <script type="math/tex">0.00\ {\rm mL}</script></font>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，硬脂酸钙 <script type="math/tex">0.03\ {\rm g}</script></td>
+</tr>
+<tr>
+<td style="text-align:center"><font color = #e9a3c9><script type="math/tex">{\rm A03}</script></font></td>
+<td style="text-align:center">PAPI <script type="math/tex">5\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，硬脂酸钙 <script type="math/tex">0.03\ {\rm g}</script></td>
+<td style="text-align:center">聚醚 <script type="math/tex">5\ {\rm mL}</script>，<font color=#e9a3c9>水 <script type="math/tex">0.50\ {\rm mL}</script></font>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，硬脂酸钙 <script type="math/tex">0.03\ {\rm g}</script></td>
+</tr>
+<tr>
+<td style="text-align:center"><font color = #e9a3c9><script type="math/tex">{\rm A04}</script></font></td>
+<td style="text-align:center">PAPI <script type="math/tex">5\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，硬脂酸钙 <script type="math/tex">0.03\ {\rm g}</script></td>
+<td style="text-align:center">聚醚 <script type="math/tex">5\ {\rm mL}</script>，<font color=#e9a3c9>水 <script type="math/tex">1.00\ {\rm mL}</script></font>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，硬脂酸钙 <script type="math/tex">0.03\ {\rm g}</script></td>
+</tr>
+<tr>
+<td style="text-align:center"><font color = #e9a3c9><script type="math/tex">{\rm A05}</script></font></td>
+<td style="text-align:center">PAPI <script type="math/tex">5\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，硬脂酸钙 <script type="math/tex">0.03\ {\rm g}</script></td>
+<td style="text-align:center">聚醚 <script type="math/tex">5\ {\rm mL}</script>，<font color=#e9a3c9>水 <script type="math/tex">1.50\ {\rm mL}</script></font>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，硬脂酸钙 <script type="math/tex">0.03\ {\rm g}</script></td>
+</tr>
+<tr>
+<td style="text-align:center"><font color = #e9a3c9><script type="math/tex">{\rm A06}</script></font></td>
+<td style="text-align:center">PAPI <script type="math/tex">5\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，硬脂酸钙 <script type="math/tex">0.03\ {\rm g}</script></td>
+<td style="text-align:center">聚醚 <script type="math/tex">5\ {\rm mL}</script>，<font color=#e9a3c9>水 <script type="math/tex">0.20\ {\rm mL}</script></font>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，硬脂酸钙 <script type="math/tex">0.03\ {\rm g}</script></td>
+</tr>
+<tr>
+<td style="text-align:center"><font color = #e9a3c9><script type="math/tex">{\rm A07}</script></font></td>
+<td style="text-align:center">PAPI <script type="math/tex">5\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，硬脂酸钙 <script type="math/tex">0.03\ {\rm g}</script></td>
+<td style="text-align:center">聚醚 <script type="math/tex">5\ {\rm mL}</script>，<font color=#e9a3c9>水 <script type="math/tex">0.24\ {\rm mL}</script></font>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，硬脂酸钙 <script type="math/tex">0.03\ {\rm g}</script></td>
+</tr>
+<tr>
+<td style="text-align:center"><font color = #c2a5cf><script type="math/tex">{\rm B01}</script></font></td>
+<td style="text-align:center">PAPI <script type="math/tex">5\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，<font color=#c2a5cf>硅油 <script type="math/tex">0.0\ {\rm mL}</script></font>，硬脂酸钙 <script type="math/tex">0.03\ {\rm g}</script></td>
+<td style="text-align:center">聚醚 <script type="math/tex">5\ {\rm mL}</script>，水 <script type="math/tex">0.24\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，<font color=#c2a5cf>硅油 <script type="math/tex">0.0\ {\rm mL}</script></font>，硬脂酸钙 <script type="math/tex">0.03\ {\rm g}</script></td>
+</tr>
+<tr>
+<td style="text-align:center"><font color = #c2a5cf><script type="math/tex">{\rm B02}</script></font></td>
+<td style="text-align:center">PAPI <script type="math/tex">5\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，<font color=#c2a5cf>硅油 <script type="math/tex">0.1\ {\rm mL}</script></font>，硬脂酸钙 <script type="math/tex">0.03\ {\rm g}</script></td>
+<td style="text-align:center">聚醚 <script type="math/tex">5\ {\rm mL}</script>，水 <script type="math/tex">0.24\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，<font color=#c2a5cf>硅油 <script type="math/tex">0.1\ {\rm mL}</script></font>，硬脂酸钙 <script type="math/tex">0.03\ {\rm g}</script></td>
+</tr>
+<tr>
+<td style="text-align:center"><font color = #c2a5cf><script type="math/tex">{\rm B03}</script></font></td>
+<td style="text-align:center">PAPI <script type="math/tex">5\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，<font color=#c2a5cf>硅油 <script type="math/tex">0.3\ {\rm mL}</script></font>，硬脂酸钙 <script type="math/tex">0.03\ {\rm g}</script></td>
+<td style="text-align:center">聚醚 <script type="math/tex">5\ {\rm mL}</script>，水 <script type="math/tex">0.24\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，<font color=#c2a5cf>硅油 <script type="math/tex">0.3\ {\rm mL}</script></font>，硬脂酸钙 <script type="math/tex">0.03\ {\rm g}</script></td>
+</tr>
+<tr>
+<td style="text-align:center"><font color = #c2a5cf><script type="math/tex">{\rm B04}</script></font></td>
+<td style="text-align:center">PAPI <script type="math/tex">5\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，<font color=#c2a5cf>硅油 <script type="math/tex">0.4\ {\rm mL}</script></font>，硬脂酸钙 <script type="math/tex">0.03\ {\rm g}</script></td>
+<td style="text-align:center">聚醚 <script type="math/tex">5\ {\rm mL}</script>，水 <script type="math/tex">0.24\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，<font color=#c2a5cf>硅油 <script type="math/tex">0.4\ {\rm mL}</script></font>，硬脂酸钙 <script type="math/tex">0.03\ {\rm g}</script></td>
+</tr>
+<tr>
+<td style="text-align:center"><font color = #f4a582><script type="math/tex">{\rm C01}</script></font></td>
+<td style="text-align:center">PAPI <script type="math/tex">5\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，<font color=#f4a582>硬脂酸钙 <script type="math/tex">0.00\ {\rm g}</script></font></td>
+<td style="text-align:center">聚醚 <script type="math/tex">5\ {\rm mL}</script>，水 <script type="math/tex">0.24\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，<font color=#f4a582>硬脂酸钙 <script type="math/tex">0.00\ {\rm g}</script></font></td>
+</tr>
+<tr>
+<td style="text-align:center"><font color = #f4a582><script type="math/tex">{\rm C02}</script></font></td>
+<td style="text-align:center">PAPI <script type="math/tex">5\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，<font color=#f4a582>硬脂酸钙 <script type="math/tex">0.06\ {\rm g}</script></font></td>
+<td style="text-align:center">聚醚 <script type="math/tex">5\ {\rm mL}</script>，水 <script type="math/tex">0.24\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，<font color=#f4a582>硬脂酸钙 <script type="math/tex">0.06\ {\rm g}</script></font></td>
+</tr>
+<tr>
+<td style="text-align:center"><font color = #f4a582><script type="math/tex">{\rm C03}</script></font></td>
+<td style="text-align:center">PAPI <script type="math/tex">5\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，<font color=#f4a582>硬脂酸钙 <script type="math/tex">0.09\ {\rm g}</script></font></td>
+<td style="text-align:center">聚醚 <script type="math/tex">5\ {\rm mL}</script>，水 <script type="math/tex">0.24\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，<font color=#f4a582>硬脂酸钙 <script type="math/tex">0.09\ {\rm g}</script></font></td>
+</tr>
+<tr>
+<td style="text-align:center"><font color = #f4a582><script type="math/tex">{\rm C04}</script></font></td>
+<td style="text-align:center">PAPI <script type="math/tex">5\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，<font color=#f4a582>硬脂酸钙 <script type="math/tex">0.12\ {\rm g}</script></font></td>
+<td style="text-align:center">聚醚 <script type="math/tex">5\ {\rm mL}</script>，水 <script type="math/tex">0.24\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，<font color=#f4a582>硬脂酸钙 <script type="math/tex">0.12\ {\rm g}</script></font></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="物品清单"><a href="#物品清单" class="headerlink" title="物品清单"></a>物品清单</h2><p>&emsp;&emsp;本次动态 CT 实验的主要研究对象为聚氨酯泡沫发泡的三维结构演化过程。聚氨酯泡沫发泡实验需提前准备发泡原料 PAPI、聚醚多元醇、去离子水，发泡助剂，容器，滴泵等，共需三个托运箱，下表已列出详细的物品清单。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>负责人</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>探测：SA-Z高速相机</td>
+<td>张抑扬</td>
+<td>1024$\times$1024, 12 bit, 20 $\mu m$</td>
+</tr>
+<tr>
+<td>容器：内径 <script type="math/tex">9\ {\rm mm}</script>，壁厚 <script type="math/tex">1\ {\rm mm}</script>，封底</td>
+<td>蒋雪萍</td>
+<td>定制 PMMA 容器各 $50$ 个，高 <script type="math/tex">30\ {\rm mm}</script></td>
+</tr>
+<tr>
+<td>原料（黑）：<a target="_blank" rel="noopener" href="https://b2b.baidu.com/land?url=http%3A%2F%2Fwww.qianyuwang.com%2Foffer%2F320595749.html%3Fbdb2b8a2d%3D3101263341968821723&amp;query=%E5%A4%9A%E4%BA%9A%E7%94%B2%E5%9F%BA%E5%A4%9A%E8%8B%AF%E5%9F%BA%E5%A4%9A%E5%BC%82%E6%B0%B0%E9%85%B8%E9%85%AF+%E6%88%90%E9%83%BD&amp;category=%E5%8C%96%E5%B7%A5%E8%83%BD%E6%BA%90%3B%E5%8C%96%E5%AD%A6%E8%AF%95%E5%89%82%3B%E5%85%B6%E4%BB%96%E5%8C%96%E5%AD%A6%E8%AF%95%E5%89%82&amp;iswapurl=&amp;qq-pf-to=pcqq.c2c">多亚甲基多苯基多异氰酸酯 PAPI</a></td>
+<td>谢政良</td>
+<td>CAS号：9016-87-9；纯度 $98\%$</td>
+</tr>
+<tr>
+<td>原料（白）：聚醚多元醇</td>
+<td>谢政良</td>
+<td>CAS号：9003-11-6；</td>
+</tr>
+<tr>
+<td>原料（白）：去离子水</td>
+<td>谢政良</td>
+<td></td>
+</tr>
+<tr>
+<td>助剂（匀泡剂）：<a target="_blank" rel="noopener" href="http://www.maysta.com/pro/detail.aspx?id=1&amp;mtt=0">硅油</a></td>
+<td>谢政良</td>
+<td>AK8805</td>
+</tr>
+<tr>
+<td><font color=#e9a3c9>助剂（开孔剂）：</font><a target="_blank" rel="noopener" href="http://www.maysta.com/pro/detail.aspx?id=7&amp;mtt=0"><font color=#e9a3c9>硅油</font></a></td>
+<td>谢政良</td>
+<td>AK9903</td>
+</tr>
+<tr>
+<td>助剂（催化剂）：<a target="_blank" rel="noopener" href="http://www.adamas-beta.com/productDetail!doProductDetail.action?pm=cat&amp;attr9=5^cmdfafi">辛酸亚锡</a></td>
+<td>谢政良</td>
+<td>CAS号：301-10-0；纯度 $95\%$</td>
+</tr>
+<tr>
+<td>助剂（成核剂）：<a target="_blank" rel="noopener" href="https://www.rhawn.cn/products/detail/19617">硬脂酸钙</a></td>
+<td>谢政良</td>
+<td>上海凛恩科技发展有限公司 R019842</td>
+</tr>
+<tr>
+<td>滴泵：滴泵出液口陶瓷管</td>
+<td>谢政良</td>
+<td></td>
+</tr>
+<tr>
+<td>滴泵：滴泵支架</td>
+<td>谢政良</td>
+<td></td>
+</tr>
+<tr>
+<td>滴泵：滴泵控制系统</td>
+<td>王奕超</td>
+<td>延长控制线，检验</td>
+</tr>
+<tr>
+<td>滴泵：三维位移台，及转台上位移台</td>
+<td>谢政良</td>
+<td></td>
+</tr>
+<tr>
+<td>其他：铝板，医用注射器，塑料杯，搅拌棒，底部针脚，502胶</td>
+<td>刘子健</td>
+<td></td>
+</tr>
+<tr>
+<td>其他：内六角，机米螺丝，标签纸，记号笔，封泥，鼓气工具</td>
+<td>刘子健</td>
+<td></td>
+</tr>
+<tr>
+<td>其他：回收桶及垃圾袋</td>
+<td>刘子健</td>
+<td></td>
+</tr>
+<tr>
+<td>存储：机械硬盘，移动硬盘，机械硬盘外接盒，SD Card，读卡器</td>
+<td>柴海伟</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="预实验"><a href="#预实验" class="headerlink" title="预实验"></a>预实验</h2><p>预实验旨在给出如下问题的答案，为现场实验指明配料方案。感谢谢政良、蒋雪平完成此处工作。</p>
+<h3 id="PAPI、聚醚多元醇、去离子水三项主要原料以何种配比发泡最佳？"><a href="#PAPI、聚醚多元醇、去离子水三项主要原料以何种配比发泡最佳？" class="headerlink" title="PAPI、聚醚多元醇、去离子水三项主要原料以何种配比发泡最佳？"></a>PAPI、聚醚多元醇、去离子水三项主要原料以何种配比发泡最佳？</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">编号</th>
+<th style="text-align:center">A 组分</th>
+<th style="text-align:center">B 组分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Exp001</td>
+<td style="text-align:center">PAPI <script type="math/tex">5\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，硬脂酸钙 <script type="math/tex">0.02\ {\rm g}</script></td>
+<td style="text-align:center">聚醚 <script type="math/tex">5\ {\rm mL}</script>，<font color=#e9a3c9>水 <script type="math/tex">0.00\ {\rm mL}</script></font>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，硬脂酸钙 <script type="math/tex">0.02\ {\rm g}</script></td>
+</tr>
+<tr>
+<td style="text-align:center">Exp002</td>
+<td style="text-align:center">PAPI <script type="math/tex">5\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，硬脂酸钙 <script type="math/tex">0.02\ {\rm g}</script></td>
+<td style="text-align:center">聚醚 <script type="math/tex">5\ {\rm mL}</script>，<font color=#e9a3c9>水 <script type="math/tex">0.30\ {\rm mL}</script></font>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，硬脂酸钙 <script type="math/tex">0.02\ {\rm g}</script></td>
+</tr>
+<tr>
+<td style="text-align:center">Exp003</td>
+<td style="text-align:center">PAPI <script type="math/tex">5\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，硬脂酸钙 <script type="math/tex">0.02\ {\rm g}</script></td>
+<td style="text-align:center">聚醚 <script type="math/tex">5\ {\rm mL}</script>，<font color=#e9a3c9>水 <script type="math/tex">0.50\ {\rm mL}</script></font>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，硬脂酸钙 <script type="math/tex">0.02\ {\rm g}</script></td>
+</tr>
+<tr>
+<td style="text-align:center">Exp004</td>
+<td style="text-align:center">PAPI <script type="math/tex">5\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，硬脂酸钙 <script type="math/tex">0.02\ {\rm g}</script></td>
+<td style="text-align:center">聚醚 <script type="math/tex">5\ {\rm mL}</script>，<font color=#e9a3c9>水 <script type="math/tex">1.00\ {\rm mL}</script></font>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，硬脂酸钙 <script type="math/tex">0.02\ {\rm g}</script></td>
+</tr>
+<tr>
+<td style="text-align:center">Exp005</td>
+<td style="text-align:center">PAPI <script type="math/tex">5\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，硬脂酸钙 <script type="math/tex">0.02\ {\rm g}</script></td>
+<td style="text-align:center">聚醚 <script type="math/tex">5\ {\rm mL}</script>，<font color=#e9a3c9>水 <script type="math/tex">1.50\ {\rm mL}</script></font>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，硬脂酸钙 <script type="math/tex">0.02\ {\rm g}</script></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>现象总结：文献报道水分占比将直接影响泡孔占比、宏观密度，恰当的水分占比对调控泡沫结构至关重要。在预实验中我们观察到A，B组分液量控制在<script type="math/tex">0.06\ {\rm mL}</script>，前三组反应终态大致稳定在9mm高，尚未超出视野范围，前四组反应至<script type="math/tex">20\ {\rm min}</script>即大致稳定，第五组反应仍未停止。水分对终态宏观密度，胞壁形貌，反应速度等影响显著。</p>
+<h3 id="硅油对聚氨酯泡沫发泡体系呈现何种影响？哪种型号的硅油效果最好？该种硅油在反应液中占多大比例影响最好？"><a href="#硅油对聚氨酯泡沫发泡体系呈现何种影响？哪种型号的硅油效果最好？该种硅油在反应液中占多大比例影响最好？" class="headerlink" title="硅油对聚氨酯泡沫发泡体系呈现何种影响？哪种型号的硅油效果最好？该种硅油在反应液中占多大比例影响最好？"></a>硅油对聚氨酯泡沫发泡体系呈现何种影响？哪种型号的硅油效果最好？该种硅油在反应液中占多大比例影响最好？</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">编号</th>
+<th style="text-align:center">A 组分</th>
+<th style="text-align:center">B 组分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Exp001</td>
+<td style="text-align:center">PAPI <script type="math/tex">5\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，<font color=#c2a5cf>硅油 <script type="math/tex">0.0\ {\rm mL}</script></font>，硬脂酸钙 <script type="math/tex">0.02\ {\rm g}</script></td>
+<td style="text-align:center">聚醚 <script type="math/tex">5\ {\rm mL}</script>，水 <script type="math/tex">0.30\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，<font color=#c2a5cf>硅油 <script type="math/tex">0.0\ {\rm mL}</script></font>，硬脂酸钙 <script type="math/tex">0.02\ {\rm g}</script></td>
+</tr>
+<tr>
+<td style="text-align:center">Exp002</td>
+<td style="text-align:center">PAPI <script type="math/tex">5\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，<font color=#c2a5cf>硅油 <script type="math/tex">0.1\ {\rm mL}</script></font>，硬脂酸钙 <script type="math/tex">0.02\ {\rm g}</script></td>
+<td style="text-align:center">聚醚 <script type="math/tex">5\ {\rm mL}</script>，水 <script type="math/tex">0.30\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，<font color=#c2a5cf>硅油 <script type="math/tex">0.1\ {\rm mL}</script></font>，硬脂酸钙 <script type="math/tex">0.02\ {\rm g}</script></td>
+</tr>
+<tr>
+<td style="text-align:center">Exp003</td>
+<td style="text-align:center">PAPI <script type="math/tex">5\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，<font color=#c2a5cf>硅油 <script type="math/tex">0.2\ {\rm mL}</script></font>，硬脂酸钙 <script type="math/tex">0.02\ {\rm g}</script></td>
+<td style="text-align:center">聚醚 <script type="math/tex">5\ {\rm mL}</script>，水 <script type="math/tex">0.30\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，<font color=#c2a5cf>硅油 <script type="math/tex">0.2\ {\rm mL}</script></font>，硬脂酸钙 <script type="math/tex">0.02\ {\rm g}</script></td>
+</tr>
+<tr>
+<td style="text-align:center">Exp004</td>
+<td style="text-align:center">PAPI <script type="math/tex">5\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，<font color=#c2a5cf>硅油 <script type="math/tex">0.3\ {\rm mL}</script></font>，硬脂酸钙 <script type="math/tex">0.02\ {\rm g}</script></td>
+<td style="text-align:center">聚醚 <script type="math/tex">5\ {\rm mL}</script>，水 <script type="math/tex">0.30\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，<font color=#c2a5cf>硅油 <script type="math/tex">0.3\ {\rm mL}</script></font>，硬脂酸钙 <script type="math/tex">0.02\ {\rm g}</script></td>
+</tr>
+<tr>
+<td style="text-align:center">Exp005</td>
+<td style="text-align:center">PAPI <script type="math/tex">5\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，<font color=#c2a5cf>硅油 <script type="math/tex">0.4\ {\rm mL}</script></font>，硬脂酸钙 <script type="math/tex">0.02\ {\rm g}</script></td>
+<td style="text-align:center">聚醚 <script type="math/tex">5\ {\rm mL}</script>，水 <script type="math/tex">0.30\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，<font color=#c2a5cf>硅油 <script type="math/tex">0.4\ {\rm mL}</script></font>，硬脂酸钙 <script type="math/tex">0.02\ {\rm g}</script></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>现象总结：硅油AK8805与PAPI混合即产生大量气泡及絮状物，硅油AK8860与PAPI混合均匀且无气泡、絮状物。经测试，硅油AK8805有明显稳泡效果，加入<script type="math/tex">0.2\ {\rm mL}</script>时效果最好，加入更多比例效果提升不明显。AK8860现象仍然明显。</p>
+<h3 id="硬脂酸钙对聚氨酯泡沫发泡体系呈何种影响？最佳比例？"><a href="#硬脂酸钙对聚氨酯泡沫发泡体系呈何种影响？最佳比例？" class="headerlink" title="硬脂酸钙对聚氨酯泡沫发泡体系呈何种影响？最佳比例？"></a>硬脂酸钙对聚氨酯泡沫发泡体系呈何种影响？最佳比例？</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">编号</th>
+<th style="text-align:center">A 组分</th>
+<th style="text-align:center">B 组分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Exp001</td>
+<td style="text-align:center">PAPI <script type="math/tex">5\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，<font color=#f4a582>硬脂酸钙 <script type="math/tex">0.00\ {\rm g}</script></font></td>
+<td style="text-align:center">聚醚 <script type="math/tex">5\ {\rm mL}</script>，水 <script type="math/tex">0.30\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，<font color=#f4a582>硬脂酸钙 <script type="math/tex">0.00\ {\rm g}</script></font></td>
+</tr>
+<tr>
+<td style="text-align:center">Exp002</td>
+<td style="text-align:center">PAPI <script type="math/tex">5\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，<font color=#f4a582>硬脂酸钙 <script type="math/tex">0.01\ {\rm g}</script></font></td>
+<td style="text-align:center">聚醚 <script type="math/tex">5\ {\rm mL}</script>，水 <script type="math/tex">0.30\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，<font color=#f4a582>硬脂酸钙 <script type="math/tex">0.01\ {\rm g}</script></font></td>
+</tr>
+<tr>
+<td style="text-align:center">Exp003</td>
+<td style="text-align:center">PAPI <script type="math/tex">5\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，<font color=#f4a582>硬脂酸钙 <script type="math/tex">0.02\ {\rm g}</script></font></td>
+<td style="text-align:center">聚醚 <script type="math/tex">5\ {\rm mL}</script>，水 <script type="math/tex">0.30\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，<font color=#f4a582>硬脂酸钙 <script type="math/tex">0.02\ {\rm g}</script></font></td>
+</tr>
+<tr>
+<td style="text-align:center">Exp004</td>
+<td style="text-align:center">PAPI <script type="math/tex">5\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，<font color=#f4a582>硬脂酸钙 <script type="math/tex">0.03\ {\rm g}</script></font></td>
+<td style="text-align:center">聚醚 <script type="math/tex">5\ {\rm mL}</script>，水 <script type="math/tex">0.30\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，<font color=#f4a582>硬脂酸钙 <script type="math/tex">0.03\ {\rm g}</script></font></td>
+</tr>
+<tr>
+<td style="text-align:center">Exp005</td>
+<td style="text-align:center">PAPI <script type="math/tex">5\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，<font color=#f4a582>硬脂酸钙 <script type="math/tex">0.04\ {\rm g}</script></font></td>
+<td style="text-align:center">聚醚 <script type="math/tex">5\ {\rm mL}</script>，水 <script type="math/tex">0.30\ {\rm mL}</script>，辛酸亚锡 <script type="math/tex">0.1\ {\rm mL}</script>，硅油 <script type="math/tex">0.2\ {\rm mL}</script>，<font color=#f4a582>硬脂酸钙 <script type="math/tex">0.04\ {\rm g}</script></font></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>现象总结：硬脂酸钙粉末的细孔效果不明显。硬脂酸钙粉末含量达到<script type="math/tex">0.12\ {\rm g}</script>时现象明显，更改实验方案。</p>
+<h3 id="预装滴泵支架，固定滴泵至支架上，通过控制程序将去离子水滴至内径-6-rm-mm-的容器内，多次重复。"><a href="#预装滴泵支架，固定滴泵至支架上，通过控制程序将去离子水滴至内径-6-rm-mm-的容器内，多次重复。" class="headerlink" title="预装滴泵支架，固定滴泵至支架上，通过控制程序将去离子水滴至内径 6\ {\rm mm}的容器内，多次重复。"></a>预装滴泵支架，固定滴泵至支架上，通过控制程序将去离子水滴至内径 <script type="math/tex">6\ {\rm mm}</script>的容器内，多次重复。</h3><p>&emsp;&emsp;支架部件：三维位移台一套；<script type="math/tex">300\ {\rm mm\ M6\ }</script>支杆 $\times6$，<script type="math/tex">200\ {\rm mm\ M6\ }</script>支杆 $\times6$，<script type="math/tex">100\ {\rm mm\ M4\ }</script>支杆 $\times2$，<script type="math/tex">{\rm M6\ }</script>垫脚 $\times1$，压板 $\times1$，<script type="math/tex">{\rm M6\ }</script>机米螺丝$\times10$，<script type="math/tex">{\rm M6\ }</script>六角螺丝$\times5$，<script type="math/tex">{\rm M4\ }</script>机米螺丝$\times3$，<script type="math/tex">{\rm M3\ }</script>六角螺丝$\times2$，弹性垫片$\times2$。</p>
+<p>&emsp;&emsp;滴泵部件：滴泵本体；滴泵电源线；滴泵控制线；笔记本电脑；滴泵口转接头；陶瓷管。</p>
+<p>&emsp;&emsp;经检验，滴泵及支架运行正常，可以满足实验需求。</p>
+<h3 id="滴泵清洗方案"><a href="#滴泵清洗方案" class="headerlink" title="滴泵清洗方案"></a>滴泵清洗方案</h3><p>&emsp;&emsp;滴泵排出所有组分B后，抽取清水<script type="math/tex">3\ {\rm mL}</script>，等待<script type="math/tex">10\ {\rm sec}</script>，排空液体。重复上述操作$3$次，抽取空气<script type="math/tex">3\ {\rm mL}</script>，等待<script type="math/tex">10\ {\rm sec}</script>，排空，抽取清水<script type="math/tex">3\ {\rm mL}</script>，等待<script type="math/tex">10\ {\rm sec}</script>，排空。再抽取空气排空。最后取出陶瓷管吹干，棉签擦干滴泵出口。</p>
+<p>&emsp;&emsp;总结：抽水排出三次，抽空气及抽水排出交替进行各三次，最后以抽空气排出收尾，吹干陶瓷管，棉签擦拭滴泵出口。</p>
+
+      </div>
+      
+      
+      
+    </div>
+
+    
+    
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hai-Wei Chai (柴海伟)</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://vercel.hwchai.com/","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"locale":{"placeholder":"请留下邮箱，若有回复您将收到提醒。QQ邮箱可以自动识别头像喔~"},"pageSize":10,"visitor":false,"comment_count":true,"meta":["nick","mail","link"],"requiredMeta":["nick","mail"],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo","https://unpkg.com/@waline/emojis@1.0.1/alus","https://unpkg.com/@waline/emojis@1.0.1/bilibili"],"login":"disable","el":"#waline","comment":true,"path":"/archive/Exp004-PUplan.html"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+</body>
+</html>

@@ -158,16 +158,16 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -247,7 +247,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/AI-Repeatability/" class="post-title-link" itemprop="url">人工智能：Pytorch训练可重复性</a>
+          <a href="/AI-Repeatability/" class="post-title-link" itemprop="url">人工智能：Pytorch训练可重复性（Reproducibility）</a>
         </h2>
 
         <div class="post-meta-container">
@@ -302,9 +302,9 @@
     
     <div class="post-body" itemprop="articleBody">
           <p><img src="https://www.templeton.org/wp-content/uploads/2022/02/Randomness-BANNER-scaled.jpg" alt=""></p>
-<p>在不同的 PyTorch 版本、单个提交或不同平台上，不能保证完全可复现的结果。此外，即使使用相同的种子，CPU 和 GPU 执行之间的结果也可能无法复现。但是，您可以采取一些步骤来限制特定平台、设备和 PyTorch 版本的非确定性行为来源的数量。首先，您可以控制随机性的来源，这些来源会导致应用程序的多次执行表现不同。其次，您可以将 PyTorch 配置为避免对某些操作使用非确定性算法，以便在给定相同输入的情况下，对这些操作的多次调用将产生相同的结果。</p>
+<p>在不同的 PyTorch 版本或不同平台上，不能保证完全可复现的结果。此外，即使使用相同的随机种子，CPU 和 GPU 执行之间的结果也可能无法复现。但是，您可以采取措施来限制平台、设备和 PyTorch 版本的非确定性行为来源。首先，您可以控制随机性的来源，这些来源会导致应用程序的多次执行表现不同。其次，您可以将 PyTorch 配置为避免对某些操作使用非确定性算法，以便在给定相同输入的情况下，对这些操作的多次调用将产生相同的结果。最后，在执行多进程数据加载时还需注意控制加载的随机性工作进程种子。本文内容参考 Pytorch 官方文档：<a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/notes/randomness.html#controlling-sources-of-randomness">https://pytorch.org/docs/stable/notes/randomness.html#controlling-sources-of-randomness</a></p>
 <blockquote class="blockquote-center">
-<p>确定性操作通常比非确定性操作慢，因此模型的单次运行性能可能会降低。但是，确定性可以通过促进实验、调试和回归测试来节省开发时间。</p>
+<p>Deterministic operations are often slower than nondeterministic operations, so single-run performance may decrease for your model. However, determinism may save time in development by facilitating experimentation, debugging, and regression testing.</p>
 
 </blockquote>
           <!--noindex-->
@@ -1358,7 +1358,7 @@
 
 
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 </div>
