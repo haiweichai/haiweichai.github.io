@@ -23,13 +23,14 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hwchai.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Python的图像分析方法是一种强大的数据处理技术，它利用多种算法和工具来提取、处理和分析图像数据。通过Python，我们可以方便地调用各种图像处理库，如OpenCV、PIL(Pillow)、SciPy等，进行图像的预处理、特征提取、图像分割、边缘检测等操作。此外，利用Python的机器学习库，如scikit-learn、TensorFlow等，我们还可以对图像进行更高级的分析，如目标检测、图像识">
+    <meta name="description" content="Python的图像分析方法是一种强大的数据处理技术，它利用多种算法和工具来提取、处理和分析图像数据。通过Python，我们可以方便地调用各种图像处理库，如OpenCV、PIL(Pillow)、SciPy等，进行图像的预处理、特征提取、图像分割、边缘检测等操作。此外，利用Python的机器学习库，如scikit-learn、TensorFlow等，我们还可以对图像进行更高级的分析，如目标检测、图像">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python在科研中的应用 08 &amp; 09：Python 环境下的数字图像分析方法">
 <meta property="og:url" content="https://hwchai.com/PythonLes08/index.html">
 <meta property="og:site_name" content="Hai-Wei Chai&#39;s Blog">
-<meta property="og:description" content="Python的图像分析方法是一种强大的数据处理技术，它利用多种算法和工具来提取、处理和分析图像数据。通过Python，我们可以方便地调用各种图像处理库，如OpenCV、PIL(Pillow)、SciPy等，进行图像的预处理、特征提取、图像分割、边缘检测等操作。此外，利用Python的机器学习库，如scikit-learn、TensorFlow等，我们还可以对图像进行更高级的分析，如目标检测、图像识">
+<meta property="og:description" content="Python的图像分析方法是一种强大的数据处理技术，它利用多种算法和工具来提取、处理和分析图像数据。通过Python，我们可以方便地调用各种图像处理库，如OpenCV、PIL(Pillow)、SciPy等，进行图像的预处理、特征提取、图像分割、边缘检测等操作。此外，利用Python的机器学习库，如scikit-learn、TensorFlow等，我们还可以对图像进行更高级的分析，如目标检测、图像">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s21.ax1x.com/2024/10/17/pAUMSfI.png">
 <meta property="og:image" content="https://www.osgeo.cn/scipy/_images/interpolate-1.png">
 <meta property="og:image" content="https://www.osgeo.cn/scipy/_images/interpolate-2.png">
 <meta property="og:image" content="https://www.osgeo.cn/scipy/_images/interpolate-3.png">
@@ -51,7 +52,7 @@
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="NumPy">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.osgeo.cn/scipy/_images/interpolate-1.png">
+<meta name="twitter:image" content="https://s21.ax1x.com/2024/10/17/pAUMSfI.png">
 
 
 <link rel="canonical" href="https://hwchai.com/PythonLes08/">
@@ -322,7 +323,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>Python的图像分析方法是一种强大的数据处理技术，它利用多种算法和工具来提取、处理和分析图像数据。通过Python，我们可以方便地调用各种图像处理库，如OpenCV、PIL(Pillow)、SciPy等，进行图像的预处理、特征提取、图像分割、边缘检测等操作。此外，利用Python的机器学习库，如scikit-learn、TensorFlow等，我们还可以对图像进行更高级的分析，如目标检测、图像识别、图像分类等。SciPy是构建在Python的NumPy扩展上的数学算法和便利函数的集合。它通过向用户提供用于操作和可视化数据的高级命令和类，为交互式Python会话添加了强大的功能。有了SciPy，交互式Python会话将成为可与MATLAB、IDL、Octave、R-Lab和SciLab等系统相媲美的数据处理和系统原型环境。</p>
+        <p><img src="https://s21.ax1x.com/2024/10/17/pAUMSfI.png" alt=""></p>
+<p>Python的图像分析方法是一种强大的数据处理技术，它利用多种算法和工具来提取、处理和分析图像数据。通过Python，我们可以方便地调用各种图像处理库，如OpenCV、PIL(Pillow)、SciPy等，进行图像的预处理、特征提取、图像分割、边缘检测等操作。此外，利用Python的机器学习库，如scikit-learn、TensorFlow等，我们还可以对图像进行更高级的分析，如目标检测、图像识别、图像分类等。SciPy是构建在Python的NumPy扩展上的数学算法和便利函数的集合。它通过向用户提供用于操作和可视化数据的高级命令和类，为交互式Python会话添加了强大的功能。有了SciPy，交互式Python会话将成为可与MATLAB、IDL、Octave、R-Lab和SciLab等系统相媲美的数据处理和系统原型环境。</p>
 <p>Python的数字图像分析方法章节将持续3-4周的课程，包括数字图像的基础操作，图像降噪，图像分割，边缘检测，目标检测等等。本节课程我们将学习Python在数字图像分析领域的一些基础方法。</p>
 <span id="more"></span>
 <h2 id="Pillow-与-PIL-库"><a href="#Pillow-与-PIL-库" class="headerlink" title="Pillow 与 PIL 库"></a>Pillow 与 PIL 库</h2><p>PIL (Python Imaging Library) 是Python平台上图像处理的标准库，功能丰富，API简单易用，不过只支持到Python 2.7。</p>

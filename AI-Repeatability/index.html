@@ -30,7 +30,7 @@
 <meta property="og:site_name" content="Hai-Wei Chai&#39;s Blog">
 <meta property="og:description" content="在不同的 PyTorch 版本或不同平台上，不能保证完全可复现的结果。此外，即使使用相同的随机种子，CPU 和 GPU 执行之间的结果也可能无法复现。但是，您可以采取措施来限制平台、设备和 PyTorch 版本的非确定性行为来源。首先，您可以控制随机性的来源，这些来源会导致应用程序的多次执行表现不同。其次，您可以将 PyTorch 配置为避免对某些操作使用非确定性算法，以便在给定相同输入的情况下">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://www.templeton.org/wp-content/uploads/2022/02/Randomness-BANNER-scaled.jpg">
+<meta property="og:image" content="https://s21.ax1x.com/2024/10/17/pAUAM6J.jpg">
 <meta property="article:published_time" content="2024-10-16T18:04:43.000Z">
 <meta property="article:modified_time" content="2024-10-16T19:43:01.000Z">
 <meta property="article:author" content="Hai-Wei Chai (柴海伟)">
@@ -38,7 +38,7 @@
 <meta property="article:tag" content="Pytorch">
 <meta property="article:tag" content="Repeatability">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.templeton.org/wp-content/uploads/2022/02/Randomness-BANNER-scaled.jpg">
+<meta name="twitter:image" content="https://s21.ax1x.com/2024/10/17/pAUAM6J.jpg">
 
 
 <link rel="canonical" href="https://hwchai.com/AI-Repeatability/">
@@ -309,7 +309,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p><img src="https://www.templeton.org/wp-content/uploads/2022/02/Randomness-BANNER-scaled.jpg" alt=""></p>
+        <p><img src="https://s21.ax1x.com/2024/10/17/pAUAM6J.jpg" alt=""></p>
 <p>在不同的 PyTorch 版本或不同平台上，不能保证完全可复现的结果。此外，即使使用相同的随机种子，CPU 和 GPU 执行之间的结果也可能无法复现。但是，您可以采取措施来限制平台、设备和 PyTorch 版本的非确定性行为来源。首先，您可以控制随机性的来源，这些来源会导致应用程序的多次执行表现不同。其次，您可以将 PyTorch 配置为避免对某些操作使用非确定性算法，以便在给定相同输入的情况下，对这些操作的多次调用将产生相同的结果。最后，在执行多进程数据加载时还需注意控制加载的随机性工作进程种子。本文内容参考 Pytorch 官方文档：<a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/notes/randomness.html#controlling-sources-of-randomness">https://pytorch.org/docs/stable/notes/randomness.html#controlling-sources-of-randomness</a></p>
 <blockquote class="blockquote-center">
 <p>Deterministic operations are often slower than nondeterministic operations, so single-run performance may decrease for your model. However, determinism may save time in development by facilitating experimentation, debugging, and regression testing.</p>

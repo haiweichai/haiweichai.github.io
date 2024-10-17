@@ -1,6 +1,6 @@
+https://hwchai.com/scholar/index.html
 https://hwchai.com/AI-Repeatability/
 https://hwchai.com/AI-Gemma/
-https://hwchai.com/scholar/index.html
 https://hwchai.com/PythonLes14/
 https://hwchai.com/PythonLes13/
 https://hwchai.com/PythonLes12/
@@ -19,9 +19,9 @@ https://hwchai.com/team/index.html
 https://hwchai.com/support/index.html
 https://hwchai.com/tags/index.html
 https://hwchai.com/Exp010-ArticleReply/
-https://hwchai.com/Exp011-book01/
 https://hwchai.com/archive/Exp013-Kaggle01.html
 https://hwchai.com/archive/Exp012-SIFT.html
+https://hwchai.com/Exp011-book01/
 https://hwchai.com/archive/Exp009-WinServerSetup.html
 https://hwchai.com/archive/Exp007-NLM.html
 https://hwchai.com/archive/Exp008-stripe-remove.html
@@ -34,8 +34,8 @@ https://hwchai.com/Exp001-hello-world/
 https://hwchai.com/
 https://hwchai.com/tags/Artificial-Intelligence/
 https://hwchai.com/tags/Pytorch/
-https://hwchai.com/tags/Repeatability/
 https://hwchai.com/tags/Gemini/
+https://hwchai.com/tags/Repeatability/
 https://hwchai.com/tags/Hexo/
 https://hwchai.com/tags/Next/
 https://hwchai.com/tags/Life/

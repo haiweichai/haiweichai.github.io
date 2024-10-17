@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hwchai.com/scholar/index.html</loc>
+    
+    <lastmod>2024-10-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://hwchai.com/AI-Repeatability/</loc>
     
     <lastmod>2024-10-16</lastmod>
@@ -14,15 +23,6 @@
     <loc>https://hwchai.com/AI-Gemma/</loc>
     
     <lastmod>2024-07-11</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hwchai.com/scholar/index.html</loc>
-    
-    <lastmod>2024-06-27</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -191,15 +191,6 @@
   </url>
   
   <url>
-    <loc>https://hwchai.com/Exp011-book01/</loc>
-    
-    <lastmod>2022-09-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://hwchai.com/archive/Exp013-Kaggle01.html</loc>
     
     <lastmod>2021-11-01</lastmod>
@@ -212,6 +203,15 @@
     <loc>https://hwchai.com/archive/Exp012-SIFT.html</loc>
     
     <lastmod>2021-10-31</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hwchai.com/Exp011-book01/</loc>
+    
+    <lastmod>2021-09-01</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -322,14 +322,14 @@
   </url>
   
   <url>
-    <loc>https://hwchai.com/tags/Repeatability/</loc>
+    <loc>https://hwchai.com/tags/Gemini/</loc>
     <lastmod>2024-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://hwchai.com/tags/Gemini/</loc>
+    <loc>https://hwchai.com/tags/Repeatability/</loc>
     <lastmod>2024-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
