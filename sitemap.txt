@@ -8,8 +8,8 @@ https://hwchai.com/PythonLes11/
 https://hwchai.com/PythonLes10/
 https://hwchai.com/PythonLes09/
 https://hwchai.com/PythonLes06/
-https://hwchai.com/PythonLes08/
 https://hwchai.com/PythonLes07/
+https://hwchai.com/PythonLes08/
 https://hwchai.com/PythonLes05/
 https://hwchai.com/PythonLes04/
 https://hwchai.com/PythonLes03/
@@ -34,11 +34,11 @@ https://hwchai.com/Exp001-hello-world/
 https://hwchai.com/
 https://hwchai.com/tags/Artificial-Intelligence/
 https://hwchai.com/tags/Pytorch/
+https://hwchai.com/tags/Gemini/
 https://hwchai.com/tags/Repeatability/
 https://hwchai.com/tags/Hexo/
 https://hwchai.com/tags/Next/
 https://hwchai.com/tags/Life/
-https://hwchai.com/tags/Gemini/
 https://hwchai.com/tags/English/
 https://hwchai.com/tags/Writing/
 https://hwchai.com/tags/Reply/
