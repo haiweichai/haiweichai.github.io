@@ -44,9 +44,9 @@ https://hwchai.com/tags/Pytorch/
 https://hwchai.com/tags/Gemini/
 https://hwchai.com/tags/Repeatability/
 https://hwchai.com/tags/Wigner-Ville-Distribution/
-https://hwchai.com/tags/Life/
 https://hwchai.com/tags/Hexo/
 https://hwchai.com/tags/Next/
+https://hwchai.com/tags/Life/
 https://hwchai.com/tags/Image-Segementation/
 https://hwchai.com/tags/Python/
 https://hwchai.com/tags/NumPy/
