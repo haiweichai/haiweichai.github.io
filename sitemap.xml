@@ -367,6 +367,13 @@
   </url>
   
   <url>
+    <loc>https://hwchai.com/tags/Wigner-Ville-Distribution/</loc>
+    <lastmod>2024-10-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://hwchai.com/tags/Artificial-Intelligence/</loc>
     <lastmod>2024-10-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -381,13 +388,6 @@
   </url>
   
   <url>
-    <loc>https://hwchai.com/tags/Gemini/</loc>
-    <lastmod>2024-10-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://hwchai.com/tags/Repeatability/</loc>
     <lastmod>2024-10-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -395,7 +395,7 @@
   </url>
   
   <url>
-    <loc>https://hwchai.com/tags/Wigner-Ville-Distribution/</loc>
+    <loc>https://hwchai.com/tags/Gemini/</loc>
     <lastmod>2024-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
