@@ -2,9 +2,36 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hwchai.com/Exp012-book02/</loc>
+    
+    <lastmod>2024-10-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hwchai.com/AI-DataLoader/</loc>
+    
+    <lastmod>2024-10-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://hwchai.com/scholar/index.html</loc>
     
-    <lastmod>2024-10-17</lastmod>
+    <lastmod>2024-10-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hwchai.com/about/index.html</loc>
+    
+    <lastmod>2024-10-18</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -146,15 +173,6 @@
   </url>
   
   <url>
-    <loc>https://hwchai.com/about/index.html</loc>
-    
-    <lastmod>2022-11-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://hwchai.com/team/index.html</loc>
     
     <lastmod>2022-11-01</lastmod>
@@ -191,6 +209,15 @@
   </url>
   
   <url>
+    <loc>https://hwchai.com/Exp011-book01/</loc>
+    
+    <lastmod>2022-05-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://hwchai.com/archive/Exp013-Kaggle01.html</loc>
     
     <lastmod>2021-11-01</lastmod>
@@ -203,15 +230,6 @@
     <loc>https://hwchai.com/archive/Exp012-SIFT.html</loc>
     
     <lastmod>2021-10-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hwchai.com/Exp011-book01/</loc>
-    
-    <lastmod>2021-09-01</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -301,106 +319,113 @@
 
   <url>
     <loc>https://hwchai.com/</loc>
-    <lastmod>2024-10-17</lastmod>
+    <lastmod>2024-10-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>https://hwchai.com/tags/Artificial-Intelligence/</loc>
-    <lastmod>2024-10-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://hwchai.com/tags/Pytorch/</loc>
-    <lastmod>2024-10-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://hwchai.com/tags/Gemini/</loc>
-    <lastmod>2024-10-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://hwchai.com/tags/Repeatability/</loc>
-    <lastmod>2024-10-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://hwchai.com/tags/Hexo/</loc>
-    <lastmod>2024-10-17</lastmod>
+    <lastmod>2024-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://hwchai.com/tags/Next/</loc>
-    <lastmod>2024-10-17</lastmod>
+    <lastmod>2024-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://hwchai.com/tags/Life/</loc>
-    <lastmod>2024-10-17</lastmod>
+    <lastmod>2024-10-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hwchai.com/tags/Artificial-Intelligence/</loc>
+    <lastmod>2024-10-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hwchai.com/tags/Pytorch/</loc>
+    <lastmod>2024-10-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hwchai.com/tags/Repeatability/</loc>
+    <lastmod>2024-10-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hwchai.com/tags/Gemini/</loc>
+    <lastmod>2024-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://hwchai.com/tags/Image-Segementation/</loc>
-    <lastmod>2024-10-17</lastmod>
+    <lastmod>2024-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://hwchai.com/tags/Python/</loc>
-    <lastmod>2024-10-17</lastmod>
+    <lastmod>2024-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://hwchai.com/tags/NumPy/</loc>
-    <lastmod>2024-10-17</lastmod>
+    <lastmod>2024-10-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hwchai.com/tags/DataLoader/</loc>
+    <lastmod>2024-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://hwchai.com/tags/Acta-Materialia/</loc>
-    <lastmod>2024-10-17</lastmod>
+    <lastmod>2024-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://hwchai.com/tags/Scholarship/</loc>
-    <lastmod>2024-10-17</lastmod>
+    <lastmod>2024-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://hwchai.com/tags/denoise/</loc>
-    <lastmod>2024-10-17</lastmod>
+    <lastmod>2024-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://hwchai.com/tags/Non-Local-Means/</loc>
-    <lastmod>2024-10-17</lastmod>
+    <lastmod>2024-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -408,29 +433,29 @@
 
   
   <url>
-    <loc>https://hwchai.com/categories/Artificial-Intelligence/</loc>
-    <lastmod>2024-10-17</lastmod>
+    <loc>https://hwchai.com/categories/Notes-on-Life-and-Letter/</loc>
+    <lastmod>2024-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://hwchai.com/categories/Notes-on-Life-and-Letter/</loc>
-    <lastmod>2024-10-17</lastmod>
+    <loc>https://hwchai.com/categories/Artificial-Intelligence/</loc>
+    <lastmod>2024-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://hwchai.com/categories/Programming-language/</loc>
-    <lastmod>2024-10-17</lastmod>
+    <lastmod>2024-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://hwchai.com/categories/Scholarship-Writing-and-Mindset/</loc>
-    <lastmod>2024-10-17</lastmod>
+    <lastmod>2024-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
