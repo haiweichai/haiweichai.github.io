@@ -3168,11 +3168,6 @@ def __iter__(self) -&gt; Iterator[List[int]]:
 ]]></content>
   </entry>
   <entry>
-    <title>Tags</title>
-    <url>/tags/index.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>Micro Computed Tomography Team</title>
     <url>/team/index.html</url>
     <content><![CDATA[<div class="table-container">
@@ -3224,6 +3219,11 @@ def __iter__(self) -&gt; Iterator[List[int]]:
 </table>
 </div>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Tags</title>
+    <url>/tags/index.html</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>2019年11月6日上海光源动态CT实验</title>
