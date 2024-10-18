@@ -11,6 +11,33 @@
   </url>
   
   <url>
+    <loc>https://hwchai.com/AI-Wigner-Ville/</loc>
+    
+    <lastmod>2024-10-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hwchai.com/AI-DWT/</loc>
+    
+    <lastmod>2024-10-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hwchai.com/AI-STFT/</loc>
+    
+    <lastmod>2024-10-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://hwchai.com/AI-DataLoader/</loc>
     
     <lastmod>2024-10-18</lastmod>
@@ -326,21 +353,14 @@
 
   
   <url>
-    <loc>https://hwchai.com/tags/Hexo/</loc>
+    <loc>https://hwchai.com/tags/Data-Science/</loc>
     <lastmod>2024-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://hwchai.com/tags/Next/</loc>
-    <lastmod>2024-10-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://hwchai.com/tags/Life/</loc>
+    <loc>https://hwchai.com/tags/Discrete-Wavelet-Transformation/</loc>
     <lastmod>2024-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -361,6 +381,13 @@
   </url>
   
   <url>
+    <loc>https://hwchai.com/tags/Gemini/</loc>
+    <lastmod>2024-10-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://hwchai.com/tags/Repeatability/</loc>
     <lastmod>2024-10-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -368,7 +395,28 @@
   </url>
   
   <url>
-    <loc>https://hwchai.com/tags/Gemini/</loc>
+    <loc>https://hwchai.com/tags/Wigner-Ville-Distribution/</loc>
+    <lastmod>2024-10-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hwchai.com/tags/Hexo/</loc>
+    <lastmod>2024-10-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hwchai.com/tags/Next/</loc>
+    <lastmod>2024-10-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hwchai.com/tags/Life/</loc>
     <lastmod>2024-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -433,7 +481,7 @@
 
   
   <url>
-    <loc>https://hwchai.com/categories/Notes-on-Life-and-Letter/</loc>
+    <loc>https://hwchai.com/categories/Data-Science/</loc>
     <lastmod>2024-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -441,6 +489,13 @@
   
   <url>
     <loc>https://hwchai.com/categories/Artificial-Intelligence/</loc>
+    <lastmod>2024-10-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hwchai.com/categories/Notes-on-Life-and-Letter/</loc>
     <lastmod>2024-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
