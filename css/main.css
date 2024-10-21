@@ -187,7 +187,7 @@ body {
   box-sizing: border-box;
   color: var(--text-color);
   font-family: Times New Roman, 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  font-size: 1em;
+  font-size: 16px;
   line-height: 2;
   min-height: 100%;
   position: relative;
@@ -1094,7 +1094,7 @@ pre code {
   color: var(--brand-hover-color);
 }
 .site-title {
-  font-family: Georgia, Times New Roman, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: Times New Roman, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 1.375em;
   font-weight: normal;
   line-height: 1.5;
@@ -1235,7 +1235,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #ff16c8;
+  background: #a3a19e;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -1525,6 +1525,7 @@ pre code {
   line-height: 1.8;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .post-toc .nav .active > a {
   border-bottom-color: #87daff;
@@ -1600,7 +1601,7 @@ pre code {
 }
 .languages {
   display: inline-block;
-  font-size: 1.125em;
+  font-size: 16px;
   position: relative;
 }
 .languages .lang-select-label span {
@@ -1723,7 +1724,7 @@ pre code {
   }
 }
 .posts-collapse .post-content .collection-title {
-  font-size: 1.125em;
+  font-size: 16px;
   position: relative;
 }
 .posts-collapse .post-content .collection-title::before {
@@ -1830,7 +1831,7 @@ pre code {
 }
 @media (min-width: 1200px) {
   .post-body {
-    font-size: 1.125em;
+    font-size: 16px;
   }
 }
 @media (min-width: 992px) {
@@ -1970,7 +1971,7 @@ pre code {
   margin: 15px 0;
 }
 .posts-expand .post-header {
-  font-size: 1.125em;
+  font-size: 16px;
   margin-bottom: 60px;
   text-align: center;
 }
@@ -2368,6 +2369,13 @@ mark.search-keyword {
   border-bottom: 1px dashed #ff2a2a;
   color: #ff2a2a;
   font-weight: bold;
+}
+mjx-container[jax='CHTML'][display='true'],
+.has-jax {
+  overflow: auto hidden;
+}
+mjx-container[display='true'] + br {
+  display: none;
 }
 .use-motion .animated {
   animation-fill-mode: none;

@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"hwchai.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hwchai.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="为实现多用户同时登录 Tomography 数据分析工作站，避免设备冗余浪费，使用 Windows Server 2019 与 Mint OS 虚拟机的组合是个让人满意的方案。 本文记录配置 Tomography 数据分析工作站时的一些常见问题及相应的解决办法。 本文使用的所有 OS 镜像均下载自 MSDN 镜像资源站，启动盘制作使用 Ventoy 开源工具包，虚拟机平台使用 VMware Wor">
 <meta property="og:type" content="website">
@@ -113,7 +113,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Windows-Server-2019"><span class="nav-number">1.</span> <span class="nav-text">Windows Server 2019</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows-Server-2019-Standard-%E6%BF%80%E6%B4%BB"><span class="nav-number">1.1.</span> <span class="nav-text">Windows Server 2019 Standard 激活</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">无法访问共享文件夹的解决办法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5%E6%9D%83%E9%99%90"><span class="nav-number">1.3.</span> <span class="nav-text">远程桌面连接权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E7%94%A8%E6%88%B7%E5%90%8C%E6%97%B6%E7%99%BB%E9%99%86%E6%9D%83%E9%99%90"><span class="nav-number">1.4.</span> <span class="nav-text">多用户同时登陆权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tomography-%E5%88%86%E6%9E%90%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6"><span class="nav-number">1.5.</span> <span class="nav-text">Tomography 分析常用软件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VMware-Workstation-Mint-OS"><span class="nav-number">2.</span> <span class="nav-text">VMware Workstation + Mint OS</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Windows-Server-2019"><span class="nav-text">Windows Server 2019</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows-Server-2019-Standard-%E6%BF%80%E6%B4%BB"><span class="nav-text">Windows Server 2019 Standard 激活</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="nav-text">无法访问共享文件夹的解决办法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5%E6%9D%83%E9%99%90"><span class="nav-text">远程桌面连接权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E7%94%A8%E6%88%B7%E5%90%8C%E6%97%B6%E7%99%BB%E9%99%86%E6%9D%83%E9%99%90"><span class="nav-text">多用户同时登陆权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tomography-%E5%88%86%E6%9E%90%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6"><span class="nav-text">Tomography 分析常用软件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VMware-Workstation-Mint-OS"><span class="nav-text">VMware Workstation + Mint OS</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -202,31 +202,20 @@
           <p>为实现多用户同时登录 Tomography 数据分析工作站，避免设备冗余浪费，使用 Windows Server 2019 与 Mint OS 虚拟机的组合是个让人满意的方案。 本文记录配置 Tomography 数据分析工作站时的一些常见问题及相应的解决办法。</p>
 <p>本文使用的所有 OS 镜像均下载自 <a target="_blank" rel="noopener" href="https://msdn.itellyou.cn/">MSDN</a> 镜像资源站，启动盘制作使用 <a target="_blank" rel="noopener" href="https://www.ventoy.net/en/index.html">Ventoy</a> 开源工具包，虚拟机平台使用 VMware Workstation 16.0。</p>
 <span id="more"></span>
-
 <h1 id="Windows-Server-2019"><a href="#Windows-Server-2019" class="headerlink" title="Windows Server 2019"></a>Windows Server 2019</h1><h2 id="Windows-Server-2019-Standard-激活"><a href="#Windows-Server-2019-Standard-激活" class="headerlink" title="Windows Server 2019 Standard 激活"></a>Windows Server 2019 Standard 激活</h2><p>以管理员权限运行 Windows PowerShell：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ slmgr /upk</span><br><span class="line">$ slmgr /ipk N69G4-B89J2-4G8F4-WWYCC-J464C</span><br><span class="line">$ slmgr /skms kms.03k.org</span><br><span class="line">$ slmgr /ato</span><br></pre></td></tr></table></figure>
-
 <p>是否成功激活，激活码到期时间可输入以下命令查看：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ slmgr /xpr</span><br></pre></td></tr></table></figure>
-
 <h2 id="无法访问共享文件夹的解决办法"><a href="#无法访问共享文件夹的解决办法" class="headerlink" title="无法访问共享文件夹的解决办法"></a>无法访问共享文件夹的解决办法</h2><blockquote>
 <ol>
-<li>Win+R 快捷键调用 Run，输入 <code>control</code> 调用 Control Panel，Turn Windows features on or off，安装 SMB 1.0&#x2F;CIFS File Sharing Support。</li>
-</ol>
-</blockquote>
-<blockquote>
-<ol start="2">
-<li>Win+R 快捷键调用 Run，输入 <code>gpedit.msc</code> 调用 Local Group Policy Editor，Computer Configuration - Administrative Templates - Network - Lanman Workstation - Enable insecure guest logons。</li>
-</ol>
-</blockquote>
-<blockquote>
-<ol start="3">
-<li>Windows Defender 防火墙，允许应用或功能通过 Windows Defender 防火墙，允许 SMBDirect 上的文件和打印机共享。</li>
-</ol>
-</blockquote>
-<blockquote>
-<ol start="4">
-<li>右键点击 This PC，Add a network location，Choose a custom network location，<code>\\192.168.26.110\APS-data\</code>。</li>
+<li><p>Win+R 快捷键调用 Run，输入 <code>control</code> 调用 Control Panel，Turn Windows features on or off，安装 SMB 1.0/CIFS File Sharing Support。</p>
+</li>
+<li><p>Win+R 快捷键调用 Run，输入 <code>gpedit.msc</code> 调用 Local Group Policy Editor，Computer Configuration - Administrative Templates - Network - Lanman Workstation - Enable insecure guest logons。</p>
+</li>
+<li><p>Windows Defender 防火墙，允许应用或功能通过 Windows Defender 防火墙，允许 SMBDirect 上的文件和打印机共享。</p>
+</li>
+<li><p>右键点击 This PC，Add a network location，Choose a custom network location，<code>\\192.168.26.110\APS-data\</code>。</p>
+</li>
 </ol>
 </blockquote>
 <h2 id="远程桌面连接权限"><a href="#远程桌面连接权限" class="headerlink" title="远程桌面连接权限"></a>远程桌面连接权限</h2><p>与 Windows 10 类似，远程连接权限、防火墙权限、网络共享权限、Remote Desktop Server 权限，共四步骤，此处不做过多介绍。 特别注意每个子账号均需单独开启远程权限。</p>
@@ -234,17 +223,12 @@
 <p>参考链接：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/laosan007/p/11734283.html">Windows Server 2019 远程桌面服务配置和授权激活</a></p>
 <h2 id="Tomography-分析常用软件"><a href="#Tomography-分析常用软件" class="headerlink" title="Tomography 分析常用软件"></a>Tomography 分析常用软件</h2><blockquote>
 <ol>
-<li>办公类：Chrome浏览器、TIM、Wechat for PC、MobaXterm</li>
-</ol>
-</blockquote>
-<blockquote>
-<ol start="2">
-<li>学术类：Endnote X9、Sublime Text 4、Adobe Acrobat Pro DC</li>
-</ol>
-</blockquote>
-<blockquote>
-<ol start="3">
-<li>工程类：Avizo、OriginPro 9.0、Fiji ImageJ、Matlab、VMware Workstation、Photoshop</li>
+<li><p>办公类：Chrome浏览器、TIM、Wechat for PC、MobaXterm</p>
+</li>
+<li><p>学术类：Endnote X9、Sublime Text 4、Adobe Acrobat Pro DC</p>
+</li>
+<li><p>工程类：Avizo、OriginPro 9.0、Fiji ImageJ、Matlab、VMware Workstation、Photoshop</p>
+</li>
 </ol>
 </blockquote>
 <h1 id="VMware-Workstation-Mint-OS"><a href="#VMware-Workstation-Mint-OS" class="headerlink" title="VMware Workstation + Mint OS"></a>VMware Workstation + Mint OS</h1>
@@ -297,6 +281,7 @@
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
 
   
@@ -309,6 +294,12 @@
   
 
 
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
 
