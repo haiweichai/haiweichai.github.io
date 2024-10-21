@@ -1058,12 +1058,34 @@ pre code {
     display: none;
   }
 }
+.header {
+  background: $head-bg;
+}
+.header-inner {
+  margin: 0 auto;
+  width: 700px;
+}
+@media (max-width: 767px) {
+  .header-inner {
+    width: auto;
+  }
+}
+@media (min-width: 1200px) {
+  .header-inner {
+    width: 800px;
+  }
+}
+@media (min-width: 1600px) {
+  .header-inner {
+    width: 900px;
+  }
+}
 .site-brand-container {
   display: flex;
   flex-shrink: 0;
   padding: 0 10px;
 }
-.use-motion .column,
+.use-motion .header,
 .use-motion .site-brand-container .toggle {
   opacity: 0;
 }
@@ -1181,18 +1203,26 @@ pre code {
 .menu-item a.menu-item-active {
   background: var(--menu-item-bg-color);
 }
-.menu-item i[class^='fa'] {
+.menu-item .fa,
+.menu-item .fab,
+.menu-item .far,
+.menu-item .fas {
   margin-right: 8px;
 }
 .menu-item .badge {
-  background: #eee;
-  border-radius: 0;
-  color: #555;
+  display: inline-block;
   font-weight: bold;
   line-height: 1;
   margin-left: 0.35em;
-  padding: 1px 4px;
-  text-shadow: none;
+  margin-top: 0.35em;
+  text-align: center;
+  white-space: nowrap;
+}
+@media (max-width: 767px) {
+  .menu-item .badge {
+    float: right;
+    margin-left: 0;
+  }
 }
 .use-motion .menu-item {
   visibility: hidden;
@@ -1235,7 +1265,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #53a22b;
+  background: #fff900;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
