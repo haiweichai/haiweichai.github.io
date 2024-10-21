@@ -1235,7 +1235,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #fff;
+  background: #ff4f82;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2547,14 +2547,12 @@ header.header {
 }
 header.header {
   padding-top: 30px;
+  background: #f0f0f0;
 }
 @media (max-width: 767px) {
   header.header {
     padding-top: 50px;
   }
-}
-.header {
-  background: #f0f0f0;
 }
 .footer {
   margin-top: 80px;
