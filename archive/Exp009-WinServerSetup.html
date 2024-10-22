@@ -20,12 +20,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hwchai.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="为实现多用户同时登录 Tomography 数据分析工作站，避免设备冗余浪费，使用 Windows Server 2019 与 Mint OS 虚拟机的组合是个让人满意的方案。 本文记录配置 Tomography 数据分析工作站时的一些常见问题及相应的解决办法。 本文使用的所有 OS 镜像均下载自 MSDN 镜像资源站，启动盘制作使用 Ventoy 开源工具包，虚拟机平台使用 VMware Wor">
+    <meta name="description" content="为实现多用户同时登录 Tomography 数据分析工作站，避免设备冗余浪费，使用 Windows Server 2019 与 Mint OS 虚拟机的组合是个让人满意的方案。 本文记录配置 Tomography 数据分析工作站时的一些常见问题及相应的解决办法。 本文使用的所有 OS 镜像均下载自 MSDN 镜像资源站，启动盘制作使用 Ventoy 开源工具包，虚拟机平台使用 VMwar">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Windows Server 2019 + Mint OS 搭建 Tomography 数据分析工作站">
 <meta property="og:url" content="https://hwchai.com/archive/Exp009-WinServerSetup.html">
 <meta property="og:site_name" content="Hai-Wei Chai&#39;s Blog">
-<meta property="og:description" content="为实现多用户同时登录 Tomography 数据分析工作站，避免设备冗余浪费，使用 Windows Server 2019 与 Mint OS 虚拟机的组合是个让人满意的方案。 本文记录配置 Tomography 数据分析工作站时的一些常见问题及相应的解决办法。 本文使用的所有 OS 镜像均下载自 MSDN 镜像资源站，启动盘制作使用 Ventoy 开源工具包，虚拟机平台使用 VMware Wor">
+<meta property="og:description" content="为实现多用户同时登录 Tomography 数据分析工作站，避免设备冗余浪费，使用 Windows Server 2019 与 Mint OS 虚拟机的组合是个让人满意的方案。 本文记录配置 Tomography 数据分析工作站时的一些常见问题及相应的解决办法。 本文使用的所有 OS 镜像均下载自 MSDN 镜像资源站，启动盘制作使用 Ventoy 开源工具包，虚拟机平台使用 VMwar">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-08-03T20:53:23.000Z">
 <meta property="article:modified_time" content="2021-08-03T21:21:24.000Z">
@@ -141,7 +141,8 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">Windows Server 2019</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows-Server-2019-Standard-%E6%BF%80%E6%B4%BB"><span class="nav-number">1.1.</span> <span class="nav-text">Windows Server 2019 Standard 激活</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">无法访问共享文件夹的解决办法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5%E6%9D%83%E9%99%90"><span class="nav-number">1.3.</span> <span class="nav-text">远程桌面连接权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E7%94%A8%E6%88%B7%E5%90%8C%E6%97%B6%E7%99%BB%E9%99%86%E6%9D%83%E9%99%90"><span class="nav-number">1.4.</span> <span class="nav-text">多用户同时登陆权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tomography-%E5%88%86%E6%9E%90%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6"><span class="nav-number">1.5.</span> <span class="nav-text">Tomography 分析常用软件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">VMware Workstation + Mint OS</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#windows-server-2019"><span class="nav-number">1.</span> <span class="nav-text">Windows Server 2019</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#windows-server-2019-standard-%E6%BF%80%E6%B4%BB"><span class="nav-number">1.1.</span> <span class="nav-text">Windows Server 2019 Standard
+激活</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">无法访问共享文件夹的解决办法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5%E6%9D%83%E9%99%90"><span class="nav-number">1.3.</span> <span class="nav-text">远程桌面连接权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E7%94%A8%E6%88%B7%E5%90%8C%E6%97%B6%E7%99%BB%E9%99%86%E6%9D%83%E9%99%90"><span class="nav-number">1.4.</span> <span class="nav-text">多用户同时登陆权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tomography-%E5%88%86%E6%9E%90%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6"><span class="nav-number">1.5.</span> <span class="nav-text">Tomography 分析常用软件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vmware-workstation-mint-os"><span class="nav-number">2.</span> <span class="nav-text">VMware Workstation + Mint OS</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -212,58 +213,77 @@
       
       
       <div class="post-body">
-          <p>为实现多用户同时登录 Tomography 数据分析工作站，避免设备冗余浪费，使用 Windows Server 2019 与 Mint OS 虚拟机的组合是个让人满意的方案。 本文记录配置 Tomography 数据分析工作站时的一些常见问题及相应的解决办法。</p>
-<p>本文使用的所有 OS 镜像均下载自 <a target="_blank" rel="noopener" href="https://msdn.itellyou.cn/">MSDN</a> 镜像资源站，启动盘制作使用 <a target="_blank" rel="noopener" href="https://www.ventoy.net/en/index.html">Ventoy</a> 开源工具包，虚拟机平台使用 VMware Workstation 16.0。</p>
+          <p>为实现多用户同时登录 Tomography
+数据分析工作站，避免设备冗余浪费，使用 Windows Server 2019 与 Mint OS
+虚拟机的组合是个让人满意的方案。 本文记录配置 Tomography
+数据分析工作站时的一些常见问题及相应的解决办法。</p>
+<p>本文使用的所有 OS 镜像均下载自 <a
+target="_blank" rel="noopener" href="https://msdn.itellyou.cn/">MSDN</a> 镜像资源站，启动盘制作使用 <a
+target="_blank" rel="noopener" href="https://www.ventoy.net/en/index.html">Ventoy</a>
+开源工具包，虚拟机平台使用 VMware Workstation 16.0。</p>
 <span id="more"></span>
-<h1>Windows Server 2019</h1>
-<h2 id="Windows-Server-2019-Standard-激活">Windows Server 2019 Standard 激活</h2>
+<h1 id="windows-server-2019">Windows Server 2019</h1>
+<h2 id="windows-server-2019-standard-激活">Windows Server 2019 Standard
+激活</h2>
 <p>以管理员权限运行 Windows PowerShell：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ slmgr /upk</span><br><span class="line">$ slmgr /ipk N69G4-B89J2-4G8F4-WWYCC-J464C</span><br><span class="line">$ slmgr /skms kms.03k.org</span><br><span class="line">$ slmgr /ato</span><br></pre></td></tr></table></figure>
 <p>是否成功激活，激活码到期时间可输入以下命令查看：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ slmgr /xpr</span><br></pre></td></tr></table></figure>
 <h2 id="无法访问共享文件夹的解决办法">无法访问共享文件夹的解决办法</h2>
 <blockquote>
-<ol>
-<li>Win+R 快捷键调用 Run，输入 <code>control</code> 调用 Control Panel，Turn Windows features on or off，安装 SMB 1.0/CIFS File Sharing Support。</li>
+<ol type="1">
+<li>Win+R 快捷键调用 Run，输入 <code>control</code> 调用 Control
+Panel，Turn Windows features on or off，安装 SMB 1.0/CIFS File Sharing
+Support。</li>
 </ol>
 </blockquote>
 <blockquote>
-<ol start="2">
-<li>Win+R 快捷键调用 Run，输入 <code>gpedit.msc</code> 调用 Local Group Policy Editor，Computer Configuration - Administrative Templates - Network - Lanman Workstation - Enable insecure guest logons。</li>
+<ol start="2" type="1">
+<li>Win+R 快捷键调用 Run，输入 <code>gpedit.msc</code> 调用 Local Group
+Policy Editor，Computer Configuration - Administrative Templates -
+Network - Lanman Workstation - Enable insecure guest logons。</li>
 </ol>
 </blockquote>
 <blockquote>
-<ol start="3">
-<li>Windows Defender 防火墙，允许应用或功能通过 Windows Defender 防火墙，允许 SMBDirect 上的文件和打印机共享。</li>
+<ol start="3" type="1">
+<li>Windows Defender 防火墙，允许应用或功能通过 Windows Defender
+防火墙，允许 SMBDirect 上的文件和打印机共享。</li>
 </ol>
 </blockquote>
 <blockquote>
-<ol start="4">
-<li>右键点击 This PC，Add a network location，Choose a custom network location，<code>\\192.168.26.110\APS-data\</code>。</li>
+<ol start="4" type="1">
+<li>右键点击 This PC，Add a network location，Choose a custom network
+location，<code>\\192.168.26.110\APS-data\</code>。</li>
 </ol>
 </blockquote>
 <h2 id="远程桌面连接权限">远程桌面连接权限</h2>
-<p>与 Windows 10 类似，远程连接权限、防火墙权限、网络共享权限、Remote Desktop Server 权限，共四步骤，此处不做过多介绍。 特别注意每个子账号均需单独开启远程权限。</p>
+<p>与 Windows 10 类似，远程连接权限、防火墙权限、网络共享权限、Remote
+Desktop Server 权限，共四步骤，此处不做过多介绍。
+特别注意每个子账号均需单独开启远程权限。</p>
 <h2 id="多用户同时登陆权限">多用户同时登陆权限</h2>
-<p>Windows Server 2019 默认远程桌面连接数上限是 2 位用户，无法容纳更多用户同时登陆，可以通过添加远程桌面授权解决：</p>
-<p>参考链接：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/laosan007/p/11734283.html">Windows Server 2019 远程桌面服务配置和授权激活</a></p>
-<h2 id="Tomography-分析常用软件">Tomography 分析常用软件</h2>
+<p>Windows Server 2019 默认远程桌面连接数上限是 2
+位用户，无法容纳更多用户同时登陆，可以通过添加远程桌面授权解决：</p>
+<p>参考链接：<a
+target="_blank" rel="noopener" href="https://www.cnblogs.com/laosan007/p/11734283.html">Windows Server
+2019 远程桌面服务配置和授权激活</a></p>
+<h2 id="tomography-分析常用软件">Tomography 分析常用软件</h2>
 <blockquote>
-<ol>
+<ol type="1">
 <li>办公类：Chrome浏览器、TIM、Wechat for PC、MobaXterm</li>
 </ol>
 </blockquote>
 <blockquote>
-<ol start="2">
+<ol start="2" type="1">
 <li>学术类：Endnote X9、Sublime Text 4、Adobe Acrobat Pro DC</li>
 </ol>
 </blockquote>
 <blockquote>
-<ol start="3">
-<li>工程类：Avizo、OriginPro 9.0、Fiji ImageJ、Matlab、VMware Workstation、Photoshop</li>
+<ol start="3" type="1">
+<li>工程类：Avizo、OriginPro 9.0、Fiji ImageJ、Matlab、VMware
+Workstation、Photoshop</li>
 </ol>
 </blockquote>
-<h1>VMware Workstation + Mint OS</h1>
+<h1 id="vmware-workstation-mint-os">VMware Workstation + Mint OS</h1>
 
       </div>
       

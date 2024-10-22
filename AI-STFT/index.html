@@ -20,12 +20,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hwchai.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="The short-time Fourier transform (STFT) is a Fourier-related transform used to determine the sinusoidal frequency and phase content of local sections of a signal as it changes over time. In practice,">
+    <meta name="description" content="The short-time Fourier transform (STFT) is a Fourier-related transform used to determine the sinusoidal frequency and phase content of local sections of a signal as it changes over time. In practi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据科学：短时傅里叶变换（Short-Time Fourier Transform，STFT）">
 <meta property="og:url" content="https://hwchai.com/AI-STFT/index.html">
 <meta property="og:site_name" content="Hai-Wei Chai&#39;s Blog">
-<meta property="og:description" content="The short-time Fourier transform (STFT) is a Fourier-related transform used to determine the sinusoidal frequency and phase content of local sections of a signal as it changes over time. In practice,">
+<meta property="og:description" content="The short-time Fourier transform (STFT) is a Fourier-related transform used to determine the sinusoidal frequency and phase content of local sections of a signal as it changes over time. In practi">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://s21.ax1x.com/2024/10/18/pAUgbg1.png">
 <meta property="article:published_time" content="2024-10-18T16:11:31.000Z">
@@ -275,9 +275,21 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p><img src="https://s21.ax1x.com/2024/10/18/pAUgbg1.png" alt=""></p>
-<p>The short-time Fourier transform (STFT) is a Fourier-related transform used to determine the sinusoidal frequency and phase content of local sections of a signal as it changes over time. In practice, the procedure for computing STFTs is to divide a longer time signal into shorter segments of equal length and then compute the Fourier transform separately on each shorter segment. This reveals the Fourier spectrum on each shorter segment. One then usually plots the changing spectra as a function of time, known as a spectrogram or waterfall plot, such as commonly used in software defined radio (SDR) based spectrum displays. Full bandwidth displays covering the whole range of an SDR commonly use fast Fourier transforms (FFTs) with 2^24 points on desktop computers.</p>
+    <div class="post-body" itemprop="articleBody"><p><img src="https://s21.ax1x.com/2024/10/18/pAUgbg1.png" /></p>
+<p>The short-time Fourier transform (STFT) is a Fourier-related
+transform used to determine the sinusoidal frequency and phase content
+of local sections of a signal as it changes over time. In practice, the
+procedure for computing STFTs is to divide a longer time signal into
+shorter segments of equal length and then compute the Fourier transform
+separately on each shorter segment. This reveals the Fourier spectrum on
+each shorter segment. One then usually plots the changing spectra as a
+function of time, known as a spectrogram or waterfall plot, such as
+commonly used in software defined radio (SDR) based spectrum displays.
+Full bandwidth displays covering the whole range of an SDR commonly use
+fast Fourier transforms (FFTs) with 2^24 points on desktop
+computers.</p>
 <span id="more"></span>
+
     </div>
 
     
