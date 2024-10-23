@@ -20,26 +20,32 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hwchai.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="I am a slow walker, but never backwards!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hai-Wei Chai&#39;s Blog">
-<meta property="og:url" content="https://hwchai.com/categories/Data-Science/index.html">
+    <meta name="description" content="Multi-Head Attention Self Attention 利用 Q、K、V均为同一个输入向量映射而来的Encoder-Decoder Attention，它可以无视词之间的距离直接计算依赖关系，能够学习一个句子的内部结构，实现也较为简单并且可以并行计算。 Multi-Head Attention同时计算多个Attention，并最终得到合并结果，通过计算多次来捕获不同子空间上的相关信">
+<meta property="og:type" content="article">
+<meta property="og:title" content="人工智能：多头自注意力（Multi-Head Attention）机制">
+<meta property="og:url" content="https://hwchai.com/AI-Multi-head/index.html">
 <meta property="og:site_name" content="Hai-Wei Chai&#39;s Blog">
-<meta property="og:description" content="I am a slow walker, but never backwards!">
+<meta property="og:description" content="Multi-Head Attention Self Attention 利用 Q、K、V均为同一个输入向量映射而来的Encoder-Decoder Attention，它可以无视词之间的距离直接计算依赖关系，能够学习一个句子的内部结构，实现也较为简单并且可以并行计算。 Multi-Head Attention同时计算多个Attention，并最终得到合并结果，通过计算多次来捕获不同子空间上的相关信">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yjucho1.github.io/assets/img/2018-10-13/transformer.png">
+<meta property="article:published_time" content="2024-10-23T16:06:06.000Z">
+<meta property="article:modified_time" content="2024-10-23T22:17:24.000Z">
 <meta property="article:author" content="Hai-Wei Chai (柴海伟)">
-<meta property="article:tag" content="Hai-Wei Chai, Haiwei Chai, hwchai, 柴海伟">
+<meta property="article:tag" content="Artificial Intelligence">
+<meta property="article:tag" content="Pytorch">
+<meta property="article:tag" content="Multi-Head Attention">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yjucho1.github.io/assets/img/2018-10-13/transformer.png">
 
 
-<link rel="canonical" href="https://hwchai.com/categories/Data-Science/">
+<link rel="canonical" href="https://hwchai.com/AI-Multi-head/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en","comments":"","permalink":"","path":"categories/Data-Science/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://hwchai.com/AI-Multi-head/","path":"AI-Multi-head/","title":"人工智能：多头自注意力（Multi-Head Attention）机制"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Category: Data Science | Hai-Wei Chai's Blog</title>
+<title>人工智能：多头自注意力（Multi-Head Attention）机制 | Hai-Wei Chai's Blog</title>
   
 
 
@@ -125,7 +131,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -138,6 +144,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference-Link"><span class="nav-number">1.</span> <span class="nav-text">Reference Link:</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -188,91 +195,149 @@
 
     </div>
 
-    <div class="main-inner category posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h1 class="collection-header">Data Science
-          <small>Category</small>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hwchai.com/AI-Multi-head/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gamersky.gif">
+      <meta itemprop="name" content="Hai-Wei Chai (柴海伟)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hai-Wei Chai's Blog">
+      <meta itemprop="description" content="I am a slow walker, but never backwards!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="人工智能：多头自注意力（Multi-Head Attention）机制 | Hai-Wei Chai's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          人工智能：多头自注意力（Multi-Head Attention）机制
         </h1>
-      </div>
 
-      
-    <div class="collection-year">
-      <span class="collection-header">2024</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-10-23 16:06:06" itemprop="dateCreated datePublished" datetime="2024-10-23T16:06:06Z">2024-10-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-10-23 22:17:24" itemprop="dateModified" datetime="2024-10-23T22:17:24Z">2024-10-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Artificial-Intelligence/" itemprop="url" rel="index"><span itemprop="name">Artificial Intelligence</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline: </span>
+  
+    <a title="waline" href="/AI-Multi-head/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/AI-Multi-head/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><figure><img src="https://yjucho1.github.io/assets/img/2018-10-13/transformer.png" alt="Multi-Head Attention"><figcaption aria-hidden="true">Multi-Head Attention</figcaption></figure></p>
+<p>Self Attention 利用 Q、K、V均为同一个输入向量映射而来的Encoder-Decoder Attention，它可以无视词之间的距离直接计算依赖关系，能够学习一个句子的内部结构，实现也较为简单并且可以并行计算。</p>
+<p>Multi-Head Attention同时计算多个Attention，并最终得到合并结果，通过计算多次来捕获不同子空间上的相关信息。</p>
+<span id="more"></span>
+
+<h2 id="Reference-Link"><a href="#Reference-Link" class="headerlink" title="Reference Link:"></a>Reference Link:</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://sungwookyoo.github.io/tips/study/Multihead_Attention/">https://sungwookyoo.github.io/tips/study/Multihead_Attention&#x2F;</a></li>
+<li><a target="_blank" rel="noopener" href="https://imzhanghao.com/2021/09/15/self-attention-multi-head-attention/">https://imzhanghao.com/2021/09/15/self-attention-multi-head-attention/</a></li>
+</ol>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2024-10-18T19:04:21Z"
-              content="2024-10-18">
-          10-18
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/AI-Wigner-Ville/" itemprop="url">
-            <span itemprop="name">数据科学：维格纳准概率分布（Wigner-Ville Distribution，WVD）</span>
-          </a>
-      </div>
+    <footer class="post-footer">
+          
 
-      
-    </header>
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Hai-Wei Chai (柴海伟)
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://hwchai.com/AI-Multi-head/" title="人工智能：多头自注意力（Multi-Head Attention）机制">https://hwchai.com/AI-Multi-head/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Artificial-Intelligence/" rel="tag"># Artificial Intelligence</a>
+              <a href="/tags/Pytorch/" rel="tag"># Pytorch</a>
+              <a href="/tags/Multi-Head-Attention/" rel="tag"># Multi-Head Attention</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Baichuan/" rel="prev" title="人工智能：百川大模型训练与部署方法">
+                  <i class="fa fa-angle-left"></i> 人工智能：百川大模型训练与部署方法
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
+</div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2024-10-18T18:53:58Z"
-              content="2024-10-18">
-          10-18
-        </time>
-      </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/AI-DWT/" itemprop="url">
-            <span itemprop="name">数据科学：离散小波变换（Discrete Wavelet Transformation，DWT）</span>
-          </a>
-      </div>
 
-      
-    </header>
-  </article>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2024-10-18T16:11:31Z"
-              content="2024-10-18">
-          10-18
-        </time>
-      </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/AI-STFT/" itemprop="url">
-            <span itemprop="name">数据科学：短时傅里叶变换（Short-Time Fourier Transform，STFT）</span>
-          </a>
-      </div>
 
-      
-    </header>
-  </article>
-
-    </div>
-  </div>
-  
-  
-  
-
+    <div class="comments" id="waline"></div>
 </div>
   </main>
 
@@ -337,7 +402,7 @@
 <script src="/js/third-party/math/mathjax.js"></script>
 
 
-<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://vercel.hwchai.com/","cssUrl":"https://hwchai.com/download/Waline.css","commentCount":true,"pageview":false,"locale":{"placeholder":"请留下邮箱，若有回复您将收到提醒。QQ邮箱可以自动识别头像喔~"},"pageSize":10,"visitor":false,"comment_count":true,"meta":["nick","mail","link"],"requiredMeta":["nick"],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","emoji":["https://unpkg.com/@waline/emojis@1.0.1/bilibili"],"login":"disable","el":"#waline","comment":true,"path":"/categories/Data-Science/"}</script>
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://vercel.hwchai.com/","cssUrl":"https://hwchai.com/download/Waline.css","commentCount":true,"pageview":false,"locale":{"placeholder":"请留下邮箱，若有回复您将收到提醒。QQ邮箱可以自动识别头像喔~"},"pageSize":10,"visitor":false,"comment_count":true,"meta":["nick","mail","link"],"requiredMeta":["nick"],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","emoji":["https://unpkg.com/@waline/emojis@1.0.1/bilibili"],"login":"disable","el":"#waline","comment":true,"path":"/AI-Multi-head/"}</script>
 <link rel="stylesheet" href="https://hwchai.com/download/Waline.css">
 <script>
 document.addEventListener('page:loaded', () => {
