@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Times+New+Roman:300,300italic,400,400italic,700,700italic%7CGeorgia:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hwchai.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="今天总结了最常见的五种聚类算法。涉及到的算法有：  K均值聚类（K-Means Clustering） 层次聚类（Hierarchical Clustering） DBSCAN（Density-Based Spatial Clustering of Applications with Noise） 高斯混合模型（Gaussian Mixture Model，GMM） 谱聚类（Spectral C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 在科研中的应用 12：聚类分析">
+<meta property="og:url" content="https://hwchai.com/PythonLes13/index.html">
+<meta property="og:site_name" content="Hai-Wei Chai&#39;s Blog">
+<meta property="og:description" content="今天总结了最常见的五种聚类算法。涉及到的算法有：  K均值聚类（K-Means Clustering） 层次聚类（Hierarchical Clustering） DBSCAN（Density-Based Spatial Clustering of Applications with Noise） 高斯混合模型（Gaussian Mixture Model，GMM） 谱聚类（Spectral C">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s21.ax1x.com/2024/10/17/pAUMSfI.png">
+<meta property="og:image" content="https://s21.ax1x.com/2024/06/11/pkUF3JP.png">
+<meta property="og:image" content="https://s21.ax1x.com/2024/06/11/pkUFMdA.png">
+<meta property="og:image" content="https://s21.ax1x.com/2024/06/11/pkUF1it.png">
+<meta property="og:image" content="https://s21.ax1x.com/2024/06/11/pkUFKZd.png">
+<meta property="og:image" content="https://s21.ax1x.com/2024/06/11/pkUFQII.png">
+<meta property="article:published_time" content="2024-06-04T02:10:56.000Z">
+<meta property="article:modified_time" content="2024-06-04T13:58:01.000Z">
+<meta property="article:author" content="Hai-Wei Chai (柴海伟)">
+<meta property="article:tag" content="Image Segementation">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s21.ax1x.com/2024/10/17/pAUMSfI.png">
+
+
+<link rel="canonical" href="https://hwchai.com/PythonLes13/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://hwchai.com/PythonLes13/","path":"PythonLes13/","title":"Python 在科研中的应用 12：聚类分析"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Python 在科研中的应用 12：聚类分析 | Hai-Wei Chai's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hai-Wei Chai's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-house-chimney fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-list fa-fw"></i>Archives</a></li><li class="menu-item menu-item-support"><a href="/support/" rel="section"><i class="fa fa-screwdriver-wrench fa-fw"></i>Support</a></li><li class="menu-item menu-item-books"><a href="/books/" rel="section"><i class="fa fa-book fa-fw"></i>Books</a></li><li class="menu-item menu-item-scholar"><a href="/scholar/" rel="section"><i class="fa fa-chart-column fa-fw"></i>Scholar</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BE%E7%A8%8B%E4%BD%9C%E4%B8%9A03-%E5%8D%A0%E6%80%BB%E6%88%90%E7%BB%A925"><span class="nav-number">1.</span> <span class="nav-text">课程作业03 占总成绩25%</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#K%E5%9D%87%E5%80%BC%E8%81%9A%E7%B1%BB%EF%BC%88K-Means-Clustering%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">K均值聚类（K-Means Clustering）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86"><span class="nav-number">2.1.</span> <span class="nav-text">核心原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E5%85%AC%E5%BC%8F"><span class="nav-number">2.2.</span> <span class="nav-text">核心公式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%82%E6%AC%A1%E8%81%9A%E7%B1%BB%EF%BC%88Hierarchical-Clustering%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">层次聚类（Hierarchical Clustering）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86-1"><span class="nav-number">3.1.</span> <span class="nav-text">核心原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E5%85%AC%E5%BC%8F-1"><span class="nav-number">3.2.</span> <span class="nav-text">核心公式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DBSCAN%EF%BC%88Density-Based-Spatial-Clustering-of-Applications-with-Noise%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">DBSCAN（Density-Based Spatial Clustering of Applications with Noise）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86-2"><span class="nav-number">4.1.</span> <span class="nav-text">核心原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E5%85%AC%E5%BC%8F-2"><span class="nav-number">4.2.</span> <span class="nav-text">核心公式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AB%98%E6%96%AF%E6%B7%B7%E5%90%88%E6%A8%A1%E5%9E%8B%EF%BC%88Gaussian-Mixture-Model%EF%BC%8CGMM%EF%BC%89"><span class="nav-number">5.</span> <span class="nav-text">高斯混合模型（Gaussian Mixture Model，GMM）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86-3"><span class="nav-number">5.1.</span> <span class="nav-text">核心原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E5%85%AC%E5%BC%8F-3"><span class="nav-number">5.2.</span> <span class="nav-text">核心公式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%B1%E8%81%9A%E7%B1%BB%EF%BC%88Spectral-Clustering%EF%BC%89"><span class="nav-number">6.</span> <span class="nav-text">谱聚类（Spectral Clustering）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86-4"><span class="nav-number">6.1.</span> <span class="nav-text">核心原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E5%85%AC%E5%BC%8F-4"><span class="nav-number">6.2.</span> <span class="nav-text">核心公式</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Hai-Wei Chai (柴海伟)"
+      src="/images/gamersky.gif">
+  <p class="site-author-name" itemprop="name">Hai-Wei Chai (柴海伟)</p>
+  <div class="site-description" itemprop="description">I am a slow walker, but never backwards!</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/haiweichai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;haiweichai" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:chw9402@mail.ustc.edu.com" title="E-Mail → mailto:chw9402@mail.ustc.edu.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hwchai.com/PythonLes13/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gamersky.gif">
+      <meta itemprop="name" content="Hai-Wei Chai (柴海伟)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hai-Wei Chai's Blog">
+      <meta itemprop="description" content="I am a slow walker, but never backwards!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Python 在科研中的应用 12：聚类分析 | Hai-Wei Chai's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Python 在科研中的应用 12：聚类分析
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-06-04 02:10:56" itemprop="dateCreated datePublished" datetime="2024-06-04T02:10:56Z">2024-06-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-06-04 13:58:01" itemprop="dateModified" datetime="2024-06-04T13:58:01Z">2024-06-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming-language/" itemprop="url" rel="index"><span itemprop="name">Programming language</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><img src="https://s21.ax1x.com/2024/10/17/pAUMSfI.png"></p>
+<p>今天总结了最常见的五种聚类算法。涉及到的算法有：</p>
+<ul>
+<li>K均值聚类（K-Means Clustering）</li>
+<li>层次聚类（Hierarchical Clustering）</li>
+<li>DBSCAN（Density-Based Spatial Clustering of Applications with Noise）</li>
+<li>高斯混合模型（Gaussian Mixture Model，GMM）</li>
+<li>谱聚类（Spectral Clustering）</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="课程作业03-占总成绩25"><a href="#课程作业03-占总成绩25" class="headerlink" title="课程作业03 占总成绩25%"></a>课程作业03 占总成绩25%</h2><p>构建四组二维空间中的随机分布散点，每组散点符合二维高斯分布，高斯分布的中心点与两个方向的标准差均随机产生，且二维高斯分布的中心点落在[[0,100],[0,100]]的方形区域内。</p>
+<p>通过K均值聚类分析方法对上述随机散点执行聚类分析，绘制分类结果，并计算K-means聚类分析的准确率。</p>
+<h2 id="K均值聚类（K-Means-Clustering）"><a href="#K均值聚类（K-Means-Clustering）" class="headerlink" title="K均值聚类（K-Means Clustering）"></a>K均值聚类（K-Means Clustering）</h2><p>K均值聚类（K-Means Clustering）是一种常用的无监督学习算法，用于将数据集分成K个簇（clusters）。其目标是将相似的数据点归为同一簇，而将不同的数据点分到不同的簇中，从而使得每个簇内的数据点之间的相似度最大，而不同簇之间的相似度最小。</p>
+<h3 id="核心原理"><a href="#核心原理" class="headerlink" title="核心原理"></a>核心原理</h3><p>K均值聚类的核心思想是通过迭代优化的方法，最小化簇内点到簇中心的总距离平方和。</p>
+<p>基本步骤如下：</p>
+<ol>
+<li><p>初始化：随机选择K个点作为初始簇中心。</p>
+</li>
+<li><p>分配簇：将每个数据点分配到最近的簇中心。</p>
+</li>
+<li><p>更新簇中心：重新计算每个簇的中心（即簇内所有点的平均值）。</p>
+</li>
+<li><p>重复：重复步骤2和3，直到簇中心不再发生显著变化或达到预定的迭代次数。</p>
+</li>
+</ol>
+<h3 id="核心公式"><a href="#核心公式" class="headerlink" title="核心公式"></a>核心公式</h3><p>假设数据集为$x_1,x_2,…,x_n$，每个数据点$x_i$有$d$维。簇的中心为$\mu_1,\mu_2,…,\mu_K$。</p>
+<ol>
+<li><p>距离计算：通常使用欧氏距离：<br>\begin{equation}<br>{\bf dist}(x_i,\mu_k) &#x3D; \Arrowvert x_i-\mu_k\Arrowvert_2 &#x3D; \sqrt{\sum^d_{j&#x3D;1} (x_{ij}-\mu_{kj})^2}<br>\end{equation}</p>
+</li>
+<li><p>簇分配：将每个点分配到最近的簇中心：<br>\begin{equation}<br>C_k &#x3D; {x_i:\Arrowvert x_i-\mu_k \Arrowvert_2 \leq \Arrowvert x_i - \mu_j\Arrowvert_2, \forall j,1 \leq j \leq K }<br>\end{equation}</p>
+</li>
+<li><p>更新簇中心：重新计算每个簇的中心：<br>\begin{equation}<br>\mu_k &#x3D; \frac{1}{|C_k|} \sum_{x_i \in C_k} x_i<br>\end{equation}</p>
+</li>
+</ol>
+<img src="https://s21.ax1x.com/2024/06/11/pkUF3JP.png" width="75%" alt="" align=center />
+
+<h4 id="Python示例代码"><a href="#Python示例代码" class="headerlink" title="Python示例代码"></a>Python示例代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> make_blobs</span><br><span class="line"><span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> KMeans</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成样本数据</span></span><br><span class="line">X, y = make_blobs(n_samples=<span class="number">500</span>, centers=<span class="number">4</span>, cluster_std=<span class="number">0.60</span>, random_state=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用KMeans进行聚类</span></span><br><span class="line">kmeans = KMeans(n_clusters=<span class="number">4</span>)</span><br><span class="line">kmeans.fit(X)</span><br><span class="line">y_kmeans = kmeans.predict(X)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制结果图</span></span><br><span class="line">plt.scatter(X[:, <span class="number">0</span>], X[:, <span class="number">1</span>], c=y_kmeans, s=<span class="number">50</span>, cmap=<span class="string">&#x27;viridis&#x27;</span>)</span><br><span class="line"></span><br><span class="line">centers = kmeans.cluster_centers_</span><br><span class="line">plt.scatter(centers[:, <span class="number">0</span>], centers[:, <span class="number">1</span>], c=<span class="string">&#x27;red&#x27;</span>, s=<span class="number">200</span>, alpha=<span class="number">0.75</span>)</span><br><span class="line">plt.title(<span class="string">&quot;K-Means Clustering&quot;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&quot;Feature 1&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;Feature 2&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>生成数据：使用make_blobs生成了500个二维数据点，分为4个簇。</p>
+</li>
+<li><p>训练模型：使用KMeans模型进行训练，设定簇数为4。</p>
+</li>
+<li><p>预测与绘图：根据训练结果进行预测，并将数据点按簇绘制成不同颜色，同时用红色标注出簇中心。</p>
+</li>
+</ol>
+<p>大家可以清晰地看到K均值聚类的效果，即每个簇内的数据点被分为同一种颜色，而不同簇的数据点被分为不同颜色，同时簇中心用红色圆点表示。</p>
+<h2 id="层次聚类（Hierarchical-Clustering）"><a href="#层次聚类（Hierarchical-Clustering）" class="headerlink" title="层次聚类（Hierarchical Clustering）"></a>层次聚类（Hierarchical Clustering）</h2><p>层次聚类（Hierarchical Clustering）是一种常见的无监督学习算法，旨在通过构建层次树状结构将数据点进行分组。它可以分为两种类型：自底向上的聚合（agglomerative）和自顶向下的分裂（divisive）聚类方法。</p>
+<h3 id="核心原理-1"><a href="#核心原理-1" class="headerlink" title="核心原理"></a>核心原理</h3><p>层次聚类的核心思想是通过递归地合并或分裂簇，构建一个层次树（树状图或树状图），表示数据的嵌套分组。这里我们以自底向上的聚合层次聚类为例：</p>
+<ol>
+<li><p>初始化：将每个数据点视为一个独立的簇。</p>
+</li>
+<li><p>计算距离：计算所有簇之间的距离矩阵。</p>
+</li>
+<li><p>合并簇：找到距离最近的两个簇并合并它们。</p>
+</li>
+<li><p>更新距离矩阵：更新合并后的簇与其他簇之间的距离。</p>
+</li>
+<li><p>重复：重复步骤3和4，直到所有数据点合并成一个簇。</p>
+</li>
+</ol>
+<h3 id="核心公式-1"><a href="#核心公式-1" class="headerlink" title="核心公式"></a>核心公式</h3><p>假设数据集为$x_1, x_2, …,x_n$，簇之间的距离可以通过多种方式计算，包括最小距离（single linkage）、最大距离（complete linkage）和平均距离（average linkage）等。</p>
+<ol>
+<li>距离计算：假设簇$A$和簇$B$中的点分别为$a_1, a_2,…,a_p$和$b_1,b_2,…b_q$，则不同的距离计算方法如下：</li>
+</ol>
+<ul>
+<li><p>最小距离（单链法）：<br>\begin{equation}<br>d(A,B) &#x3D; \min_{i,j} \Arrowvert a_i-b_j \Arrowvert<br>\end{equation}</p>
+</li>
+<li><p>最大距离（全链法）：<br>\begin{equation}<br>d(A,B) &#x3D; \max_{i,j} \Arrowvert a_i-b_j \Arrowvert<br>\end{equation}</p>
+</li>
+<li><p>平均距离（平均链法）：<br>\begin{equation}<br>d(A,B) &#x3D; \frac{1}{pq} \sum^{p}<em>{i&#x3D;1} \sum^{q}</em>{j&#x3D;1} \Arrowvert a_i-b_j \Arrowvert<br>\end{equation}</p>
+</li>
+</ul>
+<img src="https://s21.ax1x.com/2024/06/11/pkUFMdA.png" width="75%" alt="" align=center />
+
+<h4 id="Python案例"><a href="#Python案例" class="headerlink" title="Python案例"></a>Python案例</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> scipy.cluster.hierarchy <span class="keyword">import</span> dendrogram, linkage</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> make_blobs</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成样本数据</span></span><br><span class="line">X, y = make_blobs(n_samples=<span class="number">500</span>, centers=<span class="number">3</span>, random_state=<span class="number">0</span>, cluster_std=<span class="number">0.60</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进行层次聚类</span></span><br><span class="line">Z = linkage(X, method=<span class="string">&#x27;ward&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制树状图</span></span><br><span class="line">plt.figure(figsize=(<span class="number">10</span>, <span class="number">7</span>))</span><br><span class="line">dendrogram(Z, truncate_mode=<span class="string">&#x27;lastp&#x27;</span>, p=<span class="number">12</span>, leaf_rotation=<span class="number">90.</span>, leaf_font_size=<span class="number">12.</span>, show_contracted=<span class="literal">True</span>)</span><br><span class="line">plt.title(<span class="string">&quot;Hierarchical Clustering Dendrogram&quot;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&quot;Sample index or (Cluster size)&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;Distance&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>生成数据：使用make_blobs生成500个二维数据点，分为3个簇。</p>
+</li>
+<li><p>层次聚类：使用linkage函数进行层次聚类，采用Ward方法计算簇间距离。</p>
+</li>
+<li><p>绘制树状图：使用dendrogram函数绘制树状图，展示聚类的层次结构。</p>
+</li>
+</ol>
+<p>通过树状图，大家可以清晰地看到层次聚类的合并过程，从最底层的单个数据点逐渐合并到最终的一个簇。树状图的高度表示簇之间的距离，合并越早的簇之间距离越近，合并越晚的簇之间距离越远。</p>
+<h2 id="DBSCAN（Density-Based-Spatial-Clustering-of-Applications-with-Noise）"><a href="#DBSCAN（Density-Based-Spatial-Clustering-of-Applications-with-Noise）" class="headerlink" title="DBSCAN（Density-Based Spatial Clustering of Applications with Noise）"></a>DBSCAN（Density-Based Spatial Clustering of Applications with Noise）</h2><p>DBSCAN（Density-Based Spatial Clustering of Applications with Noise）是一种基于密度的聚类算法，可以发现任意形状的簇，同时能够识别出噪声点。与K均值和层次聚类不同，DBSCAN不需要事先指定簇的数量。</p>
+<h3 id="核心原理-2"><a href="#核心原理-2" class="headerlink" title="核心原理"></a>核心原理</h3><p>DBSCAN通过在数据点周围划定一个$\varepsilon$半径，计算半径内的数据点数量来定义簇。其基本思想是密度足够高的区域形成簇，而密度较低的区域被认为是噪声。主要步骤如下：</p>
+<ol>
+<li><p>定义核心点：对于数据集中每个点，如果在其ε半径内的点数大于或等于最小点数（minPts），则该点为核心点。</p>
+</li>
+<li><p>扩展簇：从核心点出发，将其邻域内的所有点（包括边界点和其他核心点）归入该簇，然后递归地将这些点的邻域内的点也归入该簇。</p>
+</li>
+<li><p>标记噪声点：如果一个点既不是核心点也不是边界点，则将其标记为噪声点。</p>
+</li>
+</ol>
+<h3 id="核心公式-2"><a href="#核心公式-2" class="headerlink" title="核心公式"></a>核心公式</h3><ol>
+<li>邻域定义：对于点$p$，其邻域定义为：<br>\begin{equation}<br>N_{\varepsilon}(p) &#x3D; { q \in D|{\bf dist}(p,q)\leq \varepsilon }<br>\end{equation}</li>
+</ol>
+<p>其中 $D$ 是数据集，${\bf dist}(p,q)$ 是点 $p$ 和点 $q$ 之间的距离，通常使用欧氏距离。</p>
+<ol start="2">
+<li>核心点：如果点 $p$ 的邻域包含至少 minPts 个点，则 $p$ 是核心点：<br>\begin{equation}<br>|N_{\varepsilon}(p)| \geq {\bf minPts}<br>\end{equation}</li>
+</ol>
+<img src="https://s21.ax1x.com/2024/06/11/pkUF1it.png" width="75%" alt="" align=center />
+
+<h4 id="Python案例-1"><a href="#Python案例-1" class="headerlink" title="Python案例"></a>Python案例</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> make_moons</span><br><span class="line"><span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> DBSCAN</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成样本数据</span></span><br><span class="line">X, y = make_moons(n_samples=<span class="number">500</span>, noise=<span class="number">0.1</span>, random_state=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用DBSCAN进行聚类</span></span><br><span class="line">dbscan = DBSCAN(eps=<span class="number">0.2</span>, min_samples=<span class="number">5</span>)</span><br><span class="line">y_dbscan = dbscan.fit_predict(X)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制结果图</span></span><br><span class="line">plt.scatter(X[:, <span class="number">0</span>], X[:, <span class="number">1</span>], c=y_dbscan, s=<span class="number">50</span>, cmap=<span class="string">&#x27;viridis&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 标记噪声点</span></span><br><span class="line">core_samples_mask = np.zeros_like(y_dbscan, dtype=<span class="built_in">bool</span>)</span><br><span class="line">core_samples_mask[dbscan.core_sample_indices_] = <span class="literal">True</span></span><br><span class="line">noise_mask = (y_dbscan == -<span class="number">1</span>)</span><br><span class="line">plt.scatter(X[noise_mask, <span class="number">0</span>], X[noise_mask, <span class="number">1</span>], c=<span class="string">&#x27;red&#x27;</span>, s=<span class="number">50</span>, label=<span class="string">&#x27;Noise&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.title(<span class="string">&quot;DBSCAN Clustering&quot;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&quot;Feature 1&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;Feature 2&quot;</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>生成数据：使用make_moons生成500个二维数据点，这些数据点形成两个半月形簇，并添加了一定的噪声。</p>
+</li>
+<li><p>训练模型：使用DBSCAN模型进行训练，设置$\varepsilon$为0.2，minPts为5。</p>
+</li>
+<li><p>预测与绘图：根据训练结果进行预测，并将数据点按簇绘制成不同颜色，同时用红色标注出噪声点。</p>
+</li>
+</ol>
+<p>大家可以清晰地看到DBSCAN的聚类效果，两个半月形的簇被正确识别出来，噪声点用红色标注。DBSCAN能够很好地处理复杂形状的簇，并且能够识别出数据中的噪声点。</p>
+<h2 id="高斯混合模型（Gaussian-Mixture-Model，GMM）"><a href="#高斯混合模型（Gaussian-Mixture-Model，GMM）" class="headerlink" title="高斯混合模型（Gaussian Mixture Model，GMM）"></a>高斯混合模型（Gaussian Mixture Model，GMM）</h2><p>高斯混合模型（GMM）是一种概率模型，它假设所有的数据点是由若干个不同的高斯分布（即正态分布）组成的混合生成。GMM常用于聚类分析，特别适合于发现复杂数据分布中的潜在群体结构。</p>
+<h3 id="核心原理-3"><a href="#核心原理-3" class="headerlink" title="核心原理"></a>核心原理</h3><p>GMM通过期望最大化（EM）算法来估计模型参数。EM算法是一个迭代优化算法，包括两个主要步骤：</p>
+<ol>
+<li><p>E步（Expectation）：计算给定当前参数下每个数据点属于每个高斯分布的概率（即责任）。</p>
+</li>
+<li><p>M步（Maximization）：根据计算出的责任，重新估计每个高斯分布的参数（均值、方差和权重）。</p>
+</li>
+</ol>
+<h3 id="核心公式-3"><a href="#核心公式-3" class="headerlink" title="核心公式"></a>核心公式</h3><ol>
+<li>高斯混合模型的概率密度函数：<br>\begin{equation}<br>p(x) &#x3D; \sum^{K}_{k &#x3D; 1}\pi_k \mathcal{N}(x|\mu_k,\Sigma_k)<br>\end{equation}</li>
+</ol>
+<p>其中，$\pi_k$是第$k$个高斯分布的权重，$\mathcal{N}(x|\mu_k,\sum_k)$是第$k$个高斯分布的概率密度函数，其参数为均值$\mu_k$和协方差矩阵$\Sigma_k$。</p>
+<ol start="2">
+<li>E步（计算责任）：<br>\begin{equation}<br>\gamma_{ik} &#x3D; \frac{\pi_k\mathcal{N}(x|\mu_k,\Sigma_k)}{\sum_{j &#x3D; 1}^{K}\pi_j \mathcal{N}(x|\mu_k,\Sigma_k)}<br>\end{equation}</li>
+</ol>
+<p>其中，$\gamma_{ik}$是数据点$x_i$属于第$k$个高斯分布的概率。</p>
+<ol start="3">
+<li>M步（更新参数）：</li>
+</ol>
+<p>更新权重：<br>\begin{equation}<br>\pi_k &#x3D; \frac{N_k}{N}<br>\end{equation}</p>
+<p>其中，$N_k &#x3D; \sum_{i&#x3D;1}^{N} \gamma_{ik}$是第$k$个高斯分布的有效样本数，$N$是数据点总数。</p>
+<p>更新均值：<br>\begin{equation}<br>\mu_k &#x3D; \frac{1}{N_k}\sum_{i&#x3D;1}^{N} \gamma_{ik}x_i<br>\end{equation}</p>
+<p>更新协方差矩阵：<br>\begin{equation}<br>\Sigma_k &#x3D; \frac{1}{N_k}\sum_{i&#x3D;1}^{N}\gamma_{ik}(x_i-\mu_k)(x_i-\mu_k)^{T}<br>\end{equation}</p>
+<img src="https://s21.ax1x.com/2024/06/11/pkUFKZd.png" width="75%" alt="" align=center />
+
+
+<h4 id="Python案例-2"><a href="#Python案例-2" class="headerlink" title="Python案例"></a>Python案例</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> make_blobs</span><br><span class="line"><span class="keyword">from</span> sklearn.mixture <span class="keyword">import</span> GaussianMixture</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成样本数据</span></span><br><span class="line">X, y = make_blobs(n_samples=<span class="number">500</span>, centers=<span class="number">3</span>, random_state=<span class="number">42</span>, cluster_std=<span class="number">0.60</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用GMM进行聚类</span></span><br><span class="line">gmm = GaussianMixture(n_components=<span class="number">3</span>, random_state=<span class="number">42</span>)</span><br><span class="line">gmm.fit(X)</span><br><span class="line">labels = gmm.predict(X)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制结果图</span></span><br><span class="line">plt.scatter(X[:, <span class="number">0</span>], X[:, <span class="number">1</span>], c=labels, s=<span class="number">40</span>, cmap=<span class="string">&#x27;viridis&#x27;</span>)</span><br><span class="line">plt.scatter(gmm.means_[:, <span class="number">0</span>], gmm.means_[:, <span class="number">1</span>], c=<span class="string">&#x27;red&#x27;</span>, s=<span class="number">200</span>, alpha=<span class="number">0.75</span>, marker=<span class="string">&#x27;X&#x27;</span>)  <span class="comment"># 标记出中心点</span></span><br><span class="line">plt.title(<span class="string">&quot;Gaussian Mixture Model Clustering&quot;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&quot;Feature 1&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;Feature 2&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>生成数据：使用make_blobs生成500个二维数据点，分为3个簇，并添加一定的噪声。</p>
+</li>
+<li><p>训练模型：使用GaussianMixture模型进行训练，设定簇数为3。</p>
+</li>
+<li><p>预测与绘图：根据训练结果进行预测，并将数据点按簇绘制成不同颜色，同时用红色标注出每个高斯分布的均值。</p>
+</li>
+</ol>
+<p>大家可以看到GMM的聚类效果，每个簇用不同的颜色表示，红色的X标记出每个高斯分布的中心。GMM能够很好地处理复杂的簇结构，并且可以估计每个簇的概率分布。</p>
+<h2 id="谱聚类（Spectral-Clustering）"><a href="#谱聚类（Spectral-Clustering）" class="headerlink" title="谱聚类（Spectral Clustering）"></a>谱聚类（Spectral Clustering）</h2><p>谱聚类（Spectral Clustering）是一种基于图论的聚类方法，通过利用数据点之间的相似性构建图，并利用图的谱（特征值和特征向量）进行聚类。它特别适合处理非凸形状的簇，并且能有效处理高维数据。</p>
+<h3 id="核心原理-4"><a href="#核心原理-4" class="headerlink" title="核心原理"></a>核心原理</h3><p>谱聚类的核心思想是将数据点看作图中的节点，通过计算节点之间的相似性构建加权图，然后通过图的拉普拉斯矩阵的特征向量将数据映射到低维空间，再在低维空间中进行K均值聚类。</p>
+<p>主要步骤如下：</p>
+<ol>
+<li><p>构建相似度矩阵：计算数据点之间的相似度，构建相似度矩阵。</p>
+</li>
+<li><p>构建拉普拉斯矩阵：根据相似度矩阵构建图的拉普拉斯矩阵。</p>
+</li>
+<li><p>计算特征向量：计算拉普拉斯矩阵的前k个特征向量，将数据点映射到低维空间。</p>
+</li>
+<li><p>聚类：在低维空间中对映射后的数据点进行K均值聚类。</p>
+</li>
+</ol>
+<h3 id="核心公式-4"><a href="#核心公式-4" class="headerlink" title="核心公式"></a>核心公式</h3><ol>
+<li>相似度矩阵$W$：<br>\begin{equation}<br>W_{ij} &#x3D; \exp\left(-\frac{\Arrowvert x_i-x_j \Arrowvert^2}{2\sigma^2}\right) \quad {\bf if} \quad \Arrowvert x_i - x_j \Arrowvert \leq \varepsilon, {\bf else} \quad 0<br>\end{equation}</li>
+</ol>
+<p>其中，$\sigma$是高斯核函数的参数，$\varepsilon$是邻域范围。</p>
+<ol start="2">
+<li><p>度矩阵$D$：<br>\begin{equation}<br>D_{ij} &#x3D; \sum_{j} W_{ij}<br>\end{equation}</p>
+</li>
+<li><p>拉普拉斯矩阵$L$：<br>\begin{equation}<br>L &#x3D; D-W<br>\end{equation}</p>
+</li>
+</ol>
+<p>或归一化的拉普拉斯矩阵：<br>\begin{equation}<br>L_{sym} &#x3D; D^{-1&#x2F;2}LD^{-1&#x2F;2}<br>\end{equation}</p>
+<ol start="4">
+<li><p>特征向量：计算$L$或$L_{sym}$的前$k$个特征向量$u_1,u_2,…,u_k$。</p>
+</li>
+<li><p>聚类：将每个数据点$x_i$映射到特征向量组成的低维空间，再对这些向量进行$K$均值聚类。</p>
+</li>
+</ol>
+<img src="https://s21.ax1x.com/2024/06/11/pkUFQII.png" width="75%" alt="" align=center />
+
+<h4 id="Python案例-3"><a href="#Python案例-3" class="headerlink" title="Python案例"></a>Python案例</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> make_moons</span><br><span class="line"><span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> SpectralClustering</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成样本数据</span></span><br><span class="line">X, y = make_moons(n_samples=<span class="number">500</span>, noise=<span class="number">0.1</span>, random_state=<span class="number">42</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用谱聚类进行聚类</span></span><br><span class="line">spectral = SpectralClustering(n_clusters=<span class="number">2</span>, affinity=<span class="string">&#x27;nearest_neighbors&#x27;</span>, assign_labels=<span class="string">&#x27;kmeans&#x27;</span>, random_state=<span class="number">42</span>)</span><br><span class="line">labels = spectral.fit_predict(X)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制结果图</span></span><br><span class="line">plt.scatter(X[:, <span class="number">0</span>], X[:, <span class="number">1</span>], c=labels, s=<span class="number">40</span>, cmap=<span class="string">&#x27;viridis&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&quot;Spectral Clustering&quot;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&quot;Feature 1&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;Feature 2&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>生成数据：使用<code>make_moons</code>生成500个二维数据点，形成两个半月形簇，并添加一定的噪声。</p>
+</li>
+<li><p>训练模型：使用<code>SpectralClustering</code>模型进行训练，设定簇数为2，使用最近邻相似度计算，标签分配使用K均值。</p>
+</li>
+<li><p>预测与绘图：根据训练结果进行预测，并将数据点按簇绘制成不同颜色。</p>
+</li>
+</ol>
+<p>可以看到谱聚类的效果，两个半月形的簇被正确识别出来，每个簇用不同的颜色表示。谱聚类通过利用数据点之间的相似性构建图结构，并通过图的谱（特征向量）进行聚类，有效地处理了复杂形状的簇结构。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Hai-Wei Chai (柴海伟)
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://hwchai.com/PythonLes13/" title="Python 在科研中的应用 12：聚类分析">https://hwchai.com/PythonLes13/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Image-Segementation/" rel="tag"># Image Segementation</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/PythonLes12/" rel="prev" title="Python 在科研中的应用 11：Python 环境下的科研论文绘图">
+                  <i class="fa fa-angle-left"></i> Python 在科研中的应用 11：Python 环境下的科研论文绘图
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/PythonLes14/" rel="next" title="Python 在科研中的应用 13：课程作业及评分标准">
+                  Python 在科研中的应用 13：课程作业及评分标准 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2019 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Hai-Wei Chai (柴海伟)</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
