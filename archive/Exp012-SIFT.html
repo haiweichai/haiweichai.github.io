@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Times+New+Roman:300,300italic,400,400italic,700,700italic%7CGeorgia:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hwchai.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="尺度不变特征变换匹配（Scale Invariant Feature Transform, SIFT）算法，是David G. Lowe[1]在1999年提出的高效区域检测算法，2004年[2]完善。SIFT算法将图像中检测到的特征点用128维的特征向量进行描述。其本质是在不同的空间尺度上查找特征点，并计算特征点方向。SIFT算法所查找到的特征点是一些十分突出的局部结构，对旋转、尺度缩放、亮度变化">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Scale Invariant Feature Transform 算法">
+<meta property="og:url" content="https://hwchai.com/archive/Exp012-SIFT.html">
+<meta property="og:site_name" content="Hai-Wei Chai&#39;s Blog">
+<meta property="og:description" content="尺度不变特征变换匹配（Scale Invariant Feature Transform, SIFT）算法，是David G. Lowe[1]在1999年提出的高效区域检测算法，2004年[2]完善。SIFT算法将图像中检测到的特征点用128维的特征向量进行描述。其本质是在不同的空间尺度上查找特征点，并计算特征点方向。SIFT算法所查找到的特征点是一些十分突出的局部结构，对旋转、尺度缩放、亮度变化">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s1.ax1x.com/2022/10/31/xox4Te.png">
+<meta property="og:image" content="https://s1.ax1x.com/2022/10/31/xoxIFH.png">
+<meta property="og:image" content="https://s1.ax1x.com/2022/10/31/xoz3nK.png">
+<meta property="og:image" content="https://s1.ax1x.com/2022/10/31/xTSeDf.png">
+<meta property="og:image" content="https://s1.ax1x.com/2022/10/31/xTSYrV.png">
+<meta property="og:image" content="https://s1.ax1x.com/2022/11/01/xTco9A.png">
+<meta property="og:image" content="https://s1.ax1x.com/2022/11/01/xTc7ct.png">
+<meta property="og:image" content="https://s1.ax1x.com/2022/11/01/xTcqnf.png">
+<meta property="article:published_time" content="2022-10-31T16:37:23.000Z">
+<meta property="article:modified_time" content="2021-10-31T21:21:24.000Z">
+<meta property="article:author" content="Hai-Wei Chai (柴海伟)">
+<meta property="article:tag" content="SIFT">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2022/10/31/xox4Te.png">
+
+
+<link rel="canonical" href="https://hwchai.com/archive/Exp012-SIFT">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en","comments":true,"permalink":"https://hwchai.com/archive/Exp012-SIFT.html","path":"archive/Exp012-SIFT.html","title":"Scale Invariant Feature Transform 算法"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Scale Invariant Feature Transform 算法 | Hai-Wei Chai's Blog
+</title>
+  
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="https://vercel.hwchai.com/">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hai-Wei Chai's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-house-chimney fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-list fa-fw"></i>Archives</a></li><li class="menu-item menu-item-support"><a href="/support/" rel="section"><i class="fa fa-screwdriver-wrench fa-fw"></i>Support</a></li><li class="menu-item menu-item-books"><a href="/books/" rel="section"><i class="fa fa-book fa-fw"></i>Books</a></li><li class="menu-item menu-item-scholar"><a href="/scholar/" rel="section"><i class="fa fa-chart-column fa-fw"></i>Scholar</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E6%A1%86%E6%9E%B6"><span class="nav-number">2.</span> <span class="nav-text">逻辑框架</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SIFT%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86"><span class="nav-number">3.</span> <span class="nav-text">SIFT算法原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%BA%E5%BA%A6%E7%A9%BA%E9%97%B4%E6%9E%81%E5%80%BC%E6%A3%80%E6%B5%8B"><span class="nav-number">3.1.</span> <span class="nav-text">尺度空间极值检测</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%BA%E5%BA%A6%E7%A9%BA%E9%97%B4%E7%90%86%E8%AE%BA"><span class="nav-number">3.1.1.</span> <span class="nav-text">尺度空间理论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E6%96%AF%E6%A8%A1%E7%B3%8A"><span class="nav-number">3.1.2.</span> <span class="nav-text">高斯模糊</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%91%E5%AD%97%E5%A1%94%E5%A4%9A%E5%88%86%E8%BE%A8%E7%8E%87"><span class="nav-number">3.1.3.</span> <span class="nav-text">金字塔多分辨率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E6%96%AF%E9%87%91%E5%AD%97%E5%A1%94"><span class="nav-number">3.1.4.</span> <span class="nav-text">高斯金字塔</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E6%96%AF%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E9%87%91%E5%AD%97%E5%A1%94"><span class="nav-number">3.1.5.</span> <span class="nav-text">高斯拉普拉斯金字塔</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E6%96%AF%E5%B7%AE%E5%88%86%E9%87%91%E5%AD%97%E5%A1%94"><span class="nav-number">3.1.6.</span> <span class="nav-text">高斯差分金字塔</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A9%BA%E9%97%B4%E6%9E%81%E5%80%BC%E7%82%B9%E6%A3%80%E6%B5%8B"><span class="nav-number">3.1.7.</span> <span class="nav-text">空间极值点检测</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E7%82%B9%E7%B2%BE%E7%A1%AE%E5%AE%9A%E4%BD%8D"><span class="nav-number">3.2.</span> <span class="nav-text">特征点精确定位</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B2%BE%E7%A1%AE%E5%AE%9A%E4%BD%8D"><span class="nav-number">3.2.1.</span> <span class="nav-text">精确定位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B6%88%E9%99%A4%E8%BE%B9%E7%BC%98%E5%93%8D%E5%BA%94"><span class="nav-number">3.2.2.</span> <span class="nav-text">消除边缘响应</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E7%82%B9%E6%96%B9%E5%90%91%E7%A1%AE%E5%AE%9A"><span class="nav-number">3.3.</span> <span class="nav-text">特征点方向确定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E6%96%B9%E5%90%91%E5%92%8C%E5%B9%85%E5%80%BC"><span class="nav-number">3.3.1.</span> <span class="nav-text">梯度方向和幅值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E7%9B%B4%E6%96%B9%E5%9B%BE"><span class="nav-number">3.3.2.</span> <span class="nav-text">梯度直方图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E7%82%B9%E6%96%B9%E5%90%91"><span class="nav-number">3.3.3.</span> <span class="nav-text">特征点方向</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E7%82%B9%E6%8F%8F%E8%BF%B0"><span class="nav-number">3.4.</span> <span class="nav-text">特征点描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0%E5%AD%90%E9%87%87%E6%A0%B7%E5%8C%BA%E5%9F%9F"><span class="nav-number">3.4.1.</span> <span class="nav-text">描述子采样区域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BA%E5%9F%9F%E5%9D%90%E6%A0%87%E8%BD%B4%E6%97%8B%E8%BD%AC"><span class="nav-number">3.4.2.</span> <span class="nav-text">区域坐标轴旋转</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E9%87%87%E6%A0%B7%E5%8C%BA%E5%9F%9F%E6%A2%AF%E5%BA%A6%E7%9B%B4%E6%96%B9%E5%9B%BE"><span class="nav-number">3.4.3.</span> <span class="nav-text">计算采样区域梯度直方图</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Hai-Wei Chai (柴海伟)"
+      src="/images/gamersky.gif">
+  <p class="site-author-name" itemprop="name">Hai-Wei Chai (柴海伟)</p>
+  <div class="site-description" itemprop="description">I am a slow walker, but never backwards!</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/haiweichai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;haiweichai" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:chw9402@mail.ustc.edu.com" title="E-Mail → mailto:chw9402@mail.ustc.edu.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner page posts-expand">
+
+
+    
+    
+    
+    <div class="post-block" lang="en"><header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">Scale Invariant Feature Transform 算法
+</h1>
+
+<div class="post-meta-container">
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <p>尺度不变特征变换匹配（Scale Invariant Feature Transform, SIFT）算法，是David G. Lowe[1]在1999年提出的高效区域检测算法，2004年[2]完善。SIFT算法将图像中检测到的特征点用128维的特征向量进行描述。其本质是在不同的空间尺度上查找特征点，并计算特征点方向。SIFT算法所查找到的特征点是一些十分突出的局部结构，对旋转、尺度缩放、亮度变化等保持不变性，对于光照、仿射和投影变换也有一定的不变性，是目前领域内非常成熟稳定的局部特征检测算法。</p>
+<span id="more"></span>
+
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://opencv24-python-tutorials.readthedocs.io/en/latest/py_tutorials/py_feature2d/py_sift_intro/py_sift_intro.html">OpenCV: Introduction to SIFT (Scale-Invariant Feature Transform)</a></li>
+</ul>
+<figure class="highlight python"><figcaption><span>sift.py, For feature keypoints extraction</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="comment"># reading the image</span></span><br><span class="line">img = cv2.imread(<span class="string">&#x27;table.jpg&#x27;</span>)</span><br><span class="line"><span class="comment"># convert to greyscale</span></span><br><span class="line">gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)</span><br><span class="line"><span class="comment"># create SIFT feature extractor</span></span><br><span class="line">sift = cv2.xfeatures2d.SIFT_create()</span><br><span class="line"><span class="comment"># detect features from the image</span></span><br><span class="line">keypoints, descriptors = sift.detectAndCompute(img, <span class="literal">None</span>)</span><br><span class="line"><span class="comment"># draw the detected key points</span></span><br><span class="line">sift_image = cv2.drawKeypoints(gray, keypoints, img)</span><br><span class="line"><span class="comment"># show the image</span></span><br><span class="line">cv2.imshow(<span class="string">&#x27;image&#x27;</span>, sift_image)</span><br><span class="line"><span class="comment"># save the image</span></span><br><span class="line">cv2.imwrite(<span class="string">&quot;table-sift.jpg&quot;</span>, sift_image)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><figcaption><span>feature_match.py, For feature matching</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="comment"># read the images</span></span><br><span class="line">img1 = cv2.imread(<span class="string">&#x27;book.jpg&#x27;</span>)  </span><br><span class="line">img2 = cv2.imread(<span class="string">&#x27;table.jpg&#x27;</span>)</span><br><span class="line"><span class="comment"># convert images to grayscale</span></span><br><span class="line">img1 = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)</span><br><span class="line">img2 = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY)</span><br><span class="line"><span class="comment"># create SIFT object</span></span><br><span class="line">sift = cv2.xfeatures2d.SIFT_create()</span><br><span class="line"><span class="comment"># detect SIFT features in both images</span></span><br><span class="line">keypoints_1, descriptors_1 = sift.detectAndCompute(img1,<span class="literal">None</span>)</span><br><span class="line">keypoints_2, descriptors_2 = sift.detectAndCompute(img2,<span class="literal">None</span>)</span><br><span class="line"><span class="comment"># create feature matcher</span></span><br><span class="line">bf = cv2.BFMatcher(cv2.NORM_L1, crossCheck=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># match descriptors of both images</span></span><br><span class="line">matches = bf.<span class="keyword">match</span>(descriptors_1,descriptors_2)</span><br><span class="line"><span class="comment"># sort matches by distance</span></span><br><span class="line">matches = <span class="built_in">sorted</span>(matches, key = <span class="keyword">lambda</span> x:x.distance)</span><br><span class="line"><span class="comment"># draw first 50 matches</span></span><br><span class="line">matched_img = cv2.drawMatches(img1, keypoints_1, img2, keypoints_2, matches[:<span class="number">50</span>], img2, flags=<span class="number">2</span>)</span><br><span class="line"><span class="comment"># show the image</span></span><br><span class="line">cv2.imshow(<span class="string">&#x27;image&#x27;</span>, matched_img)</span><br><span class="line"><span class="comment"># save the image</span></span><br><span class="line">cv2.imwrite(<span class="string">&quot;matched_images.jpg&quot;</span>, matched_img)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h1 id="逻辑框架"><a href="#逻辑框架" class="headerlink" title="逻辑框架"></a>逻辑框架</h1><p>Lowe教授将SIFT算法分解为如下四步：</p>
+<blockquote>
+<ol>
+<li><strong>尺度空间极值检测</strong>：搜索所有尺度上的图像位置。通过高斯微分函数来识别潜在的对于尺度和旋转不变的兴趣点。</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="2">
+<li><strong>特征点精确定位</strong>：在每个候选的位置上，通过精细拟合模型确定位置和尺度。特征点的选择依赖它们的稳定程度。</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="3">
+<li><strong>方向确定</strong>：基于图像局部梯度方向，分配给每个特征点位置一个或多个方向。所有后面的对图像数据的操作都相对于关键点的方向、尺度和位置进行变换，从而提供对于这些变换的不变性。</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="4">
+<li><strong>特征点描述</strong>：在每个关键点周围的邻域内，在选定的尺度上测量图像局部的梯度。这些梯度被变换成一种表示，这种表示允许比较大的局部形状的变形和光照变化。</li>
+</ol>
+</blockquote>
+<h1 id="SIFT算法原理"><a href="#SIFT算法原理" class="headerlink" title="SIFT算法原理"></a>SIFT算法原理</h1><h2 id="尺度空间极值检测"><a href="#尺度空间极值检测" class="headerlink" title="尺度空间极值检测"></a>尺度空间极值检测</h2><h3 id="尺度空间理论"><a href="#尺度空间理论" class="headerlink" title="尺度空间理论"></a>尺度空间理论</h3><p>尺度越大图像越模糊。用机器视觉系统分析未知场景时，计算机并不预先知道图像中物体的尺度。我们需要同时考虑图像在多尺度下的描述，获知感兴趣物体的最佳尺度。另外如果不同的尺度下都有同样的关键点，那么在不同的尺度的输入图像下就都可以检测出来关键点匹配，也就是尺度不变性。 图像的尺度空间表达就是图像在所有尺度下的描述。</p>
+<h3 id="高斯模糊"><a href="#高斯模糊" class="headerlink" title="高斯模糊"></a>高斯模糊</h3><p>高斯核是唯一可以产生多尺度空间的核。一个图像的尺度空间$L(x,y,\sigma)$，定义为原始图像$I(x,y)$与一个可变尺度的2维高斯函数$G(x,y,\sigma)$的卷积运算。二维空间高斯函数：</p>
+<p>\begin{equation}<br>G(x_i,y_i,\sigma)&#x3D;\frac{1}{2\pi\sigma^2}{\rm exp}\left[-\frac{(x-x_i)^2+(y-y_i)^2}{2\sigma^2}\right]<br>\end{equation}</p>
+<p>尺度空间为：</p>
+<p>\begin{equation}<br>L(x,y,\sigma)&#x3D;G(x,y,\sigma)*I(x,y)<br>\end{equation}</p>
+<p>在二维空间中，这个公式生成的曲面的等高线是从中心开始呈正态分布的同心圆。分布不为零的像素组成的卷积矩阵与原始图像做变换。每个像素的值都是周围相邻像素值的高斯加权平均。中心像素的值有最大的高斯分布值，所以有最大的权重，相邻像素随着距离中心像素越来越远，其权重也越来越小。这样进行模糊处理比其它的均衡模糊滤波器更高地保留了边缘效果。$\sigma$越大，中心像素的权重与周围像素就会相对越小，加权平均后就会越模糊；反之，$\sigma$越小，中心像素权重相对越大，当$\sigma&#x3D;0$时，就是原图的样子，相当于周围像素对新图没有贡献。换句话说，大尺度对应于图像的概貌特征，小尺度对应于图像的细节特征。理论上来讲，图像中每点的分布都不为零，这也就是说每个像素的计算都需要包含整幅图像。在实际应用中，在计算高斯函数的离散近似时，在大约$3\sigma$距离之外的像素都可以看作不起作用，这些像素的计算也就可以忽略。通常，图像处理程序只需要计算$(6\sigma+1)^2$的矩阵就可以保证相关像素影响。</p>
+<h3 id="金字塔多分辨率"><a href="#金字塔多分辨率" class="headerlink" title="金字塔多分辨率"></a>金字塔多分辨率</h3><p>与多尺度空间相对的，金字塔是早期图像多尺度的表示方式。图像金字塔化一般两个步骤：</p>
+<blockquote>
+<ol>
+<li>使用低通滤波器（LPF）平滑图像；</li>
+<li>平滑图像降采样（通常</li>
+</ol>
+</blockquote>
+<p> 该方式能得到系列尺寸缩小的图片。尺度空间表达和金字塔分辨率表达的明显区别有：</p>
+<blockquote>
+<ol>
+<li>尺度空间表达是由不同高斯核平滑卷积得到的，在所有尺度上分辨率相同；</li>
+<li>金字塔多分辨率表达每层分辨率减少固定比率。</li>
+</ol>
+</blockquote>
+<p>因此，金字塔多分辨率生成快，空间少，但局部特征描述单一；多尺度空间的图片局部特征可以在不同尺度描述，但随尺度参数增加会增加冗余信息。</p>
+<h3 id="高斯金字塔"><a href="#高斯金字塔" class="headerlink" title="高斯金字塔"></a>高斯金字塔</h3><p>高斯金字塔是最基本的图像塔。原理：首先将原图像作为最底层图像 level0（高斯金字塔的第0层），利用高斯核（5$*$5）对其进行卷积，然后对卷积后的图像进行下采样（去除偶数行和列）得到上一层图像G1，将此图像作为输入，重复卷积和下采样操作得到更上一层的图像，反复迭代多次，形成一个金字塔形的图像数据结构，即高斯金字塔。高斯金字塔是在sift算子中提出来的概念，首先高斯金字塔并不是一个金字塔，而是由很多组（Octave）金字塔构成，并且每组金字塔都包含若干层（Interval），即在同一组的金字塔中，使用不同$\sigma$进行高斯模糊，然后再不同组的金字塔中，使用下采样，获得不同分辨率的图像。<br>&emsp;<br><img src="https://s1.ax1x.com/2022/10/31/xox4Te.png" width="90%" alt="Fig.1 高斯金字塔与高斯差分金字塔。" align=center /></p>
+<p>高斯金字塔的构建过程：</p>
+<blockquote>
+<ol>
+<li>先将原图像扩大一倍之后作为高斯金字塔的第1组第1层，将第1组第1层图像经高斯卷积（高斯平滑或称高斯滤波）之后作为第1组金字塔的第2层。对于参数$\sigma$，在SIFT算子中取的是固定值 1.6；</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="2">
+<li>将$\sigma$乘以一个比例系数$k$，得到新的平滑因子$\sigma&#x3D;k*\sigma_{old}$，用它来平滑第1组第2层图像，结果图像作为第3层。</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="3">
+<li>如此重复，最后得到L层图像，在同一组中，每一层图像的尺寸都是一样的，只是平滑系数不一样。它们对应的平滑系数分别为：$0，\sigma，k\sigma，k^2\sigma，k^3\sigma……k^{(L-2)}\sigma$。</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="4">
+<li>将第1组倒数第三层图像作为比例因子为2的降采样，得到的图像作为第2组的第1层，然后对第2组的第1层图像作平滑因子为$\sigma$的高斯平滑，得到第2组的第2层，就像步骤2中一样，如此得到第2组的L层图像，同组内它们的尺寸是一样的，对应的平滑系数分别为：$0，\sigma，k\sigma，k^2\sigma，k^3\sigma……k^{(L-2)}\sigma$。但是在尺寸方面第2组是第1组图像的一半。这样反复执行，就可以得到一共$O$组，每组$L$层，共计$O*L$个图像，这些图像一起就构成了高斯金字塔。在同一组内，不同层图像的尺寸是一样的，后一层图像的高斯平滑因子是前一层图像平滑因子的$k$倍；在不同组内，后一组第一个图像是前一组倒数第三个图像的二分之一采样，图像大小是前一组的一半。</li>
+</ol>
+</blockquote>
+<h3 id="高斯拉普拉斯金字塔"><a href="#高斯拉普拉斯金字塔" class="headerlink" title="高斯拉普拉斯金字塔"></a>高斯拉普拉斯金字塔</h3><p>LoG（Laplace of Gaussian）是对高斯函数进行拉普拉斯变换：</p>
+<p>\begin{equation}<br>L(x,y,\sigma)&#x3D;\frac{\partial^2G}{\partial x^2} + \frac{\partial^2G}{\partial y^2}<br>\end{equation}</p>
+<p>拉普拉斯金字塔用于重建图形，也就是预测残差，对图像进行最大程度的还原。比如一幅小图像重建为一幅大图。原理：用高斯金字塔的每一层图像减去其上一层图像上采样并高斯卷积之后的预测图像，得到一系列的差值图像，即为Laplacian分解图像。<br>LoG第$i$层的数学定义：</p>
+<p>\begin{align}<br>L_i &amp;&#x3D; G_i-Up(G_{i+1})\otimes g \<br>&amp;&#x3D;G_i - PyrUp(G_{i+1}) \<br>\end{align}</p>
+<p>式中，$G_i$表示高斯金字塔中第层图像。也就是说，拉普拉斯金字塔是通过高斯金字塔图像减去先缩小（即上一层图像）后再放大（即上采样操作）并高斯卷积后的图像的一系列图像构成的。</p>
+<h3 id="高斯差分金字塔"><a href="#高斯差分金字塔" class="headerlink" title="高斯差分金字塔"></a>高斯差分金字塔</h3><p>LoG的主要缺点是需要求二阶导，计算较复杂，因此我们就想用别的算子去近似它。DoG（Difference of Gaussian），相当于对LoG的近似计算，SIFT算法中建议某一尺度的特征检测，可以通过两个相邻高斯尺度空间的图像相减，得到DoG的响应值图像。DoG和LoG的关系如下述所示：</p>
+<p>\begin{equation}<br>\sigma\nabla^2G &#x3D; \frac{\partial G}{\partial\sigma} \approx \frac{G(x,y,k\sigma) - G(x,y,\sigma)}{k\sigma - \sigma}<br>\end{equation}</p>
+<p>因此，有：</p>
+<p>\begin{equation}<br>G(x,y,k\sigma) - G(x,y,\sigma) \approx (k-1)\sigma^2\nabla^2G<br>\end{equation}</p>
+<p>而$\sigma^2\nabla^2G$正是尺度归一化算子的表达形式。在所有的尺度中$k-1$是一个常数，当$k$趋近于1的时候误差趋近于0，但实际上这种误差对于极值的位置检测并没有什么影响（不过前人的实验证明LoG提取的特征稳定性最强）。</p>
+<h3 id="空间极值点检测"><a href="#空间极值点检测" class="headerlink" title="空间极值点检测"></a>空间极值点检测</h3><p>SIFT关键点是由DOG空间的局部极值点组成的，关键点的初步探查是通过同一组内各DoG相邻两层图像之间比较完成的。极值点定义：每一个像素点与它所有相邻点比较，当其大于（或小于）它的图像域和尺度域的所有相邻点时，即为极值点。为了寻找DoG函数的极值点，每一个像素点要和它所有的相邻点比较，看其是否比它的图像域和尺度域的相邻点大或者小。如下图所示，中间的检测点和它同尺度的8个相邻点和上下相邻尺度对应的9×2个点共26个点比较，以确保在尺度空间和二维图像空间都检测到极值点。<br>&emsp;<br><img src="https://s1.ax1x.com/2022/10/31/xoxIFH.png" width="40%" alt="Fig.2 空间极值点检测。" align=center /></p>
+<p>由于要在相邻尺度进行比较，那么对于高斯差分金子塔中的每一组的所有层，只能在中间两层中进行两个尺度的极值点检测，其它尺度则只能在不同组中进行。为了在每组中检测$S$个尺度的极值点，则DOG金字塔每组需$S+2$层图像，而DOG金字塔由高斯金字塔相邻两层相减得到，则高斯金字塔每组需$S+3$层图像，实际计算时$S$在3到5之间。当然这样产生的极值点并不全都是稳定的特征点，因为某些极值点响应较弱，而且DOG算子会产生较强的边缘响应。</p>
+<p>到这里，总结一下，构建DOG尺度空间金字塔的三个重要参数是：尺度$\sigma$、组(octave)数$O$和组内层数$S$。</p>
+<h2 id="特征点精确定位"><a href="#特征点精确定位" class="headerlink" title="特征点精确定位"></a>特征点精确定位</h2><p>计算机中存储的图像数据是离散的，而我们之前找到的极值点也就是离散空间中的极值点，但是离散空间中的极值点并不是真实的连续空间中的极值点。所以需要对DoG空间进行拟合处理，以找到极值点的精确位置和尺度。另外，我们还需要去除那些在边缘位置的极值点，以提高关键点的稳定性。</p>
+<h3 id="精确定位"><a href="#精确定位" class="headerlink" title="精确定位"></a>精确定位</h3><p>&emsp;<br><img src="https://s1.ax1x.com/2022/10/31/xoz3nK.png" width="60%" alt=" " align=center /></p>
+<p>利用已知的离散空间点插值得到连续空间极值点的方法叫做子像元插值。<br>在Lowe的论文中，使用的是泰勒展开式作为拟合函数。<br>通过上步的极值点检测，我们得到的极值点是一个三维向量，包括它所在的尺度$\sigma$以及所在尺度图像中的位置坐标$(x,y)$。设$X_0 &#x3D; (x_0,y_0,\sigma_0)$，则泰勒展开的矩阵表示为：</p>
+<p>\begin{equation}<br>f(\left[\begin{matrix}x\y\\sigma\end{matrix}\right]) \approx f(\left[\begin{matrix}x_0\y_0\\sigma_0\end{matrix}\right]) + \left[\frac{\partial f}{\partial x}    \frac{\partial f}{\partial y} \frac{\partial f}{\partial \sigma}\right]\left[\begin{matrix}x-x_0\y-y_0\\sigma-\sigma_0\end{matrix}\right] + \frac{1}{2}\left[\begin{matrix}x-x_0\y-y_0\\sigma-\sigma_0\end{matrix}\right]^{\rm T}\left[\begin{matrix}<br>\frac{\partial^2 f}{\partial x^2}               &amp; \frac{\partial^2 f}{\partial x \partial y}      &amp; \frac{\partial^2 f}{\partial x \partial \sigma} \<br>\frac{\partial^2 f}{\partial x \partial y}      &amp; \frac{\partial^2 f}{\partial y^2}               &amp; \frac{\partial^2 f}{\partial y \partial \sigma} \<br>\frac{\partial^2 f}{\partial x \partial \sigma} &amp; \frac{\partial^2 f}{\partial y \partial \sigma} &amp; \frac{\partial^2 f}{\partial \sigma^2}          \<br>\end{matrix}\right]\left[\begin{matrix}x-x_0\y-y_0\\sigma-\sigma_0\end{matrix}\right]<br>\end{equation}</p>
+<p>若写成矢量形式，则为：</p>
+<p>\begin{equation}<br>f(X) &#x3D; f(X_0）+\frac{\partial f^{\rm T}}{\partial X}(X- X_0)+\frac{1}{2}(X-X_0)^{\rm T}\frac{\partial^2 f}{\partial X^2}(X-X_0)<br>\end{equation}</p>
+<p>在这里$X_0$表示离散的插值中心，$X$表示拟合后连续空间的插值点坐标，则设$\hat{X}&#x3D;X-X_0$，表示偏移量，带入上式，另求得的导数为0（求一阶导等于0得到的点就是极值点），则有：</p>
+<p>\begin{equation}<br>\hat{X} &#x3D; -\frac{\partial^2 f^{-1}}{\partial X^2}\frac{\partial f}{\partial X}<br>\end{equation}</p>
+<p>只要上式中得到的偏移量大于0.5，则认为偏移量过大，需要把位置移动到拟合后的新位置，继续进行迭代求偏移量，若迭代过一定次数后偏移量仍然大于0.5，则抛弃该点。如果迭代过程中有偏移量小于0.5，则停止迭代。</p>
+<p>把该极值点带入到原公式中，则得到极值点所在的函数值：</p>
+<p>\begin{equation}<br>f(\hat{X}) &#x3D; f(X_0) + \frac{1}{2}\frac{\partial f^{\rm T}}{\partial X} \hat{X}<br>\end{equation}</p>
+<p>如果上式中得到的$f(\hat{X})$过小，即其响应值过小，这样的点易受噪声的干扰而变得不稳定，所以也要被删除，Lowe论文中阈值为0.03（设灰度值为0~1）。</p>
+<h3 id="消除边缘响应"><a href="#消除边缘响应" class="headerlink" title="消除边缘响应"></a>消除边缘响应</h3><p>有些极值点的位置是在图像的边缘位置的，因为图像的边缘点很难定位，同时也容易受到噪声的干扰，我们把这些点看做是不稳定的极值点，需要进行去除。<br>由于图像中的物体的边缘位置的点的主曲率一般会比较高，因此我们可以通过主曲率来判断该点是否在物体的边缘位置。<br>某像素点位置处的主曲率可以由二维的Hessian矩阵计算得到：</p>
+<p>\begin{equation}<br>H &#x3D; \left[\begin{matrix}D_{xx}(x,y)&amp;D_{xy}(x,y)\D_{xy}(x,y)&amp;D_{yy}(x,y)\end{matrix}\right]<br>\end{equation}</p>
+<p>设该矩阵的两个特征值分别为$\alpha$和$\beta$，其中$\alpha &#x3D; \gamma\beta$，有如下公式：</p>
+<p>\begin{align}<br>{\rm Tr}(H) &#x3D; \alpha +\beta\<br>{\rm Det}(H) &#x3D; \alpha\beta<br>\end{align}</p>
+<p>其中${\rm Tr}(H)$表示矩阵的迹，${\rm Det}(H)$表示的矩阵的行列式。首先需要去除行列式为负的点。接下来需要去掉主曲率比较大的点，Lowe中使用如下判断规则：<br>\begin{equation}<br>\frac{ {\rm Tr}(H)^2}{ {\rm Det}(H)} &#x3D; \frac{(\gamma\beta+\beta)^2}{\gamma\beta^2} &#x3D; \frac{(\gamma+1)^2}{\gamma}<br>\end{equation}</p>
+<p>这里$\gamma$越大，则表示该点越有可能在边缘，因此要检查主曲率是否超过一定的阈值$\gamma_0$，只需要判断：</p>
+<p>\begin{equation}<br>\frac{ {\rm Tr}(H)^2}{ {\rm Det}(H)} &lt; \frac{(\gamma_0+1)^2}{\gamma_0}<br>\end{equation}</p>
+<p>Lowe论文中阈值为10。</p>
+<h2 id="特征点方向确定"><a href="#特征点方向确定" class="headerlink" title="特征点方向确定"></a>特征点方向确定</h2><p>上面我们已经找到了特征点。为了实现图像旋转不变性，需要根据检测到的特征点局部图像结构为特征点方向赋值。我们使用图像的梯度直方图法求特征点局部结构的稳定方向。</p>
+<h3 id="梯度方向和幅值"><a href="#梯度方向和幅值" class="headerlink" title="梯度方向和幅值"></a>梯度方向和幅值</h3><p>在前文中，精确定位关键点后也找到特征点的尺度值$\sigma$，根据这一尺度值，得到最接近这一尺度值的高斯图像：</p>
+<p>\begin{equation}<br>L(x,y) &#x3D; G(x,y,\sigma)\otimes I(x,y)<br>\end{equation}</p>
+<p>使用有限差分，计算以特征点为中心，以$3\times1.5\sigma$为半径的区域内图像梯度的幅值$m(x,y)$和幅角$\theta(x,y)$，公式如下：</p>
+<p>\begin{align}<br>m(x,y)      &amp;&#x3D; \sqrt{(L(x+1, y) - L(x-1,y))^2+(L(x,y+1)-L(x,y-1))^2} \<br>\theta(x,y) &amp;&#x3D; {\rm arctan}\left[\frac{L(x,y+1)-L(x,y-1)}{L(x+1,y)-L(x-1,y)}\right]<br>\end{align}</p>
+<h3 id="梯度直方图"><a href="#梯度直方图" class="headerlink" title="梯度直方图"></a>梯度直方图</h3><p>在完成特征点邻域内高斯图像梯度计算后，使用直方图统计邻域内像素对应的梯度方向和幅值。<br>梯度方向直方图的横轴是梯度方向角，纵轴是梯度方向角对应的梯度幅值累加值（(为简化，图中只画了八个方向的直方图)）。梯度方向直方图将0°~360°的范围分为36个柱，每10°为一个柱。可看作一定区域内的图像像素点对特征点方向生成所作的贡献。</p>
+<p>在计算直方图时，每个加入直方图的采样点都使用圆形高斯函数函数进行了加权处理，也就是进行高斯平滑。Lowe建议子区域的像素的梯度大小$\sigma&#x3D;0.5d$的高斯加权计算。这主要是因为SIFT算法只考虑了尺度和旋转不变形，没有考虑仿射不变性。通过高斯平滑，可以使关键点附近的梯度幅值有较大权重，从而部分弥补没考虑仿射不变形产生的特征点不稳定。通常离散的梯度直方图要进行插值拟合处理，以求取更精确的方向角度值。<br>&emsp;<br><img src="https://s1.ax1x.com/2022/10/31/xTSeDf.png" width="60%" alt=" " align=center /></p>
+<h3 id="特征点方向"><a href="#特征点方向" class="headerlink" title="特征点方向"></a>特征点方向</h3><p>直方图峰值代表该特征点处邻域内图像梯度的主方向，也就是该特征点的主方向。在梯度方向直方图中，当存在另一个相当于主峰值80%能量的峰值时，则将这个方向认为是该特征点的辅方向。所以一个特征点可能检测得到多个方向，这可以增强匹配的鲁棒性。Lowe的论文指出大概有15%特征点具有多方向，但这些点对匹配的稳定性至为关键。获得图像特征点主方向后，每个特征点有三个信息$(x,y,\sigma,\theta)$：位置、尺度、方向。由此我们可以确定一个SIFT特征区域。通常使用一个带箭头的圆或直接使用箭头表示SIFT区域的三个值：中心表示特征点位置，半径表示特征点尺度（$r&#x3D;2.5\sigma$），箭头表示主方向。具有多个方向的特征点可以复制成多份，然后将方向值分别赋给复制后的特征点。如下图：<br>&emsp;<br><img src="https://s1.ax1x.com/2022/10/31/xTSYrV.png" width="60%" alt=" " align=center /></p>
+<h2 id="特征点描述"><a href="#特征点描述" class="headerlink" title="特征点描述"></a>特征点描述</h2><p>上文找到的SIFT特征点包含位置、尺度和方向的信息。接下来的步骤是特征点描述，即用一组向量将这个特征点描述出来，这个描述子不但包括特征点，也包括特征点周围对其有贡献的像素点，用来作为目标匹配的依据（所以描述子应该有较高的独特性，以保证匹配率），也可使特征点具有更多的不变特性，如光照变化、3D视点变化等。<br>SIFT描述子$h(x,y,\theta)$是对特征点附近邻域内高斯图像梯度统计的结果，是一个三维矩阵，但通常用一个矢量来表示。特征向量通过对三维矩阵按一定规律排列得到。</p>
+<h3 id="描述子采样区域"><a href="#描述子采样区域" class="headerlink" title="描述子采样区域"></a>描述子采样区域</h3><p>特征描述子与特征点所在尺度有关，因此对梯度的求取应在特征点对应的高斯图像上进行。<br>将特征点附近划分成$d^2$个子区域，每个子区域尺寸为$m\sigma$个像元（$d&#x3D;4$，$m&#x3D;3$，$\sigma$为特征点的尺度值）。考虑到实际计算时需要双线性插值，故计算的图像区域为$m\sigma(d+1)$，再考虑旋转，则实际计算的图像区域为$\sqrt{2}m\sigma(d+1)&#x2F;2$，如下图所示：<br>&emsp;<br><img src="https://s1.ax1x.com/2022/11/01/xTco9A.png" width="35%" alt=" " align=center /></p>
+<h3 id="区域坐标轴旋转"><a href="#区域坐标轴旋转" class="headerlink" title="区域坐标轴旋转"></a>区域坐标轴旋转</h3><p>为了保证特征矢量具有旋转不变性，要以特征点为中心，在附近邻域内旋转角，即旋转为特征点的方向。<br>&emsp;<br><img src="https://s1.ax1x.com/2022/11/01/xTc7ct.png" width="60%" alt=" " align=center /></p>
+<p>旋转后区域内采样点新的坐标为：</p>
+<p>\begin{equation}<br>\begin{pmatrix} x’ \ y’\end{pmatrix} &#x3D; \begin{pmatrix} cos\theta &amp; -sin\theta \ sin\theta &amp; cos\theta\end{pmatrix} \begin{pmatrix} x \ y\end{pmatrix}<br>\end{equation}</p>
+<h3 id="计算采样区域梯度直方图"><a href="#计算采样区域梯度直方图" class="headerlink" title="计算采样区域梯度直方图"></a>计算采样区域梯度直方图</h3><p>将旋转后区域划分为$d^2$个子区域（每个区域间隔为$m\sigma$像元），在子区域内计算8个方向的梯度直方图，绘制每个方向梯度方向的累加值，形成一个种子点。 与求主方向不同的是，此时，每个子区域梯度方向直方图将0°~360°划分为8个方向区间，每个区间为45°。即每个种子点有8个方向区间的梯度强度信息。由于存在$d^2$，即16个子区域，所以最终共有128个数据（Lowe建议的数据），形成128维SIFT特征矢量。<br>&emsp;<br><img src="https://s1.ax1x.com/2022/11/01/xTcqnf.png" width="60%" alt=" " align=center /></p>
+<p>对特征矢量需要加权处理，加权采用$m\sigma d&#x2F;2$的标准高斯函数。为了除去光照变化影响，还有进一步归一化处理。</p>
+<p>至此SIFT描述子生成，SIFT算法也基本完成了。</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p>[1] Lowe, David G. “Object recognition from local scale-invariant features.” Proceedings of the seventh IEEE international conference on computer vision. Vol. 2. Ieee, 1999.<br>[2] Lowe, David G. “Distinctive image features from scale-invariant keypoints.” International journal of computer vision 60.2 (2004): 91-110.</p>
+
+      </div>
+      
+      
+      
+    </div>
+
+    
+    
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2019 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Hai-Wei Chai (柴海伟)</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://vercel.hwchai.com/","cssUrl":"https://hwchai.com/download/Waline.css","commentCount":true,"pageview":false,"locale":{"placeholder":"请留下邮箱，若有回复您将收到提醒。QQ邮箱可以自动识别头像喔~"},"pageSize":10,"visitor":false,"comment_count":true,"meta":["nick","mail","link"],"requiredMeta":["nick"],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","emoji":["https://unpkg.com/@waline/emojis@1.0.1/bilibili"],"login":"disable","el":"#waline","comment":true,"path":"/archive/Exp012-SIFT.html"}</script>
+<link rel="stylesheet" href="https://hwchai.com/download/Waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Times+New+Roman:300,300italic,400,400italic,700,700italic%7CGeorgia:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hwchai.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="为实现多用户同时登录 Tomography 数据分析工作站，避免设备冗余浪费，使用 Windows Server 2019 与 Mint OS 虚拟机的组合是个让人满意的方案。 本文记录配置 Tomography 数据分析工作站时的一些常见问题及相应的解决办法。 本文使用的所有 OS 镜像均下载自 MSDN 镜像资源站，启动盘制作使用 Ventoy 开源工具包，虚拟机平台使用 VMware Wor">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Windows Server 2019 + Mint OS 搭建 Tomography 数据分析工作站">
+<meta property="og:url" content="https://hwchai.com/archive/Exp009-WinServerSetup.html">
+<meta property="og:site_name" content="Hai-Wei Chai&#39;s Blog">
+<meta property="og:description" content="为实现多用户同时登录 Tomography 数据分析工作站，避免设备冗余浪费，使用 Windows Server 2019 与 Mint OS 虚拟机的组合是个让人满意的方案。 本文记录配置 Tomography 数据分析工作站时的一些常见问题及相应的解决办法。 本文使用的所有 OS 镜像均下载自 MSDN 镜像资源站，启动盘制作使用 Ventoy 开源工具包，虚拟机平台使用 VMware Wor">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-08-03T20:53:23.000Z">
+<meta property="article:modified_time" content="2021-08-03T21:21:24.000Z">
+<meta property="article:author" content="Hai-Wei Chai (柴海伟)">
+<meta property="article:tag" content="Windows Server 2019">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://hwchai.com/archive/Exp009-WinServerSetup">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en","comments":true,"permalink":"https://hwchai.com/archive/Exp009-WinServerSetup.html","path":"archive/Exp009-WinServerSetup.html","title":"Windows Server 2019 + Mint OS 搭建 Tomography 数据分析工作站"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Windows Server 2019 + Mint OS 搭建 Tomography 数据分析工作站 | Hai-Wei Chai's Blog
+</title>
+  
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="https://vercel.hwchai.com/">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hai-Wei Chai's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-house-chimney fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-list fa-fw"></i>Archives</a></li><li class="menu-item menu-item-support"><a href="/support/" rel="section"><i class="fa fa-screwdriver-wrench fa-fw"></i>Support</a></li><li class="menu-item menu-item-books"><a href="/books/" rel="section"><i class="fa fa-book fa-fw"></i>Books</a></li><li class="menu-item menu-item-scholar"><a href="/scholar/" rel="section"><i class="fa fa-chart-column fa-fw"></i>Scholar</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Windows-Server-2019"><span class="nav-number">1.</span> <span class="nav-text">Windows Server 2019</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows-Server-2019-Standard-%E6%BF%80%E6%B4%BB"><span class="nav-number">1.1.</span> <span class="nav-text">Windows Server 2019 Standard 激活</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">无法访问共享文件夹的解决办法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5%E6%9D%83%E9%99%90"><span class="nav-number">1.3.</span> <span class="nav-text">远程桌面连接权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E7%94%A8%E6%88%B7%E5%90%8C%E6%97%B6%E7%99%BB%E9%99%86%E6%9D%83%E9%99%90"><span class="nav-number">1.4.</span> <span class="nav-text">多用户同时登陆权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tomography-%E5%88%86%E6%9E%90%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6"><span class="nav-number">1.5.</span> <span class="nav-text">Tomography 分析常用软件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VMware-Workstation-Mint-OS"><span class="nav-number">2.</span> <span class="nav-text">VMware Workstation + Mint OS</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Hai-Wei Chai (柴海伟)"
+      src="/images/gamersky.gif">
+  <p class="site-author-name" itemprop="name">Hai-Wei Chai (柴海伟)</p>
+  <div class="site-description" itemprop="description">I am a slow walker, but never backwards!</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/haiweichai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;haiweichai" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:chw9402@mail.ustc.edu.com" title="E-Mail → mailto:chw9402@mail.ustc.edu.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner page posts-expand">
+
+
+    
+    
+    
+    <div class="post-block" lang="en"><header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">Windows Server 2019 + Mint OS 搭建 Tomography 数据分析工作站
+</h1>
+
+<div class="post-meta-container">
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <p>为实现多用户同时登录 Tomography 数据分析工作站，避免设备冗余浪费，使用 Windows Server 2019 与 Mint OS 虚拟机的组合是个让人满意的方案。 本文记录配置 Tomography 数据分析工作站时的一些常见问题及相应的解决办法。</p>
+<p>本文使用的所有 OS 镜像均下载自 <a target="_blank" rel="noopener" href="https://msdn.itellyou.cn/">MSDN</a> 镜像资源站，启动盘制作使用 <a target="_blank" rel="noopener" href="https://www.ventoy.net/en/index.html">Ventoy</a> 开源工具包，虚拟机平台使用 VMware Workstation 16.0。</p>
+<span id="more"></span>
+
+<h1 id="Windows-Server-2019"><a href="#Windows-Server-2019" class="headerlink" title="Windows Server 2019"></a>Windows Server 2019</h1><h2 id="Windows-Server-2019-Standard-激活"><a href="#Windows-Server-2019-Standard-激活" class="headerlink" title="Windows Server 2019 Standard 激活"></a>Windows Server 2019 Standard 激活</h2><p>以管理员权限运行 Windows PowerShell：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ slmgr /upk</span><br><span class="line">$ slmgr /ipk N69G4-B89J2-4G8F4-WWYCC-J464C</span><br><span class="line">$ slmgr /skms kms.03k.org</span><br><span class="line">$ slmgr /ato</span><br></pre></td></tr></table></figure>
+
+<p>是否成功激活，激活码到期时间可输入以下命令查看：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ slmgr /xpr</span><br></pre></td></tr></table></figure>
+
+<h2 id="无法访问共享文件夹的解决办法"><a href="#无法访问共享文件夹的解决办法" class="headerlink" title="无法访问共享文件夹的解决办法"></a>无法访问共享文件夹的解决办法</h2><blockquote>
+<ol>
+<li>Win+R 快捷键调用 Run，输入 <code>control</code> 调用 Control Panel，Turn Windows features on or off，安装 SMB 1.0&#x2F;CIFS File Sharing Support。</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="2">
+<li>Win+R 快捷键调用 Run，输入 <code>gpedit.msc</code> 调用 Local Group Policy Editor，Computer Configuration - Administrative Templates - Network - Lanman Workstation - Enable insecure guest logons。</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="3">
+<li>Windows Defender 防火墙，允许应用或功能通过 Windows Defender 防火墙，允许 SMBDirect 上的文件和打印机共享。</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="4">
+<li>右键点击 This PC，Add a network location，Choose a custom network location，<code>\\192.168.26.110\APS-data\</code>。</li>
+</ol>
+</blockquote>
+<h2 id="远程桌面连接权限"><a href="#远程桌面连接权限" class="headerlink" title="远程桌面连接权限"></a>远程桌面连接权限</h2><p>与 Windows 10 类似，远程连接权限、防火墙权限、网络共享权限、Remote Desktop Server 权限，共四步骤，此处不做过多介绍。 特别注意每个子账号均需单独开启远程权限。</p>
+<h2 id="多用户同时登陆权限"><a href="#多用户同时登陆权限" class="headerlink" title="多用户同时登陆权限"></a>多用户同时登陆权限</h2><p>Windows Server 2019 默认远程桌面连接数上限是 2 位用户，无法容纳更多用户同时登陆，可以通过添加远程桌面授权解决：</p>
+<p>参考链接：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/laosan007/p/11734283.html">Windows Server 2019 远程桌面服务配置和授权激活</a></p>
+<h2 id="Tomography-分析常用软件"><a href="#Tomography-分析常用软件" class="headerlink" title="Tomography 分析常用软件"></a>Tomography 分析常用软件</h2><blockquote>
+<ol>
+<li>办公类：Chrome浏览器、TIM、Wechat for PC、MobaXterm</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="2">
+<li>学术类：Endnote X9、Sublime Text 4、Adobe Acrobat Pro DC</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="3">
+<li>工程类：Avizo、OriginPro 9.0、Fiji ImageJ、Matlab、VMware Workstation、Photoshop</li>
+</ol>
+</blockquote>
+<h1 id="VMware-Workstation-Mint-OS"><a href="#VMware-Workstation-Mint-OS" class="headerlink" title="VMware Workstation + Mint OS"></a>VMware Workstation + Mint OS</h1>
+      </div>
+      
+      
+      
+    </div>
+
+    
+    
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2019 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Hai-Wei Chai (柴海伟)</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://vercel.hwchai.com/","cssUrl":"https://hwchai.com/download/Waline.css","commentCount":true,"pageview":false,"locale":{"placeholder":"请留下邮箱，若有回复您将收到提醒。QQ邮箱可以自动识别头像喔~"},"pageSize":10,"visitor":false,"comment_count":true,"meta":["nick","mail","link"],"requiredMeta":["nick"],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","emoji":["https://unpkg.com/@waline/emojis@1.0.1/bilibili"],"login":"disable","el":"#waline","comment":true,"path":"/archive/Exp009-WinServerSetup.html"}</script>
+<link rel="stylesheet" href="https://hwchai.com/download/Waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+</body>
+</html>
