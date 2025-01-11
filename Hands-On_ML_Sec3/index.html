@@ -27,12 +27,17 @@
 <meta property="og:site_name" content="Hai-Wei Chai&#39;s Blog">
 <meta property="og:description" content="Geron教授所著的该书第一章中已经简要介绍了监督学习任务是回归（预测数值）和分类（预测类别）。在第二章中探索了一个预测加州地区房价的回归任务，并测试了如线性回归、决策树和随机森林等算法。现在我们将注意力转向分类系统。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s21.ax1x.com/2025/01/11/pEPnQhV.jpg">
+<meta property="og:image" content="https://s21.ax1x.com/2025/01/11/pEPMB90.jpg">
+<meta property="og:image" content="https://s21.ax1x.com/2025/01/11/pEPQPbQ.jpg">
+<meta property="og:image" content="https://s21.ax1x.com/2025/01/11/pEPQkUs.jpg">
 <meta property="article:published_time" content="2025-01-10T14:36:49.000Z">
 <meta property="article:modified_time" content="2024-01-10T22:17:24.000Z">
 <meta property="article:author" content="Hai-Wei Chai (柴海伟)">
 <meta property="article:tag" content="Artificial Intelligence">
 <meta property="article:tag" content="Pytorch">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s21.ax1x.com/2025/01/11/pEPnQhV.jpg">
 
 
 <link rel="canonical" href="https://hwchai.com/Hands-On_ML_Sec3/">
@@ -141,7 +146,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MNIST-%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-number">1.</span> <span class="nav-text">MNIST 数据集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%AD%E7%BB%83%E4%BA%8C%E5%85%83%E5%88%86%E7%B1%BB%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">训练二元分类器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E6%80%A7%E8%83%BD%E8%AF%84%E4%BC%B0"><span class="nav-number">3.</span> <span class="nav-text">模型性能评估</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81%E6%B5%8B%E9%87%8F%E7%B2%BE%E5%BA%A6"><span class="nav-number">3.1.</span> <span class="nav-text">使用交叉验证测量精度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%B7%E6%B7%86%E7%9F%A9%E9%98%B5%EF%BC%88Confusion-Matrix-CM%EF%BC%89"><span class="nav-number">3.2.</span> <span class="nav-text">混淆矩阵（Confusion Matrix, CM）</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MNIST-%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-number">1.</span> <span class="nav-text">MNIST 数据集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%AD%E7%BB%83%E4%BA%8C%E5%85%83%E5%88%86%E7%B1%BB%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">训练二元分类器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E6%80%A7%E8%83%BD%E8%AF%84%E4%BC%B0"><span class="nav-number">3.</span> <span class="nav-text">模型性能评估</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81%E6%B5%8B%E9%87%8F%E7%B2%BE%E5%BA%A6"><span class="nav-number">3.1.</span> <span class="nav-text">使用交叉验证测量精度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%B7%E6%B7%86%E7%9F%A9%E9%98%B5%EF%BC%88Confusion-Matrix-CM%EF%BC%89"><span class="nav-number">3.2.</span> <span class="nav-text">混淆矩阵（Confusion Matrix, CM）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%86%E7%A1%AE%E7%8E%87%E5%92%8C%E5%8F%AC%E5%9B%9E%E7%8E%87"><span class="nav-number">3.3.</span> <span class="nav-text">准确率和召回率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B2%BE%E7%A1%AE%E5%BA%A6-%E5%8F%AC%E5%9B%9E%E7%8E%87%E6%9D%83%E8%A1%A1%EF%BC%88precision-recall-trade-off%EF%BC%89"><span class="nav-number">3.4.</span> <span class="nav-text">精确度&#x2F;召回率权衡（precision&#x2F;recall trade-off）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%97%E8%AF%95%E8%80%85%E6%93%8D%E4%BD%9C%E7%89%B9%E5%BE%81%EF%BC%88ROC%EF%BC%89%E6%9B%B2%E7%BA%BF"><span class="nav-number">3.5.</span> <span class="nav-text">受试者操作特征（ROC）曲线</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -156,7 +161,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -321,6 +326,67 @@
 
 <p>混淆矩阵中的每一行表示一个实际的类，而每一列表示一个预测的类。该矩阵的第一行考虑非5图像（阴性类）：其中53,892张被正确分类为非5（称为真阴性），而其余687张被错误分类为5（假阳性，也称为I型错误）。第二行考虑5的图像（阳性类）：1,891被错误地分类为非5（假阴性，也称为II型错误），而其余3,530被正确分类为5（真阳性）。一个完美的分类器只会有真正和真负，所以它的混淆矩阵只会在它的主对角线上（从左上到右下）有非零值：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>y_train_perfect_predictions = y_train_5 <span class="comment"># pretend we reached perfection </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>confusion_matrix(y_train_5, y_train_perfect_predictions) </span><br><span class="line">array([[<span class="number">54579</span>, <span class="number">0</span>],</span><br><span class="line">	[ <span class="number">0</span>, <span class="number">5421</span>]])</span><br></pre></td></tr></table></figure>
+
+<h3 id="准确率和召回率"><a href="#准确率和召回率" class="headerlink" title="准确率和召回率"></a>准确率和召回率</h3><p>混淆矩阵为您提供了大量信息，但有时您可能更喜欢更简洁的度量。一个有趣的问题是阳性预测的准确性；这被称为分类器的准确率（Precision）。</p>
+<p>$$ {\rm Precision} &#x3D; \frac{\rm TP}{\rm TP+FP} \tag{3-1}\label{3-1}$$</p>
+<p>其中，TP 表示真阳性数，FP 表示假阳性数。</p>
+<p>获得完美准确率的一个简单方法是创建一个分类器，它总是做出负面预测，除了对它最自信的实例进行一个单一的正面预测。如果这一个预测是正确的，那么分类器有100%的精度（精度&#x3D; 1&#x2F;1 &#x3D; 100%）。显然，这样的分类器不是很有用，因为它会忽略除一个阳性实例外的所有实例。因此，精度通常与另一个名为召回率的指标一起使用，也称为灵敏度或真阳性率（True Position Rate, TPR）：这是分类器正确检测到的阳性实例的比率。</p>
+<p>$$ {\rm Recall} &#x3D; \frac{\rm TP}{\rm TP+FN} \tag{3-2}\label{3-2}$$</p>
+<p>其中，FN 是假阴性的数量。</p>
+<p><figure><img src="https://s21.ax1x.com/2025/01/11/pEPnQhV.jpg" alt="图 3-3: 图示的混淆矩阵显示了真阴性（左上）、假阳性（右上）、假阴性（左下）和真阳性（右下）的示例。
+"><figcaption aria-hidden="true">图 3-3: 图示的混淆矩阵显示了真阴性（左上）、假阳性（右上）、假阴性（左下）和真阳性（右下）的示例。
+</figcaption></figure></p>
+<blockquote class="blockquote-center">
+<p>简单的说，准确率代表用户得到模型判断为真的样本中确实是真的比率，召回率代表确实为真的样本被模型判断为真的比率。准确率与召回率均较高代表模型达到了优秀的性能，只有单一指标优秀不代表模型性能好。 </p>
+
+</blockquote>
+
+<p>Scikit-Learn 提供了几个函数来计算分类器指标，包括准确率和召回率：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> precision_score, recall_score </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>precision_score(y_train_5, y_train_pred) <span class="comment"># == 3530/ (687 + 3530)</span></span><br><span class="line"><span class="number">0.8370879772350012</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>recall_score(y_train_5, y_train_pred) <span class="comment"># == 3530 /(1891 + 3530)</span></span><br><span class="line"><span class="number">0.6511713705958311</span></span><br></pre></td></tr></table></figure>
+
+<p>现在我们的5检测器看起来不像我们在考虑它的准确率时那么闪亮了。当它声称图像代表5时，正确率只有83.7%。此外，它只能检测到65.1%的5。将准确率和召回率组合成一个称为 ${\rm F}_1$ 分数的指标通常很方便，特别是当您需要一个指标来比较两个分类器时。F1分数是准确率和召回率的调和平均值。常规均值对所有值一视同仁，而调和均值对低值给予更多的权重。因此，只有在召回率和准确率都很高的情况下，分类器才会得到很高的${\rm F}_1$分数。</p>
+<p>$$ {\rm F}_1 &#x3D; \frac{2}{\frac{1}{\rm Precision}+\frac{1}{\rm Recall}} &#x3D; \frac{\rm TP}{\rm TP+\frac{FN+FP}{2}} \tag{3-3}\label{3-3} $$</p>
+<p>要计算 ${\rm F}_1$分数只需调用 f1_score() 函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> f1_score </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f1_score(y_train_5, y_train_pred)</span><br><span class="line"><span class="number">0.7325171197343846</span></span><br></pre></td></tr></table></figure>
+
+<p>F1分数倾向于具有相似精度和召回率的分类器。这并不总是你想要的：在某些情况下，你最关心的是准确性，而在其他情况下，你真正关心的是召回率。例如，如果你训练一个分类器来检测对孩子安全的视频，你可能更喜欢一个分类器，它会拒绝许多好的视频（低召回率），但只保留安全的视频（高精度），而不是一个具有更高召回率的分类器，但会让一些非常糟糕的视频出现在你的产品中（在这种情况下，你甚至可能想要添加一个人工管道来检查分类器的视频选择）。另一方面，假设你训练一个分类器来检测监视图像中的商店扒手：如果你的分类器只有30%的准确率，只要它有99%的召回率，这可能是好的（当然，保安会得到一些错误的警报，但几乎所有的商店扒手都会被抓住）。不幸的是，你不能两全其美：提高精确度会降低召回率，反之亦然。这被称为精确度&#x2F;召回率权衡（precision&#x2F;recall trade-off）。</p>
+<h3 id="精确度-召回率权衡（precision-recall-trade-off）"><a href="#精确度-召回率权衡（precision-recall-trade-off）" class="headerlink" title="精确度&#x2F;召回率权衡（precision&#x2F;recall trade-off）"></a>精确度&#x2F;召回率权衡（precision&#x2F;recall trade-off）</h3><p>为了理解这种权衡，让我们看看 SGDClassifier 是如何做出分类决策的。对于每个实例，它根据决策函数计算一个分数。如果该分数大于阈值，则将实例分配给正类；否则它会把它赋值给负类。图 3-4 给出了分数从左边最低到右边最高的几个数字。假设决策阈值位于中间的箭头（在两个5之间）：你会发现在该值的右边有4个真阳性，和1个假阳性。但在6个真实的5中,分类器只检测到4个。如果你提高阈值,假阳性（6）成为一个真正的阴性，从而增加的精度(在本例中高达100%)，但一个真正的5的成为假阴性，召回率降低到50%。相反，降低阈值会增加召回率，降低准确率。</p>
+<p><figure><img src="https://s21.ax1x.com/2025/01/11/pEPMB90.jpg" alt="图 3-4: 精度&#x2F;召回权衡：图像根据分类器得分进行排序，高于所选决策阈值的图像被认为是正面的；阈值越高，召回率越低，但（通常）精度越高"><figcaption aria-hidden="true">图 3-4: 精度/召回权衡：图像根据分类器得分进行排序，高于所选决策阈值的图像被认为是正面的；阈值越高，召回率越低，但（通常）精度越高</figcaption></figure></p>
+<p>Scikit-Learn 不能让你直接设置阈值，但它可以让你访问它用来做出预测的决策分数。你可以调用分类器的predict() 方法，而不是调用它的 decision_function() 方法，它会为每个实例返回一个分数，然后使用你想要基于这些分数进行预测的任何阈值：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;y_scores = sgd_clf.decision_function([some_digit])</span><br><span class="line">&gt;&gt;&gt;y_scores</span><br><span class="line">array([<span class="number">2164.22030239</span>])</span><br><span class="line">&gt;&gt;&gt;threshold = <span class="number">0</span></span><br><span class="line">&gt;&gt;&gt;y_some_digit_pred = (y_scores &gt; threshold) </span><br><span class="line">array([<span class="literal">True</span>])</span><br></pre></td></tr></table></figure>
+
+<p>SGDClassifier 使用 0 为阈值，因此前面的代码返回与predict() 方法相同的结果。让我们提高阈值：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;threshold = <span class="number">3000</span> </span><br><span class="line">&gt;&gt;&gt;y_some_digit_pred = (y_scores &gt; threshold) </span><br><span class="line">&gt;&gt;&gt;y_some_digit_pred </span><br><span class="line">array([<span class="literal">False</span>])</span><br></pre></td></tr></table></figure>
+
+<p>这证实了提高阈值会降低召回。图像实际上代表一个5，当阈值为0时，分类器会检测到它，但当阈值增加到3000时，它会错过它。如何决定使用哪个阈值？首先，使用cross_val_predict() 函数获取训练集中所有实例的分数，但这次指定要返回决策分数而不是预测分类：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y_scores = cross_val_predict(sgd_clf, X_train, y_train_5, cv=<span class="number">3</span>, method=<span class="string">&quot;decision_function&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>有了这些分数，使用 precision_recall_curve() 函数来计算所有可能阈值的精度和召回率（该函数添加的最后精度为0，最后召回率为1，对应于无限阈值），最后，使用Matplotlib绘制精度和召回率作为阈值的函数（图3-5）。让我们显示我们选择的阈值3000：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> precision_recall_curve</span><br><span class="line"></span><br><span class="line">precisions, recalls, thresholds = precision_recall_curve(y_train_5, y_scores)</span><br><span class="line"></span><br><span class="line">plt.plot(thresholds, precisions[:-<span class="number">1</span>], <span class="string">&quot;b--&quot;</span>, label=<span class="string">&quot;Precision&quot;</span>, linewidth=<span class="number">2</span>)</span><br><span class="line">plt.plot(thresholds, recalls[:-<span class="number">1</span>], <span class="string">&quot;g-&quot;</span>, label=<span class="string">&quot;Recall&quot;</span>, linewidth=<span class="number">2</span>)</span><br><span class="line">plt.vlines(thresholds, <span class="number">0</span>, <span class="number">1.0</span>, <span class="string">&quot;k&quot;</span>, <span class="string">&quot;dotted&quot;</span>, label=<span class="string">&quot;threshold&quot;</span>)</span><br><span class="line">[...] <span class="comment"># beautify the figure: add grid, legend, axis, labels, and circles </span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><figure><img src="https://s21.ax1x.com/2025/01/11/pEPQPbQ.jpg" alt="图 3-5：精确率和召回率对决策阈值的影响"><figcaption aria-hidden="true">图 3-5：精确率和召回率对决策阈值的影响</figcaption></figure></p>
+<p>此外该图还呈现了一个有趣的现象，当阈值提高时，准确率偶尔会下降，而召回率一定随阈值提高而单调下降。</p>
+<p>在3000这个阈值下，准确率接近90%，召回率约为50%。另一种选择良好的精度&#x2F;召回率权衡的方法是直接绘制精度与召回率的关系，如图3-6所示：</p>
+<p><figure><img src="https://s21.ax1x.com/2025/01/11/pEPQkUs.jpg" alt="图 3-6：准确率 vs 召回率"><figcaption aria-hidden="true">图 3-6：准确率 vs 召回率</figcaption></figure></p>
+<p>你可以看到，准确度在 80% 的召回率左右开始急剧下降。您可能希望在下降之前选择一个准确率&#x2F;召回率权衡-例如，在60% 左右召回。当然，选择取决于您的项目。假设你的目标是90% 的准确率，你可以用第一张图找到你需要使用的阈值，但这不是很精确。或者，您可以搜索至少提供90%精度的最低阈值。为此，您可以使用 NumPy 数组的 argmax() 方法。这将返回最大值的第一个索引，在本例中意味着第一个 True 值。</p>
+<h3 id="受试者操作特征（ROC）曲线"><a href="#受试者操作特征（ROC）曲线" class="headerlink" title="受试者操作特征（ROC）曲线"></a>受试者操作特征（ROC）曲线</h3><p>受试者操作特征（Receiver Operating Characteristic, ROC）曲线是二值分类器的另一个常用工具。它与精确率&#x2F;召回率曲线非常相似，但ROC曲线不是绘制精确率与召回率的关系，而是绘制真阳性率（召回率的另一个名称）与假阳性率（False Positive Rate, FPR）的关系。FPR（也称为fall-out）是指False事件被错误地归类为True事件的比率。它等于1-真阴性率（True Negative Rate, TNR），即正确归类为阴性的阴性实例的比率。TNR也被称为特异性。因此，ROC曲线绘制敏感性（召回率）与1-特异性。为了绘制ROC曲线，首先使用roc_curve() 函数计算各种阈值的 TPR 和 FPR：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> roc_curve</span><br><span class="line">fpr, tpr, thresholds = roc_curve(y_train_5, y_scores)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
