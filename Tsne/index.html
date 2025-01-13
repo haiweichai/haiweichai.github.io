@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Times+New+Roman:300,300italic,400,400italic,700,700italic%7CGeorgia:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hwchai.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="使用 19 世纪文献生成的词嵌入的 T-SNE 可视化   简单介绍t 分布随机邻域嵌入( t-SNE ) 是一种统计方法，通过为每个数据点在二维或三维地图中赋予一个位置来可视化高维数据。它是一种非线性降维技术，用于在二维或三维低维空间中嵌入高维数据以进行可视化。具体而言，它通过二维或三维点对每个高维对象进行建模，这样相似的对象由附近的点建模，而不同的对象则以高概率由远处的点建模。t-SNE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="t-SNE的原理与使用">
+<meta property="og:url" content="https://hwchai.com/Tsne/index.html">
+<meta property="og:site_name" content="Hai-Wei Chai&#39;s Blog">
+<meta property="og:description" content="使用 19 世纪文献生成的词嵌入的 T-SNE 可视化   简单介绍t 分布随机邻域嵌入( t-SNE ) 是一种统计方法，通过为每个数据点在二维或三维地图中赋予一个位置来可视化高维数据。它是一种非线性降维技术，用于在二维或三维低维空间中嵌入高维数据以进行可视化。具体而言，它通过二维或三维点对每个高维对象进行建模，这样相似的对象由附近的点建模，而不同的对象则以高概率由远处的点建模。t-SNE">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/9/94/T-SNE_visualisation_of_word_embeddings_generated_using_19th_century_literature.png">
+<meta property="og:image" content="https://www.helloimg.com/i/2025/01/13/6784c614828bf.png">
+<meta property="article:published_time" content="2024-01-10T19:03:23.000Z">
+<meta property="article:modified_time" content="2024-01-10T19:03:23.000Z">
+<meta property="article:author" content="Hai-Wei Chai (柴海伟)">
+<meta property="article:tag" content="Data Science">
+<meta property="article:tag" content="t-SNE">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/9/94/T-SNE_visualisation_of_word_embeddings_generated_using_19th_century_literature.png">
+
+
+<link rel="canonical" href="https://hwchai.com/Tsne/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://hwchai.com/Tsne/","path":"Tsne/","title":"t-SNE的原理与使用"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>t-SNE的原理与使用 | Hai-Wei Chai's Blog</title>
+  
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="https://vercel.hwchai.com/">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hai-Wei Chai's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-house-chimney fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-list fa-fw"></i>Archives</a></li><li class="menu-item menu-item-support"><a href="/support/" rel="section"><i class="fa fa-screwdriver-wrench fa-fw"></i>Support</a></li><li class="menu-item menu-item-books"><a href="/books/" rel="section"><i class="fa fa-book fa-fw"></i>Books</a></li><li class="menu-item menu-item-scholar"><a href="/scholar/" rel="section"><i class="fa fa-chart-column fa-fw"></i>Scholar</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">简单介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">实现原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">代码实现</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Hai-Wei Chai (柴海伟)"
+      src="/images/gamersky.gif">
+  <p class="site-author-name" itemprop="name">Hai-Wei Chai (柴海伟)</p>
+  <div class="site-description" itemprop="description">I am a slow walker, but never backwards!</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/haiweichai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;haiweichai" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:chw9402@mail.ustc.edu.com" title="E-Mail → mailto:chw9402@mail.ustc.edu.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://hwchai.com/Tsne/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gamersky.gif">
+      <meta itemprop="name" content="Hai-Wei Chai (柴海伟)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hai-Wei Chai's Blog">
+      <meta itemprop="description" content="I am a slow walker, but never backwards!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="t-SNE的原理与使用 | Hai-Wei Chai's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          t-SNE的原理与使用
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-01-10 19:03:23" itemprop="dateCreated datePublished" datetime="2024-01-10T19:03:23Z">2024-01-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-01-10 19:03:23" itemprop="dateModified" datetime="2024-01-10T19:03:23Z">2024-01-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Data-Science/" itemprop="url" rel="index"><span itemprop="name">Data Science</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline: </span>
+  
+    <a title="waline" href="/Tsne/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/Tsne/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><img src="https://upload.wikimedia.org/wikipedia/commons/9/94/T-SNE_visualisation_of_word_embeddings_generated_using_19th_century_literature.png"></p>
+<div align="center">
+使用 19 世纪文献生成的词嵌入的 T-SNE 可视化
+</div>
+
+<h2 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h2><p>t 分布随机邻域嵌入( t-SNE ) 是一种统计方法，通过为每个数据点在二维或三维地图中赋予一个位置来可视化高维数据。它是一种非线性降维技术，用于在二维或三维低维空间中嵌入高维数据以进行可视化。具体而言，它通过二维或三维点对每个高维对象进行建模，这样相似的对象由附近的点建模，而不同的对象则以高概率由远处的点建模。<br>t-SNE 算法包括两个主要阶段。首先，t-SNE 在高维对象对上构建一个概率分布，这样相似的对象被分配更高的概率，而不同的点被分配更低的概率。其次，t-SNE 在低维图中的点上定义一个相似的概率分布，并最小化两个分布之间关于图中点位置的Kullback-Leibler 散度（<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence">KL 散度</a>）。<br>对于包含n 个元素的数据集，t-SNE 的运行时间为$O(n^2)$，空间为$O( n^2)$。</p>
+<span id="more"></span>
+
+<h2 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h2><p>给定一组高维数据对象$x_i$,…,$x_N$,t-SNE计算$x_i$与$x_j$的相似度成正比的概率</p>
+<p>$$<br>p_{i|j} &#x3D; \frac{\exp\left(-|x_i - x_j|^2 &#x2F; 2 \sigma_i^2\right)}{\sum_{k \neq i} \exp\left(-|x_i - x_k|^2 &#x2F; 2 \sigma_i^2\right)}( i\neq j)<br>$$</p>
+<p>其中$\sigma_i$是以数据点$x_i$为中心的高斯方差,$|x_i - x_j|$表示数据$x_i$与$x_j$的<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Euclidean_distance">欧式距离</a>,且定义$p_{i|i}$&#x3D;0;$p_{i|j}$表示$x_i$按照其概率密度的比例并以$x_i$为高斯中心选择$x_j$作为邻居的条件概率;<br>且有定义$p_{ij} &#x3D; \frac{p_{j|i} + p_{i|j}}{2N}$。<br>t-SNE旨在学习一个映射,通过该映射,高维数据$x_i$,…,$x_N$将映射为对应的低维数据$y_i$,…,$y_N$(维数一般为2或者3),该低维数据之间计算所得相似度$q_{ij}$尽可能接近$p_{ij}$。$q_{ij}$定义如下:</p>
+<p>$$<br>q_{ij} &#x3D; \frac{(1+|y_i - y_j|^2 )^{-1}}{\sum_{k}\sum_{l \neq k}(1+|y_k - y_l|^2 )^{-1}}( i\neq j)<br>$$</p>
+<p>为了得到逼近高维数据之间计算得到相似度的低维数据，我们需要通过梯度下降（当前采用的主流方法为Barnes-Hut算法）的方法最小化P分布与Q分布的KL散度：</p>
+<p>$$<br>KL(P||Q) &#x3D; \sum_{i \neq j}p_{ij}\log \frac{p_{ij}}{q_{ij}}<br>$$</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p>案例选取一个长度为3072随机生成的二维信号，通过t-SNE计算并使用matplotlib库进行绘制,使用python进行t-SNE计算的库主要有sklearn.manifold.TSNE、<a target="_blank" rel="noopener" href="https://github.com/KlugerLab/pyFIt-SNE/tree/master">fitsne</a>、<a target="_blank" rel="noopener" href="https://github.com/CannyLab/tsne-cuda">tsnecuda</a>三个</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> transformers <span class="keyword">import</span> set_seed</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn.manifold <span class="keyword">import</span> TSNE</span><br><span class="line"><span class="keyword">from</span> fitsne <span class="keyword">import</span> FItSNE</span><br><span class="line"><span class="keyword">from</span> tsnecuda <span class="keyword">import</span> TSNE <span class="keyword">as</span> CudaTSNE</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> matplotlib.ticker <span class="keyword">import</span> MultipleLocator</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> reduce</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">quzheng</span>(<span class="params">num:<span class="built_in">float</span></span>):</span><br><span class="line">    <span class="keyword">if</span> num&lt;<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> math.floor(num)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> math.ceil(num)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="comment">#sure result can repeat</span></span><br><span class="line">    seed = <span class="number">1234</span></span><br><span class="line">    setup_seed(seed)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#gen random 2d data</span></span><br><span class="line">    m = <span class="number">2</span></span><br><span class="line">    n = <span class="number">3072</span> </span><br><span class="line">    data1 = np.random.uniform(-<span class="number">100</span>, <span class="number">100</span>, size=(n, <span class="number">1</span>)).astype(np.float32) <span class="comment">#random data range (-100,100),type is float32</span></span><br><span class="line">    data2 = np.random.uniform(-<span class="number">100</span>, <span class="number">100</span>, size=(n, <span class="number">1</span>)).astype(np.float32) <span class="comment">#random data range (-100,100),type is float32</span></span><br><span class="line">  </span><br><span class="line">    data = np.column_stack((data1, data2))</span><br><span class="line">    origin_data = data.copy()</span><br><span class="line">  </span><br><span class="line">    data_dict = <span class="built_in">dict</span>()</span><br><span class="line"></span><br><span class="line">    tsne = TSNE(n_components = <span class="number">2</span>,perplexity=<span class="number">30</span>,verbose=<span class="number">1</span>,max_iter=<span class="number">2000</span>,random_state=seed,init=<span class="string">&#x27;random&#x27;</span>)</span><br><span class="line">    start_time = time.perf_counter()</span><br><span class="line">    tsne_data = tsne.fit_transform(data)</span><br><span class="line">    end_time = time.perf_counter()</span><br><span class="line">    execution_time = end_time-start_time</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;tsne excute cost &quot;</span>,execution_time)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> np.array_equal(data,origin_data):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;data change!&quot;</span>)</span><br><span class="line">        exit(<span class="number">0</span>)</span><br><span class="line">    data_dict[<span class="string">&#x27;tsne&#x27;</span>] = tsne_data</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    start_time = time.perf_counter()</span><br><span class="line">    fit_tsne_data = FItSNE(data.astype(np.float64), perplexity=<span class="number">30</span>, max_iter=<span class="number">2000</span>,fft_not_bh=<span class="literal">True</span>,rand_seed=seed,initialization=<span class="string">&#x27;random&#x27;</span>)</span><br><span class="line">    end_time = time.perf_counter()</span><br><span class="line">    execution_time = end_time-start_time</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;fit-tsne excute cost &quot;</span>,execution_time)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> np.array_equal(data,origin_data):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;data change!&quot;</span>)</span><br><span class="line">        exit(<span class="number">0</span>)</span><br><span class="line">    data_dict[<span class="string">&#x27;fit-tsne&#x27;</span>] = fit_tsne_data</span><br><span class="line"></span><br><span class="line">    cuda_tsne = CudaTSNE(n_iter=<span class="number">2000</span>, verbose=<span class="number">1</span>, perplexity=<span class="number">30</span>,random_seed=seed)</span><br><span class="line">    start_time = time.perf_counter()</span><br><span class="line">    cuda_tsne_data = cuda_tsne.fit_transform(data)</span><br><span class="line">    end_time = time.perf_counter()</span><br><span class="line">    execution_time = end_time-start_time</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;cuda-tsne excute cost &quot;</span>,execution_time)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> np.array_equal(data,origin_data):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;data change!&quot;</span>)</span><br><span class="line">        exit(<span class="number">0</span>)</span><br><span class="line">    data_dict[<span class="string">&#x27;cuda-tsne&#x27;</span>] = cuda_tsne_data</span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">    xy_min_max_list =  <span class="built_in">list</span>(<span class="built_in">map</span>(quzheng,reduce(<span class="keyword">lambda</span> x,y:[<span class="built_in">min</span>(x[<span class="number">0</span>],y[<span class="number">0</span>]),<span class="built_in">min</span>(x[<span class="number">1</span>],y[<span class="number">1</span>]),<span class="built_in">max</span>(x[<span class="number">2</span>],y[<span class="number">2</span>]),<span class="built_in">max</span>(x[<span class="number">3</span>],y[<span class="number">3</span>])],<span class="built_in">map</span>(<span class="keyword">lambda</span> x:[np.<span class="built_in">min</span>(x[:,<span class="number">0</span>]),np.<span class="built_in">min</span>(x[:,<span class="number">1</span>]),np.<span class="built_in">max</span>(x[:,<span class="number">0</span>]),np.<span class="built_in">max</span>(x[:,<span class="number">1</span>])],data_dict.values()))))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;get xy_range is &quot;</span>,xy_min_max_list)</span><br><span class="line">    x_min = xy_min_max_list[<span class="number">0</span>]</span><br><span class="line">    y_min = xy_min_max_list[<span class="number">1</span>]</span><br><span class="line">    x_max = xy_min_max_list[<span class="number">2</span>]</span><br><span class="line">    y_max = xy_min_max_list[<span class="number">3</span>]</span><br><span class="line">  </span><br><span class="line">    plt.figure(figsize=(<span class="number">32</span>, <span class="number">24</span>))</span><br><span class="line">    plt.suptitle(<span class="string">f&quot;Tsne Test&quot;</span>,fontsize=<span class="number">40</span>,    <span class="comment"># 字体大小</span></span><br><span class="line">                fontweight=<span class="string">&#x27;bold&#x27;</span>,  <span class="comment"># 字体粗细</span></span><br><span class="line">                fontstyle=<span class="string">&#x27;italic&#x27;</span>,  <span class="comment"># 字体风格（斜体）</span></span><br><span class="line">                color=<span class="string">&#x27;blue&#x27;</span>   <span class="comment"># 字体颜色</span></span><br><span class="line">            )</span><br><span class="line">    keys_list = <span class="built_in">list</span>(data_dict.keys())</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span>  <span class="built_in">range</span>(<span class="number">0</span>,<span class="built_in">len</span>(keys_list)):</span><br><span class="line">        sample = data_dict[keys_list[i]]</span><br><span class="line">        ax = plt.subplot(<span class="number">1</span>,<span class="built_in">len</span>(keys_list),i+<span class="number">1</span>)</span><br><span class="line">        ax.xaxis.set_major_locator(MultipleLocator(<span class="number">25</span>))  <span class="comment"># x轴主刻度间隔为25</span></span><br><span class="line">        ax.yaxis.set_major_locator(MultipleLocator(<span class="number">25</span>))  <span class="comment"># y轴主刻度间隔为25</span></span><br><span class="line">        ax.scatter(sample[:, <span class="number">0</span>], sample[:, <span class="number">1</span>], s=<span class="number">5</span>, alpha=<span class="number">0.6</span>)</span><br><span class="line">        ax.set_title(<span class="string">f&#x27;<span class="subst">&#123;keys_list[i]&#125;</span>&#x27;</span>)</span><br><span class="line">        ax.set_ylim(y_min,y_max)</span><br><span class="line">        ax.set_xlim(x_min,x_max)</span><br><span class="line">        ax.set_aspect(<span class="string">&#x27;equal&#x27;</span>, <span class="string">&#x27;box&#x27;</span>)</span><br><span class="line">    plt.tight_layout()</span><br><span class="line">    save_file_path = <span class="string">&quot;./tsne&quot;</span></span><br><span class="line">    plt.savefig(save_file_path,dpi=<span class="number">300</span>)</span><br><span class="line">    plt.close()</span><br></pre></td></tr></table></figure>
+<p><strong>由于tsnecuda底层实现并未采用随机数种子，而是基于当前时间生成的种子,详情参见<a target="_blank" rel="noopener" href="https://github.com/CannyLab/tsne-cuda/issues/44">issue</a>所以对于同一数据重复运行也无法得到相同结果</strong><br>上述运行结果可视化如下:<br><img src="https://www.helloimg.com/i/2025/01/13/6784c614828bf.png"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Hai-Wei Chai (柴海伟)
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://hwchai.com/Tsne/" title="t-SNE的原理与使用">https://hwchai.com/Tsne/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Data-Science/" rel="tag"># Data Science</a>
+              <a href="/tags/t-SNE/" rel="tag"># t-SNE</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Exp002-ArticleReply/" rel="prev" title="期刊投稿的准备工作及注意事项">
+                  <i class="fa fa-angle-left"></i> 期刊投稿的准备工作及注意事项
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/PythonLes03/" rel="next" title="Python在科研中的应用 02：函数、流程控制语句与NumPy初步">
+                  Python在科研中的应用 02：函数、流程控制语句与NumPy初步 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2019 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Hai-Wei Chai (柴海伟)</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://vercel.hwchai.com/","cssUrl":"https://hwchai.com/download/Waline.css","commentCount":true,"pageview":false,"locale":{"placeholder":"请留下邮箱，若有回复您将收到提醒。QQ邮箱可以自动识别头像喔~"},"pageSize":10,"visitor":false,"comment_count":true,"meta":["nick","mail","link"],"requiredMeta":["nick"],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","emoji":["https://unpkg.com/@waline/emojis@1.0.1/bilibili"],"login":"disable","el":"#waline","comment":true,"path":"/Tsne/"}</script>
+<link rel="stylesheet" href="https://hwchai.com/download/Waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+</body>
+</html>

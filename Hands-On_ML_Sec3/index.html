@@ -31,6 +31,7 @@
 <meta property="og:image" content="https://s21.ax1x.com/2025/01/11/pEPMB90.jpg">
 <meta property="og:image" content="https://s21.ax1x.com/2025/01/11/pEPQPbQ.jpg">
 <meta property="og:image" content="https://s21.ax1x.com/2025/01/11/pEPQkUs.jpg">
+<meta property="og:image" content="https://s21.ax1x.com/2025/01/13/pEPbgLd.png">
 <meta property="article:published_time" content="2025-01-10T14:36:49.000Z">
 <meta property="article:modified_time" content="2024-01-10T22:17:24.000Z">
 <meta property="article:author" content="Hai-Wei Chai (柴海伟)">
@@ -161,7 +162,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -170,7 +171,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -371,6 +372,13 @@
 <p>你可以看到，准确度在 80% 的召回率左右开始急剧下降。您可能希望在下降之前选择一个准确率&#x2F;召回率权衡-例如，在60% 左右召回。当然，选择取决于您的项目。假设你的目标是90% 的准确率，你可以用第一张图找到你需要使用的阈值，但这不是很精确。或者，您可以搜索至少提供90%精度的最低阈值。为此，您可以使用 NumPy 数组的 argmax() 方法。这将返回最大值的第一个索引，在本例中意味着第一个 True 值。</p>
 <h3 id="受试者操作特征（ROC）曲线"><a href="#受试者操作特征（ROC）曲线" class="headerlink" title="受试者操作特征（ROC）曲线"></a>受试者操作特征（ROC）曲线</h3><p>受试者操作特征（Receiver Operating Characteristic, ROC）曲线是二值分类器的另一个常用工具。它与精确率&#x2F;召回率曲线非常相似，但ROC曲线不是绘制精确率与召回率的关系，而是绘制真阳性率（召回率的另一个名称）与假阳性率（False Positive Rate, FPR）的关系。FPR（也称为fall-out）是指False事件被错误地归类为True事件的比率。它等于1-真阴性率（True Negative Rate, TNR），即正确归类为阴性的阴性实例的比率。TNR也被称为特异性。因此，ROC曲线绘制敏感性（召回率）与1-特异性。为了绘制ROC曲线，首先使用roc_curve() 函数计算各种阈值的 TPR 和 FPR：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> roc_curve</span><br><span class="line">fpr, tpr, thresholds = roc_curve(y_train_5, y_scores)</span><br></pre></td></tr></table></figure>
+
+<p>然后，您可以使用 Matplotlib 绘制FPR与TPR的关系。下面的代码生成图3-7中的图。为了找到对应于90%精度的点，我们需要查找所需阈值的索引：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">idx_for_threshold_at_90 = (thresholds &lt;= threshold_for_90_precision).argmax()</span><br><span class="line">tpr_90, fpr_90 = tpr[idx_for_threshold_at_90], fpr[idx_for_threshold_at_90]</span><br><span class="line"></span><br><span class="line">plt.plot(fpr, tpr, linewidth=<span class="number">2</span>, label=<span class="string">&quot;ROC curve&quot;</span>) </span><br><span class="line">plt.plot([<span class="number">0</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">1</span>], <span class="string">&#x27;k:&#x27;</span>, label=<span class="string">&quot;Random classifier&#x27;s ROC curve&quot;</span>) </span><br><span class="line">plt.plot([fpr_90], [tpr_90], <span class="string">&quot;ko&quot;</span>, label=<span class="string">&quot;Threshold for 90% precision&quot;</span>) </span><br><span class="line">[...] <span class="comment"># beautify the figure: add labels, grid, legend, arrow, and text </span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><figure><img src="https://s21.ax1x.com/2025/01/13/pEPbgLd.png" alt="图3-7  在所有可能的阈值下绘制假阳性率与真阳性率的ROC曲线；黑色圆圈突出了所选择的比例（90%的准确率和48%的召回率）。"><figcaption aria-hidden="true">图3-7  在所有可能的阈值下绘制假阳性率与真阳性率的ROC曲线；黑色圆圈突出了所选择的比例（90%的准确率和48%的召回率）。</figcaption></figure></p>
+<p>再一次有一个权衡：召回率（TPR）越高，分类器产生的假阳性（FPR）越多。虚线表示纯随机分类器的ROC曲线；一个好的分类器会尽可能远离那条线（朝向左上角）。比较分类器的一种方法是测量曲线下面积（Area Under the Curve, AUC）。一个完美的分类器的ROC AUC等于1，而一个纯粹随机的分类器的ROC AUC等于0.5。Scikit-Learn 提供了一个函数来估计ROC AUC：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> roc_auc_score </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>roc_auc_score(y_train_5, y_scores)</span><br><span class="line"><span class="number">0.9604938554008616</span></span><br></pre></td></tr></table></figure>
 
 
 
