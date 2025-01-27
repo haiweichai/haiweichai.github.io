@@ -846,6 +846,117 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://hwchai.com/Tsne/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/gamersky.gif">
+      <meta itemprop="name" content="Hai-Wei Chai (柴海伟)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hai-Wei Chai's Blog">
+      <meta itemprop="description" content="I am a slow walker, but never backwards!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Hai-Wei Chai's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/Tsne/" class="post-title-link" itemprop="url">数据科学：t-SNE 的原理与应用</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-10-18 17:03:23" itemprop="dateCreated datePublished" datetime="2024-10-18T17:03:23Z">2024-10-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-10-18 17:43:17" itemprop="dateModified" datetime="2024-10-18T17:43:17Z">2024-10-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Data-Science/" itemprop="url" rel="index"><span itemprop="name">Data Science</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline: </span>
+  
+    <a title="waline" href="/Tsne/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/Tsne/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="https://upload.wikimedia.org/wikipedia/commons/9/94/T-SNE_visualisation_of_word_embeddings_generated_using_19th_century_literature.png"></p>
+<div align="center">
+使用 19 世纪文献生成的词嵌入的 T-SNE 可视化
+</div>
+
+<h2 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h2><p>t 分布随机邻域嵌入(t-SNE) 是一种统计方法，通过为每个数据点在二维或三维地图中赋予一个位置来可视化高维数据。它是一种非线性降维技术，用于在二维或三维低维空间中嵌入高维数据以进行可视化。具体而言，它通过二维或三维点对每个高维对象进行建模，这样相似的对象由附近的点建模，而不同的对象则以高概率由远处的点建模。<br>t-SNE 算法包括两个主要阶段。首先，t-SNE 在高维对象对上构建一个概率分布，这样相似的对象被分配更高的概率，而不同的点被分配更低的概率。其次，t-SNE 在低维图中的点上定义一个相似的概率分布，并最小化两个分布之间关于图中点位置的Kullback-Leibler 散度（<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence">KL 散度</a>）。<br>对于包含n 个元素的数据集，t-SNE 的运行时间为$O(n^2)$，空间为$O( n^2)$。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/Tsne/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://hwchai.com/AI-STFT/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -919,7 +1030,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <p><img src="https://s21.ax1x.com/2024/10/18/pAUgbg1.png"></p>
-<p>The short-time Fourier transform (STFT) is a Fourier-related transform used to determine the sinusoidal frequency and phase content of local sections of a signal as it changes over time. In practice, the procedure for computing STFTs is to divide a longer time signal into shorter segments of equal length and then compute the Fourier transform separately on each shorter segment. This reveals the Fourier spectrum on each shorter segment. One then usually plots the changing spectra as a function of time, known as a spectrogram or waterfall plot, such as commonly used in software defined radio (SDR) based spectrum displays. Full bandwidth displays covering the whole range of an SDR commonly use fast Fourier transforms (FFTs) with 2^24 points on desktop computers.</p>
+<p>The short-time Fourier transform (STFT) is a Fourier-related transform used to determine the sinusoidal frequency and phase content of local sections of a signal as it changes over time. In practice, the procedure for computing STFTs is to divide a longer time signal into shorter segments of equal length and then compute the Fourier transform separately on each shorter segment. This reveals the Fourier spectrum on each shorter segment. One then usually plots the changing spectra as a function of time, known as a spectrogram or waterfall plot, such as commonly used in software defined radio (SDR) based spectrum displays. Full bandwidth displays covering the whole range of an SDR commonly use fast Fourier transforms (FFTs) with $2^24$ points on desktop computers.</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/AI-STFT/#more" rel="contents">
@@ -1146,117 +1257,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/AI-DataLoader/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://hwchai.com/AI-Repeatability/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/gamersky.gif">
-      <meta itemprop="name" content="Hai-Wei Chai (柴海伟)">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hai-Wei Chai's Blog">
-      <meta itemprop="description" content="I am a slow walker, but never backwards!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hai-Wei Chai's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/AI-Repeatability/" class="post-title-link" itemprop="url">人工智能：Pytorch训练可重复性（Reproducibility）</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-10-16 18:04:43" itemprop="dateCreated datePublished" datetime="2024-10-16T18:04:43Z">2024-10-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-10-16 19:43:01" itemprop="dateModified" datetime="2024-10-16T19:43:01Z">2024-10-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Artificial-Intelligence/" itemprop="url" rel="index"><span itemprop="name">Artificial Intelligence</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline: </span>
-  
-    <a title="waline" href="/AI-Repeatability/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/AI-Repeatability/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><img src="https://s21.ax1x.com/2024/10/17/pAUAM6J.jpg"></p>
-<p>在不同的 PyTorch 版本或不同平台上，不能保证完全可复现的结果。此外，即使使用相同的随机种子，CPU 和 GPU 执行之间的结果也可能无法复现。但是，您可以采取措施来限制平台、设备和 PyTorch 版本的非确定性行为来源。首先，您可以控制随机性的来源，这些来源会导致应用程序的多次执行表现不同。其次，您可以将 PyTorch 配置为避免对某些操作使用非确定性算法，以便在给定相同输入的情况下，对这些操作的多次调用将产生相同的结果。最后，在执行多进程数据加载时还需注意控制加载的随机性工作进程种子。本文内容参考 Pytorch 官方文档：<a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/notes/randomness.html#controlling-sources-of-randomness">https://pytorch.org/docs/stable/notes/randomness.html#controlling-sources-of-randomness</a></p>
-<blockquote class="blockquote-center">
-<p>Deterministic operations are often slower than nondeterministic operations, so single-run performance may decrease for your model. However, determinism may save time in development by facilitating experimentation, debugging, and regression testing.</p>
-
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/AI-Repeatability/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
