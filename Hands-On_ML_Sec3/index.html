@@ -419,8 +419,17 @@
 <p>让我们做一个预测，并检查训练的分类器的数量：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>ovr_clf.predict([some_digit]) </span><br><span class="line">array([<span class="string">&#x27;5&#x27;</span>], dtype=<span class="string">&#x27;&lt;U1&#x27;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">len</span>(ovr_clf.estimators_)</span><br><span class="line"><span class="number">10</span></span><br></pre></td></tr></table></figure>
 
+<p>在多类数据集上训练 SGDClassifier 并使用它进行预测也同样简单：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;sgd_clf = SGDClassifier(random_state=<span class="number">42</span>)</span><br><span class="line">&gt;&gt;&gt;sgd_clf.fit(X_train, y_train)</span><br><span class="line">&gt;&gt;&gt;sgd_clf.predict([some_digit])</span><br><span class="line">array([<span class="string">&#x27;3&#x27;</span>], dtype=<span class="string">&#x27;&lt;U1&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
+<p>哎呀，这是不正确的。预测错误确实会发生！这次 Scikit-Learn 在底层使用了OvR策略：因为有10个类，所以它训练了10个二元分类器。decision_function()方法现在每个类返回一个值。让我们看看 SGD 分类器分配给每个类的分数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>sgd_clf.decision_function([some_digit]).<span class="built_in">round</span>()</span><br><span class="line">array([[-<span class="number">31893.</span>, -<span class="number">34420.</span>, -<span class="number">9531.</span>, <span class="number">1824.</span>, -<span class="number">22320.</span>, -<span class="number">1386.</span>, -<span class="number">26189.</span>,-<span class="number">16148.</span>, -<span class="number">4604.</span>,-<span class="number">12051.</span>]])</span><br></pre></td></tr></table></figure>
 
+<p>你可以看到分类器对它的预测不是很有信心：几乎所有的分数都是非常负的，而类3的分数是+1824，类5的分数是-1386，并没有落后太多。当然，您需要在多个图像上评估这个分类器。由于每个类中有大致相同数量的图像，因此精度度量很好。像往常一样，你可以使用 cross_val_score() 函数来评估模型：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>cross_val_score(sgd_clf, X_train, y_train, cv=<span class="number">3</span>, scoring=<span class="string">&quot;accuracy&quot;</span>)</span><br><span class="line">array([<span class="number">0.87365</span>, <span class="number">0.85835</span>, <span class="number">0.8689</span> ])</span><br></pre></td></tr></table></figure>
+
+<p>它在所有测试折叠中都超过了85.8%。如果你使用随机分类器，你会得到10%的准确率，所以这不是一个糟糕的分数，但你仍然可以做得更好。简单地缩放输入（如第2章所述）将精度提高到89.1%以上：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>scaler = StandardScaler()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>X_train_scaled = scaler.fit_transform(X_train.astype(<span class="string">&quot;float64&quot;</span>))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>cross_val_score(sgd_clf, X_train_scaled, y_train, cv=<span class="number">3</span>, scoring=<span class="string">&quot;accuracy&quot;</span>) </span><br><span class="line">array([<span class="number">0.8983</span>, <span class="number">0.891</span> , <span class="number">0.9018</span>])</span><br></pre></td></tr></table></figure>
 
 
 
@@ -484,6 +493,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/Exp012-book02/" rel="next" title="另一种选择">
+                  另一种选择 <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>
