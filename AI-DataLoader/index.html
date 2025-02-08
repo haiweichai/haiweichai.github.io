@@ -144,7 +144,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">数据集类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%A0%E5%B0%84%E5%BC%8F%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-number">1.1.</span> <span class="nav-text">映射式数据集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E8%BF%AD%E4%BB%A3%E5%BC%8F%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-number">1.2.</span> <span class="nav-text">可迭代式数据集</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%8A%A0%E8%BD%BD%E9%A1%BA%E5%BA%8F%E5%92%8C-Sampler"><span class="nav-number">2.</span> <span class="nav-text">数据加载顺序和 Sampler</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E8%BD%BD%E6%89%B9%E5%A4%84%E7%90%86%E5%92%8C%E9%9D%9E%E6%89%B9%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE"><span class="nav-number">3.</span> <span class="nav-text">加载批处理和非批处理数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E6%89%B9%E5%A4%84%E7%90%86%EF%BC%88%E9%BB%98%E8%AE%A4%EF%BC%89"><span class="nav-number">3.1.</span> <span class="nav-text">自动批处理（默认）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A6%81%E7%94%A8%E8%87%AA%E5%8A%A8%E6%89%B9%E5%A4%84%E7%90%86"><span class="nav-number">3.2.</span> <span class="nav-text">禁用自动批处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8collate-fn"><span class="nav-number">3.3.</span> <span class="nav-text">使用collate_fn</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%A4%9A%E8%BF%9B%E7%A8%8B%E6%95%B0%E6%8D%AE%E5%8A%A0%E8%BD%BD"><span class="nav-number">4.</span> <span class="nav-text">单进程和多进程数据加载</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E8%BF%9B%E7%A8%8B%E6%95%B0%E6%8D%AE%E5%8A%A0%E8%BD%BD%EF%BC%88%E9%BB%98%E8%AE%A4%EF%BC%89"><span class="nav-number">4.1.</span> <span class="nav-text">单进程数据加载（默认）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E8%BF%9B%E7%A8%8B%E6%95%B0%E6%8D%AE%E5%8A%A0%E8%BD%BD"><span class="nav-number">4.2.</span> <span class="nav-text">多进程数据加载</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E9%94%81%E5%AE%9A"><span class="nav-number">5.</span> <span class="nav-text">内存锁定</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Extend-default-collate-by-in-place-modifying-default-collate-fn-map"><span class="nav-number"></span> <span class="nav-text">Extend default_collate by in-place modifying default_collate_fn_map</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Example-with-a-batch-of-ints"><span class="nav-number"></span> <span class="nav-text">Example with a batch of ints:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Example-with-a-batch-of-strs"><span class="nav-number"></span> <span class="nav-text">Example with a batch of strs:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Example-with-Map-inside-the-batch"><span class="nav-number"></span> <span class="nav-text">Example with Map inside the batch:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Example-with-NamedTuple-inside-the-batch"><span class="nav-number"></span> <span class="nav-text">Example with NamedTuple inside the batch:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Example-with-Tuple-inside-the-batch"><span class="nav-number"></span> <span class="nav-text">Example with Tuple inside the batch:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Example-with-List-inside-the-batch"><span class="nav-number"></span> <span class="nav-text">Example with List inside the batch:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Two-options-to-extend-default-collate-to-handle-specific-type"><span class="nav-number"></span> <span class="nav-text">Two options to extend default_collate to handle specific type</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Option-1-Write-custom-collate-function-and-invoke-default-collate"><span class="nav-number"></span> <span class="nav-text">Option 1: Write custom collate function and invoke default_collate</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Option-2-In-place-modify-default-collate-fn-map"><span class="nav-number"></span> <span class="nav-text">Option 2: In-place modify default_collate_fn_map</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Example-with-int"><span class="nav-number"></span> <span class="nav-text">Example with int</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Example-with-NumPy-array"><span class="nav-number"></span> <span class="nav-text">Example with NumPy array</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Example-with-NamedTuple"><span class="nav-number"></span> <span class="nav-text">Example with NamedTuple</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Example-with-List"><span class="nav-number"></span> <span class="nav-text">Example with List</span></a></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">数据集类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%A0%E5%B0%84%E5%BC%8F%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-number">1.1.</span> <span class="nav-text">映射式数据集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E8%BF%AD%E4%BB%A3%E5%BC%8F%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-number">1.2.</span> <span class="nav-text">可迭代式数据集</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%8A%A0%E8%BD%BD%E9%A1%BA%E5%BA%8F%E5%92%8C-Sampler"><span class="nav-number">2.</span> <span class="nav-text">数据加载顺序和 Sampler</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E8%BD%BD%E6%89%B9%E5%A4%84%E7%90%86%E5%92%8C%E9%9D%9E%E6%89%B9%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE"><span class="nav-number">3.</span> <span class="nav-text">加载批处理和非批处理数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E6%89%B9%E5%A4%84%E7%90%86%EF%BC%88%E9%BB%98%E8%AE%A4%EF%BC%89"><span class="nav-number">3.1.</span> <span class="nav-text">自动批处理（默认）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A6%81%E7%94%A8%E8%87%AA%E5%8A%A8%E6%89%B9%E5%A4%84%E7%90%86"><span class="nav-number">3.2.</span> <span class="nav-text">禁用自动批处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8collate-fn"><span class="nav-number">3.3.</span> <span class="nav-text">使用collate_fn</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%A4%9A%E8%BF%9B%E7%A8%8B%E6%95%B0%E6%8D%AE%E5%8A%A0%E8%BD%BD"><span class="nav-number">4.</span> <span class="nav-text">单进程和多进程数据加载</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E8%BF%9B%E7%A8%8B%E6%95%B0%E6%8D%AE%E5%8A%A0%E8%BD%BD%EF%BC%88%E9%BB%98%E8%AE%A4%EF%BC%89"><span class="nav-number">4.1.</span> <span class="nav-text">单进程数据加载（默认）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E8%BF%9B%E7%A8%8B%E6%95%B0%E6%8D%AE%E5%8A%A0%E8%BD%BD"><span class="nav-number">4.2.</span> <span class="nav-text">多进程数据加载</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E9%94%81%E5%AE%9A"><span class="nav-number">5.</span> <span class="nav-text">内存锁定</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -159,7 +159,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -168,7 +168,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -422,25 +422,12 @@
 <p>参数<br>** batch – 要整理的单个批次</p>
 <p>collate_fn_map (Optional[Dict[Union[Type, Tuple[Type, …]], Callable]]) – 可选字典，将元素类型映射到相应的整理函数。如果元素类型不在此字典中，则此函数将按插入顺序遍历字典中的每个键，如果元素类型是键的子类，则调用相应的整理函数。</p>
 <p>示例</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>def collate_tensor_fn(batch, *, collate_fn_map):<br>…     # Extend this function to handle batch of tensors<br>…     return torch.stack(batch, 0)</p>
-<blockquote>
-<blockquote>
-<p>def custom_collate(batch):<br>…     collate_map &#x3D; {torch.Tensor: collate_tensor_fn}<br>…     return collate(batch, collate_fn_map&#x3D;collate_map)</p>
-<blockquote>
-<blockquote>
-<h1 id="Extend-default-collate-by-in-place-modifying-default-collate-fn-map"><a href="#Extend-default-collate-by-in-place-modifying-default-collate-fn-map" class="headerlink" title="Extend default_collate by in-place modifying default_collate_fn_map"></a>Extend <code>default_collate</code> by in-place modifying <code>default_collate_fn_map</code></h1><p>default_collate_fn_map.update({torch.Tensor: collate_tensor_fn})<br>注意</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">def</span> <span class="title function_">collate_tensor_fn</span>(<span class="params">batch, *, collate_fn_map</span>):</span><br><span class="line"><span class="meta">... </span>    <span class="comment"># Extend this function to handle batch of tensors</span></span><br><span class="line"><span class="meta">... </span>    <span class="keyword">return</span> torch.stack(batch, <span class="number">0</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">def</span> <span class="title function_">custom_collate</span>(<span class="params">batch</span>):</span><br><span class="line"><span class="meta">... </span>    collate_map = &#123;torch.Tensor: collate_tensor_fn&#125;</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">return</span> collate(batch, collate_fn_map=collate_map)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment"># Extend `default_collate` by in-place modifying `default_collate_fn_map`</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>default_collate_fn_map.update(&#123;torch.Tensor: collate_tensor_fn&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>注意</p>
 <p>每个整理函数都需要一个批次的定位参数和一个整理函数字典的关键字参数，作为 collate_fn_map。</p>
-<p>torch.utils.data.default_collate(batch)[source]<br>接收一批数据，并将批次中的元素放入一个具有额外的外部维度（批次大小）的张量中。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.utils.data.default_collate(batch)[source]</span><br></pre></td></tr></table></figure>
+<p>接收一批数据，并将批次中的元素放入一个具有额外的外部维度（批次大小）的张量中。</p>
 <p>确切的输出类型可以是 torch.Tensor、Sequence 的 torch.Tensor、torch.Tensor 的集合，或者保持不变，具体取决于输入类型。 当在 DataLoader 中定义了 batch_size 或 batch_sampler 时，这将用作合并的默认函数。</p>
 <p>以下是通用输入类型（基于批次内元素的类型）到输出类型映射</p>
 <p>torch.Tensor -&gt; torch.Tensor（添加了外部维度批次大小）</p>
@@ -454,84 +441,19 @@
 <p>Sequence[V1_i, V2_i, …] -&gt; Sequence[default_collate([V1_1, V1_2, …]), default_collate([V2_1, V2_2, …]), …]</p>
 <p>参数<br>batch – 要整理的单个批次</p>
 <p>示例</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<h1 id="Example-with-a-batch-of-ints"><a href="#Example-with-a-batch-of-ints" class="headerlink" title="Example with a batch of ints:"></a>Example with a batch of <code>int</code>s:</h1><p>default_collate([0, 1, 2, 3])<br>tensor([0, 1, 2, 3])</p>
-<blockquote>
-<blockquote>
-<h1 id="Example-with-a-batch-of-strs"><a href="#Example-with-a-batch-of-strs" class="headerlink" title="Example with a batch of strs:"></a>Example with a batch of <code>str</code>s:</h1><p>default_collate([‘a’, ‘b’, ‘c’])<br>[‘a’, ‘b’, ‘c’]</p>
-<blockquote>
-<blockquote>
-<h1 id="Example-with-Map-inside-the-batch"><a href="#Example-with-Map-inside-the-batch" class="headerlink" title="Example with Map inside the batch:"></a>Example with <code>Map</code> inside the batch:</h1><p>default_collate([{‘A’: 0, ‘B’: 1}, {‘A’: 100, ‘B’: 100}])<br>{‘A’: tensor([  0, 100]), ‘B’: tensor([  1, 100])}</p>
-<blockquote>
-<blockquote>
-<h1 id="Example-with-NamedTuple-inside-the-batch"><a href="#Example-with-NamedTuple-inside-the-batch" class="headerlink" title="Example with NamedTuple inside the batch:"></a>Example with <code>NamedTuple</code> inside the batch:</h1><p>Point &#x3D; namedtuple(‘Point’, [‘x’, ‘y’])<br>default_collate([Point(0, 0), Point(1, 1)])<br>Point(x&#x3D;tensor([0, 1]), y&#x3D;tensor([0, 1]))</p>
-<blockquote>
-<blockquote>
-<h1 id="Example-with-Tuple-inside-the-batch"><a href="#Example-with-Tuple-inside-the-batch" class="headerlink" title="Example with Tuple inside the batch:"></a>Example with <code>Tuple</code> inside the batch:</h1><p>default_collate([(0, 1), (2, 3)])<br>[tensor([0, 2]), tensor([1, 3])]</p>
-<blockquote>
-<blockquote>
-<h1 id="Example-with-List-inside-the-batch"><a href="#Example-with-List-inside-the-batch" class="headerlink" title="Example with List inside the batch:"></a>Example with <code>List</code> inside the batch:</h1><p>default_collate([[0, 1], [2, 3]])<br>[tensor([0, 2]), tensor([1, 3])]</p>
-<blockquote>
-<blockquote>
-<h1 id="Two-options-to-extend-default-collate-to-handle-specific-type"><a href="#Two-options-to-extend-default-collate-to-handle-specific-type" class="headerlink" title="Two options to extend default_collate to handle specific type"></a>Two options to extend <code>default_collate</code> to handle specific type</h1><h1 id="Option-1-Write-custom-collate-function-and-invoke-default-collate"><a href="#Option-1-Write-custom-collate-function-and-invoke-default-collate" class="headerlink" title="Option 1: Write custom collate function and invoke default_collate"></a>Option 1: Write custom collate function and invoke <code>default_collate</code></h1><p>def custom_collate(batch):<br>…     elem &#x3D; batch[0]<br>…     if isinstance(elem, CustomType):  # Some custom condition<br>…         return …<br>…     else:  # Fall back to <code>default_collate</code><br>…         return default_collate(batch)</p>
-<blockquote>
-<blockquote>
-<h1 id="Option-2-In-place-modify-default-collate-fn-map"><a href="#Option-2-In-place-modify-default-collate-fn-map" class="headerlink" title="Option 2: In-place modify default_collate_fn_map"></a>Option 2: In-place modify <code>default_collate_fn_map</code></h1><p>def collate_customtype_fn(batch, *, collate_fn_map&#x3D;None):<br>…     return …</p>
-<blockquote>
-<blockquote>
-<p>default_collate_fn_map.update(CustomType, collate_customtype_fn)<br>default_collate(batch)  # Handle <code>CustomType</code> automatically<br>torch.utils.data.default_convert(data)[source]<br>将每个 NumPy 数组元素转换为 torch.Tensor。</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment"># Example with a batch of `int`s:</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>default_collate([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">tensor([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment"># Example with a batch of `str`s:</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>default_collate([<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>])</span><br><span class="line">[<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment"># Example with `Map` inside the batch:</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>default_collate([&#123;<span class="string">&#x27;A&#x27;</span>: <span class="number">0</span>, <span class="string">&#x27;B&#x27;</span>: <span class="number">1</span>&#125;, &#123;<span class="string">&#x27;A&#x27;</span>: <span class="number">100</span>, <span class="string">&#x27;B&#x27;</span>: <span class="number">100</span>&#125;])</span><br><span class="line">&#123;<span class="string">&#x27;A&#x27;</span>: tensor([  <span class="number">0</span>, <span class="number">100</span>]), <span class="string">&#x27;B&#x27;</span>: tensor([  <span class="number">1</span>, <span class="number">100</span>])&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment"># Example with `NamedTuple` inside the batch:</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Point = namedtuple(<span class="string">&#x27;Point&#x27;</span>, [<span class="string">&#x27;x&#x27;</span>, <span class="string">&#x27;y&#x27;</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>default_collate([Point(<span class="number">0</span>, <span class="number">0</span>), Point(<span class="number">1</span>, <span class="number">1</span>)])</span><br><span class="line">Point(x=tensor([<span class="number">0</span>, <span class="number">1</span>]), y=tensor([<span class="number">0</span>, <span class="number">1</span>]))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment"># Example with `Tuple` inside the batch:</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>default_collate([(<span class="number">0</span>, <span class="number">1</span>), (<span class="number">2</span>, <span class="number">3</span>)])</span><br><span class="line">[tensor([<span class="number">0</span>, <span class="number">2</span>]), tensor([<span class="number">1</span>, <span class="number">3</span>])]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment"># Example with `List` inside the batch:</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>default_collate([[<span class="number">0</span>, <span class="number">1</span>], [<span class="number">2</span>, <span class="number">3</span>]])</span><br><span class="line">[tensor([<span class="number">0</span>, <span class="number">2</span>]), tensor([<span class="number">1</span>, <span class="number">3</span>])]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment"># Two options to extend `default_collate` to handle specific type</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment"># Option 1: Write custom collate function and invoke `default_collate`</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">def</span> <span class="title function_">custom_collate</span>(<span class="params">batch</span>):</span><br><span class="line"><span class="meta">... </span>    elem = batch[<span class="number">0</span>]</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">if</span> <span class="built_in">isinstance</span>(elem, CustomType):  <span class="comment"># Some custom condition</span></span><br><span class="line"><span class="meta">... </span>        <span class="keyword">return</span> ...</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">else</span>:  <span class="comment"># Fall back to `default_collate`</span></span><br><span class="line"><span class="meta">... </span>        <span class="keyword">return</span> default_collate(batch)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment"># Option 2: In-place modify `default_collate_fn_map`</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">def</span> <span class="title function_">collate_customtype_fn</span>(<span class="params">batch, *, collate_fn_map=<span class="literal">None</span></span>):</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">return</span> ...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>default_collate_fn_map.update(CustomType, collate_customtype_fn)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>default_collate(batch)  <span class="comment"># Handle `CustomType` automatically</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.utils.data.default_convert(data)[source]</span><br></pre></td></tr></table></figure>
+<p>将每个 NumPy 数组元素转换为 torch.Tensor。</p>
 <p>如果输入是 Sequence、Collection 或 Mapping，它会尝试将内部的每个元素转换为 torch.Tensor。 如果输入不是 NumPy 数组，则保持不变。 当在 DataLoader 中未定义 batch_sampler 和 batch_size 时，这将用作合并的默认函数。</p>
 <p>通用输入类型到输出类型映射类似于 default_collate()。 有关更多详细信息，请参阅那里的描述。</p>
 <p>参数<br>data – 要转换的单个数据点</p>
 <p>示例</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<h1 id="Example-with-int"><a href="#Example-with-int" class="headerlink" title="Example with int"></a>Example with <code>int</code></h1><p>default_convert(0)<br>0</p>
-<blockquote>
-<blockquote>
-<h1 id="Example-with-NumPy-array"><a href="#Example-with-NumPy-array" class="headerlink" title="Example with NumPy array"></a>Example with NumPy array</h1><p>default_convert(np.array([0, 1]))<br>tensor([0, 1])</p>
-<blockquote>
-<blockquote>
-<h1 id="Example-with-NamedTuple"><a href="#Example-with-NamedTuple" class="headerlink" title="Example with NamedTuple"></a>Example with NamedTuple</h1><p>Point &#x3D; namedtuple(‘Point’, [‘x’, ‘y’])<br>default_convert(Point(0, 0))<br>Point(x&#x3D;0, y&#x3D;0)</p>
-<blockquote>
-<blockquote>
-<p>default_convert(Point(np.array(0), np.array(0)))<br>Point(x&#x3D;tensor(0), y&#x3D;tensor(0))</p>
-<blockquote>
-<blockquote>
-<h1 id="Example-with-List"><a href="#Example-with-List" class="headerlink" title="Example with List"></a>Example with List</h1><p>default_convert([np.array([0, 1]), np.array([2, 3])])<br>[tensor([0, 1]), tensor([2, 3])]<br>torch.utils.data.get_worker_info()[source]<br>返回有关当前 DataLoader 迭代器工作进程的信息。</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment"># Example with `int`</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>default_convert(<span class="number">0</span>)</span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment"># Example with NumPy array</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>default_convert(np.array([<span class="number">0</span>, <span class="number">1</span>]))</span><br><span class="line">tensor([<span class="number">0</span>, <span class="number">1</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment"># Example with NamedTuple</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Point = namedtuple(<span class="string">&#x27;Point&#x27;</span>, [<span class="string">&#x27;x&#x27;</span>, <span class="string">&#x27;y&#x27;</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>default_convert(Point(<span class="number">0</span>, <span class="number">0</span>))</span><br><span class="line">Point(x=<span class="number">0</span>, y=<span class="number">0</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>default_convert(Point(np.array(<span class="number">0</span>), np.array(<span class="number">0</span>)))</span><br><span class="line">Point(x=tensor(<span class="number">0</span>), y=tensor(<span class="number">0</span>))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment"># Example with List</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>default_convert([np.array([<span class="number">0</span>, <span class="number">1</span>]), np.array([<span class="number">2</span>, <span class="number">3</span>])])</span><br><span class="line">[tensor([<span class="number">0</span>, <span class="number">1</span>]), tensor([<span class="number">2</span>, <span class="number">3</span>])]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.utils.data.get_worker_info()[source]</span><br></pre></td></tr></table></figure>
+
+<p>返回有关当前 DataLoader 迭代器工作进程的信息。</p>
 <p>在工作进程中调用时，这将返回一个保证具有以下属性的对象</p>
 <p>id：当前工作进程 ID。</p>
 <p>num_workers：工作进程的总数。</p>
@@ -541,51 +463,31 @@
 <p>注意</p>
 <p>当在传递给 DataLoader 的 worker_init_fn 中使用时，此方法可用于以不同的方式设置每个工作进程，例如，使用 worker_id 配置 dataset 对象以仅读取分片数据集的特定部分，或使用 seed 为数据集代码中使用的其他库设置种子。</p>
 <p>返回类型<br>Optional[WorkerInfo]</p>
-<p>torch.utils.data.random_split(dataset, lengths, generator&#x3D;&lt;torch._C.Generator object&gt;)[source]<br>将数据集随机拆分为给定长度的非重叠新数据集。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.utils.data.random_split(dataset, lengths, generator=&lt;torch._C.Generator <span class="built_in">object</span>&gt;)[source]</span><br></pre></td></tr></table></figure>
+<p>将数据集随机拆分为给定长度的非重叠新数据集。</p>
 <p>如果给定一个加起来为 1 的分数列表，则长度将自动计算为每个提供的分数的 floor(frac * len(dataset))。</p>
 <p>计算长度后，如果存在任何余数，将以循环方式将 1 个计数分配给长度，直到没有余数为止。</p>
 <p>可以选择固定生成器以获得可重复的结果，例如：</p>
 <p>示例</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>generator1 &#x3D; torch.Generator().manual_seed(42)<br>generator2 &#x3D; torch.Generator().manual_seed(42)<br>random_split(range(10), [3, 7], generator&#x3D;generator1)<br>random_split(range(30), [0.3, 0.3, 0.4], generator&#x3D;generator2)<br>参数<br>dataset (Dataset) – 要拆分的Dataset</p>
-</blockquote>
-</blockquote>
-</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>generator1 = torch.Generator().manual_seed(<span class="number">42</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>generator2 = torch.Generator().manual_seed(<span class="number">42</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>random_split(<span class="built_in">range</span>(<span class="number">10</span>), [<span class="number">3</span>, <span class="number">7</span>], generator=generator1)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>random_split(<span class="built_in">range</span>(<span class="number">30</span>), [<span class="number">0.3</span>, <span class="number">0.3</span>, <span class="number">0.4</span>], generator=generator2)</span><br></pre></td></tr></table></figure>
+
+<p>参数<br>dataset (Dataset) – 要拆分的Dataset</p>
 <p>lengths (sequence) – 要生成的拆分的长度或分数</p>
 <p>generator (Generator) – 用于随机排列的生成器。</p>
 <p>返回类型<br>List[Subset[T]]</p>
-<p>classtorch.utils.data.Sampler(data_source&#x3D;None)[source]<br>所有 Sampler 的基类。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">classtorch.utils.data.Sampler(data_source=<span class="literal">None</span>)[source]</span><br></pre></td></tr></table></figure>
+
+<p>所有 Sampler 的基类。</p>
 <p>每个 Sampler 子类都必须提供一个 <strong>iter</strong>() 方法，提供一种方法来迭代数据集元素的索引或索引列表（批次），并且可以提供一个 <strong>len</strong>() 方法，该方法返回返回的迭代器的长度。</p>
 <p>参数<br>data_source (Dataset) – 此参数未使用，将在 2.2.0 中删除。 您可能仍然拥有利用它的自定义实现。</p>
 <p>示例</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>class AccedingSequenceLengthSampler(Sampler[int]):<br>    def <strong>init</strong>(self, data: List[str]) -&gt; None:<br>        self.data &#x3D; data</p>
-<pre><code>def __len__(self) -&gt; int:
-    return len(self.data)
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">class</span> <span class="title class_">AccedingSequenceLengthSampler</span>(Sampler[<span class="built_in">int</span>]):</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, data: <span class="type">List</span>[<span class="built_in">str</span>]</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>        <span class="variable language_">self</span>.data = data</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>    <span class="keyword">def</span> <span class="title function_">__len__</span>(<span class="params">self</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>        <span class="keyword">return</span> <span class="built_in">len</span>(<span class="variable language_">self</span>.data)</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>    <span class="keyword">def</span> <span class="title function_">__iter__</span>(<span class="params">self</span>) -&gt; Iterator[<span class="built_in">int</span>]:</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>        sizes = torch.tensor([<span class="built_in">len</span>(x) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="variable language_">self</span>.data])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>        <span class="keyword">yield</span> <span class="keyword">from</span> torch.argsort(sizes).tolist()</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">class</span> <span class="title class_">AccedingSequenceLengthBatchSampler</span>(Sampler[<span class="type">List</span>[<span class="built_in">int</span>]]):</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, data: <span class="type">List</span>[<span class="built_in">str</span>], batch_size: <span class="built_in">int</span></span>) -&gt; <span class="literal">None</span>:</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>        <span class="variable language_">self</span>.data = data</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>        <span class="variable language_">self</span>.batch_size = batch_size</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>    <span class="keyword">def</span> <span class="title function_">__len__</span>(<span class="params">self</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>        <span class="keyword">return</span> (<span class="built_in">len</span>(<span class="variable language_">self</span>.data) + <span class="variable language_">self</span>.batch_size - <span class="number">1</span>) // <span class="variable language_">self</span>.batch_size</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>    <span class="keyword">def</span> <span class="title function_">__iter__</span>(<span class="params">self</span>) -&gt; Iterator[<span class="type">List</span>[<span class="built_in">int</span>]]:</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>        sizes = torch.tensor([<span class="built_in">len</span>(x) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="variable language_">self</span>.data])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>        <span class="keyword">for</span> batch <span class="keyword">in</span> torch.chunk(torch.argsort(sizes), <span class="built_in">len</span>(<span class="variable language_">self</span>)):</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>            <span class="keyword">yield</span> batch.tolist()</span><br></pre></td></tr></table></figure>
 
-def __iter__(self) -&gt; Iterator[int]:
-    sizes = torch.tensor([len(x) for x in self.data])
-    yield from torch.argsort(sizes).tolist()
-</code></pre>
-<p>class AccedingSequenceLengthBatchSampler(Sampler[List[int]]):<br>    def <strong>init</strong>(self, data: List[str], batch_size: int) -&gt; None:<br>        self.data &#x3D; data<br>        self.batch_size &#x3D; batch_size</p>
-<pre><code>def __len__(self) -&gt; int:
-    return (len(self.data) + self.batch_size - 1) // self.batch_size
-
-def __iter__(self) -&gt; Iterator[List[int]]:
-    sizes = torch.tensor([len(x) for x in self.data])
-    for batch in torch.chunk(torch.argsort(sizes), len(self)):
-        yield batch.tolist()
-</code></pre>
-</blockquote>
-</blockquote>
-</blockquote>
 <p>注意</p>
 <p><strong>len</strong>() 方法不是 DataLoader 严格要求的，但预期在涉及 DataLoader 长度的任何计算中。</p>
-<p>classtorch.utils.data.SequentialSampler(data_source)[source]<br>按顺序采样元素，始终以相同的顺序。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">classtorch.utils.data.SequentialSampler(data_source)[source]</span><br></pre></td></tr></table></figure>
+
+<p>按顺序采样元素，始终以相同的顺序。</p>
 <p>参数<br>data_source (Dataset) – 要从中采样的数据集</p>
 <p>classtorch.utils.data.RandomSampler(data_source, replacement&#x3D;False, num_samples&#x3D;None, generator&#x3D;None)[source]<br>随机采样元素。 如果没有替换，则从洗牌后的数据集采样。</p>
 <p>如果替换，则用户可以指定 num_samples 以进行抽取。</p>
@@ -602,34 +504,18 @@ def __iter__(self) -&gt; Iterator[List[int]]:
 <p>replacement (bool) – 如果为 True，则有放回地抽取样本。否则，则无放回地抽取样本，这意味着当为一行抽取一个样本索引时，就不能再为该行抽取该索引。</p>
 <p>generator (Generator) – 采样中使用的生成器。</p>
 <p>示例</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>list(WeightedRandomSampler([0.1, 0.9, 0.4, 0.7, 3.0, 0.6], 5, replacement&#x3D;True))<br>[4, 4, 1, 4, 5]</p>
-<blockquote>
-<blockquote>
-<p>list(WeightedRandomSampler([0.9, 0.4, 0.05, 0.2, 0.3, 0.1], 5, replacement&#x3D;False))<br>[0, 1, 4, 3, 2]<br>classtorch.utils.data.BatchSampler(sampler, batch_size, drop_last)[source]<br>封装另一个采样器以生成一个索引小批量。</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(WeightedRandomSampler([<span class="number">0.1</span>, <span class="number">0.9</span>, <span class="number">0.4</span>, <span class="number">0.7</span>, <span class="number">3.0</span>, <span class="number">0.6</span>], <span class="number">5</span>, replacement=<span class="literal">True</span>))</span><br><span class="line">[<span class="number">4</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(WeightedRandomSampler([<span class="number">0.9</span>, <span class="number">0.4</span>, <span class="number">0.05</span>, <span class="number">0.2</span>, <span class="number">0.3</span>, <span class="number">0.1</span>], <span class="number">5</span>, replacement=<span class="literal">False</span>))</span><br><span class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">classtorch.utils.data.BatchSampler(sampler, batch_size, drop_last)[source]</span><br></pre></td></tr></table></figure>
+<p>封装另一个采样器以生成一个索引小批量。</p>
 <p>参数<br>sampler (Sampler or Iterable) – 基本采样器。可以是任何可迭代对象</p>
 <p>batch_size (int) – 小批量的尺寸。</p>
 <p>drop_last (bool) – 如果为 True，则采样器将丢弃最后一个小批量，如果其尺寸小于 batch_size</p>
 <p>示例</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>list(BatchSampler(SequentialSampler(range(10)), batch_size&#x3D;3, drop_last&#x3D;False))<br>[[0, 1, 2], [3, 4, 5], [6, 7, 8], [9]]</p>
-<blockquote>
-<blockquote>
-<p>list(BatchSampler(SequentialSampler(range(10)), batch_size&#x3D;3, drop_last&#x3D;True))<br>[[0, 1, 2], [3, 4, 5], [6, 7, 8]]<br>classtorch.utils.data.distributed.DistributedSampler(dataset, num_replicas&#x3D;None, rank&#x3D;None, shuffle&#x3D;True, seed&#x3D;0, drop_last&#x3D;False)[source]<br>限制数据加载到数据集子集的采样器。</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(BatchSampler(SequentialSampler(<span class="built_in">range</span>(<span class="number">10</span>)), batch_size=<span class="number">3</span>, drop_last=<span class="literal">False</span>))</span><br><span class="line">[[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>], [<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>], [<span class="number">9</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">list</span>(BatchSampler(SequentialSampler(<span class="built_in">range</span>(<span class="number">10</span>)), batch_size=<span class="number">3</span>, drop_last=<span class="literal">True</span>))</span><br><span class="line">[[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>], [<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">classtorch.utils.data.distributed.DistributedSampler(dataset, num_replicas=<span class="literal">None</span>, rank=<span class="literal">None</span>, shuffle=<span class="literal">True</span>, seed=<span class="number">0</span>, drop_last=<span class="literal">False</span>)[source]</span><br></pre></td></tr></table></figure>
+<p>限制数据加载到数据集子集的采样器。</p>
 <p>它在与 torch.nn.parallel.DistributedDataParallel 结合使用时特别有用。在这种情况下，每个进程都可以将 DistributedSampler 实例作为 DataLoader 采样器传递，并加载一个独属于它的原始数据集的子集。</p>
 <p>注意</p>
 <p>假设数据集大小恒定，并且任何实例都始终以相同的顺序返回相同的元素。</p>
@@ -642,19 +528,7 @@ def __iter__(self) -&gt; Iterator[List[int]]:
 <p>警告</p>
 <p>在分布式模式下，在每个纪元开始时调用 set_epoch() 方法，在创建 DataLoader 迭代器之前，对于在多个纪元中使随机打乱正常工作是必要的。否则，将始终使用相同的排序。</p>
 <p>示例</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>sampler &#x3D; DistributedSampler(dataset) if is_distributed else None<br>loader &#x3D; DataLoader(dataset, shuffle&#x3D;(sampler is None),<br>…                     sampler&#x3D;sampler)</p>
-<blockquote>
-<blockquote>
-<p>for epoch in range(start_epoch, n_epochs):<br>…     if is_distributed:<br>…         sampler.set_epoch(epoch)<br>…     train(loader)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>sampler = DistributedSampler(dataset) <span class="keyword">if</span> is_distributed <span class="keyword">else</span> <span class="literal">None</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>loader = DataLoader(dataset, shuffle=(sampler <span class="keyword">is</span> <span class="literal">None</span>),</span><br><span class="line"><span class="meta">... </span>                    sampler=sampler)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(start_epoch, n_epochs):</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">if</span> is_distributed:</span><br><span class="line"><span class="meta">... </span>        sampler.set_epoch(epoch)</span><br><span class="line"><span class="meta">... </span>    train(loader)</span><br></pre></td></tr></table></figure>
     </div>
 
     
