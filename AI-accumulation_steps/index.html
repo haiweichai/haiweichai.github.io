@@ -142,7 +142,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81-%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E6%AF%94%E5%96%BB%EF%BC%9A%E6%9D%91%E5%A7%94%E4%BC%9A%E5%86%B3%E7%AD%96"><span class="nav-number">1.</span> <span class="nav-text">一、 一个简单的比喻：村委会决策</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81-%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3"><span class="nav-number">2.</span> <span class="nav-text">二、 技术原理详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81-%E4%BC%98%E7%BC%BA%E7%82%B9%E5%88%86%E6%9E%90"><span class="nav-number">3.</span> <span class="nav-text">三、 优缺点分析</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E6%AF%94%E5%96%BB"><span class="nav-number">1.</span> <span class="nav-text">一个简单的比喻</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3"><span class="nav-number">2.</span> <span class="nav-text">技术原理详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E7%BC%BA%E7%82%B9%E5%88%86%E6%9E%90"><span class="nav-number">3.</span> <span class="nav-text">优缺点分析</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -278,7 +278,7 @@
     <div class="post-body" itemprop="articleBody"><p><code>GRADIENT_ACCUMULATION_STEPS</code>（梯度累积步数）是一种在<strong>不增加显存（VRAM）消耗</strong>的情况下，<strong>模拟出更大批量（Batch Size）训练效果</strong>的关键技术。</p>
 <span id="more"></span>
 <hr>
-<h3 id="一、-一个简单的比喻：村委会决策"><a href="#一、-一个简单的比喻：村委会决策" class="headerlink" title="一、 一个简单的比喻：村委会决策"></a>一、 一个简单的比喻：村委会决策</h3><p>想象一下，你是一个村的村长（<strong>优化器 Optimizer</strong>），需要就一项重大决策（比如修路）征求全村所有家庭（<strong>数据集 Dataset</strong>）的意见。</p>
+<h3 id="一个简单的比喻"><a href="#一个简单的比喻" class="headerlink" title="一个简单的比喻"></a>一个简单的比喻</h3><p>想象一下，你是一个村的村长（<strong>优化器 Optimizer</strong>），需要就一项重大决策（比如修路）征求全村所有家庭（<strong>数据集 Dataset</strong>）的意见。</p>
 <ul>
 <li><p><strong>理想情况 (大批量训练)</strong>: 你有一个巨大的会议室（<strong>GPU 显存</strong>），可以一次性把所有家庭的代表都请进来，听取所有意见后，当场做出一个非常全面、稳妥的决策（<strong>一次权重更新</strong>）。这是最理想的，因为你的决策基于了最充分的信息。</p>
 </li>
@@ -297,7 +297,7 @@
 <li><strong>你决定问询多少批代表再做决策</strong>，这个“批数”就是 <code>GRADIENT_ACCUMULATION_STEPS</code>。</li>
 </ul>
 <hr>
-<h3 id="二、-技术原理详解"><a href="#二、-技术原理详解" class="headerlink" title="二、 技术原理详解"></a>二、 技术原理详解</h3><p>在标准的神经网络训练中，一个训练步骤（step）包含以下过程：</p>
+<h3 id="技术原理详解"><a href="#技术原理详解" class="headerlink" title="技术原理详解"></a>技术原理详解</h3><p>在标准的神经网络训练中，一个训练步骤（step）包含以下过程：</p>
 <ol>
 <li><strong>前向传播</strong>: 输入一个批次的数据，模型计算出预测结果和损失（loss）。</li>
 <li><strong>后向传播</strong>: 根据损失计算出每个参数的梯度（gradient），即参数应该调整的方向。</li>
@@ -322,7 +322,7 @@
 <h4 id="核心公式"><a href="#核心公式" class="headerlink" title="核心公式"></a>核心公式</h4><p><code>有效批量大小 (Effective Batch Size) = PER_DEVICE_TRAIN_BATCH_SIZE * GRADIENT_ACCUMULATION_STEPS * GPU数量</code></p>
 <p>例如，在单张 A100 上，即使你的 <code>PER_DEVICE_TRAIN_BATCH_SIZE</code> 因为显存限制只能设为 <code>2</code>，但只要将 <code>GRADIENT_ACCUMULATION_STEPS</code> 设为 <code>32</code>，你就能达到 <code>2 * 32 = 64</code> 的有效批量大小。</p>
 <hr>
-<h3 id="三、-优缺点分析"><a href="#三、-优缺点分析" class="headerlink" title="三、 优缺点分析"></a>三、 优缺点分析</h3><h4 id="优点-Pros"><a href="#优点-Pros" class="headerlink" title="优点 (Pros)"></a>优点 (Pros)</h4><ol>
+<h3 id="优缺点分析"><a href="#优缺点分析" class="headerlink" title="优缺点分析"></a>优缺点分析</h3><h4 id="优点-Pros"><a href="#优点-Pros" class="headerlink" title="优点 (Pros)"></a>优点 (Pros)</h4><ol>
 <li><strong>突破显存限制</strong>: 这是其最核心的优点。它允许我们在有限的硬件资源上训练需要大批量才能稳定收敛的超大型模型。</li>
 <li><strong>训练过程更稳定</strong>: 更大的有效批量意味着每次权重更新所依据的梯度方向更准确、噪声更小，这使得整个训练过程更加平稳，允许你使用更高的学习率。</li>
 <li><strong>可能提升模型性能</strong>: 稳定的训练过程和更准确的梯度方向，有助于模型找到更好的局部最小值，从而可能提升最终的泛化能力。</li>
@@ -331,7 +331,7 @@
 <li><strong>训练时间变长 (Wall-clock Time)</strong>: 这是最大的代价。虽然模拟了大批量，但计算过程仍然是串行的。权重更新的频率降低了，完成一个 epoch 所需的实际时间会相应增加。例如，累积32步才更新一次，意味着权重更新的频率是原来的 1&#x2F;32，完成一个 epoch 的总时间大约会是原来的数倍（具体取决于数据加载等其他开销）。</li>
 <li><strong>对特定层（如 BatchNorm）的影响</strong>: 对于包含批归一化（Batch Normalization）层的模型，梯度累积可能会带来问题。因为 <code>BatchNorm</code> 是在每个微批次上计算均值和方差的，而不是在整个“有效批量”上。这可能导致训练和推理时的统计数据不匹配。不过，现代大型语言模型（LLM）大多使用 Layer Normalization 或 RMS Normalization，它们不受批量大小的影响，因此这个问题在 LLM 训练中基本不存在。</li>
 </ol>
-<p><strong>总结</strong>: <code>GRADIENT_ACCUMULATION_STEPS</code> 是一种典型的**用时间换空间（显存）**的策略。它是大规模模型训练中不可或缺的利器，使得个人或小型机构在有限的硬件条件下训练强大的模型成为可能。</p>
+<p><strong>总结</strong>: <code>GRADIENT_ACCUMULATION_STEPS</code> 是一种典型的 <strong>用时间换显存</strong>的策略。它是大规模模型训练中不可或缺的利器，使得个人或小型机构在有限的硬件条件下训练强大的模型成为可能。</p>
 
     </div>
 
