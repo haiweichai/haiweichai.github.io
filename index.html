@@ -198,7 +198,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://hwchai.com/AL-LLM-Nvidia/">
+    <link itemprop="mainEntityOfPage" href="https://hwchai.com/flashattention/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/gamersky.gif">
@@ -216,7 +216,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/AL-LLM-Nvidia/" class="post-title-link" itemprop="url">人工智能：高效定制大语言模型</a>
+          <a href="/flashattention/" class="post-title-link" itemprop="url">attn_implementation： 在性能、显存与可复现性之间做出选择</a>
         </h2>
 
         <div class="post-meta-container">
@@ -227,14 +227,14 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2025-05-30 23:05:15" itemprop="dateCreated datePublished" datetime="2025-05-30T23:05:15Z">2025-05-30</time>
+      <time title="Created: 2025-06-20 14:37:46" itemprop="dateCreated datePublished" datetime="2025-06-20T14:37:46Z">2025-06-20</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-05-31 13:41:40" itemprop="dateModified" datetime="2025-05-31T13:41:40Z">2025-05-31</time>
+      <time title="Modified: 2025-06-20 14:38:24" itemprop="dateModified" datetime="2025-06-20T14:38:24Z">2025-06-20</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -255,8 +255,8 @@
     </span>
     <span class="post-meta-item-text">Waline: </span>
   
-    <a title="waline" href="/AL-LLM-Nvidia/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/AL-LLM-Nvidia/" itemprop="commentCount"></span>
+    <a title="waline" href="/flashattention/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/flashattention/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -270,10 +270,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>本文介绍高效定制大语言模型方法。</p>
+          <p>当您在使用 Hugging Face <code>transformers</code> 库加载模型时，可以通过 <code>attn_implementation</code> 参数来指定底层的注意力（Attention）计算方式。这是一个至关重要的参数，直接影响了模型的训练和推理速度、显存占用以及计算结果的可复现性。</p>
+<p>您在调试中发现 <code>flash_attention_2</code> 是随机性的来源，这是一个非常典型的例子，说明了前沿的性能优化有时会以牺牲一些可预测性为代价。理解不同选项的优缺点，可以帮助您根据具体需求（高性能、低显存、严格复现等）做出最优决策。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/AL-LLM-Nvidia/#more" rel="contents">
+              <a class="btn" href="/flashattention/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
