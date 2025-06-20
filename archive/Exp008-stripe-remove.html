@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Times+New+Roman:300,300italic,400,400italic,700,700italic%7CGeorgia:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hwchai.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="同步辐射 X 射线显微 CT 系统的重建图像经常遭受严重的环状伪影（ring artifacts）干扰。在正弦图中这种干扰通常呈直线或条纹状分布。它们往往来自于探测系统的不规则响应，按结构又分为如下几类：全条纹；局部条纹；震荡条纹；无响应条纹。CT 投影图像的预处理算法如变形矫正、相位恢复等都会更进一步的模糊、放大这些干扰条纹。然而目前还没有一种算法能够同时移除上述所有种类的干扰条纹。本文将介绍三">
+<meta property="og:type" content="website">
+<meta property="og:title" content="X-ray micro-CT 中消除环状伪影的高级技巧">
+<meta property="og:url" content="https://hwchai.com/archive/Exp008-stripe-remove.html">
+<meta property="og:site_name" content="Hai-Wei Chai&#39;s Blog">
+<meta property="og:description" content="同步辐射 X 射线显微 CT 系统的重建图像经常遭受严重的环状伪影（ring artifacts）干扰。在正弦图中这种干扰通常呈直线或条纹状分布。它们往往来自于探测系统的不规则响应，按结构又分为如下几类：全条纹；局部条纹；震荡条纹；无响应条纹。CT 投影图像的预处理算法如变形矫正、相位恢复等都会更进一步的模糊、放大这些干扰条纹。然而目前还没有一种算法能够同时移除上述所有种类的干扰条纹。本文将介绍三">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://hwchai.com/Exp005_table002.jpg">
+<meta property="og:image" content="https://hwchai.com/Exp005_table003.jpg">
+<meta property="og:image" content="https://hwchai.com/Exp005_table004.jpg">
+<meta property="og:image" content="https://hwchai.com/Exp005_table005.jpg">
+<meta property="article:published_time" content="2020-10-13T17:28:00.000Z">
+<meta property="article:modified_time" content="2020-09-14T19:04:01.000Z">
+<meta property="article:author" content="Hai-Wei Chai (柴海伟)">
+<meta property="article:tag" content="stripe remove">
+<meta property="article:tag" content="tomography analysis">
+<meta property="article:tag" content="image process">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hwchai.com/Exp005_table002.jpg">
+
+
+<link rel="canonical" href="https://hwchai.com/archive/Exp008-stripe-remove">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en","comments":true,"permalink":"https://hwchai.com/archive/Exp008-stripe-remove.html","path":"archive/Exp008-stripe-remove.html","title":"X-ray micro-CT 中消除环状伪影的高级技巧"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>X-ray micro-CT 中消除环状伪影的高级技巧 | Hai-Wei Chai's Blog
+</title>
+  
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="https://vercel.hwchai.com/">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hai-Wei Chai's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-house-chimney fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-list fa-fw"></i>Archives</a></li><li class="menu-item menu-item-support"><a href="/support/" rel="section"><i class="fa fa-screwdriver-wrench fa-fw"></i>Support</a></li><li class="menu-item menu-item-books"><a href="/books/" rel="section"><i class="fa fa-book fa-fw"></i>Books</a></li><li class="menu-item menu-item-scholar"><a href="/scholar/" rel="section"><i class="fa fa-chart-column fa-fw"></i>Scholar</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Methods"><span class="nav-number">2.</span> <span class="nav-text">Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B8%E5%9E%8B%E7%8E%AF%E7%8A%B6%E4%BC%AA%E5%BD%B1%E5%88%86%E7%B1%BB"><span class="nav-number">2.1.</span> <span class="nav-text">典型环状伪影分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%BB%E9%99%A4%E5%B0%8F%E5%9E%8B%E3%80%81%E4%B8%AD%E5%9E%8B%E5%B1%80%E9%83%A8%E6%9D%A1%E7%BA%B9%E5%8F%8A%E5%85%A8%E6%9D%A1%E7%BA%B9"><span class="nav-number">2.2.</span> <span class="nav-text">移除小型、中型局部条纹及全条纹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%BB%E9%99%A4%E5%A4%A7%E5%9E%8B%E6%9D%A1%E7%BA%B9"><span class="nav-number">2.3.</span> <span class="nav-text">移除大型条纹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%BB%E9%99%A4%E6%97%A0%E5%93%8D%E5%BA%94%E6%9D%A1%E7%BA%B9%E5%8F%8A%E9%9C%87%E8%8D%A1%E6%9D%A1%E7%BA%B9"><span class="nav-number">2.4.</span> <span class="nav-text">移除无响应条纹及震荡条纹</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Results"><span class="nav-number">3.</span> <span class="nav-text">Results</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%BB%E9%99%A4%E5%B1%80%E9%83%A8%E6%9D%A1%E7%BA%B9%E4%B8%8E%E5%85%A8%E6%9D%A1%E7%BA%B9%E6%96%B9%E6%B3%95%E7%9A%84%E6%AF%94%E8%BE%83"><span class="nav-number">3.1.</span> <span class="nav-text">去除局部条纹与全条纹方法的比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%BB%E9%99%A4%E5%90%84%E7%B1%BB%E6%9D%A1%E7%BA%B9%E7%9A%84%E6%96%B9%E6%B3%95%E7%BB%84%E5%90%88"><span class="nav-number">3.2.</span> <span class="nav-text">去除各类条纹的方法组合</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-number">4.</span> <span class="nav-text">Conclusion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code-and-Data"><span class="nav-number">5.</span> <span class="nav-text">Code and Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">6.</span> <span class="nav-text">References</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Hai-Wei Chai (柴海伟)"
+      src="/images/gamersky.gif">
+  <p class="site-author-name" itemprop="name">Hai-Wei Chai (柴海伟)</p>
+  <div class="site-description" itemprop="description">I am a slow walker, but never backwards!</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/haiweichai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;haiweichai" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:chw9402@mail.ustc.edu.com" title="E-Mail → mailto:chw9402@mail.ustc.edu.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner page posts-expand">
+
+
+    
+    
+    
+    <div class="post-block" lang="en"><header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">X-ray micro-CT 中消除环状伪影的高级技巧
+</h1>
+
+<div class="post-meta-container">
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <p>同步辐射 X 射线显微 CT 系统的重建图像经常遭受严重的环状伪影（ring artifacts）干扰。在正弦图中这种干扰通常呈直线或条纹状分布。它们往往来自于探测系统的不规则响应，按结构又分为如下几类：全条纹；局部条纹；震荡条纹；无响应条纹。CT 投影图像的预处理算法如变形矫正、相位恢复等都会更进一步的模糊、放大这些干扰条纹。然而目前还没有一种算法能够同时移除上述所有种类的干扰条纹。本文将介绍三种针对性解决这些干扰的算法，所有的步骤都是易于复刻的；不会带来额外的干扰；在实际应用中的效果比其他算法更好。</p>
+<p>本文所有工作均由 <a target="_blank" rel="noopener" href="https://scholar.google.com/citations?hl=en&user=ob0Q9skAAAAJ">Nghia T. Vo</a> 博士依托 Diamond Light Source, <a target="_blank" rel="noopener" href="https://www.diamond.ac.uk/Instruments/Imaging-and-Microscopy/I12/Beamline-Characteristics.html">I12-JEEP线站</a>完成。</p>
+<span id="more"></span>
+
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>&emsp;&emsp;在同步辐射层析成像系统中X射线平行光穿透试样构成的二维投影图像在 180$^\circ$ 范围内多个角度下被二维X射线探测系统所采集。将所有投影图像的第n行按角度顺序组合在一起就形成了第n行的正弦图像。对该正弦图像进行重构，即可得到样品第n层处的切片图像。探测系统任何无法被白背底校正所消除的缺陷都将在正弦图像中形成竖条纹，进而在其重构出的切片图中产生环状伪影（图(1)）。</p>
+<p>&lt;img src&#x3D;”&#x2F;Exp005_image001.jpg” width &#x3D; 60% div align&#x3D;center &#x2F; title&#x3D;”图1. 探测系统缺陷的影响：(a)正弦图中的条纹伪影；(b)切片图中的环状伪影。”&gt;</p>
+<p>&emsp;&emsp;缺陷可能来自于传感器芯片的非线性响应、光学元件污渍（尤其是闪烁体）等等。适用于同步辐射的高质量、高分辨率、耐辐射闪烁体制造始终具有一定的挑战性。长时间高通量的X射线会破坏闪烁体的微观结构，这是因为X射线照射将促使光学元件（镜子、阳极化膜等）表面不断释放粒子并沉积在闪烁体表面，进而影响闪烁体成像质量（图(2)）。虽然在慢速实验中频繁的更换与清洗可以暂时解决这个问题，但在不能中断的时间分辨成像实验中闪烁体仍然可能发生损坏。</p>
+<p>&lt;img src&#x3D;”&#x2F;Exp005_image002.jpg” width &#x3D; 60% div align&#x3D;center &#x2F; title&#x3D;”图2. 实验过程中闪烁体的退化：(a)实验开始时；(b)使用数日后。”&gt;</p>
+<p>&emsp;&emsp;目前已有许多去环状伪影算法问世。然而，面对同步辐射上采集的海量数据，只有少数低计算成本的算法被集成到层析成像重建软件包中[1-6]。这些算法按原理又可分为两类：实空间方法和频域空间方法。规范化方法（normalization-based methods）[7]及正则化方法（regularization-based methods）[8]非常易用，但只适用于抑制某些特定类型的条纹。傅里叶变换方法（FFT-based methods）[9]及小波傅里叶变换方法（wavelet-FFT-based methods）[10]可以解决更多种类的条纹，但需要调整许多参数以达到最佳效果，较难使用。此外，如果参数选择不合适，该算法还会对图像质量产生很大影响。并且，所有上面提到的算法都有两个共同的缺点：如果图像中存在高频边缘，则会带来额外的条纹伪影；提高滤波强度将会抹去切片图中心区域的原本纹理（void-center artifacts）。其他作用于切片图上的算法[11]在此不做介绍。</p>
+<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><h3 id="典型环状伪影分类"><a href="#典型环状伪影分类" class="headerlink" title="典型环状伪影分类"></a>典型环状伪影分类</h3><p>&emsp;&emsp;比较缺陷像素与邻近完好像素的强度分布特征，可将典型伪影分为如下四类。这里的强度分布指缺陷像素强度值随样品旋转角度变化的分布函数。</p>
+<p>&lt;img src&#x3D;”&#x2F;Exp005_table001.jpg” width &#x3D; 100% div align&#x3D;center &#x2F; &gt;</p>
+<p>&emsp;&emsp;无响应条纹S1可能来自于传感器芯片的坏点、遮光的粉尘（黑色块）或闪烁体损伤（白色块）。这些区域对X射线入射强度的变化都无法做出响应，导致正弦图像中出现恒定强度的竖条纹，进而将在切片图中产生醒目的半环。重建算法中的 ramp filter 将更进一步的加强这类条纹的高频边缘（图(1.b)）。</p>
+<p>&lt;img src&#x3D;”&#x2F;Exp005_image003.jpg” width &#x3D; 100% div align&#x3D;center &#x2F; title&#x3D;”图3. 缺陷像素的典型强度分布（红色）与邻近完好像素强度分布（蓝色）对比：(a)无响应条纹S1；(b)全条纹S2；(c)局部条纹S3；(d)震荡条纹S4。”&gt;</p>
+<p>&lt;img src&#x3D;”&#x2F;Exp005_image004.jpg” width &#x3D; 70% div align&#x3D;center &#x2F; title&#x3D;”图4. (a)全条纹S2、局部条纹S3以及震荡条纹S4的实物示范；(b)蓝色子区的放大视图；(c)，(d)，(e) 分别由全条纹、局部条纹、震荡条纹引起的环状伪影。”&gt;</p>
+<p>&emsp;&emsp;全条纹S2、局部条纹S3以及震荡条纹S4则来自于探测器的不完美区域，然而这些区域难以通过肉眼从投影图像中分辨出来。图(4.c-e)展示了这三类条纹所造成的重建图像中的环状伪影。图(5.a)展示了长时间使用并发生明显退化的闪烁体所采集的白背景图像。缺陷区域（defective regions, called blobs）从图中可以清晰分辨。经过平场校正的高衬度目标投影图像中，视觉上已经无法明显察觉这些缺陷区域（图(5.b)）。然而更深入的分析表明，认为投影图像与白背景图像间符合简单的线性关系是不严谨的。Nghia T. Vo提出了一种易于实现的技术来分析每个像素的响应系数分布，这有助于迅速的检测探测器隐藏的缺陷区域。以旋转范围为[0$^\circ$,90$^\circ$]的匀质玻璃板作为X射线衰减器，连续采集其在不同角度下时的投影图像，而后对所有像素的测量强度的对数与该角度下X射线穿透厚度进行线性拟合。计算得到各个像素的线性拟合偏差，即可得到如图(5.c)所示的响应系数偏差分布。对于理想探测器，应当得到一幅完全平整的响应系数偏差分布图像。</p>
+<p>&lt;img src&#x3D;”&#x2F;Exp005_image005.jpg” width &#x3D; 100% div align&#x3D;center &#x2F; title&#x3D;”图5. 平场校正图与响应系数偏差分布图对比：(a) 白背景图像；(b) 平场校正后投影图像；(c) 响应系数偏差分布；(d,e,f) 分别对应前三幅图像中方框区域的放大视图。”&gt;</p>
+<p>&emsp;&emsp;这个简易的方法对检测探测系统的非均匀响应非常有效。令人遗憾的是，所得到的响应系数偏差不能直接用于校正。在实践中，缺陷像素的响应系数取决于信号强度的动态范围和相邻区域（即闪烁体的光散射）的信号强度，而这是由样品的形状和吸收特性决定的，在不同情况下通常存在差异。图(6)展示了在相同条件下扫描的两个样品在同一行探测器上的切片图像，其中样品一（图(6.a)）产生的透射强度动态范围比样品二低得多。图(6)中可见在样本二中存在样本一中没有出现的环状伪影。样品二中的强吸收物质在闪烁体中产生了极暗弱的阴影区域，在某些角度下，阴影覆盖在闪烁体缺陷处，缺陷像素的响应系数与临近正常像素的响应系数偏差变得非常突出，进而产生了局部条纹S3。</p>
+<p>&lt;img src&#x3D;”&#x2F;Exp005_image006.jpg” width &#x3D; 50% div align&#x3D;center &#x2F; title&#x3D;”图6. 局部条纹S3存在与否取决于投影强度的动态范围。 (a) 低动态范围投影强度试样的重建切片；(b) 高动态范围投影强度试样的重建切片。”&gt;</p>
+<h3 id="移除小型、中型局部条纹及全条纹"><a href="#移除小型、中型局部条纹及全条纹" class="headerlink" title="移除小型、中型局部条纹及全条纹"></a>移除小型、中型局部条纹及全条纹</h3><p>&emsp;&emsp;从全条纹S2及局部条纹S3的典型强度分布中我们不难发现，相邻像素间强度分布的低频分量差异是这两类环状伪影的主要成因。基于这种差异消除条纹是此处介绍方法的关键。为了使相邻像素的响应系数一致，我们可以沿着正弦图像的水平方向进行平滑滤波变换。然而，这种方法将会引入空心伪影（void-center artifacts），损失重建图像中心区域的细节，顶峰多尺度科学研究所早期的CT分析工作常常遭受此干扰。为避免空心伪影，我们需要测算探测器的响应系数分布及其分布差异，而后才能对其进行平滑滤波变换或使用其他校正方法。表(2)列出了三种从正弦图像中测算响应系数分布并校准图像的方法。</p>
+<img src="/Exp005_table002.jpg" width = 100% div align=center />
+
+<p>&emsp;&emsp;虽然实现的方法不同，但是算法1与算法2的思想内核是一致的，它们的核心目标都是均衡相邻像素强度分布的低通分量。算法1的多项式阶数和算法2的窗口大小、类型的选择都是灵活的，最佳参数取决于正弦图特征的复杂程度。我们发现算法1更适用于低通分量可以用五阶以下多项式拟合的正弦图像。步骤2中平滑滤波器的强度应该在移除干扰条纹和损失真实信号间权衡。在算法1和2中有许多滤波方法及参数集的选择，本文将不再赘述此处细节。</p>
+<p>&lt;img src&#x3D;”&#x2F;Exp005_image007.jpg” width &#x3D; 95% div align&#x3D;center &#x2F; title&#x3D;”图7. 算法3在示例正弦图像上的应用：(a) 原始正弦图像；(b) 对各列排序后的正弦图像；(c) 横向平滑后的正弦图像；(d) 重新构建的正弦图像；(e) 图(7.a)与图(7.d)的差异。”&gt;</p>
+<p>&emsp;&emsp;令人惊讶的是，算法3虽然是最简单的方法，但却非常有效，它特别适用于处理局部条纹S3，而其他公开的方法都提及了处理局部条纹S3的挑战性。图(7)展示了算法3在一幅示例正弦图像上的应用，移除局部条纹后的重建图像上几乎无法察觉任何残留，如图(8)所示。算法3的原理可以通过近似假设来理解：由于透射强度随样品转动角度不断变化，探测系统内相邻区域对相近的入射通量范围进行采样；与样品中代表性的细节尺度相比，探测系统的反常区域（图(5.f)）很小。如果探测系统是理想的，那么相邻像素所探测到的投影强度在一次完整的CT扫描中的动态范围理应是几乎相同的。这意味着，如果将各像素处投影强度分布排序，相邻像素理应呈现一致的分布。在不规则区域较小的假设下，完全可以利用投影强度排序值对不规则区域进行识别、比较和校正，从而实现移除小型条纹。使用平滑滤波器是最简单的校正方法，但是在样品内锐利的边缘处将会产生伪影（图(7.e)）。边界处的artifacts将会导致重建图像中样品边缘处的环状伪影，然而，这相较于其他去环状伪影算法的副作用已经小得多了。</p>
+<p>&lt;img src&#x3D;”&#x2F;Exp005_image008.jpg” width &#x3D; 100% div align&#x3D;center &#x2F; title&#x3D;”图8. 使用算法3前后重构图像对比：(a) 图(7.a)对应重建图像;(b) 根据图(7.d)对应重建图像;(c) (a) 中红色框放大视图;(d) (b)中红色框放大视图。”&gt;</p>
+<p>&emsp;&emsp;算法3不仅在移除中小型局部条纹时非常有效，还可以替代算法1、2步骤2中的平滑滤波器。由于平滑滤波器而带来的额外风险，算法1、2只能用于移除中小型条纹。下一节将介绍针对大型条纹的处理方法，其中算法3仍然发挥着关键作用。</p>
+<h3 id="移除大型条纹"><a href="#移除大型条纹" class="headerlink" title="移除大型条纹"></a>移除大型条纹</h3><p>&emsp;&emsp;上节介绍的算法能够在不显著影响其他区域的情况下校正中小型条纹。实际上，它甚至可以有选择地只应用于有缺陷的像素处。但在实践中，当使用低强度平滑滤波器时，对正常区域的影响微乎其微，而有选择地应用则极大的提升了工作复杂度，面对同步辐射上采集的海量数据集时很不实用。然而，当面对鲜见的大尺度缺陷区域（宽度大于20像素）时，我们不得不使用高强度平滑滤波器，而对整幅图像应用高强度平滑滤波器又将显著降低图像清晰度，得不偿失。在这种情况下，对缺陷区域选择性的应用强滤波器就显得尤为重要。那么额外的缺陷检测定位方法就必不可少。</p>
+<p>&lt;img src&#x3D;”&#x2F;Exp005_image009.jpg” width &#x3D; 90% div align&#x3D;center &#x2F; title&#x3D;”图9. 大型条纹产生的原因及影响。(a) 大尺度缺陷（垂直箭头）及过曝斑点（水平箭头）；(b) 正弦图像中的大型条纹；(c) 重构图像中的环状伪影。”&gt;</p>
+<p>&emsp;&emsp;探测器的大尺度缺陷鲜少出现，它们往往会引起全条纹S2及局部条纹S3的出现。这类大尺度缺陷可能来自于闪烁体的受损的大片区域，这些区域受损后将会反射额外的散射光（halo effect）从而形成亮斑（图(9)）。为了准确地从正弦图像中检测这类缺陷，Nghia T. Vo提出了一种一维数组分割算法以分离正缺陷（亮斑）与负缺陷（暗斑），如表(3)所示。</p>
+<img src="/Exp005_table003.jpg" width = 100% div align=center />
+
+<p>&emsp;&emsp;$I_0$、$I_1$为一维数组中的最小值与最大值，$F_0$、$F_1$为数组头尾处的拟合值，如图(10.b)所示。结合可调参数$R$，计算下阀值$T_L$与上阀值$T_U$：</p>
+<p>$$T_L&#x3D;F_0-(F_1-F_0)\times R&#x2F;2, {\ \rm if\ } (F_0-I_0)&#x2F;(F_1-F_0)&gt;R.　\tag{1}\label{1}$$</p>
+<p>$$T_U&#x3D;F_1+(F_1-F_0)\times R&#x2F;2, {\ \rm if\ } (I_1-F_1)&#x2F;(F_1-F_0)&gt;R.　\tag{2}\label{2}$$</p>
+<p>&lt;img src&#x3D;”&#x2F;Exp005_image010.jpg” width &#x3D; 50% div align&#x3D;center &#x2F; title&#x3D;”图10. 算法4演示。(a) 背景校正后的一维数组。(b) 排序后的一维数组及其中段的线性拟合。”&gt;</p>
+<p>&emsp;&emsp;$R$可以理解为缺陷与背景的比值，用户可以修改$R$值来调整算法的灵敏度。通常情况下，$R$的取值在3.0以上。算法4在某些情况下也可作为二值化方法使用。算法4即为大型缺陷的检测、定位步骤，以算法4为基础构造移除大型条纹的算法5，如表(4)所示。</p>
+<img src="/Exp005_table004.jpg" width = 100% div align=center />
+
+<p>&emsp;&emsp;在算法5的步骤2中，必须去除正弦图像顶部及底部少量像素，这可以避免高频边缘引起的条纹误检测，如图(11)所示。步骤1、2和3有助于抑制部分大型条纹及小的全条纹（图(12.a)）。原理层面上，算法5是一种完全不同于正则化方法的算法。图(12.b)展示了通过算法5的后三步去除剩余局部条纹的效果。</p>
+<p>&lt;img src&#x3D;”&#x2F;Exp005_image011.jpg” width &#x3D; 70% div align&#x3D;center &#x2F; title&#x3D;”图11. 算法5中步骤2的演示。(a) 排序后的正弦图像，其中高频边缘（箭头所示）将会导致条纹误检测；(b) 对图(11.a)应用水平方向的中值滤波。”&gt;</p>
+<p>&lt;img src&#x3D;”&#x2F;Exp005_image012.jpg” width &#x3D; 70% div align&#x3D;center &#x2F; title&#x3D;”图12. 对图(9.c)应用算法5移除大型条纹的结果。(a) 应用步骤1、2和3后的重建切片图像，其中仍存在少量局部条纹（箭头所示）；(b) 完整应用算法5后的重建切片图像；(c) 最终校正后切片图像（图(12.b)）与初始切片图像（图(9.c)）的差异（difference）。”&gt;</p>
+<h3 id="移除无响应条纹及震荡条纹"><a href="#移除无响应条纹及震荡条纹" class="headerlink" title="移除无响应条纹及震荡条纹"></a>移除无响应条纹及震荡条纹</h3><p>&emsp;&emsp;无响应条纹S1及震荡条纹S4同样会在重构图像中产生环状伪影及条纹伪影（图(13)）。令人遗憾的是，这些条纹无法通过上文介绍的方法移除。因为这类条纹内的像素值和条纹外像素之间的灰度差异很大，几乎没有相关性。无响应条纹S1及震荡条纹S4间的特征强度分布也不同，无响应条纹S1的低通分量几乎保持不变（图(3.a)），而震荡条纹变化较大（图(3.d)）。这种强度分布的特点可以帮助我们通过如下信息检测此类条纹：正弦图像中横向强度分布与其低通分量间的绝对差的纵向平均（图(14.a)）；规范化上述结果（图(14.b)）；并应用算法4定位条纹。检测到条纹位置后，通过插值方法填充条纹所在位置各像素值，进而移除无响应条纹S1及震荡条纹S4。表(5)展示了移除无响应条纹S1及震荡条纹S4的步骤，即算法6。</p>
+<img src="/Exp005_table005.jpg" width = 100% div align=center />
+
+<p>&lt;img src&#x3D;”&#x2F;Exp005_image013.jpg” width &#x3D; 70% div align&#x3D;center &#x2F; title&#x3D;”图13. 无响应条纹S1及震荡条纹S4的影响。(a) 既存在无响应条纹S1（箭头）也存在震荡条纹S4（方框）的正弦图像；(b) 无响应条纹S1及震荡条纹S4导致的环状伪影；(c) 探测系统中导致无响应条纹S1的过曝斑点；(d) 图(13.a)中红色方框的放大视图；(e) 图(13.b)中红色方框的放大视图。”&gt;</p>
+<p>&lt;img src&#x3D;”&#x2F;Exp005_image014.jpg” width &#x3D; 70% div align&#x3D;center &#x2F; title&#x3D;”图14. 算法6中步骤1及步骤2的说明。(a)正弦图横向强度分布的纵向平均与其低通分量间的绝对差值（蓝色曲线）；及其中值滤波后的结果（红色曲线）;(b) 图(14.a)中两条曲线相除的结果。”&gt;</p>
+<p>&emsp;&emsp;图(15)展示了对图(13.a)中正弦图应用算法6的结果。过曝斑点可能会在其周围产生非线性的边缘效应，从而产生图(15.a)中的残余大型条纹。因此，算法5必须在算法6之后使用（图(15.c)）。此外，算法6的检测方法对于类似于无响应条纹S1的真实信号（例如呈圆柱形的单一材料样品）可能产生错误判断。在这种情况下，算法5是必不可少的。</p>
+<p>&lt;img src&#x3D;”&#x2F;Exp005_image015.jpg” width &#x3D; 100% div align&#x3D;center &#x2F; title&#x3D;”图15. 校正无响应条纹S1及震荡条纹S4的结果。(a) 对图(13.a)应用算法6的结果，仍然存在未完全去除的条纹；(b) 由图(15.a)中正弦图重构所得切片图像；(c) 应用算法5后的重构切片图像；(d) 图(13.b)与图(15.c)的差异。”&gt;</p>
+<h2 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h2><h3 id="去除局部条纹与全条纹方法的比较"><a href="#去除局部条纹与全条纹方法的比较" class="headerlink" title="去除局部条纹与全条纹方法的比较"></a>去除局部条纹与全条纹方法的比较</h3><p>&emsp;&emsp;下文将比较算法1、2、3与四种广泛使用的算法在消除了中小型全条纹S2及局部条纹S3时的表现。用于比较的四种算法分别为：规范化方法（normalization-based method）[7]，正则化方法（regularization-based method）[8]，傅里叶变换方法（FFT-based method）[9]，小波傅里叶变换方法（wavelet-FFT-based method）[10]。下文中为了精简描述，将这四种算法分别称作M1、M2、M3和M4。</p>
+<p>&lt;img src&#x3D;”&#x2F;Exp005_image016.jpg” width &#x3D; 60% div align&#x3D;center &#x2F; title&#x3D;”图16. (a) 样品一的正弦图像，拥有高频边缘及低动态范围；(b) 样品二的正弦图像，拥有高频边缘及高动态范围，其中存在强吸收区域（椭圆区域）”&gt;</p>
+<p>&emsp;&emsp;在第一组对比测试中，我们对相同条件下扫描两个样品所得的正弦图像应用算法M1、M2、M3、M4以及算法3。这两个样品具有相似的结构和物质组成（嵌入化石的石灰岩），但在探测器的各层中它们的结构不尽相同。样品结构差异也将导致透射强度的动态范围不同（图(16)），高动态范围可能诱发正弦图像中出现局部条纹S3。此外，还需特别注意各去环状伪影算法在相衬成像[12]引起的高频边缘（图(16.a)）处的负面影响。</p>
+<p>&lt;img src&#x3D;”&#x2F;Exp005_image017.jpg” width &#x3D; 60% div align&#x3D;center &#x2F; title&#x3D;”图17. 对图(16.a)中正弦图应用不同的算法后的重建结果，箭头标识典型的环状伪影：(a) 平场校正后；(b) M1；(c) M2；(d) M3；(e) M4；(f) 算法3。”&gt;</p>
+<p>&emsp;&emsp;对于形状大致近圆的样品一，所有去环状伪影算法的表现都较好（图(17,18)）。各个方法所用的参数如下：M1)高斯滤波，$$\sigma$$&#x3D;11；M2) $$\alpha$$&#x3D;0.005；M3) u&#x3D;30，v&#x3D;0，n&#x3D;10；M4) Daubechies wavelet, order&#x3D;10，level&#x3D;5，$$\sigma$$&#x3D;1；A3)中值滤波，size&#x3D;31。图(17.b-e)中可见其他方法在实际应用中产生了额外的局部环状伪影，而本文介绍的算法3没有在目标内部造成额外的环状伪影，不过还是在边界处产生了一些无关紧要的artifacts（图(17.f)）。</p>
+<p>&lt;img src&#x3D;”&#x2F;Exp005_image018.jpg” width &#x3D; 60% div align&#x3D;center &#x2F; title&#x3D;”图18. 图(17)中重建图像中心区域的放大视图。”&gt;</p>
+<p>&emsp;&emsp;对于高长宽比的样品二，即便使用与样品一中完全相同的参数，M1-M4方法仍然表现不佳（图(19.b-e)）。它们不仅无法完美地清除原有的环状伪影，留下了许多局部条纹（图(20)），甚至产生了许多强环状伪影（图(19)中的箭头所示）。使用不同的参数集，可能可以稍稍改善计算结果。然而，这对于在同步辐射上处理海量数据集的需求而言非常低效。对比图(19.f)与图(17.f)可以看出，本文介绍的算法3应用于高动态范围的正弦图时仍然表现良好。然而，在重建图像（图(18,20)）中仍然存在由震荡条纹S4引起的环状伪影。</p>
+<p>&lt;img src&#x3D;”&#x2F;Exp005_image019.jpg” width &#x3D; 60% div align&#x3D;center &#x2F; title&#x3D;”图19. 图(16.b)中正弦图应用不同的算法后的重建结果，箭头标识典型的环状伪影：(a) 平场校正后；(b) M1；(c) M2；(d) M3；(e) M4；(f) 算法3。”&gt;</p>
+<p>&emsp;&emsp;第一组对比测试的结果表明，对于传统的M1-M4方法，需对不同样品甚至同一样品的不同层使用不同的参数集才能达到最佳效果，然而这在实际应用中极其低效，本文介绍的方法即便使用相同的参数仍然可以得到理想的去环状伪影效果，从而使得高效处理海量数据集成为可能。</p>
+<p>&lt;img src&#x3D;”&#x2F;Exp005_image020.jpg” width &#x3D; 60% div align&#x3D;center &#x2F; title&#x3D;”图20. 图(19)中重建图像中心区域的放大视图。”&gt;</p>
+<p>&emsp;&emsp;在第二组对比测试中，我们测试了这些算法去除局部条纹S3时的性能。所用样品呈高长宽比的矩形，且长边略微超出视场。这导致光路近似平行于样品长边时样品呈极强的吸收进而形成暗区，产生高动态范围。这直接引起正弦图像中出现局部条纹S3（图(21.a-c)），并在重建图像中产生局部环状伪影（图(21.d-e)）。</p>
+<p>&lt;img src&#x3D;”&#x2F;Exp005_image021.jpg” width &#x3D; 100% div align&#x3D;center &#x2F; title&#x3D;”图21. 高动态范围的入射强度引起的局部条纹S3。 (a) 高长宽比矩形试样的正弦图；(b) 图(21.a)中顶部方框的放大试图；(c) 图(21.a)中底部方框的放大试图；(d) 由图(21.a)中正弦图重建所得切片图像；(e) 图(21.d)中方框的放大视图。”&gt;</p>
+<p>&emsp;&emsp;应用M1-M4方法时，使用与第一次测试相同的参数对局部环形伪影几乎没有作用（图(22.a.1-d.1)）。适当的调整参数以达到更强的去环状伪影效果：M1) $$\sigma$$&#x3D;17，c&#x3D;30；M2) $$\alpha$$&#x3D;0.001，c&#x3D;30；M3) u&#x3D;30，v&#x3D;10，n&#x3D;10；M4) order&#x3D;10，level&#x3D;5，$$\sigma$$&#x3D;10。其中，<font color = #ff7f00>使用参数c（chunk）将正弦图划分为多个行块[13]</font>，从而增加算法M1及M2的强度。增强算法M1-M4的强度后均能清除局部环状伪影，但也抹去了重建图像中心区域的细节（void-center artifacts），如图(22.a.2-d.2)所示。然而，本文介绍的算法3在使用窗口大小分别为31和51的中值过滤器时都返回了没有额外干扰的干净图像（图(22.e.1，22.e.2)）。</p>
+<p>&lt;img src&#x3D;”&#x2F;Exp005_image022.jpg” width &#x3D; 100% div align&#x3D;center &#x2F; title&#x3D;”图22. 应用不同参数集的算法M1-M4和算法3后的重建图像。 (a.1) M1；(b.1) M2；(c.1) M3；(d.1) M4；(e.1) A3；(a.2) M1；(b.2) M2；(c.2) M3；(d.2) M4；(e.2) A3。”&gt;</p>
+<p>&emsp;&emsp;在第三组对比测试中，我们尝试比较了这些算法应用在一组极具挑战性的数据上时的性能。图(23.a)展示了其对比度极低的正弦图像，<font color = #ff7f00>我们不得不对其使用强低通滤波器[14]以提高其对比度</font>。然而，这种方法不可避免的模糊并扩大了原先存在的条纹（图(23.b)）。面对这一极具挑战性的数据时，我们发现与算法2、算法3相比，算法1提供了最好的结果。</p>
+<p>&lt;img src&#x3D;”&#x2F;Exp005_image023.jpg” width &#x3D; 62% div align&#x3D;center &#x2F; title&#x3D;”图23. 预处理方法引起的条纹扩大，及应用算法1后的结果。(a,b) 应用预处理方法前后探测器同一排的正弦图像；(c) 由图(23.b)中正弦图重建所得切片图像；(d) 应用算法1中步骤1后的结果，采用三阶多项式；(e) 依靠强二维低通滤波器校正后的正弦图像；(f) 由图(23.e)中正弦图重建所得切片图像。”&gt;</p>
+<p>&lt;img src&#x3D;”&#x2F;Exp005_image024.jpg” width &#x3D; 100% div align&#x3D;center &#x2F; title&#x3D;”图24. 应用M1-M4方法校正环状伪影，箭头标识典型的残余环状伪影。(a) M1（$\sigma$&#x3D;121）；(b) M2（$\alpha$&#x3D;0.00001）；(c) M3（u&#x3D;2，v&#x3D;1，n&#x3D;10）；(d) M4（order&#x3D;11，level&#x3D;3，$\sigma$&#x3D;10）。”&gt;</p>
+<h3 id="去除各类条纹的方法组合"><a href="#去除各类条纹的方法组合" class="headerlink" title="去除各类条纹的方法组合"></a>去除各类条纹的方法组合</h3><p>&emsp;&emsp;前面的示例中，只使用了几组带有特定类型条纹的正弦图像用于演示方法的性能。在实践中，我们需要同时处理三维数据集中所有的正弦图像，各种类型的条纹可能出现在各个位置，甚至可能同时存在于同一位置。然而，单一的算法无法同时移除所有种类的条纹。例如，算法3及方法M1-M4无法去除图(18，20)所示的震荡条纹，也无法移除无响应条纹，这类条纹必须使用某种插值方法以填充缺失信息。并且，算法6不能单独使用，必须组合算法5以清理残余条纹。一般情况下，我们需要结合算法6，算法5以及表(2)中某种算法，既确保移除所有种类条纹，又极大抑制了算法导致的额外干扰。本文中介绍各个算法的顺序是基于它们之间相互依赖的顺序。然而，在实践中实际使用它们的顺序应该与文中顺序相反（[6 5 1]，[6 5 2]，或[6 5 3]）。算法1、2、3应在算法5之后使用，否则可能反而放大大型条纹。</p>
+<p>&emsp;&emsp;图(25)展示了运用算法[6 5 3]组合处理完整层析数据集的结果。不使用去环状伪影方法的重构结果和使用小波傅里叶变换方法（wavelet-FFT-based method）[10]的重构结果也被展示出来以进行对照。图(25.c)中可见，各类环状伪影被清除殆尽。少量非常大但对比度很低的环状伪影仍然存在，它们来自于探测器中被晕轮效应（halo effect）影响的区域，在实际应用中很难准确检测到这类干扰。算法6中步骤1使用半径30的均值滤波器重建原始信号的低通分量，步骤2中使用尺寸为81的中值滤波器，步骤3中使用的R为3，步骤4中使用线性插值方法；算法5中中值滤波的尺寸与R的取值与算法6完全相同，步骤2中两侧5%的像素被舍弃；算法3中使用尺寸为31的中值滤波器。</p>
+<p>&lt;img src&#x3D;”&#x2F;Exp005_image025.jpg” width &#x3D; 100% div align&#x3D;center &#x2F; title&#x3D;”图25. (a) 原始重构图像；(b) 应用小波傅里叶变换方法后的重构切片，参数与图(17.e)相同；(c) 应用算法[6 5 3]组合后的重构图像。”&gt;</p>
+<p>&emsp;&emsp;组合算法似乎允许非常宽泛的参数集取值选择。然而，所有的可调参数很大程度上是由探测系统缺陷的尺寸和亮度差异直接决定的，它们分别与平滑滤波器的尺寸和R值相关。这是在同步辐射束线长期实验总结的经验结论，Nghia T. Vo证明此参数集选取标准适用于I12-JEEP线站长期以来采集的大多数层析成像数据[15]。其他参数，如算法6步骤1中均值滤波器的尺寸或算法5步骤2中舍弃边界的百分比，都是非敏感参数，对结果影响较小。算法5和算法6可以使用一致的参数集。总之，只有三个关键参数需要调整：算法5与算法6所用的平滑滤波器尺寸及R值；以及算法3中平滑滤波器的尺寸。</p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>&emsp;&emsp;根据探测系统缺陷像素的特征强度分布，本文将X-ray micro-CT中常见的条纹伪影分为四类：局部条纹、全条纹、震荡条纹和无响应条纹。它们分别需要利用不同的算法针对性解决，本文建议将文中介绍的三种算法组合使用，不仅可以移除各类条纹，还可以极大降低算法带来的负面影响。这些算法根据两项核心思想发展而来：（一）基于均衡或平滑相邻像素相应系数的校正方法；（二）基于排序、拟合、阈值的探测器缺陷区域检测方法。</p>
+<p>&emsp;&emsp;本文所有方法都是易于学习理解、实现并使用的。在具有高动态范围、难以处理的局部条纹和模糊条纹的数据上，证明了其优于主流方法的性能。对照实验的结果表明，本文介绍的方法在不同样本间应用时无需修改参数，使用方便。</p>
+<h2 id="Code-and-Data"><a href="#Code-and-Data" class="headerlink" title="Code and Data"></a>Code and Data</h2><p>本文介绍的算法与M1-M4方法的Python实现：<a target="_blank" rel="noopener" href="https://github.com/nghia-vo/sarepy">https://github.com/nghia-vo/sarepy</a>。</p>
+<p>本文使用的示例投影图像及重建图像数据集：<a target="_blank" rel="noopener" href="https://doi.org/10.5281/zenodo.1443568">https://doi.org/10.5281/zenodo.1443568</a>。</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p><a target="_blank" rel="noopener" href="https://arxiv.org/ftp/arxiv/papers/1610/1610.08015.pdf"><font size = 2px>[1]&nbsp;&nbsp;N. Wadeson and M. Basham, “Savu: a Python-based, MPI framework for simultaneous processing of multiple, N-dimensional, large tomography datasets,” (2016)</font></a><br><a target="_blank" rel="noopener" href="http://journals.iucr.org/s/issues/2014/05/00/pp5049/pp5049.pdf"><font size = 2px>[2]&nbsp;&nbsp;D. Gürsoy, F. De Carlo, X. Xiao, and C. Jacobsen, “Tomopy: a framework for the analysis of synchrotron tomographic data,” J. Synchrotron Radiat. 21(Pt 5), 1188–1193 (2014).</font></a><br><a target="_blank" rel="noopener" href="https://ascimaging.springeropen.com/track/pdf/10.1186/s40679-016-0036-8"><font size = 2px>[3]&nbsp;&nbsp;F. Brun, L. Massimi, M. Fratini, D. Dreossi, F. Billé, A. Accardo, R. Pugliese, and A. Cedola, “SYRMEP Tomo Project: a graphical user interface for customizing CT reconstruction workflows,” Adv. Struct. Chem. Imaging 3(1), 4 (2017).</font></a><br><a target="_blank" rel="noopener" href="http://sci-hub.tw/https://doi.org/10.1117/12.893252"><font size = 2px>[4]&nbsp;&nbsp;T. E. Gureyev, Y. Nesterets, D. Ternovski, D. Thompson, S. Wilkins, A. Stevenson, A. Sakellariou, and J. A. Taylor, “Toolbox for advanced X-ray image processing,” Proc. SPIE 8141, 81410B (2011).</font></a><br><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1306.1392"><font size = 2px>[5]&nbsp;&nbsp;A. Mirone, E. Brun, E. Gouillart, P. Tafforeau, and J. Kieffer, “The PyHST2 hybrid distributed code for high speed tomographic reconstruction with iterative reconstruction and a priori knowledge capabilities,” Nucl. Instrum. Methods Phys. Res. B 324, 41–48 (2014).</font></a><br><a target="_blank" rel="noopener" href="http://sci-hub.tw/10.1109/HPCC.2012.116"><font size = 2px>[6]&nbsp;&nbsp;M. Vogelgesang, S. Chilingaryan, T. d. Rolo, and A. Kopmann, “UFO: a scalable GPU-based image processing framework for on-line monitoring,” in IEEE International Conference on High Performance Computing and Communication &amp; Embedded Software and Systems (2012) pp. 824–829.</font></a><br><a target="_blank" rel="noopener" href="https://www.mcs.anl.gov/research/projects/X-ray-cmt/rivers/tutorial.html"><font size = 2px>[7]&nbsp;&nbsp;M. Rivers, “Tutorial Introduction to X-ray Computed Microtomography Data Processing,”</font></a><br><a target="_blank" rel="noopener" href="https://reader.elsevier.com/reader/sd/pii/S089396591000282X?token=8B0E798EF5FAD6E02787BF0198E9AE875C06C7210B90414AFE0F8C9C77E247F5231A50F10F7F85643E2B558522256429"><font size = 2px>[8]&nbsp;&nbsp;S. Titarenko, P. J. Withers, and A. Yagola, “An analytical formula for ring artefact suppression in X-ray tomography,” Appl. Math. Lett. 23(12), 1489–1495 (2010).</font></a><br><a target="_blank" rel="noopener" href="http://qmxmt.com/scans/dave/other/papers/xmt%20artefacts/numerical%20removal%20of%20ring%20artifacts%20in%20microtomography.pdf"><font size = 2px>[9]&nbsp;&nbsp;C. Raven, “Numerical Removal of Ring Artifacts in Microtomography,” Rev. Sci. Instrum. 69(8), 2978–2980 (1998).</font></a><br><a target="_blank" rel="noopener" href="https://www.osapublishing.org/DirectPDFAccess/48AC7ECE-D00F-B398-27185C39BD3B35FB_179485/oe-17-10-8567.pdf?da=1&id=179485&seq=0&mobile=no"><font size = 2px>[10]&nbsp;&nbsp;B. Münch, P. Trtik, F. Marone, and M. Stampanoni, “Stripe and ring artifact removal with combined wavelet-Fourier filtering,” Opt. Express 17(10), 8567–8591 (2009).</font></a><br><a target="_blank" rel="noopener" href="https://pdfs.semanticscholar.org/4aee/d2da8e4a8bf7d25e5a777bf4b240ac7efd53.pdf"><font size = 2px>[11]&nbsp;&nbsp;J. Sijbers and A. Postnov, “Reduction of ring artefacts in high resolution micro-CT reconstructions,” Phys. Med. Biol. 49(14), N247–N253 (2004).</font></a><br><a target="_blank" rel="noopener" href="https://pdfs.semanticscholar.org/1378/e0d19965c975086be524bb7903090e874d3c.pdf"><font size = 2px>[12]&nbsp;&nbsp;A. Snigirev, I. Snigireva, V. Kohn, S. Kuznetsov, and I. Schelokov, “On the possibilities of x-ray phase contrast microimaging by coherent high-energy synchrotron radiation,” Rev. Sci. Instrum. 66(12), 5486–5492 (1995).</font></a><br><a target="_blank" rel="noopener" href="https://www.researchgate.net/profile/Valeriy_Titarenko/publication/51082293_Suppression_of_ring_artefacts_when_tomographing_anisotropically_attenuating_samples/links/0deec524021cc213f7000000.pdf"><font size = 2px>[13]&nbsp;&nbsp;S. Titarenko, V. Titarenko, A. Kyrieleis, P. J. Withers, and F. De Carlo, “Suppression of ring artefacts when tomographing anisotropically attenuating samples,” J. Synchrotron Radiat. 18(3), 427–435 (2011).</font></a><br><a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/doi/epdf/10.1046/j.1365-2818.2002.01010.x"><font size = 2px>[14]&nbsp;&nbsp;D. Paganin, S. C. Mayo, T. E. Gureyev, P. R. Miller, and S. W. Wilkins, “Simultaneous phase and amplitude extraction from a single defocused image of a homogeneous object,” J. Microsc. 206(1), 33–40 (2002).</font></a><br><a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41598-018-26644-6.pdf"><font size = 2px>[15]&nbsp;&nbsp;M. Polacci, F. Arzilli, G. La Spina, N. Le Gall, B. Cai, M. E. Hartley, D. Di Genova, N. T. Vo, S. Nonni, R. C. Atwood, E. W. Llewellin, P. D. Lee, and M. R. Burton, “Crystallisation in basaltic magmas revealed via in-situ 4D synchrotron X-ray microtomography,” Sci. Rep. 8(1), 8377 (2018).</font></a></p>
+
+      </div>
+      
+      
+      
+    </div>
+
+    
+    
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2019 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Hai-Wei Chai (柴海伟)</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://vercel.hwchai.com/","cssUrl":"https://hwchai.com/download/Waline.css","commentCount":true,"pageview":false,"locale":{"placeholder":"请留下邮箱，若有回复您将收到提醒。QQ邮箱可以自动识别头像喔~"},"pageSize":10,"visitor":false,"comment_count":true,"meta":["nick","mail","link"],"requiredMeta":["nick"],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","emoji":["https://unpkg.com/@waline/emojis@1.0.1/bilibili"],"login":"disable","el":"#waline","comment":true,"path":"/archive/Exp008-stripe-remove.html"}</script>
+<link rel="stylesheet" href="https://hwchai.com/download/Waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+</body>
+</html>
