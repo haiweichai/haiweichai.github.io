@@ -20,12 +20,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hwchai.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="KL散度和交叉熵是信息论中两个非常重要的概念，在机器学习，特别是深度学习领域，它们被广泛用作损失函数，以衡量两个概率分布之间的差异。  交叉熵 (Cross-Entropy)：衡量使用“错误的”分布Q来表示来自“正确的”分布P的样本所需要的平均信息量（比特数）。 KL散度 (KL Divergence)：衡量使用“错误的”分布Q来表示分布P的样本，相对于使用“正确的”分布P自己来表示时，所产生的额">
+    <meta name="description" content="KL散度和交叉熵是信息论中两个非常重要的概念，在机器学习，特别是深度学习领域，它们被广泛用作损失函数，以衡量两个概率分布之间的差异。两者在数学上紧密相关，在某些特定场景下（如分类任务的损失函数），最小化交叉熵等价于最小化KL散度。  交叉熵 (Cross-Entropy)：衡量使用“错误的”分布Q来表示来自“正确的”分布P的样本所需要的平均信息量（比特数）。 KL散度 (KL Divergence">
 <meta property="og:type" content="article">
 <meta property="og:title" content="人工智能：# KL散度 (Kullback-Leibler Divergence) 与交叉熵 (Cross-Entropy)">
 <meta property="og:url" content="https://hwchai.com/kldivergence/index.html">
 <meta property="og:site_name" content="Hai-Wei Chai&#39;s Blog">
-<meta property="og:description" content="KL散度和交叉熵是信息论中两个非常重要的概念，在机器学习，特别是深度学习领域，它们被广泛用作损失函数，以衡量两个概率分布之间的差异。  交叉熵 (Cross-Entropy)：衡量使用“错误的”分布Q来表示来自“正确的”分布P的样本所需要的平均信息量（比特数）。 KL散度 (KL Divergence)：衡量使用“错误的”分布Q来表示分布P的样本，相对于使用“正确的”分布P自己来表示时，所产生的额">
+<meta property="og:description" content="KL散度和交叉熵是信息论中两个非常重要的概念，在机器学习，特别是深度学习领域，它们被广泛用作损失函数，以衡量两个概率分布之间的差异。两者在数学上紧密相关，在某些特定场景下（如分类任务的损失函数），最小化交叉熵等价于最小化KL散度。  交叉熵 (Cross-Entropy)：衡量使用“错误的”分布Q来表示来自“正确的”分布P的样本所需要的平均信息量（比特数）。 KL散度 (KL Divergence">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-07-11T22:13:16.000Z">
 <meta property="article:modified_time" content="2025-07-11T22:13:16.000Z">
@@ -274,12 +274,13 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>KL散度和交叉熵是信息论中两个非常重要的概念，在机器学习，特别是深度学习领域，它们被广泛用作损失函数，以衡量两个概率分布之间的差异。</p>
-<ul>
+    <div class="post-body" itemprop="articleBody"><p>KL散度和交叉熵是信息论中两个非常重要的概念，在机器学习，特别是深度学习领域，它们被广泛用作损失函数，以衡量两个概率分布之间的差异。两者在数学上紧密相关，在某些特定场景下（如分类任务的损失函数），最小化交叉熵等价于最小化KL散度。</p>
+<ol>
 <li><strong>交叉熵 (Cross-Entropy)</strong>：衡量使用“错误的”分布Q来表示来自“正确的”分布P的样本所需要的平均信息量（比特数）。</li>
 <li><strong>KL散度 (KL Divergence)</strong>：衡量使用“错误的”分布Q来表示分布P的样本，相对于使用“正确的”分布P自己来表示时，所产生的<strong>额外</strong>信息量。</li>
-</ul>
-<p>两者在数学上紧密相关，在某些特定场景下（如分类任务的损失函数），最小化交叉熵等价于最小化KL散度。</p>
+</ol>
+<span id="more"></span>
+
 <h2 id="一、交叉熵-Cross-Entropy"><a href="#一、交叉熵-Cross-Entropy" class="headerlink" title="一、交叉熵 (Cross-Entropy)"></a>一、交叉熵 (Cross-Entropy)</h2><h3 id="1-概念与直觉"><a href="#1-概念与直觉" class="headerlink" title="1. 概念与直觉"></a>1. 概念与直觉</h3><p>想象一下，你需要设计一套编码系统来传输一个地区（分布P）的天气信息（晴、阴、雨）。如果你的编码系统是根据另一个地区（分布Q）的天气历史设计的，那么用这套编码系统来传输P地区的天气信息时，平均每个信息所需要的编码长度就是<strong>交叉熵</strong>。</p>
 <ul>
 <li>如果分布Q与分布P非常相似，那么这套编码会非常高效，交叉熵就很低。</li>
