@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Times+New+Roman:300,300italic,400,400italic,700,700italic%7CGeorgia:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hwchai.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="这份指南详细介绍了 Hugging Face transformers 库中 optim 参数所有可用的选项。该列表直接来源于 transformers 源代码，涵盖了从稳定可靠的基准到内存优化、实验性算法和特定硬件的各类优化器。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="人工智能：TrainingArguments 中 optim 参数详解">
+<meta property="og:url" content="https://hwchai.com/archive/AI-optim.html">
+<meta property="og:site_name" content="Hai-Wei Chai&#39;s Blog">
+<meta property="og:description" content="这份指南详细介绍了 Hugging Face transformers 库中 optim 参数所有可用的选项。该列表直接来源于 transformers 源代码，涵盖了从稳定可靠的基准到内存优化、实验性算法和特定硬件的各类优化器。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-06-20T11:45:09.000Z">
+<meta property="article:modified_time" content="2025-06-20T12:03:32.000Z">
+<meta property="article:author" content="Hai-Wei Chai (柴海伟)">
+<meta property="article:tag" content="Artificial Intelligence">
+<meta property="article:tag" content="Pytorch">
+<meta property="article:tag" content="TrainingArguments">
+<meta property="article:tag" content="Optim">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://hwchai.com/archive/AI-optim">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en","comments":true,"permalink":"https://hwchai.com/archive/AI-optim.html","path":"archive/AI-optim.html","title":"人工智能：TrainingArguments 中 optim 参数详解"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>人工智能：TrainingArguments 中 optim 参数详解 | Hai-Wei Chai's Blog
+</title>
+  
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="https://vercel.hwchai.com/">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hai-Wei Chai's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-house-chimney fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-list fa-fw"></i>Archives</a></li><li class="menu-item menu-item-support"><a href="/support/" rel="section"><i class="fa fa-screwdriver-wrench fa-fw"></i>Support</a></li><li class="menu-item menu-item-books"><a href="/books/" rel="section"><i class="fa fa-book fa-fw"></i>Books</a></li><li class="menu-item menu-item-scholar"><a href="/scholar/" rel="section"><i class="fa fa-chart-column fa-fw"></i>Scholar</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E5%99%A8%E5%88%86%E7%B1%BB%E6%A6%82%E8%A7%88"><span class="nav-number">1.</span> <span class="nav-text">优化器分类概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%A8%E9%87%8F%E9%80%89%E9%A1%B9%E8%AF%A6%E7%BB%86%E5%88%86%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">全量选项详细分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%B8%BB%E6%B5%81%E4%B8%8E%E6%8E%A8%E8%8D%90-AdamW-%E5%AE%B6%E6%97%8F"><span class="nav-number">2.1.</span> <span class="nav-text">1. 主流与推荐 (AdamW 家族)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%86%85%E5%AD%98%E8%8A%82%E7%9C%81%E5%9E%8B%E4%BC%98%E5%8C%96%E5%99%A8"><span class="nav-number">2.2.</span> <span class="nav-text">2. 内存节省型优化器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-GaLore-Gradient-Low-Rank-Projection"><span class="nav-number">2.3.</span> <span class="nav-text">3. GaLore (Gradient Low-Rank Projection)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-LOMO-Low-Memory-Optimization-AdaLOMO"><span class="nav-number">2.4.</span> <span class="nav-text">4. LOMO (Low-Memory Optimization) &amp; AdaLOMO</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E6%96%B0%E5%9E%8B%E4%B8%8E%E5%AE%9E%E9%AA%8C%E6%80%A7%E4%BC%98%E5%8C%96%E5%99%A8"><span class="nav-number">2.5.</span> <span class="nav-text">5. 新型与实验性优化器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E7%89%B9%E5%AE%9A%E7%A1%AC%E4%BB%B6-%E5%BA%93%E7%9A%84%E4%BC%98%E5%8C%96%E5%99%A8"><span class="nav-number">2.6.</span> <span class="nav-text">6. 特定硬件&#x2F;库的优化器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-%E7%BB%8F%E5%85%B8%E4%B8%8E%E9%81%97%E7%95%99%E4%BC%98%E5%8C%96%E5%99%A8"><span class="nav-number">2.7.</span> <span class="nav-text">7. 经典与遗留优化器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%88%E6%9E%81%E5%86%B3%E7%AD%96%E6%B5%81%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">终极决策流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E5%9C%B0%E5%9D%80"><span class="nav-number">4.</span> <span class="nav-text">官方文档地址</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Hai-Wei Chai (柴海伟)"
+      src="/images/gamersky.gif">
+  <p class="site-author-name" itemprop="name">Hai-Wei Chai (柴海伟)</p>
+  <div class="site-description" itemprop="description">I am a slow walker, but never backwards!</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/haiweichai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;haiweichai" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:chw9402@mail.ustc.edu.com" title="E-Mail → mailto:chw9402@mail.ustc.edu.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner page posts-expand">
+
+
+    
+    
+    
+    <div class="post-block" lang="en"><header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">人工智能：TrainingArguments 中 optim 参数详解
+</h1>
+
+<div class="post-meta-container">
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <p>这份指南详细介绍了 Hugging Face <code>transformers</code> 库中 <code>optim</code> 参数所有可用的选项。该列表直接来源于 <code>transformers</code> 源代码，涵盖了从稳定可靠的基准到内存优化、实验性算法和特定硬件的各类优化器。</p>
+<span id="more"></span>
+<hr>
+<h2 id="优化器分类概览"><a href="#优化器分类概览" class="headerlink" title="优化器分类概览"></a>优化器分类概览</h2><p>为了系统地理解这些选项，我们将它们分为以下几大类：</p>
+<p><strong>主流与推荐 (AdamW 家族)</strong>: 训练 Transformer 模型的核心与首选。<br>    * <code>adamw_torch</code>, <code>adamw_torch_fused</code></p>
+<p><strong>内存节省型优化器 (核心技术)</strong>: 当显存（VRAM）成为主要瓶颈时，这些技术至关重要。<br><strong>8-bit 量化优化器</strong>: 将优化器状态从32位浮点数压缩到8位整数，极大节省内存。<br>        * <code>adamw_8bit</code> (别名 <code>adamw_bnb_8bit</code>), <code>lion_8bit</code>, <code>rmsprop_8bit</code><br>    * <strong>Paged 优化器</strong>: 一种更先进的内存管理技术，当GPU显存不足时，它能自动将优化器状态“分页”到CPU内存，防止程序因OOM（Out-of-Memory）而崩溃。<br>        * <code>paged_adamw_8bit</code>, <code>paged_lion_8bit</code><br>    * <strong>Adafactor</strong>: 通过数学分解来近似存储优化器状态，是另一种经典的内存节省方案。<br>        * <code>adafactor</code></p>
+<p><strong>梯度低秩投影 (GaLore)</strong>: 一种前沿的内存优化技术，尤其适合全参数微调。<br><strong>低内存优化 (LOMO &amp; AdaLOMO)</strong>: 另一种创新的内存节省方法。<br><strong>新型与实验性优化器</strong>: 来自最新研究，可能在特定任务上表现更优。<br><strong>特定硬件&#x2F;库的优化器</strong>: 为特定硬件或旧版库设计。<br><strong>经典与遗留优化器</strong>: 深度学习领域的经典算法。</p>
+<hr>
+<h2 id="全量选项详细分析"><a href="#全量选项详细分析" class="headerlink" title="全量选项详细分析"></a>全量选项详细分析</h2><h3 id="1-主流与推荐-AdamW-家族"><a href="#1-主流与推荐-AdamW-家族" class="headerlink" title="1. 主流与推荐 (AdamW 家族)"></a>1. 主流与推荐 (AdamW 家族)</h3><p>这是训练现代大模型的起点和最可靠的选择。</p>
+<table>
+<thead>
+<tr>
+<th align="left">选项 (<code>optim</code>)</th>
+<th align="left">核心特点</th>
+<th align="left">优点</th>
+<th align="left">缺点</th>
+<th align="left">依赖与要求</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong><code>adamw_torch</code></strong></td>
+<td align="left">PyTorch 标准实现，<strong>默认选项</strong></td>
+<td align="left"><strong>最稳定、最通用</strong>，无需额外依赖，行为可预测。</td>
+<td align="left">在现代 GPU 上性能非最优。</td>
+<td align="left">PyTorch</td>
+</tr>
+<tr>
+<td align="left"><strong><code>adamw_torch_fused</code></strong></td>
+<td align="left"><strong>性能之选 (推荐)</strong>，融合内核</td>
+<td align="left">在现代 NVIDIA GPU 上<strong>速度显著提升</strong>，通过融合操作减少 GPU 内核启动开销。</td>
+<td align="left">需要 PyTorch 2.0 或更高版本。</td>
+<td align="left"><code>torch&gt;=2.0</code></td>
+</tr>
+</tbody></table>
+<h3 id="2-内存节省型优化器"><a href="#2-内存节省型优化器" class="headerlink" title="2. 内存节省型优化器"></a>2. 内存节省型优化器</h3><p>当显存不足时，以下技术是你的救星。它们通常可以组合使用。</p>
+<h4 id="2-1-8-bit-量化优化器"><a href="#2-1-8-bit-量化优化器" class="headerlink" title="2.1 8-bit 量化优化器"></a>2.1 8-bit 量化优化器</h4><p><strong>技术核心</strong>：使用 <code>bitsandbytes</code> 库将32位的优化器状态（如动量和方差）量化为8位整数，从而<strong>将优化器的内存占用减少约75%</strong>。</p>
+<table>
+<thead>
+<tr>
+<th align="left">选项 (<code>optim</code>)</th>
+<th align="left">基础优化器</th>
+<th align="left">特点与用途</th>
+<th align="left">依赖</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong><code>adamw_8bit</code></strong></td>
+<td align="left">AdamW</td>
+<td align="left">8位量化的 <code>AdamW</code>。<strong>最常用、最推荐的内存节省方案</strong>。</td>
+<td align="left"><code>bitsandbytes</code></td>
+</tr>
+<tr>
+<td align="left">(<code>adamw_bnb_8bit</code>)</td>
+<td align="left"></td>
+<td align="left">(这是 <code>adamw_8bit</code> 的一个别名)</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong><code>lion_8bit</code></strong></td>
+<td align="left">Lion</td>
+<td align="left">8位量化的 <code>Lion</code> 优化器。</td>
+<td align="left"><code>bitsandbytes</code></td>
+</tr>
+<tr>
+<td align="left"><strong><code>rmsprop_8bit</code></strong></td>
+<td align="left">RMSprop</td>
+<td align="left">8位量化的 <code>RMSprop</code>。</td>
+<td align="left"><code>bitsandbytes</code></td>
+</tr>
+<tr>
+<td align="left">(<code>rmsprop_bnb_8bit</code>)</td>
+<td align="left"></td>
+<td align="left">(这是 <code>rmsprop_8bit</code> 的一个别名)</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h4 id="2-2-Paged-优化器"><a href="#2-2-Paged-优化器" class="headerlink" title="2.2 Paged 优化器"></a>2.2 Paged 优化器</h4><p><strong>技术核心</strong>：在8-bit优化的基础上，当GPU显存依然不足时，它能利用NVIDIA的统一内存功能，自动将不常用的优化器状态**“分页”到CPU主内存**，并在需要时再调回GPU。这可以<strong>防止在训练中因显存波动导致的崩溃 (OOM Error)</strong>。</p>
+<table>
+<thead>
+<tr>
+<th align="left">选项 (<code>optim</code>)</th>
+<th align="left">基础优化器</th>
+<th align="left">特点与用途</th>
+<th align="left">依赖</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong><code>paged_adamw_8bit</code></strong></td>
+<td align="left">AdamW</td>
+<td align="left">结合了8位量化和分页技术，<strong>是目前最稳健的内存优化方案</strong>。</td>
+<td align="left"><code>bitsandbytes</code></td>
+</tr>
+<tr>
+<td align="left"><strong><code>paged_lion_8bit</code></strong></td>
+<td align="left">Lion</td>
+<td align="left">结合了8位量化和分页技术的 <code>Lion</code> 优化器。</td>
+<td align="left"><code>bitsandbytes</code></td>
+</tr>
+<tr>
+<td align="left"><strong><code>paged_adamw_32bit</code></strong></td>
+<td align="left">AdamW</td>
+<td align="left">如果你不想使用8位量化但仍想利用分页技术防止崩溃，可以使用这个32位版本。</td>
+<td align="left"><code>bitsandbytes</code></td>
+</tr>
+</tbody></table>
+<h4 id="2-3-Adafactor"><a href="#2-3-Adafactor" class="headerlink" title="2.3 Adafactor"></a>2.3 Adafactor</h4><p><strong>技术核心</strong>：通过数学上的矩阵分解技巧来近似存储优化器状态，从而达到节省内存的目的。</p>
+<table>
+<thead>
+<tr>
+<th align="left">选项 (<code>optim</code>)</th>
+<th align="left">核心特点</th>
+<th align="left">优点</th>
+<th align="left">缺点</th>
+<th align="left">依赖</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong><code>adafactor</code></strong></td>
+<td align="left">Google 设计的内存优化器</td>
+<td align="left"><strong>显著降低内存占用</strong>，不存储完整的动量信息，且不依赖 <code>bitsandbytes</code> 库。</td>
+<td align="left">收敛性有时不如 AdamW 稳定，可能需要更仔细地调整学习率。</td>
+<td align="left"><code>transformers</code> 自带</td>
+</tr>
+</tbody></table>
+<h3 id="3-GaLore-Gradient-Low-Rank-Projection"><a href="#3-GaLore-Gradient-Low-Rank-Projection" class="headerlink" title="3. GaLore (Gradient Low-Rank Projection)"></a>3. GaLore (Gradient Low-Rank Projection)</h3><p><strong>技术核心</strong>：一种非常新颖且高效的内存优化技术，它假设梯度矩阵是低秩的，因此只存储和更新梯度的低秩投影，而不是完整的梯度矩阵。这使得<strong>全参数微调的内存消耗可以接近甚至低于LoRA等参数高效微调方法</strong>。</p>
+<table>
+<thead>
+<tr>
+<th align="left">选项 (<code>optim</code>)</th>
+<th align="left">基础优化器</th>
+<th align="left">特点与用途</th>
+<th align="left">依赖</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong><code>galore_adamw</code></strong></td>
+<td align="left">AdamW</td>
+<td align="left">将 GaLore 技术应用于 AdamW。</td>
+<td align="left"><code>galore_torch</code></td>
+</tr>
+<tr>
+<td align="left"><strong><code>galore_adafactor</code></strong></td>
+<td align="left">Adafactor</td>
+<td align="left">将 GaLore 技术应用于 Adafactor，进一步节省内存。</td>
+<td align="left"><code>galore_torch</code></td>
+</tr>
+<tr>
+<td align="left"><strong><code>galore_adamw_8bit</code></strong></td>
+<td align="left">AdamW + 8-bit</td>
+<td align="left">结合了 GaLore 和8位量化，实现极致的内存节省。</td>
+<td align="left"><code>galore_torch</code>, <code>bitsandbytes</code></td>
+</tr>
+<tr>
+<td align="left"><strong><code>galore_..._layerwise</code></strong></td>
+<td align="left">(所有GaLore变体)</td>
+<td align="left">为模型的不同层应用不同的秩，可能比全局秩更高效。</td>
+<td align="left"><code>galore_torch</code></td>
+</tr>
+</tbody></table>
+<h3 id="4-LOMO-Low-Memory-Optimization-AdaLOMO"><a href="#4-LOMO-Low-Memory-Optimization-AdaLOMO" class="headerlink" title="4. LOMO (Low-Memory Optimization) &amp; AdaLOMO"></a>4. LOMO (Low-Memory Optimization) &amp; AdaLOMO</h3><p><strong>技术核心</strong>：LOMO通过将梯度计算、梯度收集和参数更新步骤融合成一个步骤，从而避免了存储完整的模型梯度，<strong>极大地节省了内存</strong>。AdaLOMO是其自适应版本。</p>
+<table>
+<thead>
+<tr>
+<th align="left">选项 (<code>optim</code>)</th>
+<th align="left">核心特点</th>
+<th align="left">优点</th>
+<th align="left">缺点</th>
+<th align="left">依赖</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong><code>lomo</code></strong></td>
+<td align="left">低内存优化</td>
+<td align="left">将多步融为一步，无需存储完整梯度，内存效率极高。</td>
+<td align="left">实验性强，实现较为复杂。</td>
+<td align="left"><code>lomo_optim</code></td>
+</tr>
+<tr>
+<td align="left"><strong><code>adalomo</code></strong></td>
+<td align="left">带自适应学习率的LOMO</td>
+<td align="left">在 LOMO 基础上增加了学习率的自适应调整。</td>
+<td align="left">实验性强。</td>
+<td align="left"><code>lomo_optim</code></td>
+</tr>
+</tbody></table>
+<h3 id="5-新型与实验性优化器"><a href="#5-新型与实验性优化器" class="headerlink" title="5. 新型与实验性优化器"></a>5. 新型与实验性优化器</h3><p>这些优化器来自最新的学术研究，可能在特定任务上表现更优，但需要更多实验和调整。</p>
+<table>
+<thead>
+<tr>
+<th align="left">选项 (<code>optim</code>)</th>
+<th align="left">核心思想</th>
+<th align="left">何时使用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong><code>lion</code></strong> (或 <code>lion_32bit</code>)</td>
+<td align="left">简化更新规则（只用动量），由Google提出。</td>
+<td align="left">当你乐于探索时。<code>lion</code> 宣称比 AdamW 更省内存、性能更优。通常需要更小的学习率和更大的权重衰减。</td>
+</tr>
+<tr>
+<td align="left"><strong><code>apollo_adamw</code></strong></td>
+<td align="left">解耦学习率和权重衰减来改进 AdamW。</td>
+<td align="left">当你希望探索可能比标准AdamW收敛更好、性能更优的替代方案时。</td>
+</tr>
+<tr>
+<td align="left"><strong><code>schedule_free_...</code></strong></td>
+<td align="left">在训练中自动调整步长。</td>
+<td align="left"><strong>当你不想费心设计学习率调度器时</strong>。非常适合快速实验，但最终性能不一定最优。</td>
+</tr>
+<tr>
+<td align="left"><strong><code>grokadamw</code></strong></td>
+<td align="left">为复现 “Grokking” 现象而设计。</td>
+<td align="left">仅用于学术研究，探索模型在训练后期泛化能力突然提升的现象。</td>
+</tr>
+</tbody></table>
+<h3 id="6-特定硬件-库的优化器"><a href="#6-特定硬件-库的优化器" class="headerlink" title="6. 特定硬件&#x2F;库的优化器"></a>6. 特定硬件&#x2F;库的优化器</h3><table>
+<thead>
+<tr>
+<th align="left">选项 (<code>optim</code>)</th>
+<th align="left">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong><code>adamw_torch_xla</code></strong></td>
+<td align="left"><strong>仅在 Google TPU 上使用</strong>。</td>
+</tr>
+<tr>
+<td align="left"><strong><code>adamw_torch_npu_fused</code></strong></td>
+<td align="left"><strong>仅在华为 Ascend NPU 上使用</strong>。</td>
+</tr>
+<tr>
+<td align="left"><strong><code>adamw_apex_fused</code></strong></td>
+<td align="left">仅在 <code>torch&lt;2.0</code> 的旧环境中，配合NVIDIA APEX库使用。已被 <code>adamw_torch_fused</code> 取代。</td>
+</tr>
+</tbody></table>
+<h3 id="7-经典与遗留优化器"><a href="#7-经典与遗留优化器" class="headerlink" title="7. 经典与遗留优化器"></a>7. 经典与遗留优化器</h3><p>这些算法是深度学习的基石，但对于现代 Transformer 模型，通常不是最佳选择。</p>
+<table>
+<thead>
+<tr>
+<th align="left">选项 (<code>optim</code>)</th>
+<th align="left">核心特点与局限</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong><code>sgd</code></strong></td>
+<td align="left"><strong>随机梯度下降</strong>。对于Transformer模型这样复杂的损失曲面，SGD收敛极慢且容易陷入局部最优。</td>
+</tr>
+<tr>
+<td align="left"><strong><code>adagrad</code></strong></td>
+<td align="left"><strong>适应性梯度算法</strong>。学习率会随时间单调递减，后期可能过小导致训练停滞，不推荐用于Transformer。</td>
+</tr>
+<tr>
+<td align="left"><strong><code>rmsprop</code></strong></td>
+<td align="left"><strong>Adagrad的改进版</strong>。缓解了学习率快速下降的问题，但性能和稳定性通常不如AdamW。</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="终极决策流程"><a href="#终极决策流程" class="headerlink" title="终极决策流程"></a>终极决策流程</h2><ol>
+<li><p><strong>【性能优先】</strong> 如果你有现代NVIDIA GPU和PyTorch 2.0+，<strong><code>adamw_torch_fused</code></strong> 是你的不二之选。</p>
+</li>
+<li><p><strong>【内存优先】</strong> 如果显存不足是首要问题：</p>
+<ul>
+<li><strong>首选 <code>paged_adamw_8bit</code></strong>。它结合了8位量化和分页，既省内存又防崩溃。</li>
+<li>如果想在<strong>全参数微调</strong>时达到LoRA级的内存效率，大胆尝试 <strong><code>galore_adamw_8bit</code></strong>。</li>
+<li>如果安装 <code>bitsandbytes</code> 困难，退而求其次选择 <strong><code>adafactor</code></strong>。</li>
+</ul>
+</li>
+<li><p><strong>【简化实验】</strong> 如果你想快速迭代，不想费心设计学习率调度器：</p>
+<ul>
+<li>尝试 <strong><code>schedule_free_adamw</code></strong>。</li>
+</ul>
+</li>
+<li><p><strong>【探索前沿】</strong> 如果你热衷于尝试最新的研究成果：</p>
+<ul>
+<li><strong><code>lion</code></strong> 是一个很好的起点，但请准备好调整超参数。</li>
+</ul>
+</li>
+<li><p><strong>【不确定或环境受限】</strong> 如果你不确定选哪个：</p>
+<ul>
+<li>使用默认的 <strong><code>adamw_torch</code></strong>，它永远是稳定可靠的基准。</li>
+</ul>
+</li>
+<li><p><strong>【特定硬件】</strong> 如果你在TPU或NPU上：</p>
+<ul>
+<li>分别使用 <strong><code>adamw_torch_xla</code></strong> 或 <strong><code>adamw_torch_npu_fused</code></strong>。</li>
+</ul>
+</li>
+</ol>
+<h2 id="官方文档地址"><a href="#官方文档地址" class="headerlink" title="官方文档地址"></a>官方文档地址</h2><p>您可以在 Hugging Face <code>transformers</code> 官方文档的 <code>TrainingArguments</code> 页面找到关于 <code>optim</code> 参数的权威说明。官方文档链接: <a target="_blank" rel="noopener" href="https://huggingface.co/docs/transformers/main/en/main_classes/trainer#transformers.TrainingArguments.optim">https://huggingface.co/docs/transformers/main/en/main_classes&#x2F;trainer#transformers.TrainingArguments.optim</a></p>
+
+      </div>
+      
+      
+      
+    </div>
+
+    
+    
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2019 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Hai-Wei Chai (柴海伟)</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://vercel.hwchai.com/","cssUrl":"https://hwchai.com/download/Waline.css","commentCount":true,"pageview":false,"locale":{"placeholder":"请留下邮箱，若有回复您将收到提醒。QQ邮箱可以自动识别头像喔~"},"pageSize":10,"visitor":false,"comment_count":true,"meta":["nick","mail","link"],"requiredMeta":["nick"],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","emoji":["https://unpkg.com/@waline/emojis@1.0.1/bilibili"],"login":"disable","el":"#waline","comment":true,"path":"/archive/AI-optim.html"}</script>
+<link rel="stylesheet" href="https://hwchai.com/download/Waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+</body>
+</html>

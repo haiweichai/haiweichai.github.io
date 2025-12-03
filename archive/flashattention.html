@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Times+New+Roman:300,300italic,400,400italic,700,700italic%7CGeorgia:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hwchai.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="当您在使用 Hugging Face transformers 库加载模型时，可以通过 attn_implementation 参数来指定底层的注意力（Attention）计算方式。这是一个至关重要的参数，直接影响了模型的训练和推理速度、显存占用以及计算结果的可复现性。 您在调试中发现 flash_attention_2 是随机性的来源，这是一个非常典型的例子，说明了前沿的性能优化有时会以牺牲一些">
+<meta property="og:type" content="website">
+<meta property="og:title" content="人工智能：attn_implementation 在性能、显存与可复现性之间做出选择">
+<meta property="og:url" content="https://hwchai.com/archive/flashattention.html">
+<meta property="og:site_name" content="Hai-Wei Chai&#39;s Blog">
+<meta property="og:description" content="当您在使用 Hugging Face transformers 库加载模型时，可以通过 attn_implementation 参数来指定底层的注意力（Attention）计算方式。这是一个至关重要的参数，直接影响了模型的训练和推理速度、显存占用以及计算结果的可复现性。 您在调试中发现 flash_attention_2 是随机性的来源，这是一个非常典型的例子，说明了前沿的性能优化有时会以牺牲一些">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-06-20T14:37:46.000Z">
+<meta property="article:modified_time" content="2025-06-20T14:38:24.000Z">
+<meta property="article:author" content="Hai-Wei Chai (柴海伟)">
+<meta property="article:tag" content="Artificial Intelligence">
+<meta property="article:tag" content="Pytorch">
+<meta property="article:tag" content="NVIDIA - large language models">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://hwchai.com/archive/flashattention">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en","comments":true,"permalink":"https://hwchai.com/archive/flashattention.html","path":"archive/flashattention.html","title":"人工智能：attn_implementation 在性能、显存与可复现性之间做出选择"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>人工智能：attn_implementation 在性能、显存与可复现性之间做出选择 | Hai-Wei Chai's Blog
+</title>
+  
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="https://vercel.hwchai.com/">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hai-Wei Chai's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-house-chimney fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-list fa-fw"></i>Archives</a></li><li class="menu-item menu-item-support"><a href="/support/" rel="section"><i class="fa fa-screwdriver-wrench fa-fw"></i>Support</a></li><li class="menu-item menu-item-books"><a href="/books/" rel="section"><i class="fa fa-book fa-fw"></i>Books</a></li><li class="menu-item menu-item-scholar"><a href="/scholar/" rel="section"><i class="fa fa-chart-column fa-fw"></i>Scholar</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E9%80%89%E9%A1%B9%E5%AF%B9%E6%AF%94%E5%88%86%E6%9E%90"><span class="nav-number">1.</span> <span class="nav-text">可选项对比分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-Flash-Attention-%E4%BC%9A%E5%BC%95%E5%85%A5%E4%B8%8D%E7%A1%AE%E5%AE%9A%E6%80%A7%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">为什么 Flash Attention 会引入不确定性？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%8E%B0%E5%9C%A8%E5%BA%94%E8%AF%A5%E7%94%A8%E5%93%AA%E4%B8%AA%EF%BC%9F%E2%80%94%E2%80%94-%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%E6%8E%A8%E8%8D%90"><span class="nav-number">3.</span> <span class="nav-text">我现在应该用哪个？—— 最佳实践推荐</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%BA%94%E7%94%A8-sdpa"><span class="nav-number">3.1.</span> <span class="nav-text">如何应用 sdpa</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Hai-Wei Chai (柴海伟)"
+      src="/images/gamersky.gif">
+  <p class="site-author-name" itemprop="name">Hai-Wei Chai (柴海伟)</p>
+  <div class="site-description" itemprop="description">I am a slow walker, but never backwards!</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/haiweichai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;haiweichai" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:chw9402@mail.ustc.edu.com" title="E-Mail → mailto:chw9402@mail.ustc.edu.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner page posts-expand">
+
+
+    
+    
+    
+    <div class="post-block" lang="en"><header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">人工智能：attn_implementation 在性能、显存与可复现性之间做出选择
+</h1>
+
+<div class="post-meta-container">
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <p>当您在使用 Hugging Face <code>transformers</code> 库加载模型时，可以通过 <code>attn_implementation</code> 参数来指定底层的注意力（Attention）计算方式。这是一个至关重要的参数，直接影响了模型的训练和推理速度、显存占用以及计算结果的可复现性。</p>
+<p>您在调试中发现 <code>flash_attention_2</code> 是随机性的来源，这是一个非常典型的例子，说明了前沿的性能优化有时会以牺牲一些可预测性为代价。理解不同选项的优缺点，可以帮助您根据具体需求（高性能、低显存、严格复现等）做出最优决策。</p>
+<span id="more"></span>
+<hr>
+<h2 id="可选项对比分析"><a href="#可选项对比分析" class="headerlink" title="可选项对比分析"></a>可选项对比分析</h2><p>以下是 <code>attn_implementation</code> 的主要可选项及其详细的优缺点对比：</p>
+<table>
+<thead>
+<tr>
+<th>选项 (Option)</th>
+<th>优点 (Pros)</th>
+<th>缺点 (Cons)</th>
+<th>适用场景 (Best For)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong><code>flash_attention_2</code></strong></td>
+<td><strong>极致的速度和显存优化</strong>：通过分块计算避免生成完整的 N x N 注意力矩阵，是目前公认最快的实现。</td>
+<td><strong>硬件要求高</strong> (NVIDIA Ampere&#x2F;Hopper 架构，如 A100&#x2F;H100)。<strong>需要额外安装</strong> (<code>pip install flash-attn</code>)。<strong>潜在的可复现性问题</strong> (其自定义CUDA内核可能引入细微的数值不确定性)。</td>
+<td><strong>生产环境中的高性能训练和推理</strong>。当追求极致性能且硬件支持时是首选。</td>
+</tr>
+<tr>
+<td><strong><code>sdpa</code></strong></td>
+<td><strong>PyTorch 原生集成</strong> (无需额外安装，需要 <code>torch&gt;=2.0</code>)。<strong>非常好的性能和显存效率</strong>，性能通常非常接近 Flash Attention。<strong>官方支持，未来趋势</strong>。</td>
+<td><strong>需要较新版本的 PyTorch</strong> (<code>&gt;=2.0</code>)。在顶级硬件上，性能可能微弱于专门优化的 <code>flash_attention_2</code>。</td>
+<td><strong>现代 PyTorch 环境下的通用选择</strong>。这是目前<strong>最佳的平衡点</strong>，也是最被推荐的默认选项。</td>
+</tr>
+<tr>
+<td><strong><code>eager</code></strong></td>
+<td><strong>最高的兼容性和可复现性</strong>：这是 PyTorch 的标准、原始实现，行为最可预测。<strong>无需任何特殊软硬件</strong>。<strong>是理解算法和调试的基准</strong>。</td>
+<td><strong>速度最慢，显存占用最大</strong>：因为它会完整地实例化一个巨大的注意力分数矩阵，对于长序列很容易导致显存溢出 (OOM)。</td>
+<td><strong>调试、教学、确保严格的比特级可复现性</strong>，或在不支持优化的旧硬件上运行。</td>
+</tr>
+<tr>
+<td><strong><code>bettertransformer</code></strong></td>
+<td>在 <code>sdpa</code> 出现之前的原生优化方案，利用了 PyTorch 的 <code>nn.TransformerEncoderLayer</code> 内核。比 <code>eager</code> 更快、更省显存。</td>
+<td><strong>已被 <code>sdpa</code> 全面取代</strong>。功能、性能和未来的支持都不如 <code>sdpa</code>。在某些模型或 <code>transformers</code> 新版本中可能不再被支持。</td>
+<td><strong>遗留选项</strong>。主要用于无法使用 <code>torch&gt;=2.0</code> 的旧项目，用于获得一些基础优化。</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="为什么-Flash-Attention-会引入不确定性？"><a href="#为什么-Flash-Attention-会引入不确定性？" class="headerlink" title="为什么 Flash Attention 会引入不确定性？"></a>为什么 Flash Attention 会引入不确定性？</h2><p><code>flash-attn</code> 库的实现依赖于高度优化的、由开发者手写的 CUDA 内核。为了压榨出每一分性能，这些内核在计算方式上（例如浮点数的累加顺序、并行计算的划分等细节）可能与 PyTorch 的标准实现 (<code>eager</code>) 有所不同。</p>
+<p>虽然这些算法在数学上是等价的，但在精度有限的计算机上，这些微小的实现差异会导致浮点数计算结果的细微偏差。当这些偏差在深度神经网络的多层传播中不断累积时，最终就会导致输出结果产生肉眼可见的不同。您遇到的情况很可能是某个特定的 PyTorch &#x2F; CUDA &#x2F; <code>flash-attn</code> 版本组合触发了这种行为。</p>
+<hr>
+<h2 id="我现在应该用哪个？——-最佳实践推荐"><a href="#我现在应该用哪个？——-最佳实践推荐" class="headerlink" title="我现在应该用哪个？—— 最佳实践推荐"></a>我现在应该用哪个？—— 最佳实践推荐</h2><p>对于目前的情况，<strong><code>sdpa</code> (Scaled Dot Product Attention) 是最佳选择。</strong></p>
+<p>它完美地平衡了性能和可复现性的需求：</p>
+<ul>
+<li><strong>性能</strong>: <code>sdpa</code> 利用了 PyTorch 内置的、高度优化的注意力后端。它底层也可能调用类似 Flash Attention 的内核，但由 PyTorch 团队维护和保证其行为，性能与 <code>flash_attention_2</code> 非常接近，远超 <code>eager</code> 模式。</li>
+<li><strong>易用性</strong>: 它是 PyTorch 2.0+ 的一部分，您<strong>无需安装任何额外依赖</strong>。</li>
+<li><strong>可复现性</strong>: 作为 PyTorch 的原生组件，它的行为通常比外部的自定义库更加稳定和可预测。在配置了确定性算法的环境下，它的可复现性通常要比 <code>flash_attention_2</code> 好得多。</li>
+</ul>
+<h3 id="如何应用-sdpa"><a href="#如何应用-sdpa" class="headerlink" title="如何应用 sdpa"></a>如何应用 <code>sdpa</code></h3><p>您只需要在加载模型的代码中修改 <code>attn_implementation</code> 参数即可：</p>
+<pre><code class="language-python">model = AutoModelForCausalLM.from_config(
+    config,
+    torch_dtype=torch.bfloat16,
+    # 将 &quot;eager&quot; 或 &quot;flash_attention_2&quot; 替换为 &quot;sdpa&quot;
+    attn_implementation=&quot;sdpa&quot; 
+)
+</code></pre>
+
+      </div>
+      
+      
+      
+    </div>
+
+    
+    
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2019 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Hai-Wei Chai (柴海伟)</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://vercel.hwchai.com/","cssUrl":"https://hwchai.com/download/Waline.css","commentCount":true,"pageview":false,"locale":{"placeholder":"请留下邮箱，若有回复您将收到提醒。QQ邮箱可以自动识别头像喔~"},"pageSize":10,"visitor":false,"comment_count":true,"meta":["nick","mail","link"],"requiredMeta":["nick"],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","emoji":["https://unpkg.com/@waline/emojis@1.0.1/bilibili"],"login":"disable","el":"#waline","comment":true,"path":"/archive/flashattention.html"}</script>
+<link rel="stylesheet" href="https://hwchai.com/download/Waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+</body>
+</html>
