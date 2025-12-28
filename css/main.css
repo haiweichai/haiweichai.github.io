@@ -1236,7 +1236,7 @@ pre code {
   transition: all 0.2s ease-in-out;
 }
 .links-of-author a::before {
-  background: #60fff9;
+  background: #9a2f2e;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
