@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="1080" viewBox="0 0 700 1080" role="img" aria-labelledby="title desc">
+  <title id="title">The Ultra-Scale Playbook 书籍信息卡</title>
+  <desc id="desc">用于博客展示的非官方信息卡，主题为大模型 GPU 集群训练。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1324"/>
+      <stop offset="0.62" stop-color="#17284b"/>
+      <stop offset="1" stop-color="#5a2b52"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="72%" cy="30%" r="60%">
+      <stop offset="0" stop-color="#67d6d0" stop-opacity=".48"/>
+      <stop offset="1" stop-color="#67d6d0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="700" height="1080" rx="28" fill="url(#bg)"/>
+  <rect width="700" height="1080" rx="28" fill="url(#glow)"/>
+  <g fill="none" stroke="#8ce0d8" stroke-opacity=".42" stroke-width="2">
+    <path d="M70 700 C180 610 255 790 360 690 S540 580 630 665"/>
+    <path d="M70 755 C185 665 255 845 370 742 S535 645 630 720"/>
+    <path d="M70 810 C195 720 270 900 380 795 S545 705 630 775"/>
+  </g>
+  <g fill="#d9f4f1">
+    <circle cx="70" cy="700" r="7"/><circle cx="360" cy="690" r="7"/><circle cx="630" cy="665" r="7"/>
+    <circle cx="70" cy="755" r="7"/><circle cx="370" cy="742" r="7"/><circle cx="630" cy="720" r="7"/>
+    <circle cx="70" cy="810" r="7"/><circle cx="380" cy="795" r="7"/><circle cx="630" cy="775" r="7"/>
+  </g>
+  <text x="62" y="92" fill="#91e3dc" font-family="Inter, Arial, sans-serif" font-size="22" letter-spacing="4">READING NOTE · 2025</text>
+  <text x="62" y="235" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="700">THE</text>
+  <text x="62" y="324" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="700">ULTRA-SCALE</text>
+  <text x="62" y="413" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="700">PLAYBOOK</text>
+  <text x="64" y="482" fill="#c4d2e9" font-family="Inter, Arial, sans-serif" font-size="30">Training LLMs on GPU Clusters</text>
+  <line x1="62" y1="535" x2="638" y2="535" stroke="#8ce0d8" stroke-opacity=".55"/>
+  <text x="62" y="942" fill="#dfe8f5" font-family="Inter, Arial, sans-serif" font-size="24">DATA · TENSOR · PIPELINE · CONTEXT · EXPERT</text>
+  <text x="62" y="1005" fill="#9cadc8" font-family="Inter, Arial, sans-serif" font-size="21">非官方书籍信息卡，用于本站阅读清单展示</text>
+</svg>
