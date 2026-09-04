@@ -45,7 +45,7 @@
 <meta property="og:image" content="https://hwchai.com/images/legacy-posts/f670c0c1-xTc7ct.png">
 <meta property="og:image" content="https://hwchai.com/images/legacy-posts/d440f48c-xTcqnf.png">
 <meta property="article:published_time" content="2024-05-20T22:19:23.000Z">
-<meta property="article:modified_time" content="2026-09-02T22:10:00.000Z">
+<meta property="article:modified_time" content="2026-09-05T02:18:52.000Z">
 <meta property="article:author" content="Hai-Wei Chai (柴海伟)">
 <meta property="article:tag" content="Computer Vision">
 <meta property="article:tag" content="Feature Detection">
@@ -260,7 +260,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-09-02 22:10:00" itemprop="dateModified" datetime="2026-09-02T22:10:00Z">2026-09-02</time>
+      <time title="Modified: 2026-09-05 02:18:52" itemprop="dateModified" datetime="2026-09-05T02:18:52Z">2026-09-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -318,11 +318,11 @@
 <p>(3)棱边区域：以该点为中心沿特定方向的图像灰度梯度较大，沿其正交方向图像灰度梯度较小。</p>
 <p align="center"><img src="/images/legacy-posts/93506d5d-pkKzIZn.jpg" width="70%" loading="lazy" alt="图像平坦区域、棱边区域与角点区域" /></p>
 
-<p>这与上图中展示的三种区域的典型示例相匹配。Harris提出针对含有独特纹理特征的二维图像，利用基于其局部自相关函数的角点检测算子。它可以准确地检测出图像结构中的角点、棱边以及平坦区域。局部自相关性的定义为：<br>\begin{equation}<br>\label{harrisS1}<br>e(x,y) &#x3D; \sum_{x_i,y_i} W(x_i,y_i)[I(x_i+\Delta x,y_i+\Delta y)-I(x_i,y_i)]^2,<br>\end{equation}<br>这里$I(x_i,y_i)$为二维图像的灰度值，$W(x_i,y_i)$为以点$(x,y)$为中心的高斯函数在点$(x_i,y_i)$处的取值，高斯函数的半高全宽直接决定了检测算子的影响区域半径。$(\Delta x,\Delta y)$为$(x,y)$点指向$(x_i,y_i)$点的二维矢量。</p>
+<p>这与上图中展示的三种区域的典型示例相匹配。Harris提出针对含有独特纹理特征的二维图像，利用基于其局部自相关函数的角点检测算子。它可以准确地检测出图像结构中的角点、棱边以及平坦区域。局部自相关性的定义为：<br>\begin{equation}<br>\label{harrisS1}<br>e(x,y) &#x3D; \sum_{x_i,y_i} W(x_i,y_i)[I(x_i+\Delta x,y_i+\Delta y)-I(x_i,y_i)]^2,<br>\end{equation}<br>这里$I(x_i,y_i)$为二维图像的灰度值，$W(x_i,y_i)$为以点$(x,y)$为中心的高斯函数在点$(x_i,y_i)$处的取值，高斯函数的半高全宽直接决定了检测算子的影响区域半径。$(\Delta x,\Delta y)$是施加于整个局部窗口的共同试探位移，而不是窗口中心指向某个采样点的矢量。</p>
 <p>将公式\ref{harrisS1}泰勒展开并保留到一阶分量有：<br>\begin{equation}<br>e(x,y) &#x3D; \hat{S} \begin{bmatrix} \sum_{x_i,y_i} W\cdot I_x^2 &amp; \sum_{x_i,y_i} W\cdot I_x\cdot I_y \\ \sum_{x_i,y_i} W\cdot I_x\cdot I_y &amp; \sum_{x_i,y_i} W\cdot I_y^2 \end{bmatrix} \hat{S}^T &#x3D; \hat{S}\cdot E(x,y)\cdot\hat{S}^T,<br>\end{equation}<br>这里$\hat{S} &#x3D; (\Delta x,\Delta y)$表示偏移矢量，$I_x,I_y$分别为初始二维图像$I(x,y)$沿$x,y$两个方向的偏微分。</p>
 <p align="center"><img src="/images/legacy-posts/d5f140af-pkKzoaq.jpg" width="40%" loading="lazy" alt="自相关特征值空间粗线给出角点、棱边、平坦区域分类，细线为响应函数等高线" /></p>
 
-<p>Harris与Stephens教授提出可以通过分析矩阵$E$的一对特征值$\alpha,\beta$的特性来判别角点、棱边和平坦区域，这对特征值包含了足够的与邻域特征有关的局部结构信息。例如，当位于角点区域时，特征值$\alpha,\beta$均较大；而当位于棱边区域时，特征值$\alpha,\beta$总有一个较大而另一个较小；当位于平坦区域时，特征值$\alpha,\beta$均极小。根据这样的特性，Harris提出角点判别指标：<br>\begin{equation}<br>h(x,y) &#x3D; {\rm Det}(E)-k\cdot {\rm Tr}(E)^2 &#x3D; \alpha\beta - k\cdot(\alpha+\beta)^2,<br>\end{equation}<br>这里，$k$为自适应参数。判别指标$h(x,y)$的等高线通过图\ref{harris02}中的细线表示，根据上图判断，$h(x,y)$值接近0时，为平坦区域；$h(x,y)$值大于0时，为角点区域；$h(x,y)$值小于0时，为棱边区域。</p>
+<p>Harris与Stephens教授提出可以通过分析矩阵$E$的一对特征值$\alpha,\beta$的特性来判别角点、棱边和平坦区域，这对特征值包含了足够的与邻域特征有关的局部结构信息。例如，当位于角点区域时，特征值$\alpha,\beta$均较大；而当位于棱边区域时，特征值$\alpha,\beta$总有一个较大而另一个较小；当位于平坦区域时，特征值$\alpha,\beta$均极小。根据这样的特性，Harris提出角点判别指标：<br>\begin{equation}<br>h(x,y) &#x3D; {\rm Det}(E)-k\cdot {\rm Tr}(E)^2 &#x3D; \alpha\beta - k\cdot(\alpha+\beta)^2,<br>\end{equation}<br>这里，$k$为经验参数，常取 $0.04$—$0.06$。上图中的细线表示判别指标$h(x,y)$的等高线。实际检测还需结合响应阈值与非极大值抑制：较大的正响应通常对应角点，负响应通常对应边缘，而接近零的响应通常对应平坦区域。</p>
 <p align="center"><img src="/images/legacy-posts/40a98ec6-pkKzTI0.jpg" width="95%" loading="lazy" alt="棱边切分技术流程效果图。(a)二值化后的切片图；(b)harris角点判别指标的二维分布；(c)在判别指标二维分布中寻找正值区域的极值点；(d)分离极值点球形邻域（绿色区域）；(e)PMI泡沫原始三维结构；(f)棱边切分技术效果图；(g)胞元尺度上的棱边切分效果。" /></p>
 
 <p>Harris教授提出的方法在二维自然图像中能够获得优异的准确性与鲁棒性。然而当我们面临三维结构图像时，逻辑出现了本质的不同。在三维空间中，区域的分类出现了四种情况，分别是：孔隙、胞壁、棱边、角点区域，它们分别对应于3、2、1和0个维度的平移不变性。当我们考虑如何分离这四种区域时，我们可以从Harris指标的形式出发将其扩展至三维空间；或是从三维灰度图像出发，将三维图像分解为一幅幅二维图像并在二维图像中处理问题。这里作者选择了第二种方案，并取得了有效的结果。</p>
@@ -331,8 +331,6 @@
 <p align="center"><img src="/images/legacy-posts/17b27c7c-subpixel3.png" width="40%" loading="lazy" alt="课程示例图" /></p>
 
 <h2 id="尺度不变特征变换（SIFT）"><a href="#尺度不变特征变换（SIFT）" class="headerlink" title="尺度不变特征变换（SIFT）"></a>尺度不变特征变换（SIFT）</h2><p>尺度不变特征变换匹配（Scale Invariant Feature Transform, SIFT）算法，是David G. Lowe[1]在1999年提出的高效区域检测算法，2004年[2]完善。SIFT算法将图像中检测到的特征点用128维的特征向量进行描述。其本质是在不同的空间尺度上查找特征点，并计算特征点方向。SIFT算法所查找到的特征点是一些十分突出的局部结构，对旋转、尺度缩放、亮度变化等保持不变性，对于光照、仿射和投影变换也有一定的不变性，是目前领域内非常成熟稳定的局部特征检测算法。</p>
-<!-- more -->
-
 <h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p>参考：<a target="_blank" rel="noopener" href="https://docs.opencv.org/4.x/da/df5/tutorial_py_sift_intro.html">OpenCV 官方 SIFT 教程</a></p>
 <p>特征点提取示例（<code>sift.py</code>）：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="comment"># reading the image</span></span><br><span class="line">img = cv2.imread(<span class="string">&#x27;table.jpg&#x27;</span>)</span><br><span class="line"><span class="comment"># convert to greyscale</span></span><br><span class="line">gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)</span><br><span class="line"><span class="comment"># create SIFT feature extractor</span></span><br><span class="line">sift = cv2.SIFT_create()</span><br><span class="line"><span class="comment"># detect features from the image</span></span><br><span class="line">keypoints, descriptors = sift.detectAndCompute(gray, <span class="literal">None</span>)</span><br><span class="line"><span class="comment"># draw the detected key points</span></span><br><span class="line">sift_image = cv2.drawKeypoints(</span><br><span class="line">    gray, keypoints, <span class="literal">None</span>,</span><br><span class="line">    flags=cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS,</span><br><span class="line">)</span><br><span class="line"><span class="comment"># show the image</span></span><br><span class="line">cv2.imshow(<span class="string">&#x27;image&#x27;</span>, sift_image)</span><br><span class="line"><span class="comment"># save the image</span></span><br><span class="line">cv2.imwrite(<span class="string">&quot;table-sift.jpg&quot;</span>, sift_image)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>

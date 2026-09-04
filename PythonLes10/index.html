@@ -35,7 +35,7 @@
 <meta property="og:image" content="https://hwchai.com/images/legacy-posts/ab990c4a-pkmRr4O.jpg">
 <meta property="og:image" content="https://hwchai.com/images/legacy-posts/82024d30-pkmhpjJ.jpg">
 <meta property="article:published_time" content="2024-05-13T22:19:23.000Z">
-<meta property="article:modified_time" content="2026-09-02T22:10:00.000Z">
+<meta property="article:modified_time" content="2026-09-05T02:18:52.000Z">
 <meta property="article:author" content="Hai-Wei Chai (柴海伟)">
 <meta property="article:tag" content="Image Segmentation">
 <meta name="twitter:card" content="summary">
@@ -249,7 +249,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-09-02 22:10:00" itemprop="dateModified" datetime="2026-09-02T22:10:00Z">2026-09-02</time>
+      <time title="Modified: 2026-09-05 02:18:52" itemprop="dateModified" datetime="2026-09-05T02:18:52Z">2026-09-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -327,7 +327,7 @@
 <ol>
 <li><p>Sobel算子：通过计算图像中每个像素点的上下和左右邻居的灰度值差异来得出边缘强度。Sobel算子包括两组3x3的卷积核，分别用于检测水平和垂直边缘。</p>
 </li>
-<li><p>Prewitt算子：类似于Sobel算子，但是卷积核的系数都是1，这使得Prewitt算子对边缘的响应更加“柔和”。</p>
+<li><p>Prewitt算子：与Sobel算子相似，也通过两个方向的离散卷积核估计梯度。其一维平滑权重为 <code>[1, 1, 1]</code>，差分权重为 <code>[-1, 0, 1]</code>；与Sobel相比，它不对平滑方向的中心位置额外加权。</p>
 </li>
 <li><p>Roberts算子：是一种简单的2x2卷积核，用于检测边缘。Roberts算子通过检测对角线方向的灰度变化来识别边缘。</p>
 </li>

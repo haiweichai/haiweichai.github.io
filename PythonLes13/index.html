@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://hwchai.com/images/legacy-posts/35149c1f-pkUFKZd.png">
 <meta property="og:image" content="https://hwchai.com/images/legacy-posts/442b738f-pkUFQII.png">
 <meta property="article:published_time" content="2024-06-04T02:10:56.000Z">
-<meta property="article:modified_time" content="2026-09-02T22:10:00.000Z">
+<meta property="article:modified_time" content="2026-09-05T02:18:52.000Z">
 <meta property="article:author" content="Hai-Wei Chai (柴海伟)">
 <meta property="article:tag" content="Machine Learning">
 <meta property="article:tag" content="Clustering">
@@ -249,7 +249,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-09-02 22:10:00" itemprop="dateModified" datetime="2026-09-02T22:10:00Z">2026-09-02</time>
+      <time title="Modified: 2026-09-05 02:18:52" itemprop="dateModified" datetime="2026-09-05T02:18:52Z">2026-09-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -376,7 +376,7 @@
 <ol>
 <li><p>定义核心点：对于数据集中每个点，如果在其ε半径内的点数大于或等于最小点数（minPts），则该点为核心点。</p>
 </li>
-<li><p>扩展簇：从核心点出发，将其邻域内的所有点（包括边界点和其他核心点）归入该簇，然后递归地将这些点的邻域内的点也归入该簇。</p>
+<li><p>扩展簇：从核心点出发，将其邻域内的点（包括边界点和其他核心点）归入该簇；只有新发现的核心点会继续扩展其邻域，边界点本身不会继续扩展簇。</p>
 </li>
 <li><p>标记噪声点：如果一个点既不是核心点也不是边界点，则将其标记为噪声点。</p>
 </li>

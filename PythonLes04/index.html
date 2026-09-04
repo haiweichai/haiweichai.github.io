@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://hwchai.com/images/legacy-posts/839fd047-pF5SVln.png">
 <meta property="og:image" content="https://hwchai.com/images/legacy-posts/0f59da7c-pF5SZyq.png">
 <meta property="article:published_time" content="2024-03-20T11:03:58.000Z">
-<meta property="article:modified_time" content="2026-09-02T22:10:00.000Z">
+<meta property="article:modified_time" content="2026-09-05T02:18:52.000Z">
 <meta property="article:author" content="Hai-Wei Chai (柴海伟)">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="NumPy">
@@ -248,7 +248,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-09-02 22:10:00" itemprop="dateModified" datetime="2026-09-02T22:10:00Z">2026-09-02</time>
+      <time title="Modified: 2026-09-05 02:18:52" itemprop="dateModified" datetime="2026-09-05T02:18:52Z">2026-09-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -490,7 +490,7 @@
 
 <h3 id="更改字节顺序"><a href="#更改字节顺序" class="headerlink" title="更改字节顺序"></a>更改字节顺序</h3><p>从介绍中可以想象，有两种方法可以影响数组的字节顺序与它所查看的底层内存之间的关系：</p>
 <ul>
-<li><p>更改数组dtype中的字节顺序信息，以便将基础数据解释为不同的字节顺序。这是作用 <code>arr.newbyteorder()</code></p>
+<li><p>更改数组 <code>dtype</code> 中的字节顺序信息，以便将底层数据解释为不同的字节顺序。在 NumPy 2.0 及更高版本中，可使用 <code>arr.view(arr.dtype.newbyteorder())</code>。</p>
 </li>
 <li><p>更改基础数据的字节顺序，保留<code>dtype</code>解释。这是做什么的 <code>arr.byteswap()</code>。</p>
 </li>
@@ -505,7 +505,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>wrong_end_dtype_arr = np.ndarray(shape=(<span class="number">2</span>,),dtype=<span class="string">&#x27;&lt;i2&#x27;</span>, buffer=big_end_buffer)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>wrong_end_dtype_arr[<span class="number">0</span>]</span><br><span class="line"><span class="number">256</span></span><br></pre></td></tr></table></figure>
 
 <p>这种情况的明显解决方法是更改dtype，以便它给出正确的字节顺序：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>fixed_end_dtype_arr = wrong_end_dtype_arr.newbyteorder()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>fixed_end_dtype_arr[<span class="number">0</span>]</span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>fixed_end_dtype_arr = wrong_end_dtype_arr.view(wrong_end_dtype_arr.dtype.newbyteorder())</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>fixed_end_dtype_arr[<span class="number">0</span>]</span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
 
 <p>请注意，内存中的数组未更改：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>fixed_end_dtype_arr.tobytes() == big_end_buffer</span><br><span class="line"><span class="literal">True</span></span><br></pre></td></tr></table></figure>
@@ -517,7 +517,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>fixed_end_mem_arr.tobytes() == big_end_buffer</span><br><span class="line"><span class="literal">False</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="数据和dtype字节序匹配，交换数据和dtype"><a href="#数据和dtype字节序匹配，交换数据和dtype" class="headerlink" title="数据和dtype字节序匹配，交换数据和dtype"></a>数据和dtype字节序匹配，交换数据和dtype</h4><p>可能有一个正确指定的数组dtype，但是需要数组在内存中具有相反的字节顺序，并且希望dtype匹配以便数组值有意义。在这种情况下，只需执行上述两个操作：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>swapped_end_arr = big_end_arr.byteswap().newbyteorder()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>swapped_end_arr[<span class="number">0</span>]</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>swapped_end_arr.tobytes() == big_end_buffer</span><br><span class="line"><span class="literal">False</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>swapped_end_arr = big_end_arr.byteswap().view(big_end_arr.dtype.newbyteorder())</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>swapped_end_arr[<span class="number">0</span>]</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>swapped_end_arr.tobytes() == big_end_buffer</span><br><span class="line"><span class="literal">False</span></span><br></pre></td></tr></table></figure>
 
 <p>使用ndarray astype方法可以更简单地将数据转换为特定的dtype和字节顺序：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>swapped_end_arr = big_end_arr.astype(<span class="string">&#x27;&lt;i2&#x27;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>swapped_end_arr[<span class="number">0</span>]</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>swapped_end_arr.tobytes() == big_end_buffer</span><br><span class="line"><span class="literal">False</span></span><br></pre></td></tr></table></figure>
